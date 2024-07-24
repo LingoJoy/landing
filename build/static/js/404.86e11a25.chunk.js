@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunked_tech=self.webpackChunked_tech||[]).push([[404],{404:(e,s,c)=>{c.r(s),c.d(s,{default:()=>h});var t=c(339),a=c(579);const h=()=>(0,a.jsx)(t.a3,{})}}]);
+//# sourceMappingURL=404.86e11a25.chunk.js.map

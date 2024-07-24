@@ -1,0 +1,21 @@
+.button {
+  width: 100%;
+  border-radius: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  background: #3f97ff;
+  color: #ffffff;
+}
+
+.button:disabled {
+  background-color: #cdd2d9;
+}

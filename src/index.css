@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+
+svg,
+img {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-left: 0px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+button {
+  font-style: normal;
+  font-family: inherit;
+
+  cursor: pointer;
+  border: none;
+}
+
+.swiper {
+  width: 169px;
+  height: 224px;
+}
+
+.swiper-slide {
+  padding: 10px 57px;
+  box-sizing: border-box;
+
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: #cdd2d9;
+}
+
+.swiper-slide-prev,
+.swiper-slide-next {
+  color: #a4abb6;
+}
+
+.swiper-slide-active {
+  color: #ffffff;
+}
