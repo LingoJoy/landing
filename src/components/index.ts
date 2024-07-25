@@ -11,6 +11,10 @@ export { default as UserCard } from "./mainComponents/UserCard/UserCard";
 // templates
 export { default as LandingHero } from "./templates/LandingHero/LandingHero";
 export { default as PremiumHero } from "./templates/PremiumHero/PremiumHero";
+export { default as TermsOfSubcriptions } from "./templates/TermsTemplate/TermsOfSubcriptions";
+export { default as TermsAndConditions } from "./templates/TermsTemplate/TermsAndConditions";
+export { default as PrivacyPolicy } from "./templates/TermsTemplate/PrivacyPolicy";
+export { default as MoneyBack } from "./templates/TermsTemplate/MoneyBack";
 
 // sections
 export { default as UsersSection } from "./templates/LandingHero/UsersSection/UsersSection";
