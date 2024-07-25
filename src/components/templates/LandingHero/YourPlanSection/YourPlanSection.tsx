@@ -107,7 +107,9 @@ const YourPlanSection = () => {
         <div className={styles.indexBox}>
           <div className={styles.titleWrapper}>
             <img src={HeartImage} alt="" />
-            <h2 className={styles.title}>Choose your plan</h2>
+            <h2 className={styles.title} id="plan">
+              Choose your plan
+            </h2>
           </div>
           <div className={styles.yourPlanBox}>
             {DEFAULT_YOUR_PLAN_DATA.map((el) => (

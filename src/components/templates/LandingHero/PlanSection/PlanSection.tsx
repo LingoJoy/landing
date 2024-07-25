@@ -1,16 +1,12 @@
-import { useNavigate } from "react-router";
-
 import { AnalyzeOption, Button } from "../../..";
 
 import BoxImage from "../../../../images/main/box.png";
 
-import { DEFAULT_PLAN_DATA, ERoutes } from "../../../../constants";
+import { DEFAULT_PLAN_DATA } from "../../../../constants";
 
 import styles from "../index.module.css";
 
 const PlanSection = () => {
-  const navigate = useNavigate();
-
   return (
     <div className={styles.planWrapper}>
       <div className={styles.contentBox}>
@@ -30,7 +26,13 @@ const PlanSection = () => {
             );
           })}
         </div>
-        <Button onClick={() => navigate(ERoutes.PREMIUM)}>Get it now</Button>
+        <Button
+          onClick={() => {
+            window.location.href = "#plan";
+          }}
+        >
+          Get it now
+        </Button>
       </div>
     </div>
   );

@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router";
 import { useState } from "react";
 
 import {
@@ -16,14 +15,12 @@ import PrizeImage from "../../../images/levels/prize.png";
 import RocketImage from "../../../images/transport/rocket.png";
 import GrowImage from "../../../images/grow.png";
 
-import { DEFAULT_LEVEL_DATA, ERoutes } from "../../../constants";
+import { DEFAULT_LEVEL_DATA } from "../../../constants";
 
 import styles from "./index.module.css";
 
 const LandingHero = () => {
   const [words, setWords] = useState(751);
-
-  const navigate = useNavigate();
 
   return (
     <div className={styles.wrapper}>
@@ -34,7 +31,9 @@ const LandingHero = () => {
             <img src={StarImage} alt="" />
           </div>
         }
-        onClick={() => navigate(ERoutes.PREMIUM)}
+        onClick={() => {
+          window.location.href = "#plan";
+        }}
       />
       <div className={styles.contentWrapper}>
         <div className={styles.contentBox}>
