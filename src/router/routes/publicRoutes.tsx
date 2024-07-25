@@ -5,7 +5,7 @@ import { LoadingContainer } from "../../containers";
 import { ERoutes } from "../../constants";
 
 const LandingPage = LoadingContainer(
-  lazy(() => import("../../pages/TermsOfSubcriptionsPage")),
+  lazy(() => import("../../pages/LandingPage")),
 );
 const PremiumPage = LoadingContainer(
   lazy(() => import("../../pages/PremiumPage")),
