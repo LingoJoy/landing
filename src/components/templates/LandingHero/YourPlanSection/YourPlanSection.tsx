@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 
 import { Button, RectangleBG } from "../../..";
 
+import CheckIcon from "../../../../images/icons/check.svg";
+import HeartImage from "../../../../images/main/heart.png";
 import FirstImage from "../../../../images/screens/iPhone-5.png";
 import SecondImage from "../../../../images/screens/iPhone-6.png";
 import ThirdImage from "../../../../images/screens/iPhone-7.png";
-import HeartImage from "../../../../images/main/heart.png";
-import CheckIcon from "../../../../images/icons/check.svg";
 
 import { DEFAULT_YOUR_PLAN_DATA, ERoutes, IPlan } from "../../../../constants";
 
@@ -120,15 +120,15 @@ const YourPlanSection = () => {
           </div>
           <Button onClick={() => navigate(ERoutes.PREMIUM)}>Get my plan</Button>
           <p className={styles.terms}>
-            <a href="https://lingojoy.app/terms_and_conditions">
+            <a href="/privacy/terms_and_conditions.html">
               Terms of service
             </a>
-            , <a href="https://lingojoy.app/privacy_policy">Privacy policy</a>,
-            <a href="https://lingojoy.app/terms_of_subcriptions">
+            , <a href="/privacy/privacy-policy.html">Privacy policy</a>,
+            <a href="/privacy/terms_of_subcriptions.html">
               Subscription policy
             </a>{" "}
             and{" "}
-            <a href="https://lingojoy.app/money_back_guarantee">
+            <a href="/privacy/money_back_guarantee.html">
               Money-back policy
             </a>
             .
@@ -139,7 +139,7 @@ const YourPlanSection = () => {
             full price of ${plan.discount ? plan.discount : plan.price} every{" "}
             {plan.weeks > 1 ? `${plan.weeks} weeks` : "1 week"} until you cancel
             in settings. Learn more about cancellation and refund policy in{" "}
-            <a href="https://lingojoy.app/terms_and_conditions">
+            <a href="/privacy/terms_of_subcriptions.html">
               Subscription Terms
             </a>
             .
