@@ -120,7 +120,6 @@ const YourPlanSection = () => {
           </div>
           <Button onClick={() => navigate(ERoutes.PREMIUM)}>Get my plan</Button>
           <p className={styles.terms}>
-            By continue you agree with{" "}
             <a href="https://lingojoy.app/terms_and_conditions">
               Terms of service
             </a>
@@ -140,7 +139,7 @@ const YourPlanSection = () => {
             full price of ${plan.discount ? plan.discount : plan.price} every{" "}
             {plan.weeks > 1 ? `${plan.weeks} weeks` : "1 week"} until you cancel
             in settings. Learn more about cancellation and refund policy in{" "}
-            <a href="https://english-improve.com/subscription-terms">
+            <a href="https://lingojoy.app/terms_and_conditions">
               Subscription Terms
             </a>
             .
