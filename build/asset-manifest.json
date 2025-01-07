@@ -1,9 +1,12 @@
 {
   "files": {
-    "main.css": "/static/css/main.67fa47da.css",
-    "main.js": "/static/js/main.65ad0be5.js",
-    "static/js/734.9016c73f.chunk.js": "/static/js/734.9016c73f.chunk.js",
-    "static/js/404.15f55215.chunk.js": "/static/js/404.15f55215.chunk.js",
+    "main.css": "/static/css/main.541bb358.css",
+    "main.js": "/static/js/main.8c8b63af.js",
+    "static/js/274.0a230399.chunk.js": "/static/js/274.0a230399.chunk.js",
+    "static/js/404.f9a30479.chunk.js": "/static/js/404.f9a30479.chunk.js",
+    "static/js/660.fc2ffc6c.chunk.js": "/static/js/660.fc2ffc6c.chunk.js",
+    "static/js/699.df8a7ba4.chunk.js": "/static/js/699.df8a7ba4.chunk.js",
+    "static/js/46.5700cf47.chunk.js": "/static/js/46.5700cf47.chunk.js",
     "static/js/453.815728ae.chunk.js": "/static/js/453.815728ae.chunk.js",
     "static/media/iPhone-7.png": "/static/media/iPhone-7.df36c645223056ad8647.png",
     "static/media/iPhone-6.png": "/static/media/iPhone-6.4d7d877a2b2185282a8d.png",
@@ -38,14 +41,17 @@
     "static/media/tick-circle.svg": "/static/media/tick-circle.fa6f4cd00100e8cbfd1d7acdb423772b.svg",
     "index.html": "/index.html",
     "static/media/check.svg": "/static/media/check.22e939cc9590118e2e7b9207088ec8b9.svg",
-    "main.67fa47da.css.map": "/static/css/main.67fa47da.css.map",
-    "main.65ad0be5.js.map": "/static/js/main.65ad0be5.js.map",
-    "734.9016c73f.chunk.js.map": "/static/js/734.9016c73f.chunk.js.map",
-    "404.15f55215.chunk.js.map": "/static/js/404.15f55215.chunk.js.map",
+    "main.541bb358.css.map": "/static/css/main.541bb358.css.map",
+    "main.8c8b63af.js.map": "/static/js/main.8c8b63af.js.map",
+    "274.0a230399.chunk.js.map": "/static/js/274.0a230399.chunk.js.map",
+    "404.f9a30479.chunk.js.map": "/static/js/404.f9a30479.chunk.js.map",
+    "660.fc2ffc6c.chunk.js.map": "/static/js/660.fc2ffc6c.chunk.js.map",
+    "699.df8a7ba4.chunk.js.map": "/static/js/699.df8a7ba4.chunk.js.map",
+    "46.5700cf47.chunk.js.map": "/static/js/46.5700cf47.chunk.js.map",
     "453.815728ae.chunk.js.map": "/static/js/453.815728ae.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.67fa47da.css",
-    "static/js/main.65ad0be5.js"
+    "static/css/main.541bb358.css",
+    "static/js/main.8c8b63af.js"
   ]
 }
