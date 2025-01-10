@@ -1,0 +1,62 @@
+@import "@styles/variables.scss";
+
+.wrapper {
+  background-color: $white-color;
+  width: 100vw;
+  height: 100vh;
+}
+
+.modalHeader {
+  padding: 22px 0 20px;
+}
+
+.optionWrapper {
+  cursor: pointer;
+}
+
+.optionBox {
+  padding: 16px 12.5px;
+  border-bottom: 0.5px solid $main-border;
+}
+
+.webWrapper {
+  overflow-y: auto;
+  max-height: 685px;
+}
+
+.activeOption {
+  background: $secondary-light-yellow;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .wrapper {
+    height: auto;
+    background-color: $secondary-light-blue;
+  }
+
+  .card {
+    padding: 0;
+    height: auto;
+    min-height: auto;
+    padding-bottom: 40px;
+  }
+
+  .modalBackground {
+    background-color: transparent;
+    pointer-events: none;
+  }
+
+  .optionBox {
+    padding: 16px 0;
+  }
+
+  .optionWrapper {
+    padding: 0 30px;
+  }
+
+  .modalHeader {
+    text-align: center;
+    padding: 25px 0;
+  }
+}

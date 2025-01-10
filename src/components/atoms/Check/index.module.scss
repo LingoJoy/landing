@@ -1,0 +1,11 @@
+@import "@styles/variables.scss";
+
+.optionCheckbox {
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 30px;
+}

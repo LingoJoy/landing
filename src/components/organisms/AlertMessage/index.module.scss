@@ -1,0 +1,19 @@
+.alertWrapper {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  max-width: 351px;
+  width: 100%;
+  padding: 0 16px;
+}
+
+@media (min-width: 600px) {
+  .alertWrapper {
+    top: auto;
+    left: auto;
+    right: 26px;
+    bottom: 28px;
+  }
+}

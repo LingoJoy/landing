@@ -1,0 +1,70 @@
+@import "@styles/variables.scss";
+
+.filterCarousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 745px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  padding: 16px 8px 8px;
+}
+
+.carouselContainer {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.carouselContainer::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.filterButton {
+  flex: 0 0 auto;
+  margin-right: 8px !important;
+  padding: 10px !important;
+  max-height: 38px !important;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+  scroll-snap-align: start;
+}
+
+.textButton {
+  flex: 0 0 auto;
+  margin-right: 8px !important;
+  padding: 10px !important;
+  max-height: 38px !important;
+  background: $secondary-light-blue !important;
+  color: #000000 !important;
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  scroll-snap-align: start;
+  text-decoration: underline;
+}
+
+.filterButtonText {
+  font-size: 12px !important;
+  line-height: 14px !important;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .filterCarousel {
+    justify-content: left;
+    padding: 12px 8px;
+  }
+}

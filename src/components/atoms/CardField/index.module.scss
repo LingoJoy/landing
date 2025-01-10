@@ -1,0 +1,17 @@
+@import "@styles/variables.scss";
+
+.cardField {
+  height: 40px;
+
+  background: $secondary-light-blue;
+  border: 0.5px solid $main-border;
+  border-radius: 30px;
+}
+
+.small {
+  width: 65px;
+}
+
+.normal {
+  width: 86px;
+}

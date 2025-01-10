@@ -1,0 +1,881 @@
+@import "@styles/variables.scss";
+
+@keyframes arrow-1 {
+  0% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes arrow-2 {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 70%;
+  }
+
+  100% {
+    opacity: 70%;
+  }
+}
+
+@keyframes arrow-3 {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 30%;
+  }
+
+  100% {
+    opacity: 30%;
+  }
+}
+
+.wrapper {
+  background-color: $new-reserved-bg;
+}
+
+.headerContent {
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+  background-color: $white-color;
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+  border-bottom: 1px solid $secondary-light-blue;
+}
+
+.headerBox {
+  display: flex;
+  justify-content: space-between;
+  max-width: 375px;
+  padding: 0 12px;
+  width: 100%;
+}
+
+.headerTime {
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+
+  color: $main-blue;
+}
+
+.headerTimeDots {
+  color: $new-premium-light-blue;
+}
+
+.headerTimeTitles {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 10px;
+  line-height: 14px;
+  letter-spacing: -0.5px;
+
+  color: $input-text;
+  padding: 0 4px;
+}
+
+.headerBtn {
+  height: 40px;
+  min-width: 160px;
+
+  font-size: 14px;
+  line-height: 14px;
+  text-transform: uppercase;
+}
+
+.contentBox {
+  box-sizing: border-box;
+  padding: 0 12px;
+}
+
+.title {
+  margin-top: 5px;
+
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.description {
+  margin-top: 7px;
+
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.levelWrapper {
+  padding: 80px 0 15px;
+}
+
+.levelBox {
+  box-sizing: border-box;
+  overflow: hidden;
+
+  background: $new-premium-light-blue-bg;
+  border: 1px solid $new-premium-light-blue-border;
+  border-radius: 24px;
+  max-width: 375px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.levelTopBox {
+  height: 40px;
+  display: flex;
+  border-bottom: 1px solid $new-premium-light-blue-border;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-gray;
+}
+
+.levelBefore {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-right: 1px solid $new-premium-light-blue-border;
+}
+
+.levelAfter {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.levelBodyBox {
+  position: relative;
+  overflow: hidden;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -0.5px;
+}
+
+.arrowsBox {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+
+  & path {
+    stroke: $main-green;
+  }
+
+  & svg {
+    height: 20px;
+    width: 20px;
+  }
+
+  & svg:nth-child(1) {
+    transform: translateX(150%);
+    animation: arrow-1 1.5s ease-in-out 1s infinite;
+  }
+
+  & svg:nth-child(2) {
+    animation: arrow-2 1.5s ease-in-out 1s infinite;
+  }
+
+  & svg:nth-child(3) {
+    transform: translateX(-150%);
+    animation: arrow-3 1.5s ease-in-out 1s infinite;
+  }
+}
+
+.levelBeginnerBox {
+  width: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  padding-left: 30px;
+
+  & p {
+    color: $error;
+
+    position: absolute;
+    top: 20px;
+    left: 30px;
+  }
+}
+
+.levelNativeBox {
+  width: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  display: flex;
+  justify-content: center;
+
+  & p {
+    color: $new-premium-green;
+    font-weight: 900;
+
+    position: absolute;
+    top: 22px;
+    left: 35px;
+  }
+}
+
+.levelImageBox {
+  position: relative;
+}
+
+.levelBottomBox {
+  height: 92px;
+  display: flex;
+  border-top: 1px solid $new-premium-light-blue-border;
+}
+
+.levelBottomOptionBox {
+  width: 100%;
+  padding: 8px 15px 17px;
+
+  & h3 {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: -0.5px;
+
+    color: $main-black;
+  }
+
+  & p {
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: -0.5px;
+
+    color: $main-black;
+  }
+
+  & img {
+    margin-top: 10px;
+  }
+}
+
+.levelBeginner {
+  border-right: 1px solid $new-premium-light-blue-border;
+}
+
+.starsWrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 92px;
+  margin-top: 10px;
+}
+
+.yourPlanWrapper {
+  padding-top: 25px 0 40px;
+}
+
+.yourPlanBox {
+  min-height: 100px;
+  position: relative;
+  padding: 20px 0 27px;
+}
+
+.yourPlanSizeBox {
+  margin: 0 auto;
+  max-width: 375px;
+  width: 100%;
+}
+
+.yourPlanBGBox {
+  background: $white-color;
+  box-shadow: 0px -1px 0px $secondary-shadow;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  margin: 12px 0 40px;
+  padding: 29px 12px 40px;
+}
+
+.personalPlanWrapper {
+  background: $white-color;
+  box-shadow: 0px -1px 0px $secondary-shadow;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  padding: 25px 0 20px;
+
+  & h2 {
+    max-width: 85%;
+    margin: 0 auto;
+  }
+
+  & .yourPlanBGBox {
+    background: transparent;
+    box-shadow: none;
+    padding-top: 0;
+  }
+}
+
+.planWrapper {
+  padding: 52px 0 0;
+}
+
+.yourPlanGoalBox {
+  display: flex;
+
+  & .yourPlanGoalOptionBox:first-child {
+    margin-right: 9px;
+  }
+
+  & .yourPlanGoalOptionBox {
+    width: 50%;
+  }
+}
+
+.yourPlanGoalOptionBox {
+  display: flex;
+  align-items: center;
+
+  & p {
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: -0.5px;
+
+    color: $main-black;
+  }
+
+  & h4 {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 24px;
+    letter-spacing: -0.5px;
+
+    color: $main-black;
+  }
+
+  & svg {
+    margin-right: 9px;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 24px;
+    letter-spacing: -0.5px;
+
+    color: $main-black;
+    flex-shrink: 0;
+  }
+}
+
+.terms {
+  margin: 12px 0;
+
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.5px;
+
+  color: $main-gray;
+}
+
+.terms a {
+  text-decoration-line: underline;
+
+  color: $main-gray;
+}
+
+.planCard {
+  background: $new-premium-plan-bg;
+  border: 1px solid $main-border;
+  border-radius: 12px;
+  margin-top: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  box-sizing: border-box;
+}
+
+.planFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+  padding: 0 17px 0 12px;
+}
+
+.planPopular {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $main-green;
+  height: 24px;
+
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 16px;
+  text-transform: uppercase;
+
+  color: $white-color;
+}
+
+.planTitleWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.planTitleBox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.planTitleBox h3 {
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.planTitleBox img {
+  width: 18px;
+  height: 18px;
+  margin-left: 4px;
+}
+
+.optionCheckbox {
+  box-sizing: border-box;
+
+  margin-right: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 30px;
+
+  width: 28px;
+  height: 28px;
+}
+
+.discountBox p {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+
+  & svg {
+    margin: 0 4px;
+  }
+}
+
+.thenPrice {
+  margin-left: 4px;
+  color: $input-text;
+}
+
+.discount {
+  text-decoration-line: line-through;
+  text-decoration-color: $error;
+
+  color: $main-black;
+}
+
+.planPriceWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.planPriceContent {
+  position: relative;
+  z-index: 1;
+  width: 70px;
+  text-align: center;
+}
+
+.planPrice {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+  color: $main-black;
+}
+
+.planPeriod {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: -0.5px;
+  color: $main-black;
+}
+
+.planDiscount {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.planPriceDiscount {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: -0.5px;
+  text-decoration-line: line-through;
+
+  color: $main-black;
+}
+
+.planFourWeekBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  margin: 0 0 10px;
+
+  background: $light-blue;
+  border-radius: 4px;
+
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 10px;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+
+  color: $extra-black;
+}
+
+.highlightsWrapper {
+  background-color: $white-color;
+  padding-bottom: 46px;
+  max-width: 375px;
+  margin: 0 auto;
+}
+
+.highlightsBox {
+  margin-top: 24px;
+
+  & h4 {
+    line-height: 15px;
+  }
+
+  & .yourPlanGoalOptionBox:not(:first-child) {
+    margin-top: 18px;
+  }
+}
+
+.usersWrapper {
+  max-width: 375px;
+  margin: 0 auto;
+}
+
+.usersBox {
+  margin-top: 18px;
+
+  & .userCard:not(:first-child) {
+    margin-top: 8px;
+  }
+}
+
+.userCard {
+  box-sizing: border-box;
+
+  padding: 16px 20px;
+
+  background: $white-color;
+  border: 0.5px solid $main-border;
+  border-radius: 12px;
+
+  & h4 {
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 15px;
+    letter-spacing: -0.5px;
+
+    color: $main-black;
+  }
+
+  & p {
+    font-size: 15px;
+    line-height: 22px;
+    letter-spacing: -0.5px;
+
+    color: $main-black;
+  }
+}
+
+.userStarsBox {
+  display: flex;
+  margin: 4px 0 12px;
+
+  & svg:not(:last-child) {
+    margin-right: 4px;
+  }
+}
+
+.faqWrapper {
+  max-width: 375px;
+  margin: 0 auto;
+  padding: 45px 0 53px;
+}
+
+.faqBox {
+  margin-top: 20px;
+}
+
+.commentWrapper {
+  max-width: 375px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.commentBG {
+  position: absolute;
+  height: 50px;
+  width: 100%;
+  top: 0;
+  background: $white-color;
+}
+
+.commentBox {
+  background: $white-color;
+  padding: 34px 0 40px;
+  box-shadow: 0px -2px 0px $secondary-shadow;
+  border-radius: 24px;
+  position: relative;
+}
+
+.commentNavWrapper {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  margin: 12px 0 24px;
+  justify-content: space-between;
+
+  background: $secondary-light-blue;
+  border-radius: 12px;
+}
+
+.commentNav:first-child {
+  margin-right: 15px;
+}
+
+.commentNav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 8px;
+
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.commentNavActive {
+  background: $white-color;
+}
+
+.commentUserWrapper {
+  margin-top: 24px;
+}
+
+.commentCardHeader {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.commentCardAvatarBox {
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 8px;
+
+  width: 28px;
+  height: 28px;
+
+  & img {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.commentCardHeaderNameBox {
+  & h3 {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+
+    letter-spacing: -0.5px;
+
+    color: $main-black;
+  }
+
+  & p {
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 24px;
+
+    letter-spacing: -0.5px;
+
+    color: $main-black;
+  }
+}
+
+.commentCardNameBox {
+  display: flex;
+  align-items: center;
+
+  & svg {
+    margin-left: 4px;
+  }
+}
+
+.commentCardImage {
+  height: 352px;
+}
+
+.commentCardActiveWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+
+  & button {
+    background: transparent;
+    padding: 0;
+  }
+}
+
+.commentCardActiveBox {
+  display: flex;
+  align-items: center;
+  margin: 16px 0;
+
+  & button:not(:last-child) {
+    margin-right: 17px;
+  }
+}
+
+.commentCardPaginationBox {
+  display: flex;
+  align-items: center;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  & button {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #00000015;
+  }
+
+  & button:first-child {
+    background-color: $main-blue;
+  }
+
+  & button:not(:last-child) {
+    margin-right: 4px;
+  }
+}
+
+.commentCardLikedWrapper {
+  display: flex;
+  align-items: center;
+
+  & p {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 24px;
+    letter-spacing: -0.5px;
+    color: $main-black;
+  }
+
+  & span {
+    font-weight: 700;
+  }
+}
+
+.commentCardLikedAvatarBox {
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 5px;
+
+  width: 18px;
+  height: 18px;
+
+  & img {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.userComment {
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: -0.5px;
+
+  color: $extra-black;
+}
+
+.pulseBtn {
+  width: 100%;
+  height: 50px;
+  text-transform: uppercase;
+}

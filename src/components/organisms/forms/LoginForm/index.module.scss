@@ -1,0 +1,185 @@
+@import "@styles/variables.scss";
+
+.wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: $white-color;
+}
+
+.logoWrapper {
+  position: absolute;
+  z-index: 1;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.contentWrapper {
+  padding-top: 13px;
+}
+
+.title {
+  margin: 53px 0 13px;
+
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 18px;
+
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $secondary-black;
+}
+
+.description {
+  margin-bottom: 26px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.link {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-blue;
+  cursor: pointer;
+}
+
+.fieldsWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 21px;
+}
+
+.checkboxWrapper {
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkboxIcon {
+  width: 32px;
+  height: 32px;
+  box-sizing: border-box;
+
+  border-radius: 8px;
+  border: 1px solid $input-text;
+}
+
+.checkboxCheckedIcon {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: $secondary-green;
+  border-radius: 8px;
+}
+
+.checkboxText {
+  font-size: 14px;
+  line-height: 20px;
+
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.fieldBox {
+  margin-bottom: 15px;
+}
+
+.logoBox {
+  display: none;
+  justify-content: center;
+  padding: 10px;
+  background-color: $dark-black;
+  position: relative;
+  z-index: 1;
+}
+
+.background {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.cardBox {
+  position: relative;
+}
+
+.button {
+  width: 100%;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .logoBox {
+    display: flex;
+  }
+
+  .logoWrapper {
+    display: none;
+  }
+
+  .background {
+    display: block;
+  }
+
+  .card {
+    padding: 50px 38px 10px;
+    min-height: 440px;
+    box-sizing: border-box;
+  }
+
+  .contentWrapper {
+    padding: 0;
+  }
+
+  .backWrapper {
+    display: none;
+  }
+
+  .title {
+    margin-top: 0;
+
+    font-size: 24px;
+  }
+
+  .description {
+    margin-bottom: 32px;
+
+    font-size: 16px;
+  }
+
+  .infoText,
+  .text {
+    font-size: 16px;
+  }
+
+  .checkboxWrapper {
+    margin: 8px 0 32px;
+  }
+
+  .checkboxText {
+    font-size: 14px;
+  }
+
+  .fieldsWrapper {
+    margin: 0;
+  }
+}

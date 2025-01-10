@@ -1,0 +1,13 @@
+export { BuildSentence } from './BuildSentence';
+export { Layout } from './Layout';
+export { Read } from './Read';
+export { Speaking } from './Speaking';
+export { ContactUsTemplate } from './ContactUs';
+export { EmailTemplate } from './EmailTemplate';
+export { LanguageTemplate } from './Language';
+export { ManagePersonalTemplate } from './ManagePersonal';
+export { PasswordTemplate } from './PasswordTemplate';
+export { PaymentsTemplate } from './PaymentsTemplate';
+export { ProfileTemplate } from './ProfileTemplate';
+export { TermsTemplate } from './Terms';
+export { Theory } from './Theory';

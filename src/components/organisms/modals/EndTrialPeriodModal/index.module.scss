@@ -1,0 +1,355 @@
+@import "@styles/variables.scss";
+
+.title {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+
+  color: $main-black;
+}
+
+.contentClass {
+  display: none;
+}
+
+.contentWrapper {
+  padding: 50px 12px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contentPayWrapper {
+  padding: 0 10px;
+  display: flex;
+  width: 100%;
+  max-width: 380px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  background-color: $white-color;
+}
+
+.card {
+  padding: 0;
+  border: none;
+  max-height: 870px;
+  height: 870px;
+}
+
+.bottomPaper {
+  display: none;
+}
+
+.paper {
+  width: 90%;
+  margin: auto;
+  border-radius: 24px;
+}
+
+.header {
+  background-color: $main-blue;
+}
+
+.close {
+  position: absolute;
+  top: 22px;
+  right: 17px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background-color: #52a1ff;
+
+  & svg {
+    width: 16px;
+    height: 16px;
+    color: $white-color;
+  }
+}
+
+.headerWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+
+  img {
+    display: flex;
+    position: relative;
+    top: -10px;
+  }
+}
+
+.headerWrapperBg {
+  display: flex;
+  position: absolute;
+  z-index: 8;
+  height: 141px;
+  width: 351px;
+  top: 26%;
+  background-image: url("@/assets/icons/ellipseBg.svg");
+}
+
+.headerBox {
+  margin-left: 12px;
+  margin-top: 22px;
+  position: relative;
+  z-index: 9;
+
+  & h4 {
+    font-weight: 900;
+    font-size: 26px;
+    line-height: 26px;
+
+    text-align: center;
+    text-transform: uppercase;
+    color: $white-color;
+  }
+
+  & h5 {
+    font-weight: 900;
+    font-size: 17px;
+    line-height: 22px;
+
+    text-transform: uppercase;
+    color: $white-color;
+  }
+
+  & p {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+
+    color: $white-color;
+  }
+}
+
+.headerBoxSecond {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+
+  > div {
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  svg {
+    margin-right: 4px;
+    opacity: 50%;
+  }
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .webWrapper {
+    width: 503px;
+    margin: 0 auto;
+  }
+
+  .card {
+    padding-bottom: 30px;
+    max-height: 790px;
+    height: 790px;
+    margin-top: 78px;
+  }
+
+  .contentWrapper {
+    padding: 0;
+    padding-top: 35px;
+  }
+
+  .contentPayWrapper {
+    padding: 0 24px;
+    background-color: $white-color;
+  }
+
+  .paper {
+    width: 100%;
+  }
+
+  .headerWrapperBg {
+    top: 24%;
+  }
+}
+
+.planCard {
+  background: $new-premium-plan-bg;
+  border: 1px solid $main-border;
+  border-radius: 12px;
+  margin-top: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  box-sizing: border-box;
+}
+
+.planFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+  padding: 0 17px 0 12px;
+}
+
+.planPopular {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $main-green;
+  height: 24px;
+
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 16px;
+  text-transform: uppercase;
+
+  color: $white-color;
+}
+
+.planTitleWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.planTitleBox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.planTitleBox h3 {
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.planTitleBox img {
+  width: 18px;
+  height: 18px;
+  margin-left: 4px;
+}
+
+.optionCheckbox {
+  box-sizing: border-box;
+
+  margin-right: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 30px;
+
+  width: 28px;
+  height: 28px;
+}
+
+.discountBox p {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+
+  & svg {
+    margin: 0 4px;
+  }
+}
+
+.thenPrice {
+  margin-left: 4px;
+  color: $input-text;
+}
+
+.discount {
+  text-decoration-line: line-through;
+  text-decoration-color: $error;
+
+  color: $main-black;
+}
+
+.planPriceWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.planPriceContent {
+  position: relative;
+  z-index: 1;
+  width: 70px;
+  text-align: center;
+}
+
+.planPrice {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+  color: $main-black;
+}
+
+.planPeriod {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: -0.5px;
+  color: $main-black;
+}
+
+.planDiscount {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.planPriceDiscount {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: -0.5px;
+  text-decoration-line: line-through;
+
+  color: $main-black;
+}
+
+.planFourWeekBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  margin: 0 0 10px;
+
+  background: $light-blue;
+  border-radius: 4px;
+
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 10px;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+
+  color: $extra-black;
+}
+
+.pulseBtn {
+  margin-top: 10px;
+  width: 100%;
+  height: 50px;
+  text-transform: uppercase;
+}

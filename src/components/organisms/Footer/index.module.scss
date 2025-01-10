@@ -1,0 +1,30 @@
+@import "@styles/variables.scss";
+
+.button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: $main-gray !important;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+
+  & svg {
+    fill: $main-gray;
+  }
+}
+
+.active {
+  color: $main-blue !important;
+
+  & svg {
+    fill: $main-blue;
+  }
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 850px) {
+  .wrapper {
+    display: none !important;
+  }
+}

@@ -1,0 +1,127 @@
+@import "@styles/variables.scss";
+
+.wrapper {
+  position: relative;
+  background-color: $white-color;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  overflow: hidden;
+}
+
+.ellipse {
+  position: absolute;
+
+  width: 136%;
+  height: auto;
+  max-width: 1400px;
+  top: -195px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  & svg {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.logoWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  position: absolute;
+  top: 19px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.logo {
+  width: 40dvh;
+  max-width: 540px;
+}
+
+.contentWrapper {
+  padding: 40dvh 0 70px;
+  position: relative;
+}
+
+.title {
+  max-width: 260px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $secondary-black;
+}
+
+.description {
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: -0.5px;
+  max-width: 300px;
+  margin: 0 auto;
+
+  color: $main-gray;
+}
+
+.logoBox {
+  display: none;
+  justify-content: center;
+  padding: 10px;
+  background-color: $dark-black;
+  position: relative;
+  z-index: 1;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 450px) {
+  .ellipse {
+    top: -300px;
+  }
+}
+
+@media (min-width: 600px) {
+  .logoBox {
+    display: flex;
+  }
+
+  .title {
+    max-width: 420px;
+    font-size: 38px;
+    line-height: 40px;
+    margin-bottom: 16px;
+  }
+
+  .description {
+    font-size: 20px;
+    line-height: 26px;
+    max-width: 550px;
+  }
+}
+
+@media (min-width: 650px) {
+  .ellipse {
+    top: -400px;
+  }
+}
+
+@media (min-width: 700px) {
+  .ellipse {
+    top: -500px;
+  }
+}
+
+@media (min-width: 800px) {
+  .ellipse {
+    top: -600px;
+  }
+}

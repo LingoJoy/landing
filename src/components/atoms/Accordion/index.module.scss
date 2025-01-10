@@ -1,0 +1,58 @@
+@import "@styles/variables.scss";
+
+.itemWrapper {
+  border-bottom: 0.5px solid $main-border;
+  overflow: hidden;
+
+  & .questionContainer {
+    width: 100%;
+    text-align: left;
+    padding: 0;
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 22px;
+    letter-spacing: -0.5px;
+    color: $main-black;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  & .arrow {
+    rotate: 90deg;
+    transition: all 0.3s ease-in-out;
+  }
+
+  & .arrow.active {
+    rotate: -90deg;
+  }
+
+  & path {
+    fill: $main-gray;
+  }
+
+  & .answerContainer {
+    transition: all 0.3s ease-in-out;
+  }
+
+  & .answerContent {
+    margin-top: 20px;
+    padding-bottom: 20px;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    letter-spacing: -0.5px;
+
+    color: transparent;
+    transition: all 0.3s ease-in-out;
+  }
+
+  & .answerContent.active {
+    margin-top: 8px;
+    color: $main-gray;
+  }
+}

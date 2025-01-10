@@ -1,0 +1,183 @@
+@import "@styles/variables.scss";
+
+.wrapper {
+  background: $secondary-light-blue;
+  width: 100%;
+}
+
+.card {
+  padding: 24px 12px 20px;
+  max-width: 746px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: fit-content;
+}
+
+.courseList {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 555px;
+  gap: 16px;
+
+  & > p:first-of-type {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  > .courseCard {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    cursor: pointer;
+
+    &:nth-of-type(3n + 1) {
+      flex-basis: 100%;
+    }
+  }
+}
+
+.smallCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-basis: calc(50% - 9px);
+  cursor: pointer;
+}
+
+.smallCard img {
+  display: none;
+}
+
+.titleBox {
+  display: flex;
+  align-items: center;
+  max-width: 555px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 20px !important;
+  font-weight: 400 !important;
+  line-height: 20px !important;
+}
+
+.titleIcon {
+  width: 20px;
+  height: 20px;
+  margin-left: 8px;
+}
+
+.hideWrapper {
+  overflow: hidden;
+  max-width: 747px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.lessonWrapper {
+  height: 100%;
+  width: 100%;
+  background-color: $white-color;
+}
+
+.lessonBlueWrapper {
+  height: 100%;
+  width: 100%;
+  background-color: $secondary-light-blue;
+}
+
+.lessonBox {
+  padding-top: 12px;
+  height: 100%;
+}
+
+.backgroundTimer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1111;
+  background: $modal-bg;
+}
+
+.loadingBox {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 351px;
+  height: 66px;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+
+  background: $white-color;
+  box-shadow: 0px 12px 12px $main-shadow;
+  border-radius: 24px;
+
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.5px;
+
+  color: $secondary-black;
+
+  & svg {
+    width: 24px;
+    height: 24px;
+
+    margin-right: 10px;
+  }
+
+  & path {
+    fill: $main-blue;
+  }
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .lessonWrapper {
+    background-color: $secondary-light-blue;
+  }
+
+  .lessonBox {
+    padding-top: 32px;
+  }
+
+  .filterCarousel {
+    justify-content: left;
+    padding: 12px 8px;
+  }
+
+  .card {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-bottom: 20px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .courseList {
+    gap: 18px;
+  }
+
+  .smallCard {
+    flex-basis: calc(50% - 9px);
+  }
+
+  .hideWrapper {
+    background-color: $secondary-light-blue;
+    border-bottom: 1px solid $secondary-light-blue;
+  }
+}

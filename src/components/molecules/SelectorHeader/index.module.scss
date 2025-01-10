@@ -1,0 +1,98 @@
+@import "@styles/variables.scss";
+
+.headerWrapper {
+  border-bottom: 0.5px solid $main-border;
+  background: $white-color;
+}
+
+.statusWrapper {
+  justify-content: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.backWrapper {
+  position: absolute;
+  left: 12px;
+  top: 7.5px;
+}
+
+.title {
+  box-sizing: content-box;
+  padding-top: 9px;
+  height: 36px;
+  display: block;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 18px;
+  text-align: center;
+
+  color: $main-black;
+}
+
+.progressWrapper {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.progressLineWrapper {
+  width: 215px;
+}
+
+.progressTitle {
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+
+  color: $main-black;
+}
+
+.webWrapper {
+  max-width: 1112px;
+  margin: 0 auto;
+  padding: 6px 12px 9px;
+}
+
+.logoWrapper {
+  display: none;
+  justify-content: center;
+  padding: 10px;
+  background-color: $dark-black;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .logoWrapper {
+    display: flex;
+  }
+
+  .statusWrapper {
+    padding-top: 14px;
+  }
+
+  .backWrapper {
+    top: 30px;
+  }
+
+  .progressLineWrapper {
+    width: 435px;
+    margin-bottom: 11px;
+  }
+
+  .progressTitle {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  .progressWrapper {
+    width: 100%;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+}

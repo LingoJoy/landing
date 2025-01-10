@@ -1,0 +1,239 @@
+@import "@styles/variables.scss";
+
+.headerWrapper {
+  padding: 6px 12px 9px;
+  border-bottom: 0.5px solid $main-border;
+  background-color: $white-color;
+}
+
+.footerWrapper {
+  padding: 10px 12px 31px;
+  border-top: 0.5px solid $main-border;
+  background-color: $white-color;
+  z-index: 2;
+}
+
+.statusWrapper {
+  justify-content: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.backWrapper {
+  position: absolute;
+  left: 12px;
+}
+
+.title {
+  padding-top: 9px;
+  height: 36px;
+  display: block;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 18px;
+  text-align: center;
+
+  color: $main-black;
+}
+
+.progressWrapper {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.progressLineWrapper {
+  width: 215px;
+}
+
+.progressTitle {
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+
+  color: $main-black;
+}
+
+.progress {
+  width: 215px;
+}
+
+.selectorBG {
+  width: 100%;
+  background-color: $secondary-light-blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.selectorWrapper {
+  padding: 30px 12px 80px;
+  position: relative;
+  max-width: 540px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.optionWrapper {
+  margin-top: 4px;
+  width: 100%;
+  height: 50px;
+  padding: 9px 16px;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  background: $white-color;
+  border: 0.5px solid $main-border;
+  border-radius: 30px;
+}
+
+.optionWrapper:first-child {
+  margin-top: 0;
+}
+
+.optionWrapper:active {
+  background-color: $main-border;
+}
+
+.optionIcon {
+  width: 20px;
+  height: 20px;
+
+  margin-right: 10px;
+
+  flex-shrink: 0;
+}
+
+.optionTitle {
+  flex-shrink: 0;
+  text-align: left;
+
+  max-width: 100%;
+
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.optionCheckbox {
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 32px;
+  height: 32px;
+
+  border-radius: 30px;
+}
+
+.selectorHelperText {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 100%;
+
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: -0.5px;
+  text-align: center;
+
+  color: $main-gray;
+}
+
+.bubble {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 80px;
+  height: 80px;
+
+  border-radius: 50%;
+
+  background: $white-color;
+  border-radius: 300px;
+
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.bubblesWrapper {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 46px 20px;
+  padding-bottom: 80px;
+}
+
+.positionWrapper {
+  position: relative;
+}
+
+.timeWrapper {
+  margin: 0 auto;
+  display: flex;
+  width: 350px;
+  justify-content: space-between;
+}
+
+.optionWordsBox {
+  display: none;
+  max-width: 652px;
+  margin: 0 auto;
+}
+
+.option {
+  max-width: 210px;
+  width: 100%;
+}
+
+.titleSmall {
+  display: inline-block;
+  width: 100%;
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+.titleExtraSmall {
+  display: inline-block;
+  width: 100%;
+  max-width: 45%;
+  margin: 0 auto;
+}
+
+@media (min-width: 600px) {
+  .bubblesBox {
+    display: none;
+  }
+
+  .optionWordsBox {
+    display: block;
+  }
+
+  .selectorHelperText {
+    font-size: 14px;
+    top: 11px;
+  }
+
+  .timeWrapper {
+    padding-top: 30px;
+  }
+}

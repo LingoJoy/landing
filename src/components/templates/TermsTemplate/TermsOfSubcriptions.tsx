@@ -1,23 +1,24 @@
 import { useNavigate } from "react-router";
+import { Box } from "@mui/material";
 
-import Logo from "../../icons/Logo";
+import LogoIcon from "@/components/atoms/icons/LogoIcon";
 
 import { ERoutes } from "../../../constants";
 
-import styles from "./index.module.css";
+import styles from "./index.module.scss";
 
 const TermsOfSubcriptions = () => {
   const navigate = useNavigate();
 
   return (
-    <div className={styles.app_lato}>
-      <div className={styles.header_header}>
-        <span onClick={() => navigate(ERoutes.START)}>
-          <Logo width="180" height="54" />
+    <Box className={styles.app_lato}>
+      <Box className={styles.header_header}>
+        <span onClick={() => navigate(ERoutes.LANDING)}>
+          <LogoIcon width="180" height="54" />
         </span>
-      </div>
-      <main className={styles.app_content_bg}>
-        <div className={styles.terms_and_conditions_wrapper}>
+      </Box>
+      <Box className={styles.app_content_bg}>
+        <Box className={styles.terms_and_conditions_wrapper}>
           <h1 className={styles.title}>SUBSCRIPTION TERMS</h1>
           <p className={styles.paragraph}>
             Trial
@@ -44,7 +45,7 @@ const TermsOfSubcriptions = () => {
             Cancellation
             <br />
             Canceling your subscription disables automatic renewal, but you will
-            retain access to all subscription features for the remaining time of
+            retain access to all subscription features for the reBoxing time of
             the current period. Note that deleting the app does not cancel your
             subscription. <br />- If you purchased a subscription or trial on
             the App Store:
@@ -113,9 +114,9 @@ const TermsOfSubcriptions = () => {
             <br />
             Last updated: 24 September 2023
           </p>
-        </div>
-      </main>
-    </div>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

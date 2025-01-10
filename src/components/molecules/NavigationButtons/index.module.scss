@@ -1,0 +1,64 @@
+@import "@styles/variables.scss";
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  margin: 20px 0;
+}
+
+.container {
+  display: flex;
+}
+
+.doNotKnow {
+  margin-bottom: 20px;
+
+  & p {
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: -0.5px;
+
+    color: $main-gray;
+  }
+}
+
+.button {
+  box-sizing: border-box;
+  width: 171px !important;
+  min-width: 171px !important;
+  height: 50px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+
+  background: $white-color !important;
+  border: 0.5px solid $main-border !important;
+  box-shadow: 0px 1px 2px $main-shadow !important;
+  border-radius: 30px;
+
+  margin-left: 8px !important;
+  transform: rotate(180deg);
+}
+
+.nextBtn {
+  color: $white-color !important;
+
+  background-color: $main-blue !important;
+  margin: 0;
+  transform: none;
+  border: none;
+  box-shadow: none;
+}
+
+.buttonFullWidth {
+  width: 351px !important;
+}
+
+.prevDisabled {
+  & path {
+    fill: $input-text;
+  }
+}

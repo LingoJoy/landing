@@ -1,0 +1,65 @@
+@import "@styles/variables.scss";
+
+.wrapper {
+  width: 128px;
+  height: 128px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}
+
+.iconWrapper {
+  position: absolute;
+}
+
+.price {
+  z-index: 1;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+
+  text-align: center;
+  letter-spacing: -0.5px;
+  text-decoration-line: line-through;
+
+  color: $white-color;
+}
+
+.discount {
+  z-index: 1;
+  margin-top: 6px;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-yellow;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .wrapper {
+    width: 173px;
+    height: 173px;
+
+    & svg {
+      width: 173px;
+      height: 173px;
+    }
+  }
+
+  .price {
+    font-size: 24px;
+    line-height: 27px;
+  }
+
+  .discount {
+    font-size: 35px;
+    line-height: 27px;
+  }
+}

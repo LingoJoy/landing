@@ -1,0 +1,62 @@
+@import "@styles/variables.scss";
+
+.wrapper {
+  background-color: $white-color;
+  width: 100vw;
+  height: 100vh;
+}
+
+.headerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  margin: 13px 0 27px;
+  position: relative;
+}
+
+.headerBack {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.descriptionBox {
+  margin-top: 9px;
+}
+
+.modalHeader {
+  padding: 22px 0 20px;
+}
+
+.modalBody {
+  padding: 35px 0;
+  text-align: center;
+}
+
+.passwordBox {
+  margin-top: 21px;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .wrapper {
+    height: auto;
+    background-color: $secondary-light-blue;
+  }
+
+  .modalHeader,
+  .webWrapper {
+    width: 503px;
+    margin: 0 auto;
+  }
+
+  .headerWrapper {
+    margin-top: 17px;
+  }
+
+  .card {
+    padding: 0;
+    padding-bottom: 40px;
+  }
+}

@@ -1,0 +1,11 @@
+@import "@styles/variables.scss";
+
+.wrapper {
+  box-sizing: border-box;
+  padding-top: 78px;
+  height: 100%;
+}
+
+.gameWrapper {
+  overflow-y: auto;
+}

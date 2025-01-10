@@ -1,0 +1,182 @@
+@import "@styles/variables.scss";
+
+.wrapper {
+  background-color: $secondary-light-blue;
+  width: 100vw;
+  height: 100vh;
+}
+
+.headerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 14px 0 16px;
+}
+
+.headerChipWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.levelChip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 8px 8px 10px;
+  margin-right: 4px;
+
+  box-sizing: border-box;
+
+  width: 58px;
+  height: 36px;
+
+  background: $white-color;
+  border: 0.5px solid $main-border;
+  border-radius: 30px;
+}
+
+.notificationChip {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  background: $white-color;
+  border: 0.5px solid $main-border;
+  border-radius: 30px;
+}
+
+.notificationBox {
+  position: relative;
+}
+
+.notificationCircle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  top: 1px;
+  right: 1px;
+  box-sizing: content-box;
+  border-radius: 50%;
+
+  background: $badge-red;
+  border: 2px solid $white-color;
+}
+
+.helloWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 12px 16px 15px;
+
+  box-sizing: border-box;
+
+  background: $white-color;
+  border: 0.5px solid $main-border;
+  border-radius: 24px;
+}
+
+.avatarWrapper {
+  box-sizing: border-box;
+
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-right: 11px;
+  cursor: pointer;
+
+  background: $background-avatar;
+  border: 0.5px solid $secondary-light-orange;
+
+  & img {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+.avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  margin-right: 11px;
+  cursor: pointer;
+}
+
+.helloBox {
+  display: flex;
+  align-items: center;
+}
+
+.helloIcon {
+  margin-left: 4px;
+}
+
+.loginWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.loginBox {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.menuWrapper {
+  margin-top: 13px;
+  padding: 29px 0;
+  width: 100%;
+  border-radius: 30px;
+
+  background: $white-color;
+  box-shadow: 0px -1px 0px $secondary-shadow;
+}
+
+.paymentWrapper {
+  display: none;
+}
+
+.menuOption {
+  margin-bottom: 36px;
+}
+
+.menuOption:last-child {
+  margin-bottom: 29px;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .wrapper {
+    height: auto;
+  }
+
+  .headerWrapper {
+    display: none;
+  }
+
+  .paymentWrapper {
+    display: block;
+  }
+
+  .helloWrapper {
+    margin: 24px auto 0;
+    width: 495px;
+  }
+
+  .menuWrapper {
+    padding: 27px 5px 0 17px;
+    box-shadow: none;
+    border-radius: 0;
+    border-top: 0.5px solid $light-blue;
+  }
+}

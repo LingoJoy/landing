@@ -1,0 +1,49 @@
+@import "@styles/variables.scss";
+
+.wrapper {
+  background-color: $white-color;
+  width: 100vw;
+  height: 100vh;
+}
+
+.modalHeader {
+  padding: 22px 0 20px;
+}
+
+.modalContent {
+  max-width: 503px;
+  margin: 25px auto;
+}
+
+.fieldWrapper {
+  margin-bottom: 16px;
+}
+
+.textarea {
+  height: 317px;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .wrapper {
+    height: auto;
+    background-color: $secondary-light-blue;
+  }
+
+  .modalHeader {
+    width: 503px;
+    margin: 0 auto;
+  }
+
+  .card {
+    padding: 0;
+    padding-bottom: 40px;
+    height: auto;
+    min-height: 728px;
+  }
+
+  .webWrapper {
+    max-width: 503px;
+    margin: 0 auto;
+  }
+}

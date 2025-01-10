@@ -1,0 +1,111 @@
+@import "@styles/variables.scss";
+
+.wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: $white-color;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  overflow: hidden;
+}
+
+.ellipse {
+  position: absolute;
+
+  width: 510px;
+  height: 486px;
+  top: -195px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.logoWrapper {
+  position: absolute;
+  z-index: 1;
+  top: 13px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.progressWrapper {
+  padding-top: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 234px;
+}
+
+.contentWrapper {
+  box-sizing: border-box;
+  padding: 120px 10px 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 320px;
+  margin: 0 auto;
+}
+
+.selectorWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 106px 12px 0;
+  max-width: 564px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.selectorTitle {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 18px;
+  text-align: center;
+
+  color: $main-black;
+}
+
+.selectorBox {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.logoBox {
+  display: none;
+  justify-content: center;
+  padding: 10px;
+  background-color: $dark-black;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .logoBox {
+    display: flex;
+  }
+
+  .logoWrapper {
+    display: none;
+  }
+
+  .contentWrapper {
+    box-sizing: content-box;
+    gap: 18px;
+  }
+
+  .optionTitle {
+    font-size: 16px;
+  }
+
+  .selectorTitle {
+    font-size: 18px;
+  }
+}

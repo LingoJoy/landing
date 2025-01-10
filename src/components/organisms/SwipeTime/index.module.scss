@@ -1,0 +1,42 @@
+@import "@styles/variables.scss";
+
+.swiperBox {
+  position: relative;
+}
+
+.activeLine {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 44px;
+  background: $main-blue;
+  border-radius: 12px;
+}
+
+.swiper {
+  width: 169px;
+  height: 224px;
+
+  & .swiperSlide {
+    padding: 10px 57px;
+    box-sizing: border-box;
+
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: -0.5px;
+
+    color: $main-border;
+  }
+
+  & .prev,
+  & .next {
+    color: $input-text;
+  }
+
+  & .active {
+    color: $white-color;
+  }
+}

@@ -1,24 +1,25 @@
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
+import { Box } from "@mui/material";
 
-import Logo from "../../icons/Logo";
+import LogoIcon from "@/components/atoms/icons/LogoIcon";
 
 import { ERoutes } from "../../../constants";
 
-import styles from "./index.module.css";
-import { Link } from "react-router-dom";
+import styles from "./index.module.scss";
 
 const TermsAndConditions = () => {
   const navigate = useNavigate();
 
   return (
-    <div className={styles.app_lato}>
-      <div className={styles.header_header}>
-        <span onClick={() => navigate(ERoutes.START)}>
-          <Logo width="180" height="54" />
+    <Box className={styles.app_lato}>
+      <Box className={styles.header_header}>
+        <span onClick={() => navigate(ERoutes.LANDING)}>
+          <LogoIcon width="180" height="54" />
         </span>
-      </div>
-      <main className={styles.app_content_bg}>
-        <div className={styles.terms_and_conditions_wrapper}>
+      </Box>
+      <Box className={styles.app_content_bg}>
+        <Box className={styles.terms_and_conditions_wrapper}>
           <h1 className={styles.title}>Terms And Conditions of Use</h1>
           <strong>
             THIS SERVICE INCLUDES SUBSCRIPTIONS THAT RENEW AUTOMATICALLY. PLEASE
@@ -91,7 +92,7 @@ const TermsAndConditions = () => {
             <br />
             2.2. WE ALSO DO NOT GUARANTEE ANY SPECIFIC LEVEL OF SUCCESS YOU MAY
             EXPERIENCE DURING YOUR LEARNING PROCESS, AND YOU ACKNOWLEDGE THAT
-            RESULTS WILL VARY FOR EACH INDIVIDUAL. TESTIMONIALS AND EXAMPLES
+            RESULTS WILL VARY FOR EACH INBoxIDUAL. TESTIMONIALS AND EXAMPLES
             PROVIDED ON THE SERVICE ARE EXCEPTIONAL CASES AND ARE NOT INTENDED
             TO REPRESENT OR GUARANTEE THAT ANYONE WILL ACHIEVE THE SAME OR
             SIMILAR RESULTS.
@@ -109,7 +110,7 @@ const TermsAndConditions = () => {
             regulations or these Terms. Failure to provide accurate information
             may hinder our ability to personalize the services correctly.
             <br />
-            3.3. The Service is not intended for use by individuals under the
+            3.3. The Service is not intended for use by inBoxiduals under the
             age of 16. You represent and warrant to the Company that you meet
             this age requirement. Users who are minors in their jurisdiction
             (generally under the age of 18) must have the consent and direct
@@ -157,7 +158,7 @@ const TermsAndConditions = () => {
             party. <br />
             4.3. The information you submit to us, as well as any data, text,
             and other materials you may submit to the Website ("User Content"),
-            remain your intellectual property. The Company does not claim
+            reBox your intellectual property. The Company does not claim
             ownership of the copyright or other proprietary rights in such
             registration information and User Content. However, you agree that
             the Company may retain copies of the User Content and use it as
@@ -443,7 +444,7 @@ const TermsAndConditions = () => {
             ARE WAIVING THE RIGHT TO A TRIAL BY JURY. THE RIGHTS THAT YOU WOULD
             HAVE IF YOU WENT TO COURT, SUCH AS DISCOVERY OR THE RIGHT TO APPEAL,
             MAY BE MORE LIMITED OR MAY NOT EXIST. <br />
-            12.2. YOU AGREE THAT YOU MAY ONLY BRING A CLAIM IN YOUR INDIVIDUAL
+            12.2. YOU AGREE THAT YOU MAY ONLY BRING A CLAIM IN YOUR INBoxIDUAL
             CAPACITY AND NOT AS A PLAINTIFF (LEAD OR OTHERWISE) OR CLASS MEMBER
             IN ANY PURPORTED CLASS OR REPRESENTATIVE PROCEEDING. YOU FURTHER
             AGREE THAT THE ARBITRATOR MAY NOT CONSOLIDATE PROCEEDINGS OR CLAIMS
@@ -479,7 +480,7 @@ const TermsAndConditions = () => {
             "Demand"). If you and the Company do not reach an agreement to
             resolve the claim within 30 days after the Notice is received, then
             you or we may commence an arbitration proceeding as set forth below
-            or file an individual claim in small claims court.
+            or file an inBoxidual claim in small claims court.
             <br />
             12.6. THE AMERICAN ARBITRATION ASSOCIATION ("AAA") WILL EXCLUSIVELY
             ADMINISTER THE ARBITRATION IN ACCORDANCE WITH ITS COMMERCIAL
@@ -546,8 +547,8 @@ const TermsAndConditions = () => {
             of any succeeding breach thereof or of any other covenant,
             condition, or agreement contained herein. <br />
             14.2. Subject to Section 12, if any provision of these Terms is
-            found to be invalid or unenforceable, the remaining Terms will
-            remain in full force and effect and will be reformed to be valid and
+            found to be invalid or unenforceable, the reBoxing Terms will reBox
+            in full force and effect and will be reformed to be valid and
             enforceable while reflecting the parties' intent to the greatest
             extent permitted by law. <br />
             14.3. Except as otherwise expressly provided herein, these Terms
@@ -606,9 +607,9 @@ const TermsAndConditions = () => {
             <br />
             Last Updated: 15 September 2023
           </p>
-        </div>
-      </main>
-    </div>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

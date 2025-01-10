@@ -1,0 +1,209 @@
+@import "@styles/variables.scss";
+
+.container {
+  background-color: $secondary-light-blue;
+  padding: 0 16px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.cardsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: 520px;
+}
+
+.cardSwiper {
+  overflow: visible;
+  height: 65vh;
+  max-height: 551px;
+  width: 100%;
+  max-width: 351px;
+}
+
+.cardBox {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center;
+  justify-content: space-between !important;
+  width: 100% !important;
+  max-width: 351px !important;
+  height: 520px !important;
+  box-sizing: border-box;
+  border: 0.5px solid $main-border;
+  background: $white-color;
+  box-shadow: 0px 2px 8px $secondary-shadow;
+  border-radius: 32px;
+}
+
+.cardsBottom {
+  width: 319px;
+  height: 436px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -13px;
+  box-sizing: border-box;
+  border: 0.5px solid $main-border;
+  background: $white-color;
+  box-shadow: 0px 2px 8px $secondary-shadow;
+  border-radius: 24px;
+}
+
+.cardsSubBottom {
+  width: 283px;
+  height: 386px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -25px;
+  box-sizing: border-box;
+  border: 0.5px solid $main-border;
+  background: $white-color;
+  box-shadow: 0px 2px 8px $secondary-shadow;
+  border-radius: 24px;
+}
+
+.cardImage {
+  width: fit-content;
+  max-width: 351px;
+  border-top-left-radius: 32px !important;
+  border-top-right-radius: 32px !important;
+}
+
+.cardTextContainer {
+  width: 100%;
+  padding: 16px;
+}
+
+.cardText {
+  margin-bottom: 30px !important;
+}
+
+.taskContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 42px;
+}
+
+.task {
+  text-align: center;
+  color: $main-gray;
+  opacity: 0.5;
+}
+
+.buttonContainer {
+  display: flex;
+  margin-top: 6px;
+}
+
+.prevBtn {
+  box-sizing: border-box;
+  width: 171px !important;
+  height: 50px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+
+  background: $white-color !important;
+  border: 0.5px solid $main-border !important;
+  box-shadow: 0px 1px 2px $main-shadow !important;
+  border-radius: 30px;
+
+  margin-right: 8px !important;
+  transform: rotate(180deg);
+}
+
+.nextBtn {
+  border-radius: 30px;
+  box-sizing: border-box;
+  width: 171px !important;
+  height: 50px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 500 !important;
+  font-size: 16px !important;
+  line-height: 20px !important;
+  text-align: center;
+  letter-spacing: -0.5px !important;
+  color: $white-color !important;
+
+  background-color: $main-blue !important;
+}
+
+.prevBtn:disabled {
+  & path {
+    fill: $input-text;
+  }
+}
+
+.animation {
+  animation-duration: 1000ms;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+}
+
+.activeTransition {
+  transition-delay: 500ms;
+  -webkit-animation-delay: 500ms;
+}
+
+.checkText {
+  font-weight: 600 !important;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .container {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 351px) {
+  .cardBox {
+    max-width: 300px !important;
+  }
+
+  .cardImage {
+    max-width: 300px;
+  }
+
+  .cardSwiper {
+    max-width: 300px;
+  }
+}
+
+.webCard {
+  padding: 12px 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.grammarBox {
+  justify-content: left !important;
+
+  & .cardImage {
+    max-width: 100%;
+    height: 280px;
+  }
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .webCard {
+    max-width: 555px;
+    height: 693px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: $white-color;
+    border-radius: 20px;
+    padding-top: 32px;
+  }
+}

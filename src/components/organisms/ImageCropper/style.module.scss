@@ -1,0 +1,125 @@
+@import "@styles/variables.scss";
+
+.label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  width: 240px;
+  height: 240px;
+  min-width: 240px;
+  max-height: 240px;
+
+  margin: 0 auto;
+
+  background: $background-avatar;
+  border: 10px solid $border-avatar;
+  border-radius: 200px;
+
+  & img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.label:hover {
+  background: $background-avatar;
+}
+
+.button {
+  width: 100%;
+}
+
+.buttonText {
+  font-size: 16px;
+  line-height: normal;
+}
+
+.cropperBox {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 0;
+  width: 317px;
+  height: 268px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cropperControls {
+  padding: 12px;
+  padding-top: 216px;
+  width: 100%;
+}
+
+.cropperWrapper {
+  position: relative;
+}
+
+.resultImage {
+  width: 240px;
+  height: 240px;
+
+  background: $bg-cropper-avatar;
+  border: 10px solid $border-cropper-avatar;
+  border-radius: 200px;
+}
+
+.resultBox {
+  position: relative;
+}
+
+.resultDelete {
+  box-sizing: border-box;
+
+  position: absolute !important;
+  width: 50px !important;
+  height: 50px !important;
+  bottom: 4px;
+  right: 17px;
+
+  background: $white-color !important;
+  border: 0.5px solid $main-border !important;
+}
+
+.cornerBox {
+  position: relative;
+}
+
+.cropper {
+  z-index: 2;
+  width: 317px;
+  height: 268px;
+  position: relative;
+  background: $white-color;
+}
+
+.corner {
+  width: 25px;
+  height: 25px;
+  background-color: $main-blue;
+  position: absolute;
+}
+
+.cornerTL {
+  top: -5px;
+  left: -5px;
+}
+
+.cornerTR {
+  top: -5px;
+  right: -5px;
+}
+
+.cornerBL {
+  bottom: -5px;
+  left: -5px;
+}
+
+.cornerBR {
+  bottom: -5px;
+  right: -5px;
+}

@@ -1,0 +1,48 @@
+@import "@styles/variables.scss";
+
+.wrapper {
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding-bottom: 30px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.background-1 {
+  background-color: $white-color;
+}
+
+.background-2 {
+  background-color: $secondary-light-blue;
+}
+
+.background-3 {
+  background-color: transparent;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .wrapper {
+    background-color: $secondary-light-blue;
+  }
+
+  .wrapper.background-3 {
+    background-color: transparent;
+  }
+}

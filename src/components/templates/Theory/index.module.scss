@@ -1,0 +1,111 @@
+@import "@styles/variables.scss";
+
+.container {
+  background-color: $secondary-light-blue;
+  padding: 0 16px;
+  width: 100%;
+}
+
+.cardsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: 520px;
+  margin-bottom: 21px;
+}
+
+.cardSwiper {
+  overflow: visible;
+  height: 65vh;
+  max-height: 551px;
+  width: 100%;
+  max-width: 351px;
+}
+
+.cardBox {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center;
+  justify-content: space-between !important;
+  width: 100% !important;
+  max-width: 351px !important;
+  height: 520px !important;
+  box-sizing: border-box;
+  border: 0.5px solid $main-border;
+  background: $white-color;
+  box-shadow: 0px 2px 8px $secondary-shadow;
+  border-radius: 32px;
+}
+
+.cardImage {
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+  max-height: 280px;
+  max-width: 351px;
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+}
+
+.cardTextContainer {
+  width: 100%;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.cardText {
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.5px;
+  white-space: pre-line;
+
+  color: $main-black;
+}
+
+.taskContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 42px;
+}
+
+.task {
+  text-align: center;
+  color: $main-gray;
+  opacity: 0.5;
+}
+
+.buttonContainer {
+  display: flex;
+  margin-top: 6px;
+}
+
+.webCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 0 12px;
+}
+
+.cardTitle {
+  font-size: 24px;
+  line-height: 20px;
+  letter-spacing: -0.5px;
+  margin-bottom: 20px;
+
+  color: $main-black;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .webCard {
+    max-width: 555px;
+    height: 693px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: $white-color;
+    border-radius: 20px;
+    padding-top: 32px;
+  }
+}

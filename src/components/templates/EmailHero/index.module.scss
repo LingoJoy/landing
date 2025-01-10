@@ -1,0 +1,158 @@
+@import "@styles/variables.scss";
+
+.wrapper {
+  position: relative;
+  background-color: $white-color;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  overflow: hidden;
+}
+
+.ellipse {
+  position: absolute;
+
+  width: 136%;
+  height: auto;
+  max-width: 1400px;
+  top: -195px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  & svg {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.logoWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  position: absolute;
+  z-index: 1;
+  top: 13px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.centerImage {
+  position: absolute;
+  top: 38px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 37dvh;
+  max-width: 531px;
+}
+
+.logo {
+  width: 251px;
+  height: 251px;
+  transform: rotate(-45deg);
+}
+
+.contentWrapper {
+  padding: 45dvh 0 60px;
+  max-width: 540px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.title {
+  max-width: 320px;
+  margin: 0 auto 18px;
+
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.description {
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.5px;
+
+  color: $main-gray;
+}
+
+.descriptionWrapper {
+  margin-top: 14px;
+  display: flex;
+  gap: 8px;
+
+  & svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.logoBox {
+  display: none;
+  justify-content: center;
+  padding: 10px;
+  background-color: $dark-black;
+  position: relative;
+  z-index: 1;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 450px) {
+  .ellipse {
+    top: -300px;
+  }
+}
+
+@media (min-width: 600px) {
+  .logoBox {
+    display: flex;
+  }
+
+  .logoWrapper {
+    display: none;
+  }
+
+  .title {
+    font-size: 38px;
+    line-height: 40px;
+    margin-bottom: 26px;
+    max-width: 470px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 650px) {
+  .ellipse {
+    top: -400px;
+  }
+
+  .centerImage {
+    top: 40px;
+  }
+}
+
+@media (min-width: 700px) {
+  .ellipse {
+    top: -500px;
+  }
+}
+
+@media (min-width: 800px) {
+  .ellipse {
+    top: -600px;
+  }
+
+  .centerImage {
+    top: 77px;
+  }
+}

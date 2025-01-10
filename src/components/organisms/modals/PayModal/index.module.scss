@@ -1,0 +1,200 @@
+@import "@styles/variables.scss";
+
+.title {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+
+  color: $main-black;
+}
+
+.contentWrapper {
+  padding: 50px 12px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card {
+  padding: 0;
+}
+
+.close {
+  position: absolute;
+  top: 22px;
+  right: 17px;
+  width: 24px;
+  height: 24px;
+
+  & svg {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+.headerWrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.headerBox {
+  margin-left: 12px;
+
+  & h4 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: $main-black;
+  }
+
+  & p {
+    margin-top: 4px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: $main-gray;
+  }
+}
+
+.priceWrapper {
+  margin-bottom: 48px;
+}
+
+.priceBox,
+.discountBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+
+  & p {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+
+    color: $main-gray;
+  }
+}
+
+.priceBox {
+  & span {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+
+    color: $main-black;
+  }
+}
+
+.discountBox {
+  & span {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: $error;
+  }
+}
+
+.totalBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & p {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+
+    color: $main-black;
+  }
+
+  & span {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: $main-black;
+  }
+}
+
+.saving {
+  margin-top: 4px;
+
+  font-size: 14px;
+  line-height: 17px;
+  text-align: right;
+
+  color: $error;
+}
+
+.guaranteeWrapper {
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  box-sizing: border-box;
+
+  padding: 20px 12px;
+
+  background: $new-guarantee-bg;
+  border: 1px solid $new-guarantee-border;
+  border-radius: 12px;
+
+  & h3 {
+    margin: 4px 0 12px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: -0.5px;
+
+    color: $main-black;
+  }
+
+  & p {
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: -0.5px;
+
+    color: $main-black;
+  }
+
+  & path {
+    stroke: $main-green;
+  }
+}
+
+.serviceWrapper {
+  display: flex;
+  justify-content: center;
+
+  & svg:not(:last-child) {
+    margin-right: 48px;
+  }
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .webWrapper {
+    width: 503px;
+    margin: 0 auto;
+  }
+
+  .card {
+    padding-bottom: 30px;
+    max-height: 600px;
+    height: 600px;
+    margin-top: 78px;
+  }
+
+  .contentWrapper {
+    padding: 0;
+    padding-top: 35px;
+  }
+}

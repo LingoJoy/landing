@@ -1,0 +1,58 @@
+@import "@styles/variables.scss";
+
+.wrapper {
+  position: relative;
+}
+
+.bgWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.content {
+  position: relative;
+  text-align: center;
+  padding: 10px 0;
+  width: 120px;
+}
+
+.now {
+  color: $secondary-green;
+}
+
+.plan {
+  color: $main-blue;
+}
+
+.title {
+  color: inherit;
+  font-size: 0.875rem;
+  line-height: 0.875rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.words {
+  color: $main-gray;
+  font-size: 0.75rem;
+  line-height: 0.75rem;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .content {
+    width: 100%;
+  }
+
+.title {
+    font-size: 1rem;
+    line-height: 1rem;
+    margin-bottom: 8px;
+  }
+
+  .words {
+    font-size: 0.875rem;
+    line-height: 0.875rem;
+  }
+}

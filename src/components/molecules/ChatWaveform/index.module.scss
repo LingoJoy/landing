@@ -1,0 +1,51 @@
+@import "@styles/variables.scss";
+
+.wrapper {
+  width: 100%;
+  max-width: 227px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px 8px 8px;
+
+  background-color: $main-blue;
+  border-radius: 100px;
+}
+
+.waveBox {
+  overflow: hidden;
+  height: 18px;
+}
+
+.wave {
+  width: 125px;
+}
+
+.playBtn {
+  border: none !important;
+  padding: 0 !important;
+  background-color: transparent !important;
+  width: 18px;
+  height: 18px;
+
+  & path {
+    fill: $white-color;
+  }
+}
+
+.playBtnBox {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.time {
+  font-size: 12px;
+  line-height: 20px;
+
+  letter-spacing: -0.5px;
+
+  color: $white-color;
+}
