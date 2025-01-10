@@ -1,0 +1,46 @@
+@import "@styles/variables.scss";
+
+.headerWrapper {
+  width: 100%;
+  padding: 6px 0 0;
+  margin-bottom: 16px;
+  background: $white-color;
+  position: fixed;
+  z-index: 50;
+}
+
+.headerContentWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 11px;
+}
+
+.headerTitleWrapper {
+  display: flex;
+  align-items: center;
+
+  & svg {
+    margin-left: 2px;
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.iconBtn {
+  border: 0.5px solid $main-border !important;
+}
+
+.progressWrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .headerWrapper {
+    box-shadow: 0px 1px 0px $main-border;
+    padding: 12px 0;
+    padding-bottom: 20px;
+  }
+}

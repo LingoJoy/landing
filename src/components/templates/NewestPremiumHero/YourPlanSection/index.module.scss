@@ -1,0 +1,219 @@
+@import "@styles/variables.scss";
+
+.contentBox {
+  box-sizing: border-box;
+  padding: 0 12px;
+  max-width: 375px;
+  margin: 0 auto;
+  padding-bottom: 148px;
+}
+
+.title {
+  margin-top: 5px;
+
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.indexBox {
+  position: relative;
+  z-index: 1;
+}
+
+.yourPlanWrapper {
+  padding-top: 41px;
+}
+
+.yourPlanExampleBox {
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  width: 273px;
+  height: 226px;
+}
+
+.yourPlanExampleBox img {
+  position: absolute;
+  width: 87px;
+  height: 178px;
+}
+
+.yourPlanExampleBox img:nth-child(1) {
+  bottom: 0;
+}
+
+.yourPlanExampleBox img:nth-child(2) {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.yourPlanExampleBox img:nth-child(3) {
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.yourPlanBox {
+  margin: 0px 0 27px;
+}
+
+.terms {
+  margin-top: 12px;
+
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.5px;
+
+  color: $main-gray;
+}
+
+.terms a {
+  text-decoration-line: underline;
+
+  color: $main-gray;
+}
+
+.planCard {
+  background: $white-color;
+  border: 1px solid $secondary-green;
+  border-radius: 24px;
+  height: 101px;
+  padding: 5px;
+  margin-top: 10px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.planTitleWrapper {
+  display: flex;
+  padding: 13px 5px;
+}
+
+.titleWrapper {
+  margin-bottom: 22px;
+}
+
+.optionCheckbox {
+  box-sizing: border-box;
+
+  margin-right: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 32px;
+  height: 32px;
+
+  border-radius: 30px;
+}
+
+.discountBox p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.thenPrice {
+  color: $input-text;
+}
+
+.discount {
+  text-decoration-line: line-through;
+
+  color: $input-text;
+}
+
+.planPriceWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.planPriceBG {
+  position: absolute;
+  right: 0;
+}
+
+.planPriceContent {
+  position: relative;
+  z-index: 1;
+  width: 125px;
+  text-align: center;
+}
+
+.planPrice {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+}
+
+.planPeriod {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: -0.5px;
+}
+
+.planTitleBox {
+  display: flex;
+
+  img {
+    margin-left: 4px;
+  }
+}
+
+.pulseBtn {
+  width: 100%;
+  background-color: $new-premium-option-stroke;
+  box-shadow: 0 0 0 0 $new-premium-option-stroke;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .contentBox {
+    margin: 0 auto;
+  }
+
+  .titleWrapper {
+    & .title {
+      font-size: 32px;
+      line-height: 28px;
+      font-weight: 700;
+    }
+  }
+
+  .yourPlanWrapper {
+    padding-top: 28px;
+  }
+
+  .yourPlanExampleBox {
+    margin-bottom: 28px;
+    width: 583px;
+    height: 423px;
+
+    & img {
+      width: 186px;
+      height: 384px;
+    }
+  }
+
+  .planTitleBox {
+    & h3 {
+      font-size: 20px;
+    }
+  }
+}

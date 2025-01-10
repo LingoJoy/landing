@@ -1,23 +1,24 @@
 import { useNavigate } from "react-router";
+import { Box } from "@mui/material";
 
-import Logo from "../../icons/Logo";
+import LogoIcon from "@/components/atoms/icons/LogoIcon";
 
 import { ERoutes } from "../../../constants";
 
-import styles from "./index.module.css";
+import styles from "./index.module.scss";
 
 const MoneyBack = () => {
   const navigate = useNavigate();
 
   return (
-    <div className={styles.app_lato}>
-      <div className={styles.header_header}>
-        <span onClick={() => navigate(ERoutes.START)}>
-          <Logo width="180" height="54" />
+    <Box className={styles.app_lato}>
+      <Box className={styles.header_header}>
+        <span onClick={() => navigate(ERoutes.LANDING)}>
+          <LogoIcon width="180" height="54" />
         </span>
-      </div>
-      <main className={styles.app_content_bg}>
-        <div className={styles.terms_and_conditions_wrapper}>
+      </Box>
+      <Box className={styles.app_content_bg}>
+        <Box className={styles.terms_and_conditions_wrapper}>
           <h1 className={styles.title}>100% Money-Back Guarantee Policy</h1>
           <p className={styles.paragraph}>
             I. MONEY-BACK GUARANTEE RULES
@@ -97,9 +98,9 @@ const MoneyBack = () => {
             <br />
             Last updated: 24 September 2023
           </p>
-        </div>
-      </main>
-    </div>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

@@ -1,0 +1,10 @@
+@import "@styles/variables.scss";
+
+.hideImages {
+  position: absolute;
+  z-index: -10;
+  display: flex;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}

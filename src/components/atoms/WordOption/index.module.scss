@@ -1,0 +1,35 @@
+@import "@styles/variables.scss";
+
+.wordOption {
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  height: 50px;
+  min-width: 65px;
+
+  background: $white-color;
+  border: 0.5px solid $main-border;
+  box-shadow: 0px 1px 2px $main-shadow;
+  border-radius: 30px;
+  transition: all 250ms ease-out;
+  white-space: nowrap;
+}
+
+.wordOptionActive {
+  background-color: $secondary-light-blue;
+}
+
+.wordOptionCorrect {
+  border-color: $main-green;
+  color: $main-green;
+  background-color: $success;
+}
+
+.wordOptionError {
+  border-color: $error;
+  color: $error;
+  background-color: $main-red;
+}

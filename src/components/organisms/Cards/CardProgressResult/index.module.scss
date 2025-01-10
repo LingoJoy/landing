@@ -1,0 +1,80 @@
+@import "@styles/variables.scss";
+
+.imagesBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: auto;
+  position: relative;
+
+  .svgBackGround {
+    position: absolute;
+    width: 100% !important;
+    bottom: 10px;
+    max-height: 500px;
+    max-width: 425px !important;
+    object-fit: cover;
+  }
+
+  .mainSvg {
+    z-index: 1;
+  }
+}
+
+.cardTextTitle {
+  font-size: 38px !important;
+  font-weight: 600 !important;
+  line-height: 38px !important;
+}
+
+.cardTextSubTitle {
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  line-height: 20px !important;
+}
+
+.button {
+  padding: 0 10px !important;
+  max-width: 375px;
+  margin: 0 auto !important;
+
+  & p {
+    margin-bottom: 20px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: -0.5px;
+
+    color: $main-gray;
+  }
+}
+
+.ellipse {
+  position: absolute;
+
+  width: 136%;
+  height: auto;
+  max-width: 648px;
+  top: -147px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  & svg {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .button {
+    margin-bottom: 23px !important;
+  }
+
+  .ellipse {
+    top: -198px;
+  }
+}

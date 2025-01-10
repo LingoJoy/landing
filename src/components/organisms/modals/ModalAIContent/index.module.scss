@@ -1,0 +1,99 @@
+@import "@styles/variables.scss";
+
+.cardImgBox {
+  position: relative;
+}
+
+.uploadBtn,
+.cardImg {
+  width: 109px !important;
+  height: 109px !important;
+  background-color: $main-blue !important;
+  margin-bottom: 3px !important;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.cardImgActive {
+  border: 2px solid $main-green;
+}
+
+.delete {
+  box-sizing: border-box;
+
+  position: absolute !important;
+  width: 24px !important;
+  height: 24px !important;
+  padding: 0 !important;
+  top: 4px;
+  right: 6px;
+
+  background: $white-color !important;
+  border: 0.5px solid $error !important;
+
+  & svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  & path {
+    fill: $error;
+  }
+}
+
+.cardCheck {
+  position: absolute;
+  bottom: 3px;
+  right: 5px;
+}
+
+.cardTitleBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & p {
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: -0.5px;
+
+    color: $main-black;
+  }
+
+  & img {
+    height: 12px;
+    margin-left: 4px;
+  }
+}
+
+.modalHeader {
+  padding: 22px 0 20px;
+}
+
+.modalTitle {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: $main-black;
+}
+
+.modalGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px 12px;
+  padding: 20px 0;
+}
+
+.uploadText {
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-blue;
+}
+
+.modalOption {
+  cursor: pointer;
+}

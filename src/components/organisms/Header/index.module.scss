@@ -1,0 +1,176 @@
+@import "@styles/variables.scss";
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1142px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 8px 0px 10px;
+}
+
+.navigationWrapper {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 484px;
+}
+
+.leftContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 674px;
+  margin-right: 12px;
+  width: 100%;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: $main-gray;
+  cursor: pointer;
+
+  & svg {
+    fill: $main-gray;
+    margin-right: 8px;
+  }
+}
+
+.active {
+  color: $main-blue !important;
+
+  & svg {
+    fill: $main-blue;
+  }
+}
+
+.headerChipWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.levelChip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 8px 8px 10px;
+  margin-right: 4px;
+
+  box-sizing: border-box;
+
+  width: 58px;
+  height: 36px;
+
+  background: $white-color;
+  border: 0.5px solid $main-border;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.notificationChip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  width: 36px;
+  height: 36px;
+
+  background: $white-color;
+  border: 0.5px solid $main-border;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.notificationCircle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  top: 9px;
+  right: 9px;
+  box-sizing: content-box;
+  border-radius: 50%;
+
+  background: $badge-red;
+  border: 2px solid $white-color;
+}
+
+.avatarWrapper {
+  flex-shrink: 0;
+  box-sizing: border-box;
+
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-left: 14px;
+
+  background: $background-avatar;
+  border: 0.5px solid $background-avatar;
+
+  & img {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+.avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  margin-left: 14px;
+  cursor: pointer;
+}
+
+.rightContent {
+  display: flex;
+  align-items: center;
+}
+
+/* MEDIA QUERIES */
+/* For mobile screens */
+@media (max-width: 599px) {
+  .content {
+    flex-direction: row;
+  }
+
+  .simpleType {
+    display: none !important;
+  }
+
+  .leftContent {
+    width: 100%;
+    justify-content: flex-start !important;
+    margin-right: 0;
+  }
+
+  .button {
+    justify-content: center;
+    margin: 8px 0;
+  }
+
+  .rightContent {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .headerChipWrapper {
+    justify-content: center;
+  }
+
+  .wrapper {
+    display: none !important;
+  }
+}
+
+@media (min-width: 850px) {
+  .navigationWrapper {
+    display: flex;
+  }
+}

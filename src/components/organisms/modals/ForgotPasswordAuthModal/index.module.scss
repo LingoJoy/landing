@@ -1,0 +1,156 @@
+@import "@styles/variables.scss";
+
+.background {
+  background: $secondary-dark-shadow;
+  position: fixed;
+  z-index: 50;
+  width: 100vw;
+  height: 100vh;
+}
+
+.backgroundPaper {
+  position: absolute;
+  background-color: $bottom-paper;
+  border-radius: 20px;
+  top: 62px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100vh;
+  width: calc(100vw - 40px);
+}
+
+.paper {
+  position: absolute;
+  background-color: $white-color;
+  border-radius: 30px;
+  top: 71px;
+  height: 100vh;
+  width: 100%;
+}
+
+.headerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 12px 20px;
+  border-bottom: 0.5px solid $main-border;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+
+  color: $main-black;
+}
+
+.close {
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+
+  box-sizing: border-box;
+  border: 0.5px solid $main-border;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.contentWrapper {
+  padding: 35px 10px 65px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.steps {
+  margin-bottom: 12px;
+
+  font-weight: 800;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-gray;
+}
+
+.name {
+  margin-bottom: 6px;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.description {
+  max-width: 350px;
+  margin: 0 auto;
+  margin-bottom: 26px;
+
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.helperText {
+  margin: 6px 0 21px;
+
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: -0.5px;
+
+  color: $main-gray;
+
+  max-width: 437px;
+}
+
+.card {
+  padding: 0;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .wrapper {
+    height: auto;
+    background-color: $secondary-light-blue;
+  }
+
+  .modalHeader,
+  .webWrapper {
+    width: 503px;
+    margin: 0 auto;
+  }
+
+  .headerWrapper {
+    padding: 21px 30px;
+  }
+
+  .card {
+    padding-bottom: 30px;
+    max-height: 500px;
+    height: 500px;
+    margin-top: 78px;
+  }
+
+  .contentWrapper {
+    padding: 0;
+    padding-top: 35px;
+  }
+
+  .steps {
+    margin-bottom: 5px;
+  }
+
+  .name {
+    font-weight: 500;
+  }
+}

@@ -1,0 +1,69 @@
+@import "@styles/variables.scss";
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0;
+  background: $modal-bg;
+  transition: opacity 250ms ease-out;
+}
+
+.open {
+  opacity: 1;
+  z-index: 1101;
+
+  & .paper {
+    transform: translateX(0);
+  }
+}
+
+.paper {
+  width: 400px;
+  height: 100%;
+  position: relative;
+  transform: translateX(-400px);
+  transition: all 250ms ease-out;
+
+  background: $white-color;
+}
+
+.close {
+  position: absolute;
+  top: 16px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.5px solid $main-border;
+  border-radius: 100%;
+  background: transparent;
+  cursor: pointer;
+
+  & svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .bottomPaper {
+    display: none;
+  }
+
+  .paper {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+  }
+
+  .close {
+    right: 30px;
+  }
+}

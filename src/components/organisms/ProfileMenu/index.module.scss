@@ -1,0 +1,38 @@
+@import "@styles/variables.scss";
+
+.title {
+  margin-bottom: 4px;
+}
+
+.optionWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.optionBox {
+  display: flex;
+  align-items: center;
+
+  & svg {
+    margin-right: 11px;
+  }
+}
+
+.rightIconBox {
+  display: flex;
+  align-items: center;
+}
+
+.rightIcon {
+  margin-right: 4px;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .webDividerWrapper {
+    padding: 0 12px;
+  }
+}

@@ -1,0 +1,26 @@
+@import "@styles/variables.scss";
+
+.optionWrapper {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  & svg {
+    flex-shrink: 0;
+  }
+}
+
+.optionText {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.8px;
+
+  color: $main-black;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .optionText {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,1249 @@
+@import "@styles/variables.scss";
+
+.wrapper {
+  background-color: $secondary-light-blue;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+}
+
+.headerTitle {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.contentWrapper {
+  box-sizing: border-box;
+  padding: 35px 0 53px;
+}
+
+.contentBox {
+  box-sizing: border-box;
+  padding: 0 12px;
+}
+
+.title {
+  margin-top: 5px;
+
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.description {
+  margin-top: 7px;
+
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &img {
+    width: 24px;
+    height: 24px;
+  }
+
+  & .planTitle {
+    max-width: 70%;
+    margin: 0 auto;
+  }
+
+  & .chartTitle {
+    max-width: 350px;
+    margin: 0 auto;
+  }
+}
+
+.levelTable {
+  margin: 30px 0 42px;
+  width: 100%;
+}
+
+.levelHeader {
+  display: flex;
+}
+
+.levelHeader p:first-child {
+  padding-left: 20px;
+  width: 64%;
+}
+
+.levelHeader p {
+  width: 18%;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+  text-align: left;
+  letter-spacing: -0.5px;
+
+  color: $input-text;
+}
+
+.levelBody {
+  padding: 10px 6px;
+  background: $white-color;
+  border-radius: 24px;
+  box-sizing: border-box;
+}
+
+.level,
+.activeLevel {
+  padding: 15px 0;
+  display: flex;
+}
+
+.level p,
+.activeLevel p {
+  width: 18%;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.activeLevel p {
+  font-weight: 700;
+}
+
+.activeLevel {
+  background: $light-blue;
+  border-radius: 12px;
+}
+
+.level p:first-child,
+.activeLevel p:first-child {
+  padding-left: 14px;
+  width: 64%;
+}
+
+.chart {
+  width: 100%;
+  max-width: 375px;
+  margin: 50px auto 58px;
+}
+
+.planWrapper {
+  background: $white-color;
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+
+  padding: 53px 0 77px;
+}
+
+.analyzeOption {
+  margin-bottom: 16px;
+}
+
+.analyzeOptionWrapper {
+  margin: 31px 0 40px;
+}
+
+.lessonsWrapper {
+  padding: 56px 0 73px;
+}
+
+.lessonsBox {
+  margin-top: 35px;
+}
+
+.lessonsBox img {
+  width: 120px;
+  height: 250px;
+}
+
+.whatYouGetWrapper {
+  position: relative;
+  z-index: 1;
+  padding: 48px 0 82px;
+  background-color: $white-color;
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+}
+
+.whatYouGetBox {
+  margin-top: 23px;
+}
+
+.whatYouGetOptionWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.vocabularyBlock {
+  margin-bottom: 5px;
+  padding: 7px 8px 6px;
+  position: relative;
+  width: 154px;
+  height: 74px;
+  box-sizing: border-box;
+}
+
+.vocabularyBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.vocabularyContent {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.whatYouGetOptionTitleBox {
+  display: flex;
+  align-items: center;
+  height: 11px;
+  font-weight: 800;
+  font-size: 4.37853px;
+  line-height: 9px;
+  letter-spacing: -0.218927px;
+
+  color: $main-black;
+}
+
+.whatYouGetOptionTitleImage {
+  margin-left: 2px;
+  width: 8px;
+  height: 8px;
+}
+
+.whatYouGetOptionDescrBox h3 {
+  margin-top: 3.5px;
+
+  font-weight: 500;
+  font-size: 8.75706px;
+  line-height: 9px;
+  letter-spacing: -0.218927px;
+
+  color: $main-black;
+}
+
+.whatYouGetOptionDescrBox p {
+  margin-top: 2px;
+  font-weight: 400;
+  font-size: 5.25424px;
+  line-height: 7px;
+  letter-spacing: -0.218927px;
+
+  color: $main-gray;
+}
+
+.whatYouGetOptionButton {
+  padding: 2px 4px;
+  width: 47px;
+  display: flex;
+  align-items: center;
+
+  background: $white-color;
+  border: none;
+  border-radius: 13px;
+
+  font-size: 4.37853px;
+  line-height: 9px;
+  text-align: center;
+  letter-spacing: -0.218927px;
+  color: $extra-black;
+}
+
+.whatYouGetOptionButton span {
+  height: 9px;
+  width: 100%;
+}
+
+.whatYouGetOptionLessonBox {
+  display: flex;
+}
+
+.whatYouGetOptionLessonBox > div {
+  margin-right: 5px;
+}
+
+.whatYouGetOption {
+  border-radius: 14px;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 7px 8px 6px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.whatYouGetOptionRed {
+  background-color: $main-red;
+}
+
+.whatYouGetOptionBlue {
+  background-color: $background-blue;
+}
+
+.whatYouGetOptionYellow {
+  background-color: $background-orange;
+}
+
+.whatYouGetOptionSmall {
+  width: 74px;
+  height: 74px;
+}
+
+.whatYouGetOptionTextWrapper h3 {
+  margin-bottom: 9px;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.whatYouGetOptionTextWrapper p {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: -0.5px;
+  color: $main-gray;
+}
+
+.whatYouGetOptionTextWrapper {
+  width: 167px;
+}
+
+.gamesWrapper {
+  margin: 53px 0 46px;
+  position: relative;
+  width: 136px;
+  height: 136px;
+}
+
+.gameWrapper {
+  position: absolute;
+  border: 1.64px solid $light-blue;
+  border-radius: 12px;
+  width: 44px;
+  height: 44px;
+}
+
+.gameBox {
+  width: 44px;
+  height: 44px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background: $white-color;
+  border: 0.2px solid $secondary-border;
+
+  border-radius: 9.8px;
+}
+
+.gameBox img {
+  width: 33px;
+  height: 33px;
+}
+
+.gameBox p {
+  font-weight: 400;
+  font-size: 5.74359px;
+  line-height: 8px;
+  text-align: center;
+  letter-spacing: -0.205128px;
+
+  color: $main-black;
+}
+
+.gameWrapper:nth-child(2) {
+  right: 0;
+}
+
+.gameWrapper:nth-child(3) {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.gameWrapper:nth-child(4) {
+  bottom: 0;
+}
+
+.gameWrapper:nth-child(5) {
+  bottom: 0;
+  right: 0;
+}
+
+.knowledgeWrapper {
+  margin-bottom: 34px;
+  background: $main-orange;
+  width: 152px;
+  height: 130px;
+  border-radius: 10px;
+  position: relative;
+
+  & svg {
+    position: absolute;
+    top: -3px;
+    left: -4px;
+  }
+}
+
+.knowledgeBoy {
+  width: 52px;
+  height: 78px;
+
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.knowledgeContent {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  font-weight: 400;
+  font-size: 8.25243px;
+  line-height: 8px;
+  text-align: center;
+  letter-spacing: -0.206311px;
+
+  color: $main-black;
+}
+
+.knowledgeField {
+  width: 30px;
+  height: 18px;
+  margin: 0 2px;
+
+  background: $secondary-light-blue;
+  border: 0.2px solid $main-border;
+  border-radius: 12px;
+}
+
+.whatYouGetOptionBig {
+  width: 149px;
+  height: 73px;
+}
+
+.popularPhrasesWrapper > div {
+  margin-bottom: 5px;
+}
+
+.popularPhrasesWrapper .whatYouGetOptionDescrBox {
+  width: 82px;
+}
+
+.popularPhrasesSofaImage {
+  position: absolute;
+  bottom: 3px;
+  right: 1px;
+}
+
+.popularPhrasesBagImage {
+  position: absolute;
+  bottom: -1px;
+  right: 5px;
+}
+
+.usersWrapper {
+  padding: 64px 0 54px;
+  position: relative;
+}
+
+.usersBg {
+  position: absolute;
+  top: -71px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.indexBox {
+  position: relative;
+  z-index: 1;
+}
+
+.usersTopCard {
+  box-sizing: border-box;
+  width: 230px;
+  height: 165px;
+  position: absolute;
+  transform: translateX(-30%);
+}
+
+.usersDownCard {
+  box-sizing: border-box;
+  width: 230px;
+  height: 165px;
+
+  position: absolute;
+  bottom: -108%;
+  left: 60%;
+}
+
+.usersSwapWrapper {
+  margin-top: 20px;
+}
+
+.guaranteeWrapper {
+  position: relative;
+  padding: 46px 31px 89px;
+  box-sizing: border-box;
+  width: 351px;
+  margin: 0 auto;
+  height: 420px;
+}
+
+.guaranteeBG,
+.guaranteeWebBG {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.guaranteeWebBG {
+  display: none;
+}
+
+.guaranteeBox {
+  margin-top: 38px;
+}
+
+.guarantee {
+  margin-top: 8px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.link {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+
+  color: $main-blue;
+}
+
+.yourPlanWrapper {
+  padding-top: 41px;
+}
+
+.yourPlanExampleBox {
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  width: 273px;
+  height: 226px;
+}
+
+.yourPlanExampleBox img {
+  position: absolute;
+  width: 87px;
+  height: 178px;
+}
+
+.yourPlanExampleBox img:nth-child(1) {
+  bottom: 0;
+}
+
+.yourPlanExampleBox img:nth-child(2) {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.yourPlanExampleBox img:nth-child(3) {
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.yourPlanBox {
+  margin: 24px 0 27px;
+}
+
+.terms {
+  margin-top: 12px;
+
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.5px;
+
+  color: $main-gray;
+}
+
+.terms a {
+  text-decoration-line: underline;
+
+  color: $main-gray;
+}
+
+.planCard {
+  background: $white-color;
+  border: 1px solid $secondary-green;
+  border-radius: 24px;
+  height: 101px;
+  padding: 5px;
+  margin-top: 10px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.planTitleWrapper {
+  display: flex;
+  padding: 13px 5px;
+}
+
+.planTitleBox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.planTitleBox h3 {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.planTitleBox img {
+  width: 18px;
+  height: 18px;
+  margin-left: 4px;
+}
+
+.optionCheckbox {
+  box-sizing: border-box;
+
+  margin-right: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 32px;
+  height: 32px;
+
+  border-radius: 30px;
+}
+
+.discountBox p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.thenPrice {
+  color: $input-text;
+}
+
+.discount {
+  text-decoration-line: line-through;
+
+  color: $input-text;
+}
+
+.planPriceWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.planPriceBG {
+  position: absolute;
+  right: 0;
+}
+
+.planPriceContent {
+  position: relative;
+  z-index: 1;
+  width: 125px;
+  text-align: center;
+}
+
+.planPrice {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+}
+
+.planPeriod {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: -0.5px;
+}
+
+.growWrapper {
+  position: relative;
+  max-width: 375px;
+  margin: 0 auto;
+}
+
+.nowWrapper {
+  position: absolute;
+  bottom: 22%;
+  left: 7%;
+}
+
+.nowBox {
+  position: absolute;
+  border-radius: 12px;
+  padding: 5px 0px;
+  min-width: 84px;
+  bottom: -40px;
+  left: 11.5%;
+  text-align: center;
+
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+  color: $white-color;
+
+  background: $secondary-green;
+}
+
+.planBox {
+  position: absolute;
+  border-radius: 12px;
+  padding: 5px 30px;
+  bottom: -40px;
+  right: 6%;
+  min-width: 103px;
+  text-align: center;
+
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+  color: $white-color;
+
+  background: $main-blue;
+}
+
+.arrow {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background: inherit;
+  top: 0;
+  left: 50%;
+  transform: rotate(-45deg) translate(33%, -50%);
+}
+
+.maxWrapper {
+  position: absolute;
+  top: -30%;
+  right: 7%;
+}
+
+.lessonsWebBox {
+  display: none;
+  max-width: 1062px;
+  margin: 0 auto;
+  margin-top: 85px;
+  padding: 0 16px;
+  box-sizing: border-box;
+
+  justify-content: space-between;
+
+  & img {
+    width: 24%;
+  }
+
+  & img:nth-child(2n) {
+    transform: translateY(-10%);
+  }
+}
+
+.usersWebWrapper {
+  display: none;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  position: relative;
+
+  max-width: 1096px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 32px;
+  padding: 0 16px;
+}
+
+.lessonTitle {
+  max-width: 365px;
+  margin: 0 auto;
+}
+
+.whatYouGetOptionTextLimited {
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .headerTitle {
+    font-size: 28px;
+  }
+
+  .headerContent {
+    & img {
+      height: 28px;
+      margin-left: 4px;
+    }
+  }
+
+  .contentBox {
+    max-width: 730px;
+    margin: 0 auto;
+  }
+
+  .contentWrapper {
+    padding: 43px 0 188px;
+  }
+
+  .titleWrapper {
+    & img {
+      width: 30px;
+      height: 30px;
+    }
+
+    & .title {
+      font-size: 32px;
+      line-height: 28px;
+      font-weight: 700;
+    }
+
+    & .description {
+      font-size: 36px;
+      line-height: 36px;
+    }
+
+    & .resultTitle {
+      font-size: 36px;
+      line-height: 36px;
+      font-weight: 900;
+    }
+
+    & .chartTitle {
+      line-height: 38px;
+      max-width: 450px;
+    }
+
+    & .planTitle {
+      margin-top: 13px;
+    }
+  }
+
+  .levelTable {
+    margin: 16px 0 55px;
+  }
+
+  .levelHeader p {
+    font-size: 14px;
+  }
+
+  .level p {
+    font-size: 16px;
+  }
+
+  .activeLevel p {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .chart,
+  .growWrapper {
+    max-width: 730px;
+  }
+
+  .chart {
+    margin: 70px 0 80px;
+  }
+
+  .nowWrapper,
+  .maxWrapper {
+    width: 160px;
+    height: 60px;
+
+    & svg {
+      width: 160px;
+      height: 70px;
+    }
+  }
+
+  .nowWrapper {
+    left: 13%;
+  }
+
+  .maxWrapper {
+    right: 12%;
+    top: -16%;
+  }
+
+  .planWrapper {
+    padding: 72px 0 96px;
+  }
+
+  .planOptionWrapper {
+    max-width: 351px;
+    margin: 0 auto;
+  }
+
+  .analyzeOptionWrapper {
+    margin: 45px 0 31px;
+
+    & p {
+      white-space: nowrap;
+    }
+  }
+
+  .lessonsWrapper {
+    padding: 0;
+    background-color: $white-color;
+  }
+
+  .lessonsBox {
+    display: none;
+  }
+
+  .lessonsWebBox {
+    display: flex;
+  }
+
+  .whatYouGetBox {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    grid-gap: 20px;
+    padding: 0 16px;
+    width: 100%;
+    max-width: 1094px;
+    margin: 0 auto;
+    margin-top: 60px;
+  }
+
+  .whatYouGetOptionWrapper {
+    flex-direction: column;
+    gap: 32px;
+    max-width: 250px;
+    width: 100%;
+    justify-content: left;
+  }
+
+  .whatYouGetOptionWrapper:nth-child(2n) {
+    flex-direction: column-reverse;
+  }
+
+  .webMaxContentBox {
+    max-width: none;
+  }
+
+  .vocabularyBlock,
+  .whatYouGetOptionBox,
+  .vocabularyBg {
+    width: 100%;
+    max-width: 199px;
+    margin: 0 auto;
+  }
+
+  .whatYouGetOptionTextWrapper {
+    text-align: center;
+
+    & h3 {
+      font-size: 20px;
+    }
+
+    & p {
+      font-size: 16px;
+    }
+  }
+
+  .vocabularyBlock {
+    height: 96px;
+    padding: 10px 12px;
+    margin-bottom: 6px;
+  }
+
+  .whatYouGetOptionTitleBox {
+    height: 14px;
+    font-size: 6px;
+  }
+
+  .whatYouGetOptionTitleImage {
+    width: 11px;
+    height: 11px;
+  }
+
+  .whatYouGetOptionDescrBox {
+    & h3 {
+      margin: 4px 0 2px;
+      font-size: 11px;
+      line-height: 12px;
+    }
+
+    & p {
+      font-size: 7px;
+      line-height: 9px;
+    }
+  }
+
+  .whatYouGetOptionSmall {
+    width: 96px;
+    height: 96px;
+
+    & h3 {
+      margin: 4px 0 2px;
+      font-size: 11px;
+      line-height: 12px;
+    }
+
+    & p {
+      font-size: 7px;
+      line-height: 9px;
+    }
+  }
+
+  .whatYouGetOptionButton {
+    width: 62px;
+    height: 17px;
+
+    font-size: 6px;
+    line-height: 11px;
+    padding: 2px 6px;
+
+    & svg {
+      width: 8px;
+      height: 8px;
+    }
+  }
+
+  .whatYouGetOptionTextWrapper {
+    width: 100%;
+  }
+
+  .gamesWrapper {
+    margin: 0 auto;
+    width: 195px;
+    height: 195px;
+  }
+
+  .gameWrapper {
+    width: 64px;
+    height: 64px;
+  }
+
+  .gameBox {
+    width: 61px;
+    height: 61px;
+
+    & img {
+      width: 47px;
+      height: 47px;
+    }
+
+    & p {
+      font-size: 8px;
+      line-height: 12px;
+    }
+  }
+
+  .knowledgeWrapper {
+    margin: 0 auto;
+    width: 217px;
+    height: 198px;
+    border-radius: 12px;
+
+    & svg {
+      width: 228px;
+      height: auto;
+      top: -5px;
+      left: -6px;
+    }
+  }
+
+  .knowledgeBoy {
+    width: 74px;
+    height: auto;
+    bottom: 13px;
+  }
+
+  .knowledgeContent {
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 12px;
+  }
+
+  .knowledgeField {
+    width: 42px;
+    height: 25px;
+    margin: 0 4px;
+  }
+
+  .whatYouGetOptionBig {
+    width: 205px;
+    height: 100px;
+    margin: 0 auto;
+  }
+
+  .popularPhrasesWrapper > div {
+    margin-bottom: 7px;
+  }
+
+  .popularPhrasesWrapper .whatYouGetOptionDescrBox {
+    width: 114px;
+  }
+
+  .popularPhrasesSofaImage {
+    width: 91px;
+    height: auto;
+    position: absolute;
+    bottom: 5px;
+    right: 2px;
+  }
+
+  .popularPhrasesBagImage {
+    width: 80px;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    right: 7px;
+  }
+
+  .usersWrapper {
+    padding: 88px 0 116px;
+  }
+
+  .usersSwapWrapper {
+    display: none;
+  }
+
+  .usersBg {
+    width: 100%;
+    max-width: 1300px;
+    top: -50%;
+  }
+
+  .usersWebWrapper {
+    display: grid;
+  }
+
+  .yourPlanWrapper {
+    padding-top: 68px;
+  }
+
+  .yourPlanExampleBox {
+    margin-bottom: 28px;
+    width: 583px;
+    height: 423px;
+
+    & img {
+      width: 186px;
+      height: 384px;
+    }
+  }
+
+  .yourPlanBox {
+    margin-top: 30px;
+  }
+
+  .planTitleBox {
+    & h3 {
+      font-size: 20px;
+    }
+  }
+
+  .nowBox {
+    left: 17.5%;
+  }
+
+  .planBox {
+    right: 14%;
+  }
+
+  .lessonTitle {
+    max-width: 393px;
+  }
+}
+
+@media (min-width: 750px) {
+  .guaranteeWebBG {
+    display: block;
+  }
+
+  .guaranteeBG {
+    display: none;
+  }
+
+  .guaranteeWrapper {
+    width: 100%;
+    max-width: 730px;
+    height: 450px;
+    padding: 87px 90px 115px 97px;
+
+    & .titleWrapper {
+      gap: 12px;
+    }
+  }
+
+  .guaranteeBox {
+    margin-top: 27px;
+  }
+
+  .guarantee {
+    font-size: 18px;
+    line-height: 28px;
+
+    & .link {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+}

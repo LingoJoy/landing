@@ -1,0 +1,75 @@
+@import "@styles/variables.scss";
+
+.wrapper {
+  background-color: $white-color;
+  width: 100vw;
+  height: 100vh;
+}
+
+.headerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  margin: 13px 0 27px;
+  position: relative;
+}
+
+.headerBack {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.descriptionBox {
+  margin-top: 9px;
+}
+
+.modalHeader {
+  padding: 22px 0 20px;
+}
+
+.importantWrapper {
+  padding: 27px 32px 49px;
+  margin: 23px 0 17px;
+  background: $important-bg-color;
+  border-radius: 24px;
+  text-align: center;
+}
+
+.webDivider {
+  display: none;
+}
+
+.listWrapper {
+  display: flex;
+  margin-bottom: 36px;
+
+  & svg {
+    margin-right: 10px;
+  }
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .wrapper {
+    height: auto;
+    background-color: $secondary-light-blue;
+  }
+
+  .webWrapper {
+    padding: 0 18px;
+  }
+
+  .headerWrapper {
+    margin: 24px 0;
+  }
+
+  .webDivider {
+    display: block;
+  }
+
+  .listWrapper:first-child {
+    margin-top: 36px;
+  }
+}

@@ -1,0 +1,93 @@
+@import "@styles/variables.scss";
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: $white-color !important;
+  padding: 16px 12px 12px 10px;
+  border-top: 1px solid $main-border !important;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-sizing: border-box;
+}
+
+.carouselContainer {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  width: 100%;
+  max-width: 555px;
+  margin: 0 auto;
+}
+
+.carouselContainer::-webkit-scrollbar {
+  width: 100%;
+  height: auto;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: #82bafc !important;
+  margin-right: 8px;
+  padding: 8px !important;
+  border-radius: 25px !important;
+  box-shadow: none !important;
+  min-width: 171px;
+  max-width: 171px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+  scroll-snap-align: start;
+  transition: transform 0.3s, background-color 0.3s;
+
+  .text {
+    color: $main-gray !important;
+  }
+
+  & svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.cardHeader {
+  font-size: 16px;
+  color: #333;
+}
+
+.titleBox {
+  display: flex;
+  align-items: center;
+  max-width: 555px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 20px !important;
+  font-weight: 400 !important;
+  line-height: 20px !important;
+  padding: 10px 0 !important;
+}
+
+.titleIcon {
+  width: 20px;
+  height: 20px;
+  margin-left: 8px;
+}
+
+@media (min-width: 600px) {
+  .content {
+    width: 100%;
+    max-width: 745px;
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 32px;
+  }
+}

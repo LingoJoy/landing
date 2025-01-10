@@ -1,0 +1,12 @@
+@import "@styles/variables.scss";
+
+.iconBtn {
+  border: 0.5px solid $main-border !important;
+  width: 36px;
+  height: 36px;
+  background-color: $white-color;
+}
+
+.iconBtn:hover {
+  background-color: $white-color !important; 
+}

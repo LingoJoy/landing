@@ -1,0 +1,415 @@
+@import "@styles/variables.scss";
+
+.wrapper {
+  background-color: $white-color;
+}
+
+.contentBox {
+  box-sizing: border-box;
+  padding: 0 12px;
+}
+
+.title {
+  margin-top: 5px;
+
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.description {
+  margin-top: 7px;
+
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.whatYouGetWrapper {
+  position: relative;
+  z-index: 1;
+  padding: 40px 0 24px;
+}
+
+.whatYouGetBox {
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 24px;
+}
+
+.whatYouGetOptionWrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+
+  & img {
+    width: 150px;
+  }
+}
+
+.whatYouGetOption {
+  & h6 {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: -0.5px;
+
+    color: $main-black;
+    margin-bottom: 4px;
+  }
+
+  & p {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.5px;
+
+    color: $main-black;
+  }
+}
+
+.highlightsWrapper {
+  background-color: $white-color;
+  padding-bottom: 16px;
+  max-width: 375px;
+  margin: 0 auto;
+}
+
+.highlightsBox {
+  margin-top: 24px;
+
+  & h4 {
+    line-height: 15px;
+  }
+
+  & .yourPlanGoalOptionBox:not(:first-child) {
+    margin-top: 18px;
+  }
+}
+
+.yourPlanGoalOptionBox {
+  display: flex;
+  align-items: center;
+
+  & p {
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: -0.5px;
+
+    color: $main-black;
+  }
+
+  & h4 {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 24px;
+    letter-spacing: -0.5px;
+
+    color: $main-black;
+  }
+
+  & svg {
+    margin-right: 9px;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 24px;
+    letter-spacing: -0.5px;
+
+    color: $main-black;
+    flex-shrink: 0;
+  }
+
+  & rect {
+    fill: $new-premium-option-bg;
+  }
+
+  & path {
+    stroke: $new-premium-option-stroke;
+  }
+}
+
+.actionWrapper {
+  position: fixed;
+  width: 100%;
+
+  bottom: 0;
+  padding: 16px 0;
+  border-top: 0.5px solid $light-blue;
+  background-color: $white-color;
+  z-index: 25;
+
+  & button {
+    color: $main-black !important;
+
+    font-weight: 500 !important;
+    font-size: 16px !important;
+    line-height: 20px !important;
+  }
+}
+
+.actionBox {
+  max-width: 375px;
+  width: 100%;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.actionStart {
+  background-color: $new-premium-option-stroke !important;
+  margin-bottom: 4px !important;
+  height: 50px !important;
+}
+
+.actionSkip {
+  background-color: $white-color !important;
+  border: 0.5px solid $main-border !important;
+  height: 50px !important;
+}
+
+.usersWrapper {
+  max-width: 375px;
+  margin: 0 auto;
+}
+
+.usersBox {
+  margin-top: 42px;
+}
+
+.userCard {
+  box-sizing: border-box;
+
+  padding: 16px 20px;
+
+  background: $white-color;
+  border: 0.5px solid $main-border;
+  border-radius: 12px;
+
+  & h4 {
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 15px;
+    letter-spacing: -0.5px;
+
+    color: $main-black;
+  }
+
+  & p {
+    font-size: 15px;
+    line-height: 22px;
+    letter-spacing: -0.5px;
+
+    color: $main-black;
+  }
+}
+
+.userStarsBox {
+  display: flex;
+  margin: 4px 0 12px;
+
+  & svg:not(:last-child) {
+    margin-right: 4px;
+  }
+}
+
+.swiperComment {
+  padding-bottom: 30px;
+}
+
+.heroWrapper {
+  position: relative;
+  height: 610px;
+  overflow: hidden;
+}
+
+.heroBG {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.heroBox {
+  padding-top: 210px;
+  position: relative;
+  max-width: 375px;
+  margin: 0 auto;
+}
+
+.heroTitle {
+  font-weight: 900;
+  font-size: 23px;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: -0.75px;
+
+  color: $white-color;
+  margin-bottom: 18px;
+
+  & span {
+    color: $new-premium-option-stroke;
+  }
+}
+
+.heroSubTitle {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;
+
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $subtitle-color;
+}
+
+.heroSubBottomTitle {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $subtitle-color;
+
+  margin-bottom: 16px;
+}
+
+.heroIconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & svg {
+    margin-right: 4px;
+  }
+
+  & p {
+    max-width: 90%;
+  }
+}
+
+.heroCancelBox {
+  display: flex;
+  justify-content: center;
+
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+
+  color: $white-color;
+
+  margin-bottom: 48px;
+
+  & svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  & path {
+    stroke: $new-premium-option-stroke;
+  }
+}
+
+.heroAvailable {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+
+  margin-bottom: 4px;
+}
+
+.heroStoreBox {
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 12px;
+
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+
+  & .heroIconBox {
+    align-items: flex-start;
+  }
+
+  & .heroIconBox:not(:last-child) {
+    margin-right: 16px;
+  }
+}
+
+.heroRatingBox {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+
+  & svg {
+    height: 73px;
+  }
+
+  & path {
+    fill: $wreath-color;
+  }
+
+  & svg:first-child {
+    margin-right: 145px;
+  }
+}
+
+.heroRatingContent {
+  position: absolute;
+  top: 12px;
+
+  & .userStarsBox {
+    margin: 0;
+    margin-bottom: 4px;
+  }
+
+  & svg {
+    margin-right: 5px;
+    height: 24px;
+  }
+
+  & svg:first-child {
+    margin-right: 0;
+  }
+
+  & path {
+    fill: $new-premium-option-stroke;
+  }
+}
+
+.userRating {
+  font-size: 12px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+
+  & span {
+    font-weight: 700;
+  }
+}

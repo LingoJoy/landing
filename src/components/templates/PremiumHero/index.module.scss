@@ -1,0 +1,614 @@
+@import "@styles/variables.scss";
+
+.wrapper {
+  background-color: $secondary-light-blue;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  max-width: 50%;
+  flex-wrap: wrap;
+}
+
+.headerContent img {
+  margin-right: 4px;
+}
+
+.headerTitle {
+  margin-right: 4px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+
+  color: $main-gray;
+}
+
+.headerTime {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.headerTimeBox {
+  display: flex;
+}
+
+.contentWrapper {
+  box-sizing: border-box;
+  padding: 52px 0;
+}
+
+.contentBox {
+  box-sizing: border-box;
+  padding: 0 12px;
+  max-width: 572px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.priceWrapper {
+  padding-bottom: 23px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chipWrapper {
+  box-sizing: border-box;
+  margin-bottom: 12px;
+
+  width: 161px;
+  height: 32px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 10px;
+
+  background: $secondary-yellow;
+  border: 1px solid $secondary-yellow;
+  border-radius: 12px;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.priceTitle {
+  max-width: 740px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 30px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.priceBox {
+  position: relative;
+  width: 351px;
+  height: 218px;
+  border-radius: 32px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.oldPriceBox {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 166px;
+  height: 156px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background: $white-color;
+  border-radius: 24px;
+
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.oldPriceTitle {
+  margin-bottom: 5px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+  text-decoration: none;
+
+  color: $main-black;
+
+  opacity: 0.5;
+}
+
+.oldPrice {
+  text-decoration: line-through;
+}
+
+.newPriceBox {
+  position: absolute;
+  right: 0;
+  width: 220px;
+  height: 218px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background: $secondary-yellow;
+  border-radius: 32px;
+
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.newPriceTitleBox {
+  font-weight: 700;
+  margin-bottom: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.newPriceTitleBox img {
+  margin-left: 2px;
+}
+
+.newPrice {
+  font-size: 18px;
+}
+
+.discountBox {
+  border-top-left-radius: 24px;
+  padding: 11px 11px 11px 27px;
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 113px;
+  height: 46px;
+  bottom: 0;
+  right: 0;
+
+  background: $white-color;
+
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+
+  color: $error;
+}
+
+.orderWrapper {
+  background: $white-color;
+  box-shadow: 0px -1px 0px $secondary-shadow;
+  border-radius: 24px;
+  padding: 17px 0 53px;
+}
+
+.terms {
+  margin: 16px 0 20px;
+
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: -0.5px;
+
+  color: $main-gray;
+}
+
+.terms a {
+  text-decoration: underline;
+
+  color: $main-gray;
+}
+
+.divider {
+  width: 100%;
+  height: 0.5px;
+  background-color: $main-border;
+}
+
+.orderTitle {
+  margin: 26px 0 25px;
+
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.ticketWrapper {
+  position: relative;
+  width: 350px;
+  margin: 38px auto;
+}
+
+.ticketWebBg,
+.ticketBg {
+  position: absolute;
+  top: 0;
+}
+
+.ticketWebBg {
+  display: none;
+}
+
+.indexBox {
+  position: relative;
+  z-index: 1;
+}
+
+.verticalDivider {
+  position: absolute;
+  height: 70px;
+  border-right: 1px dashed $main-border;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ticketBox {
+  padding: 21px 27px;
+  height: 70px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ticketItem {
+  display: flex;
+  align-items: center;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+
+  & svg {
+    margin-right: 4px;
+  }
+}
+
+.guaranteeTitle {
+  margin: 38px 0 30px;
+
+  text-align: center;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 30px;
+
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.paymentsWrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+  margin-top: 20px;
+  padding: 0 8px;
+}
+
+.usersWrapper {
+  padding: 40px 0;
+}
+
+.usersTitle {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 30px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.usersCardWrapper {
+  margin-top: 10px;
+}
+
+.guaranteeWrapper {
+  position: relative;
+  padding: 40px 37px;
+  box-sizing: border-box;
+  height: 400px;
+  width: 351px;
+  margin: 0 auto;
+}
+
+.guaranteeContentBox {
+  padding: 0 16px;
+}
+
+.guaranteeBG,
+.guaranteeWebBG {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.guaranteeWebBG {
+  display: none;
+}
+
+.guaranteeBox {
+  margin-top: 30px;
+}
+
+.guaranteeName {
+  margin-top: 5px;
+
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.guarantee {
+  margin-top: 8px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.link {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+
+  color: $main-blue;
+}
+
+.guaranteeIcon {
+  margin: 0 auto;
+}
+
+.cardWebBox {
+  display: none;
+  grid-template-columns: 1fr 1fr 1fr;
+  max-width: 1142px;
+  padding: 0 16px;
+  margin: 39px auto 78px;
+  gap: 30px;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .headerTitle {
+    font-size: 24px;
+    line-height: 24px;
+  }
+
+  .contentWrapper {
+    padding: 46px 0 168px;
+  }
+
+  .chipWrapper {
+    margin-bottom: 14px;
+  }
+
+  .priceTitle {
+    margin-bottom: 46px;
+
+    font-size: 36px;
+    line-height: 38px;
+  }
+
+  .priceWrapper {
+    padding-bottom: 74px;
+  }
+
+  .oldPriceTitle {
+    margin-bottom: 8px;
+
+    font-size: 32px;
+    line-height: 43px;
+  }
+
+  .oldPriceBox {
+    width: 280px;
+    height: 280px;
+    padding: 0 16px;
+  }
+
+  .oldPrice {
+    font-size: 42px;
+    line-height: 43px;
+  }
+
+  .newPriceBox {
+    width: 416px;
+    height: 392px;
+
+    font-size: 36px;
+    line-height: 43px;
+  }
+
+  .priceBox {
+    width: 633px;
+    height: 392px;
+  }
+
+  .newPriceTitleBox {
+    margin-bottom: 12px;
+
+    & img {
+      width: 36px;
+      height: auto;
+      margin-left: 6px;
+    }
+  }
+
+  .newPrice {
+    font-size: 28px;
+    line-height: 43px;
+  }
+
+  .discountBox {
+    width: 203px;
+    height: 83px;
+
+    font-size: 28px;
+    line-height: 28px;
+
+    border-top-left-radius: 60px;
+
+    padding: 28px 0 0 48px;
+  }
+
+  .orderWrapper {
+    padding: 32px 0 86px;
+  }
+
+  .terms {
+    margin: 14px 0 52px;
+
+    font-size: 14px;
+  }
+
+  .orderTitle {
+    margin: 52px 0 32px;
+
+    font-size: 32px;
+  }
+
+  .optionList {
+    & p {
+      font-size: 18px;
+      line-height: 22px;
+    }
+
+    & li {
+      margin-top: 24px;
+    }
+  }
+
+  .ticketWrapper {
+    width: 540px;
+    margin: 52px auto;
+  }
+
+  .ticketWebBg {
+    display: block;
+  }
+
+  .ticketBg,
+  .verticalDivider {
+    display: none;
+  }
+
+  .ticketBox {
+    padding: 21px 64px;
+  }
+
+  .guaranteeTitle {
+    margin: 0 0 30px;
+
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 32px;
+  }
+
+  .paymentsWrapper {
+    gap: 45px;
+  }
+
+  .usersTitle {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 28px;
+    margin: 0;
+    margin-top: 69px;
+  }
+}
+
+@media (min-width: 750px) {
+  .cardBox {
+    display: none;
+  }
+
+  .cardWebBox {
+    display: grid;
+  }
+
+  .guaranteeWebBG {
+    display: block;
+  }
+
+  .guaranteeBG {
+    display: none;
+  }
+
+  .guaranteeWrapper {
+    width: 100%;
+    max-width: 730px;
+    height: 450px;
+    padding: 63px 98px 119px 95px;
+  }
+
+  .guaranteeName {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 28px;
+    margin-top: 12px;
+  }
+
+  .guaranteeBox {
+    margin-top: 19px;
+  }
+
+  .guarantee {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 400;
+
+    & .link {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+}

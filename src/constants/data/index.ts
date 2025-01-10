@@ -1,7 +1,38 @@
+import { ReactNode } from 'react';
+import { ELocalization } from '../localization';
+import { ELocalizationQuestionnaire } from '../localizationQuestionnaire';
+
 export interface ISelectorData {
     id: number;
     icon: string;
-    title: string;
+    title: ELocalization;
+    value?: string;
+}
+
+export interface ISelectorQuestData {
+    id: number;
+    icon: string;
+    title: ELocalizationQuestionnaire;
+    value?: string;
+}
+
+export interface ISelectorValueData {
+    id: number;
+    icon: string;
+    value: string;
+}
+
+export interface ISelectorNodeData {
+    id: number;
+    icon: ReactNode;
+    title: ELocalization;
+}
+
+export interface ISelectorQuestNodeData {
+    id: number;
+    icon: ReactNode;
+    title: ELocalizationQuestionnaire;
+    value?: string;
 }
 
 export interface ISelectorBubblesData {
@@ -17,6 +48,7 @@ export interface ILevel {
     title: string;
     active: number;
     passive: number;
+    code: string;
 }
 
 export interface IUser {
@@ -29,17 +61,37 @@ export interface IUser {
     date: string;
 }
 
-export interface IPlan {
+export interface ICommentData {
     id: number;
-    title: string;
-    icon: string;
-    price: number;
-    discount?: number;
-    thenPrice?: number;
-    period: string;
-    periodPrice: number;
-    weeks: number;
+    image: string;
+    name: string;
+    country: string;
+    liked: number;
+    imageLiked: string;
+    nameLiked: string;
+    comment: string;
 }
 
+export interface IPreloadImagesData {
+    id: number;
+    icon: string;
+}
+
+export * from './language.data';
+export * from './motivation.data';
+export * from './aspect.data';
+export * from './notes.data';
+export * from './englishEnvironment.data';
+export * from './statement.data';
+export * from './vocabulary.data';
+export * from './age.data';
+export * from './children.data';
+export * from './time.data';
+export * from './analyze.data';
+export * from './pay.data';
 export * from './landing.data';
 export * from './premium.data';
+export * from './profile.data';
+export * from './newLanding.data';
+export * from './newPremium.data';
+export * from './paddle.data';

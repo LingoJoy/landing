@@ -1,0 +1,223 @@
+@import "@styles/variables.scss";
+
+.wrapper {
+  position: relative;
+  color: $white-color;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  overflow: hidden;
+}
+
+.logoWrapper {
+  position: absolute;
+  z-index: 1;
+  top: 13px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.progressWrapper {
+  padding-top: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 234px;
+}
+
+.contentWrapper {
+  padding: 82px 0 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 540px;
+  width: 94%;
+  margin: 0 auto;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 18px;
+
+  color: $main-black;
+}
+
+.description {
+  margin-top: 6px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+
+  color: $main-black;
+}
+
+.titleWrapper {
+  height: 36px;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.link {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: $main-blue;
+}
+
+.logoBox {
+  display: none;
+  justify-content: center;
+  padding: 10px;
+  background-color: $dark-black;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+.chartBox {
+  position: relative;
+  width: min-content;
+  margin: 0 auto;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+
+  letter-spacing: -0.5px;
+  color: $white-color;
+}
+
+.arrow {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background: inherit;
+  bottom: 0;
+  left: 50%;
+  transform: rotate(-45deg) translate(-50%, 50%);
+}
+
+.you {
+  position: absolute;
+  border-radius: 12px;
+  background-color: $secondary-green;
+  width: 54px;
+  height: 49px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  bottom: 35%;
+  left: 2%;
+}
+
+.users {
+  position: absolute;
+  border-radius: 12px;
+  background-color: $secondary-green;
+  width: 128px;
+  height: 49px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 10px;
+
+  top: 3%;
+  right: 4%;
+}
+
+.average {
+  position: absolute;
+  border-radius: 12px;
+  background-color: $dark-orange;
+  width: 128px;
+  height: 49px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  bottom: 43%;
+  right: 4%;
+}
+
+.time {
+  position: absolute;
+  bottom: 0%;
+  height: 41px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 38px 0 19px;
+
+  color: $main-gray;
+}
+
+@media (min-width: 600px) {
+  .logoBox {
+    display: flex;
+  }
+
+  .logoWrapper {
+    display: none;
+  }
+
+  .contentWrapper {
+    padding-top: 110px;
+    gap: 40px;
+  }
+
+  .title {
+    font-size: 36px;
+    line-height: 36px;
+  }
+
+  .titleWrapper {
+    justify-content: center;
+    margin-bottom: 24px;
+
+    & img {
+      height: 36px;
+    }
+  }
+
+  .description,
+  .link {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .chartBox {
+    & img {
+      width: 540px;
+    }
+  }
+
+  .you {
+    left: 4.5%;
+    bottom: 33%;
+  }
+
+  .users {
+    top: 10%;
+    right: 10%;
+  }
+
+  .average {
+    bottom: 42%;
+    right: 10%;
+  }
+
+  .time {
+    height: 62px;
+    padding-left: 38px;
+    padding-right: 84px;
+  }
+}

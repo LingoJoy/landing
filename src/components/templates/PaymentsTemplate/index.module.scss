@@ -1,0 +1,127 @@
+@import "@styles/variables.scss";
+
+.wrapper {
+  background-color: $white-color;
+  width: 100vw;
+  height: 100vh;
+}
+
+.headerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  margin: 13px 0 25px;
+  position: relative;
+}
+
+.headerBack {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.paymentsBox {
+  margin-top: 19px;
+  border-radius: 24px;
+  padding: 18px 14px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+
+  box-sizing: border-box;
+
+  background: $white-color;
+  border: 0.5px solid $main-border;
+}
+
+.paymentsTitleBox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+
+  & img {
+    margin-left: 4px;
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.paymentsPriceBox {
+  display: flex;
+
+  & svg {
+      margin-left: 6px;
+      width: 16px;
+      height: 16px;
+    }
+}
+
+.modalHeader {
+  padding: 22px 0 20px;
+}
+
+.optionsWrapper {
+  margin: 16px 0;
+}
+
+.textarea {
+  height: 154px;
+}
+
+.options {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+} 
+
+.options:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+.finishWrapper{
+  position: relative;
+  overflow: hidden;
+    height: 640px;
+
+    & img {
+      position: absolute;
+      width: 95%;
+      left: 50%;
+      top: -10%;
+      transform: translateX(-50%);
+    }
+}
+
+.finishDreamsWrapper{
+  width: 110%;
+  height: 100%;
+  position: absolute;
+  top: -35%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .wrapper {
+    height: auto;
+    background-color: $secondary-light-blue;
+  }
+
+  .modalHeader,
+  .webWrapper {
+    width: 503px;
+    margin: 0 auto;
+  }
+
+  .headerWrapper {
+    margin-top: 17px;
+  }
+
+  .card {
+    padding: 0;
+    padding-bottom: 40px;
+    height: 640px;
+  }
+}

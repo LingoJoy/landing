@@ -1,0 +1,55 @@
+@import "@styles/variables.scss";
+
+.headerProgressWrapper {
+  position: relative;
+  height: 6px;
+  width: 100%;
+}
+
+.progressLine {
+  height: 100%;
+  box-sizing: border-box;
+
+  background: $light-blue;
+  border: 0.5px solid $main-border;
+}
+
+.progressActiveLine {
+  height: 100%;
+  background-color: $main-blue;
+  position: absolute;
+  top: 0;
+}
+
+.counterProgressBox {
+  position: absolute;
+  width: 29px;
+  height: 14px;
+
+  bottom: -17px;
+
+  background: $main-blue;
+  border-radius: 30px;
+
+  font-weight: 400;
+  font-size: 9px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: -0.5px;
+
+  color: $white-color;
+
+  transform: translateX(-55%);
+}
+
+.counterProgressTriangle {
+  position: absolute;
+  top: -1px;
+  width: 0;
+  height: 0;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-bottom: 3px solid $main-blue;
+}
