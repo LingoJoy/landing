@@ -1,0 +1,20 @@
+@import "@styles/variables.scss";
+
+.item {
+  padding-bottom: 6px;
+}
+
+.list {
+  padding-left: 20px;
+}
+
+.text {
+  margin: 0;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}

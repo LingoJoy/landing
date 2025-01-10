@@ -1,0 +1,194 @@
+@import "@styles/variables.scss";
+
+.wrapper {
+  position: relative;
+  background-color: $white-color;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  overflow: auto;
+}
+
+.ellipseBox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.ellipse {
+  position: absolute;
+
+  width: 136%;
+  height: auto;
+  max-width: 1400px;
+  top: -195px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  & svg {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.logo {
+  position: absolute;
+  width: 44dvh;
+  max-width: 600px;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.logoWeb {
+  display: none;
+  position: absolute;
+  max-width: 486px;
+  width: 50dvh;
+  top: 13%;
+  left: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.contentWrapper {
+  padding: 36dvh 12px 70px;
+  position: relative;
+}
+
+.title {
+  margin-bottom: 10px;
+
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $secondary-black;
+}
+
+.description {
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-gray;
+}
+
+.percentage {
+  font-weight: 800;
+  font-size: 50px;
+  line-height: 20px;
+
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-blue;
+}
+
+.chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: fit-content;
+  height: 20px;
+  margin: 18px auto 8dvh;
+  padding: 0 8.5px;
+
+  background: $main-blue;
+  color: $white-color;
+  border-radius: 30px;
+
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+.logoBox {
+  display: none;
+  justify-content: center;
+  padding: 10px;
+  background-color: $dark-black;
+  position: relative;
+  z-index: 1;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 450px) {
+  .ellipse {
+    top: -300px;
+  }
+}
+
+@media (min-width: 600px) {
+  .logoBox {
+    display: flex;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .logoWeb {
+    display: block;
+  }
+
+  .title {
+    font-size: 38px;
+    line-height: 40px;
+  }
+
+  .description {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .contentWrapper {
+    padding-top: 55dvh;
+  }
+
+  .percentage {
+    font-size: 60px;
+  }
+
+  .chip {
+    margin-bottom: 2.8dvh;
+    font-size: 16px;
+    height: 28px;
+    width: 186px;
+  }
+}
+
+@media (min-width: 650px) {
+  .ellipse {
+    top: -400px;
+  }
+
+  .logo {
+    top: 40px;
+    transform: translateX(-50%) rotate(45deg);
+  }
+}
+
+@media (min-width: 700px) {
+  .ellipse {
+    top: -500px;
+  }
+}
+
+@media (min-width: 800px) {
+  .ellipse {
+    top: -600px;
+  }
+
+  .logo {
+    top: 77px;
+  }
+}

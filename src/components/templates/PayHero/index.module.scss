@@ -1,0 +1,235 @@
+@import "@styles/variables.scss";
+
+.wrapper {
+  position: relative;
+  background-color: $white-color;
+
+  overflow: hidden;
+}
+
+.ellipse {
+  position: absolute;
+
+  width: 136%;
+  height: auto;
+  max-width: 1400px;
+  top: -195px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  & svg {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.logoWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  position: absolute;
+  z-index: 1;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.centerWrapper {
+  position: absolute;
+  z-index: 1;
+  top: 94px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.centerImageBox {
+  position: absolute;
+  top: 5dvh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  justify-content: center;
+}
+
+.centerImage {
+  width: 60dvh;
+}
+
+.contentWrapper {
+  padding-top: 55dvh;
+  padding-bottom: 100px;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 590px;
+  text-align: center;
+  position: relative;
+}
+
+.title {
+  margin-bottom: 12px;
+
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: -0.5px;
+  text-align: center;
+
+  color: $secondary-black;
+}
+
+.description {
+  width: 88.5%;
+  margin: 0 auto;
+  margin-bottom: 24px;
+
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.discountWrapper {
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
+  transform: rotate(15deg);
+}
+
+.attention {
+  margin: 16px 0;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 22px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $error;
+}
+
+.link {
+  cursor: pointer;
+  margin-top: 18px;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-gray;
+}
+
+.link:hover {
+  color: $main-blue;
+}
+
+.logoBox {
+  display: none;
+  justify-content: center;
+  padding: 10px;
+  background-color: $dark-black;
+  position: relative;
+  z-index: 1;
+}
+
+.footerWrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: $white-color;
+  padding: 20px 0;
+}
+
+.footerBox {
+  width: 100%;
+  max-width: 375px;
+  padding: 0 12px;
+  margin: 0 auto;
+}
+
+.shortDescription {
+  color: $main-gray;
+  cursor: pointer;
+  margin: 0;
+  width: 100%;
+  margin-top: 18px;
+  font-size: 14px;
+}
+
+.shortDescription:hover {
+  color: $main-blue;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 450px) {
+  .ellipse {
+    top: -300px;
+  }
+
+  .discountWrapper {
+    right: 20%;
+  }
+}
+
+@media (min-width: 600px) {
+  .logoBox {
+    display: flex;
+  }
+
+  .logoWrapper {
+    display: none;
+  }
+
+  .title {
+    font-size: 38px;
+    line-height: 40px;
+    margin-bottom: 26px;
+  }
+
+  .description {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .attention {
+    font-size: 18px;
+  }
+
+  .mobileFooter {
+    display: none;
+  }
+
+  .centerImageBox {
+    top: 10dvh;
+    transform: translate(-50%, -7%);
+  }
+
+  .discountWrapper {
+    bottom: 16%;
+  }
+}
+
+@media (min-width: 650px) {
+  .ellipse {
+    top: -400px;
+  }
+}
+
+@media (min-width: 700px) {
+  .ellipse {
+    top: -500px;
+  }
+}
+
+@media (min-width: 800px) {
+  .ellipse {
+    top: -600px;
+  }
+}

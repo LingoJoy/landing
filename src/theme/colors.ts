@@ -1,0 +1,17 @@
+export const colors = {
+  white: "#ffffff",
+  mainBlue: "#3f97ff",
+  mainBlueHoverColor: "#3f97ff",
+  lightBlue: "#d8e2f1",
+  mainGray: "#6e6e6e",
+  whiteColor: "#ffffff",
+  mainBlack: "#303030",
+  secondaryColor: "#6c757d",
+  secondaryHoverColor: "#5a6268",
+  success: "#a4eac1",
+  successTextColor: "#219653",
+  warningBgColor: "#ffd6bf",
+  warningTextColor: "#ac6f4c",
+  mainBorder: "#cdd2d9",
+  mainOrange: "#f7dbbb",
+};

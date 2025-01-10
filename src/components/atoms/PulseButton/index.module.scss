@@ -1,0 +1,31 @@
+@import "@styles/variables.scss";
+
+@keyframes pulse {
+  100% {
+    box-shadow: 0 0 0 8px transparent;
+  }
+}
+
+.button {
+  border-radius: 30px;
+  transform: scale(1);
+  transition: transform 0.1s ease-in-out;
+  padding: 12px 24px;
+  animation: pulse 1.25s cubic-bezier(0.66, 0, 0, 1) infinite;
+  background: $main-blue;
+  box-shadow: 0 0 0 0 $main-blue;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 0.5px;
+
+  color: $white-color;
+}
+
+.button:disabled {
+  box-shadow: none;
+  animation: none;
+  background-color: $main-border;
+}

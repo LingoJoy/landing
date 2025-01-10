@@ -1,0 +1,98 @@
+export const lessons = [
+  {
+    _id: "669a7e8432e1db69c41131a7",
+    title: {
+      en: "Lesson 1",
+      es: "Lesson 1 es",
+    },
+    course: "669a7e7032e1db69c41131a3",
+    level: "B2",
+    imageURL:
+      "https://ios-data-eu-central-1.s3.eu-central-1.amazonaws.com/image/1721400614342_%40PNG-3.png",
+    exercises: [
+      {
+        _id: "669a7ec132e1db69c41131ac",
+        lesson: "669a7e8432e1db69c41131a7",
+        type: "swipe_learn_card",
+        __t: "ExerciseWord",
+        word: "Apple ",
+        desc: {
+          en: "fruit",
+          es: "fruit",
+        },
+        imageURL:
+          "https://ios-data-eu-central-1.s3.eu-central-1.amazonaws.com/image/1721400614342_%40PNG-3.png",
+        createdAt: "2024-07-19T14:57:05.538Z",
+        updatedAt: "2024-07-19T14:57:05.538Z",
+        __v: 0,
+      },
+      {
+        _id: "669a7eea32e1db69c41131af",
+        lesson: "669a7e8432e1db69c41131a7",
+        type: "choose_correct_word",
+        __t: "ExerciseChooseTwo",
+        correctAnswerIndex: 0,
+        chooses: ["Apple", "Banan"],
+        imageURL:
+          "https://ios-data-eu-central-1.s3.eu-central-1.amazonaws.com/image/1721400614342_%40PNG-3.png",
+        createdAt: "2024-07-19T14:57:46.846Z",
+        updatedAt: "2024-07-19T14:57:46.846Z",
+        __v: 0,
+      },
+      {
+        _id: "669a809880f15db0781c56de",
+        lesson: "669a7e8432e1db69c41131a7",
+        type: "put_correct_word",
+        __t: "ExercisePutCorrectWord",
+        putWordText: "I drive a  _ ",
+        correctAnswerIndex: 0,
+        chooses: ["Car", "Banan"],
+        createdAt: "2024-07-19T15:04:56.465Z",
+        updatedAt: "2024-07-19T15:04:56.465Z",
+        __v: 0,
+      },
+      {
+        _id: "669a824d80c97138e650b44c",
+        lesson: "669a7e8432e1db69c41131a7",
+        type: "make_sentence_fromaudio",
+        __t: "ExerciseMakeSentenceFromAudioWord",
+        correctText: "I am your father",
+        chooses: ["I", "am", "your", "father", "mother"],
+        createdAt: "2024-07-19T15:12:13.877Z",
+        updatedAt: "2024-07-19T15:12:13.877Z",
+        __v: 0,
+        audioURL:
+          "https://ios-data-eu-central-1.s3.eu-central-1.amazonaws.com/image/1721400614342_%40PNG-3.png",
+      },
+      {
+        _id: "669a82b580c97138e650b451",
+        lesson: "669a7e8432e1db69c41131a7",
+        type: "choose_sentence_fromaudio",
+        __t: "ExerciseChooseSentenceFromAudioWord",
+        correctAnswerIndex: 0,
+        chooses: ["I am your father", "I am your father"],
+        audioURL:
+          "https://ios-data-eu-central-1.s3.eu-central-1.amazonaws.com/audio/1721401749523_i_am_your_father.mp3",
+        createdAt: "2024-07-19T15:13:57.657Z",
+        updatedAt: "2024-07-19T15:13:57.657Z",
+        __v: 0,
+      },
+      {
+        _id: "669a83b312f50f862d3ca7c6",
+        lesson: "669a7e8432e1db69c41131a7",
+        type: "type_word_insentence",
+        __t: "ExerciseTypeWordInsentence",
+        text: "How _ you? ",
+        missWord: "are",
+        imageURL:
+          "https://ios-data-eu-central-1.s3.eu-central-1.amazonaws.com/image/1721400614342_%40PNG-3.png",
+        createdAt: "2024-07-19T15:18:11.831Z",
+        updatedAt: "2024-07-19T15:18:11.831Z",
+        __v: 0,
+      },
+    ],
+    createdAt: "2024-07-19T14:56:04.165Z",
+    updatedAt: "2024-07-19T15:18:11.842Z",
+    __v: 0,
+  },
+];

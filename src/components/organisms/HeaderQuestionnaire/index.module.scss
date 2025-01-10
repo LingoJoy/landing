@@ -1,0 +1,65 @@
+@import "@styles/variables.scss";
+
+.wrapper {
+  box-sizing: border-box;
+  padding: 8px 12px 11px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: $white-color;
+  box-shadow: 0px 4px 8px $secondary-light-shadow;
+}
+
+.box {
+  width: 100%;
+  margin-top: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button {
+  width: 130px !important;
+  height: 44px !important;
+}
+
+.logoBox {
+  display: none;
+  justify-content: center;
+  padding: 10px;
+  background-color: $dark-black;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .logoBox {
+    display: flex;
+  }
+
+  .logoWrapper {
+    display: none;
+  }
+
+  .wrapper {
+    padding: 0;
+  }
+
+  .box {
+    max-width: 730px;
+    width: 100%;
+    padding: 10px 0;
+    margin: 0 auto;
+  }
+
+  .button {
+    width: 255px !important;
+    height: 50px !important;
+    font-size: 1.25rem !important;
+  }
+}

@@ -1,0 +1,68 @@
+@import "@styles/variables.scss";
+
+* {
+  scroll-behavior: smooth;
+}
+
+html {
+  height: -webkit-fill-available;
+}
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+svg,
+img {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-left: 0px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+button {
+  font-style: normal;
+  font-family: inherit;
+
+  cursor: pointer;
+  border: none;
+}
+
+time-swiper global classes .swiper {
+  width: auto;
+  height: auto;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: $secondary-light-blue;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $main-blue;
+  border-radius: 5px;
+}

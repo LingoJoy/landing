@@ -1,0 +1,157 @@
+@import "@styles/variables.scss";
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0;
+  background: $modal-bg;
+  transition: opacity 250ms ease-out;
+}
+
+.open {
+  opacity: 1;
+  z-index: 1101;
+}
+
+.wrapper {
+  width: 100%;
+  padding: 12px;
+  padding-bottom: 20px;
+  height: 100%;
+  position: relative;
+  transition: all 250ms ease-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.paper {
+  width: 100%;
+  background: $white-color;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 563px;
+  margin: 0 auto;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.cancel {
+  display: block;
+  width: 100%;
+  max-width: 563px;
+  margin: 8px auto 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 10px;
+
+  background: $white-color;
+  border-radius: 24px;
+
+  font-size: 16px;
+  line-height: 19px;
+
+  color: $main-black;
+}
+
+.level {
+  background: $white-color;
+  padding: 16px 0;
+
+  border-bottom: 0.5px solid $main-border;
+
+  & p {
+    font-size: 16px;
+    line-height: 19px;
+    color: $main-black;
+
+    & span {
+      color: $input-text;
+    }
+  }
+
+  & .back {
+    display: none;
+  }
+}
+
+.header {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px 13px;
+  border-bottom: 0.5px solid $main-border;
+
+  & p {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.5px;
+
+    color: $main-black;
+  }
+}
+
+.close {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.5px solid $main-border;
+  border-radius: 100%;
+  background: transparent;
+
+  & svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+.optionBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.close:active,
+.level:active {
+  background-color: $main-border;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .cancel {
+    display: none;
+  }
+
+  .wrapper {
+    justify-content: left;
+    padding-top: 118px;
+  }
+
+  .header {
+    display: flex;
+  }
+
+  .level {
+    padding: 18.5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    & .back {
+      display: block;
+    }
+  }
+
+  .optionBox {
+    padding: 0 30px;
+  }
+}

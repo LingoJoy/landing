@@ -1,0 +1,43 @@
+@import "@styles/variables.scss";
+
+.cardBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-height: 250px;
+  border: 1px solid $main-border;
+  border-radius: 20px;
+
+  img {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    max-width: 238px;
+    width: 100%;
+    margin-top: 15px;
+    min-height: 175px;
+    object-fit: cover;
+    object-position: top;
+  }
+}
+
+.cardAudioBox {
+  padding: 16px 0px;
+  width: 100%;
+  max-width: 220px;
+  margin-left: 5px;
+}
+
+.activeOption {
+  background-color: $secondary-light-blue !important;
+}
+
+.correctOption {
+  border-color: $main-green !important;
+  background-color: $success !important;
+  color: $success-text-color !important;
+}
+
+.option {
+  max-height: fit-content !important;
+}

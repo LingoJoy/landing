@@ -1,0 +1,63 @@
+@import "@styles/variables.scss";
+
+.wrapper {
+  background-color: $white-color;
+  width: 100vw;
+  height: 100vh;
+}
+
+.modalHeader {
+  padding: 22px 0 20px;
+}
+
+.optionWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 12px 0;
+  cursor: pointer;
+
+  & button {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.optionBox {
+  display: flex;
+  align-items: center;
+
+  & img {
+    margin-right: 10px;
+  }
+}
+
+.optionChip {
+  width: 68px;
+  height: 16px;
+}
+
+.webWrapper {
+  overflow: auto;
+  max-height: calc(100vh - 100px);
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .wrapper {
+    height: auto;
+    background-color: $secondary-light-blue;
+  }
+
+  .modalHeader, .webWrapper {
+    width: 503px;
+    margin: 0 auto;
+  }
+
+  .card {
+    padding: 0;
+    height: auto;
+    min-height: auto;
+    padding-bottom: 40px;
+  }
+}

@@ -1,0 +1,172 @@
+@import "@styles/variables.scss";
+
+.chatInputWrapper {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.input {
+  outline: none;
+  box-sizing: border-box;
+  padding: 15px;
+  padding-right: 44px;
+
+  width: 100%;
+  height: 50px;
+
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(5px);
+  border-radius: 30px;
+  border: none;
+
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.input::placeholder {
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: -0.5px;
+
+  color: $input-text;
+}
+
+.chatAudioWrapper {
+  box-sizing: border-box;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 50px;
+
+  background: $white-color;
+  backdrop-filter: blur(5px);
+  border-radius: 30px;
+}
+
+.chatIconBtn {
+  position: absolute !important;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 !important;
+
+  & path {
+    fill: $main-black;
+  }
+}
+
+.chatCloseBtn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.5px solid $main-border !important;
+  padding: 0 !important;
+  border-radius: 100%;
+  background: transparent;
+  cursor: pointer;
+
+  & svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+.chatSendBtn {
+  position: absolute !important;
+  width: 40px;
+  height: 40px;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 !important;
+  background-color: $main-blue !important;
+
+  & path {
+    fill: $white-color;
+  }
+}
+
+.chatSendDisabledBtn {
+  position: absolute !important;
+  width: 40px;
+  height: 40px;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 !important;
+  background-color: $main-border !important;
+
+  & path {
+    fill: $white-color;
+  }
+}
+
+.chatPauseBtn {
+  width: 40px;
+  height: 40px;
+  padding: 0 !important;
+  background-color: $main-blue !important;
+
+  & path {
+    fill: $white-color;
+  }
+}
+
+.time {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 13px;
+  letter-spacing: -0.5px;
+  color: $main-black;
+}
+
+.timeBox {
+  display: flex;
+  align-items: center;
+}
+
+.timeRound {
+  width: 8px;
+  height: 8px;
+  margin-right: 6px;
+  border-radius: 100%;
+  background: $error;
+}
+
+.chatLoaderWrapper {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: $main-border;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chatLoader {
+  width: 24px;
+  aspect-ratio: 1;
+  display: grid;
+  border: 4px solid $main-border;
+  border-radius: 50%;
+  border-right-color: $white-color;
+  animation: l15 1s infinite linear;
+}
+
+@keyframes l15 {
+  100% {
+    transform: rotate(1turn);
+  }
+}

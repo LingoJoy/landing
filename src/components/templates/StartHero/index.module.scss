@@ -1,0 +1,204 @@
+@import "@styles/variables.scss";
+
+.wrapper {
+  position: relative;
+  width: 100vw;
+  background-color: $white-color;
+
+  overflow: hidden;
+}
+
+.ellipse {
+  & svg {
+    position: absolute;
+
+    max-width: 1328px;
+    width: 136%;
+    top: -115px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.centerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-top: 3vh;
+}
+
+.logoWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 5vh;
+
+  & svg {
+    height: 5vh;
+  }
+}
+
+.leftCenterImage {
+  height: 40vh;
+}
+
+.contentWrapper {
+  padding: 2vh 10px;
+
+  margin: 0 auto;
+  position: relative;
+}
+
+.title {
+  margin-bottom: 2vh;
+
+  font-weight: 900;
+  font-size: 28px;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $secondary-black;
+}
+
+.description {
+  max-width: 275px;
+  margin: 0 auto;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-gray;
+}
+
+.link {
+  margin-top: 3vh;
+
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-gray;
+}
+
+.agreements {
+  margin-top: 4vh;
+
+  font-size: 9px;
+  line-height: 14px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-gray;
+}
+
+.agreementsLink {
+  text-decoration: underline;
+  color: $main-gray;
+}
+
+.button {
+  display: block;
+  max-width: 351px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.bottomWrapper {
+  padding-bottom: 24px;
+
+  & button {
+    width: 100%;
+  }
+}
+
+@media (min-width: 400px) {
+  .ellipse {
+    & svg {
+      top: -200px;
+    }
+  }
+}
+
+@media (min-width: 450px) {
+  .ellipse {
+    & svg {
+      top: -250px;
+    }
+  }
+}
+
+@media (min-width: 550px) {
+  .ellipse {
+    & svg {
+      top: -300px;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .title {
+    font-size: 48px;
+    line-height: 48px;
+  }
+
+  .description {
+    font-size: 24px;
+    line-height: 28px;
+    max-width: 360px;
+  }
+
+  .agreements {
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .ellipse {
+    & svg {
+      top: -350px;
+    }
+  }
+}
+
+@media (min-width: 650px) {
+  .ellipse {
+    & svg {
+      top: -400px;
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .ellipse {
+    & svg {
+      top: -500px;
+    }
+  }
+}
+
+@media (min-width: 800px) {
+  .ellipse {
+    & svg {
+      top: -650px;
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  .ellipse {
+    & svg {
+      top: -700px;
+    }
+  }
+
+  .logoWrapper {
+    & svg {
+      width: 180px;
+    }
+  }
+}

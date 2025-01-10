@@ -1,0 +1,72 @@
+@import "@styles/variables.scss";
+
+.app_lato {
+  font-family: "Lato", sans-serif;
+}
+
+.header_header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: $white-color;
+  box-shadow: 0 4px 20px $main-dark-shadow;
+}
+
+.app_content_bg {
+  min-height: calc(100vh - 83px);
+  background-color: $secondary-light-blue;
+}
+
+.terms_and_conditions_wrapper {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 20px;
+}
+
+.terms_and_conditions_wrapper a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.terms_and_conditions_wrapper .title {
+  padding: 50px 0;
+  font-weight: 800;
+  font-size: 24px;
+  margin: 0;
+}
+
+.terms_and_conditions_wrapper .paragraph {
+  line-height: 30px;
+}
+
+.terms_and_conditions_wrapper .paragraph:not(:last-child) {
+  margin-bottom: 100px;
+}
+
+.terms_and_conditions_wrapper .mail_link {
+  color: $main-blue;
+  text-decoration: none;
+}
+
+.terms_and_conditions_wrapper__black .mail_link {
+  color: $extra-black;
+  font-weight: 800;
+}
+
+@media (max-width: 767px) {
+  .app_content_bg {
+    min-height: calc(100vh - 53px);
+  }
+
+  .header_header {
+    padding: 5px 20px;
+  }
+
+  .terms_and_conditions_wrapper {
+    padding: 20px;
+  }
+}

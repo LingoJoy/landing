@@ -1,0 +1,123 @@
+@import "@styles/variables.scss";
+
+.container {
+  display: flex;
+  width: 100%;
+  max-width: 375px;
+  flex-direction: row;
+  touch-action: none !important;
+  padding: 0 12px;
+  height: 80%;
+}
+
+.wordsContainer,
+.imagesContainer {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.wordBox {
+  display: flex;
+  margin-bottom: 8px;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 150px;
+  padding: 16px;
+  align-items: center !important;
+  border-radius: 30px !important;
+  border: 1px solid #ccc;
+
+  text-align: center !important;
+
+  background-color: #e4ebf3;
+}
+
+.cardText {
+  font-size: 12px !important;
+  color: #6e6e6e;
+  margin-bottom: 10px !important;
+}
+.status {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background-color: $white-color;
+  max-height: 20px !important;
+  border-radius: 30px !important;
+  padding: 4px 8px 4px 0px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    fill: #48af5f !important;
+  }
+}
+
+.wordBox.over {
+  background-color: #e0e0e0;
+}
+
+.wordBox.matched {
+  background-color: #d4edda;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  will-change: transform;
+}
+
+.imageBox {
+  display: flex;
+  align-items: center !important;
+  cursor: grab;
+  padding-bottom: 10px;
+}
+
+.imageBox.dragging {
+  opacity: 0.5;
+}
+
+.image {
+  width: 100%;
+  max-width: 150px;
+  height: 100%;
+  border-radius: 30px;
+  object-fit: fill !important;
+}
+
+.imageSmall {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  object-fit: fill !important;
+  transition: transform 0.3s ease;
+}
+
+.imagesContainer {
+  padding-left: 8px;
+}
+
+@media (max-width: 425px) {
+  .wordsContainer,
+  .imagesContainer {
+    width: 50%;
+  }
+}
+
+@media (min-width: 600px) {
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .cardText {
+    margin-top: 16px !important;
+  }
+}

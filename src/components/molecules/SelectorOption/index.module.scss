@@ -1,0 +1,62 @@
+@import "@styles/variables.scss";
+
+.optionWrapper {
+  margin-top: 4px;
+  width: 100%;
+  height: 50px;
+  padding: 9px 16px;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  background: $white-color;
+  border: 0.5px solid $main-border;
+  border-radius: 30px;
+}
+
+.optionWrapper:first-child {
+  margin-top: 0;
+}
+
+.optionWrapper:active {
+  background-color: $secondary-light-blue;
+}
+
+.optionIcon {
+  width: 20px;
+  height: 20px;
+
+  margin-right: 10px;
+
+  flex-shrink: 0;
+}
+
+.optionTitle {
+  flex-shrink: 0;
+  text-align: left;
+
+  max-width: 100%;
+
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.infoWrapper {
+  display: flex;
+  align-items: center;
+
+  max-width: calc(100% - 88px);
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .optionTitle {
+    font-size: 18px;
+  }
+}

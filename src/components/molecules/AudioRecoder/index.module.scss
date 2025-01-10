@@ -1,0 +1,29 @@
+@import "@styles/variables.scss";
+
+.shadowWrapper {
+  background:  $main-border;
+  border-radius: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s linear;
+}
+
+.wrapper {
+  width: 100px;
+  height: 100px;
+
+  background: $input-text;
+  border-radius: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shadowActive {
+  background: $blue-shadow;
+}
+
+.wrapperActive {
+  background:  $main-blue;
+}

@@ -1,0 +1,46 @@
+@import "@styles/variables.scss";
+
+.cardWrapper {
+  width: 350px;
+  height: 300px;
+  border-radius: 32px;
+  position: relative;
+}
+
+.cardCommentImg {
+  position: absolute;
+  z-index: 1;
+  top: -9px;
+  left: -8px;
+
+  svg {
+    max-width: 425px;
+  }
+
+  @media (max-width: 320px) {
+    top: -19px;
+    left: -7px;
+
+    svg {
+      width: 286px;
+    }
+  }
+  @media (max-width: 385px) {
+    top: -19px;
+    left: -8px;
+
+    svg {
+      max-width: 360px;
+    }
+  }
+}
+
+.cardContent {
+  height: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}

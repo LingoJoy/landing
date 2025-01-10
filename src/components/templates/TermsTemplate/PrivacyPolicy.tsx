@@ -1,24 +1,25 @@
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import { Box } from "@mui/material";
 
-import Logo from "../../icons/Logo";
+import LogoIcon from "@/components/atoms/icons/LogoIcon";
 
 import { ERoutes } from "../../../constants";
 
-import styles from "./index.module.css";
+import styles from "./index.module.scss";
 
 const PrivacyPolicy = () => {
   const navigate = useNavigate();
 
   return (
-    <div className={styles.app_lato}>
-      <div className={styles.header_header}>
-        <span onClick={() => navigate(ERoutes.START)}>
-          <Logo width="180" height="54" />
+    <Box className={styles.app_lato}>
+      <Box className={styles.header_header}>
+        <span onClick={() => navigate(ERoutes.LANDING)}>
+          <LogoIcon width="180" height="54" />
         </span>
-      </div>
-      <main className={styles.app_content_bg}>
-        <div className={styles.terms_and_conditions_wrapper}>
+      </Box>
+      <Box className={styles.app_content_bg}>
+        <Box className={styles.terms_and_conditions_wrapper}>
           <h1 className={styles.title}>IMPORTANT PRIVACY INFORMATION</h1>
           <strong>
             To use our service, we require you to enter your name, email, and
@@ -230,13 +231,13 @@ const PrivacyPolicy = () => {
             A cookie is a small text file stored on a user's computer for
             record-keeping purposes. Cookies can be either session cookies,
             which expire when you close your browser, or persistent cookies,
-            which remain on your hard drive for an extended period. We also use
+            which reBox on your hard drive for an extended period. We also use
             tracking pixels that set cookies to assist with delivering online
             advertising. Cookies help us automatically recognize you on future
             visits to our website, making it easier to navigate our Service and
             enabling certain fields to auto-fill based on previous entries.
-            Cookie data is stored on your device and typically remains there
-            only for a limited time.
+            Cookie data is stored on your device and typically reBoxs there only
+            for a limited time.
             <br />
             <br />
             3. FOR WHAT PURPOSES WE PROCESS YOUR PERSONAL DATA
@@ -322,7 +323,7 @@ const PrivacyPolicy = () => {
             3.5 To research and analyze your use of the Service
             <br />
             This helps us better understand our business, analyze operations,
-            maintain, improve, innovate, plan, design, and develop the Service
+            Boxtain, improve, innovate, plan, design, and develop the Service
             and new products. We also use this data for statistical analysis,
             testing, and improving our offers. Understanding user behavior
             allows us to enhance the Service. For example, if a feature is
@@ -606,7 +607,7 @@ const PrivacyPolicy = () => {
             business assets in these types of transactions. We may also share
             such information with any affiliated entity (e.g., parent company or
             subsidiary) and may transfer such information during a corporate
-            transaction, such as the sale of our business, a divestiture,
+            transaction, such as the sale of our business, a Boxestiture,
             merger, consolidation, or asset sale, or in the unlikely event of
             bankruptcy.
             <br />
@@ -746,9 +747,9 @@ const PrivacyPolicy = () => {
             <br />
             Effective as of: 24 September 2023
           </p>
-        </div>
-      </main>
-    </div>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

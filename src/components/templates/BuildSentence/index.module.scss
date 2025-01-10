@@ -1,0 +1,86 @@
+@import "@styles/variables.scss";
+
+.cardWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 30px;
+  margin-bottom: 28px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+  }
+}
+
+.answerWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $main-border;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+  font-size: 20px;
+  width: 100%;
+  padding: 20px 0;
+  background-color: $white-color;
+}
+
+.cardBox {
+  background: $main-orange;
+}
+
+.task {
+  text-align: center;
+  color: $main-gray;
+}
+
+.wordWrapper {
+  margin-top: 13px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 30px;
+}
+
+.wordOption {
+  margin-bottom: 10px;
+  cursor: pointer;
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
+.cardField {
+  margin: 0 6px;
+}
+
+.sentenceBox {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.doNotKnow {
+  margin: 27px 0;
+  color: $main-blue;
+  display: flex;
+  justify-content: center;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .cardImgMobile {
+    display: none;
+  }
+
+  .cardImgDesktop {
+    display: block;
+    width: auto !important;
+  }
+
+  .cardWrapper {
+    background: $main-purple;
+  }
+}
