@@ -32,6 +32,7 @@ export enum EUrls {
     HOME_POPULAR = '/home/phrase',
     CONTACT_US = '/support/contactus',
     CONTAINERS = '/containers',
+    GOOGLE_SPEECH_TRANSCRIBE = '/speech-recognition/transcribe',
 }
 
 export enum EPayUrls {

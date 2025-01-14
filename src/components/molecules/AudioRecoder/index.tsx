@@ -3,6 +3,7 @@ import React, { FC, useEffect, useState } from "react";
 import { Box } from "@mui/material";
 
 import Microphone from "@/assets/microphone.svg";
+import { useGoogleSpeech } from "@/hooks/audio/useGoogleSpeech";
 
 import styles from "./index.module.scss";
 
@@ -44,28 +45,41 @@ const AudioRecoder: FC<IProp> = ({ onTranscription, values }) => {
   const [pulse, setPulse] = useState(0);
   const [listening, setListening] = useState(false);
   const [stream, setStream] = useState<MediaStream | null>(null);
+  const [, setIsLoadGoogle] = useState(false);
+  const {
+    startRecordingGoogle,
+    fetchRecordingGoogle,
+    stopRecordingGoogle,
+  } = useGoogleSpeech();
 
   const startListening = async () => {
     handleMedia();
     setListening(true);
     recognition?.start();
+    startRecordingGoogle();
 
     if (recognition) {
-      recognition.onresult = (event) => {
-        const word = event.results[0][0].transcript;
-        onTranscription(word);
-      };
+      // recognition.onresult = (event) => {
+      //   const word = event.results[0][0].transcript;
+      //   onTranscription(word);
+      // };
     }
   };
 
   const stopListening = async () => {
     recognition?.stop();
 
+    stopRecordingGoogle();
     setListening(false);
     if (stream)
       stream.getTracks().forEach(function (track) {
         track.stop();
       });
+
+    await fetchRecordingGoogle({
+      setTranscript: onTranscription,
+      setIsLoad: setIsLoadGoogle,
+    });
   };
 
   const handleMedia = async () => {
