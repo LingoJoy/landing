@@ -93,7 +93,7 @@ export const Speaking: React.FC<IProps> = ({ exercise, isMistake }) => {
                               fontSize: "1.5rem",
                               lineHeight: "1.25rem",
                               textAlign: "center",
-                              color: transcription.includes(el)
+                              color: transcription.includes(el.toLowerCase())
                                 ? "#3F97FF"
                                 : "#303030",
                             }}

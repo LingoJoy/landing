@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import io, { Socket } from "socket.io-client";
+import { AxiosError } from "axios";
 import { Box, Button, IconButton } from "@mui/material";
 
 import AutoHeightWrapper from "@/components/organisms/AutoHeightWrapper";
@@ -10,6 +11,8 @@ import Modal from "@/components/atoms/Modal";
 import Sidebar from "@/components/atoms/Sidebar";
 import ModalAIContent from "@/components/organisms/modals/ModalAIContent";
 import AIChatInput from "@/components/organisms/AIChatInput";
+import { useAlert } from "@/components/organisms/AlertMessage";
+import EndTrialPeriodModal from "@/components/organisms/modals/EndTrialPeriodModal";
 
 import Union from "@/assets/Union.svg";
 import Volume from "@/assets/volume-high.svg";
@@ -19,7 +22,7 @@ import { ELocalization, ERoutes, EUrls } from "@/constants";
 import axiosInter, { getToken } from "@/utils/AxiosConfig";
 import { getLocalization } from "@/store/localization";
 
-import { IMessage, TAgent, TAgentResponse } from "@/types";
+import { EDefaultAxiosError, IAxiosError, IMessage, TAgent, TAgentResponse } from "@/types";
 
 import styles from "./index.module.scss";
 
@@ -40,6 +43,9 @@ const Chat = () => {
   const messageRef = useRef<HTMLDivElement>(null);
   const vidRef = useRef<HTMLVideoElement>(null);
   const socketRef = useRef<Socket>();
+  const [modalEndFreePeriod, setModalEndFreePeriod] = useState(false);
+
+  const { showAlert } = useAlert();
 
   const localization = useSelector(getLocalization);
 
@@ -64,7 +70,15 @@ const Chat = () => {
       setAgents(data);
       handleActiveAgent(data[0]);
     } catch (error) {
-      console.error(error);
+      const err = error as AxiosError;
+      const errData = err?.response?.data as IAxiosError;
+
+      console.log('log: getAgents setModalEndFreePeriod', err, errData?.message);
+      if (err?.response?.status === 403 && errData?.message === EDefaultAxiosError.NEED_SUBSCRIPTION) {
+        setModalEndFreePeriod(true);
+      } else {
+        showAlert(false, localization[ELocalization.SOMETHING_WRONG]);
+      }
     }
   };
 
@@ -208,9 +222,8 @@ const Chat = () => {
               <Box className={styles.chatShadow} />
               {messages.map((el, i) => (
                 <Box
-                  className={`${styles.chat} ${
-                    el.role === "user" ? styles.chatOptionUser : ""
-                  }`}
+                  className={`${styles.chat} ${el.role === "user" ? styles.chatOptionUser : ""
+                    }`}
                   key={`message-${i}`}
                 >
                   {el.content}
@@ -232,9 +245,8 @@ const Chat = () => {
               </p>
               {options.length > 0 && (
                 <Box
-                  className={`${styles.chatOptionBox} ${
-                    !showPhrases ? styles.chatOptionClosed : ""
-                  }`}
+                  className={`${styles.chatOptionBox} ${!showPhrases ? styles.chatOptionClosed : ""
+                    }`}
                 >
                   {options.map((el, i) => (
                     <Button
@@ -274,8 +286,8 @@ const Chat = () => {
               agent={agent}
               agents={agents}
               onClick={handleActiveAgent}
-              // onShowModal={() => setShowUploadModal(true)}
-              // onDelete={handleDeleteAgent}
+            // onShowModal={() => setShowUploadModal(true)}
+            // onDelete={handleDeleteAgent}
             />
           )}
         </Modal>
@@ -287,12 +299,18 @@ const Chat = () => {
               agent={agent}
               agents={agents}
               onClick={handleActiveAgent}
-              // onShowModal={() => setShowUploadModal(true)}
-              // onDelete={handleDeleteAgent}
+            // onShowModal={() => setShowUploadModal(true)}
+            // onDelete={handleDeleteAgent}
             />
           )}
         </Sidebar>
       </Box>
+      <EndTrialPeriodModal
+        isOpen={modalEndFreePeriod}
+        onClose={() => setModalEndFreePeriod(false)}
+        title=""
+        price={0}
+      />
       {/* <UploadAgentModal
         isOpen={showUploadModal}
         onClose={() => setShowUploadModal(false)}

@@ -1,9 +1,12 @@
 import { useState } from "react";
-import axios, { AxiosError } from "axios";
+import { AxiosError } from "axios";
+
+import axios from "@/utils/AxiosConfig";
 
 import { logEvent } from "@/utils/amplitude";
 import { useSelector } from "react-redux";
 import { getProfile } from "@/store/profile";
+import { EUrls } from "@/constants";
 
 interface IFetchRecordingGoogleProps {
   mediaRecorder?: MediaRecorder;
@@ -12,33 +15,12 @@ interface IFetchRecordingGoogleProps {
   setIsLoad?: (value: React.SetStateAction<boolean>) => void
 }
 
-// Function to convert audio blob to base64 encoded string
-const audioBlobToBase64 = (blob: Blob) => {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      const arrayBuffer = reader.result;
-      const base64Audio = btoa(
-        new Uint8Array(arrayBuffer as ArrayBuffer).reduce(
-          (data, byte) => data + String.fromCharCode(byte),
-          ''
-        )
-      );
-      resolve(base64Audio);
-    };
-    reader.onerror = reject;
-    reader.readAsArrayBuffer(blob);
-  });
-};
-
 export const useGoogleSpeech = () => {
   const [recording, setRecording] = useState(false);
   const [mediaRecorderGoogle, setMediaRecorderGoogle] = useState<MediaRecorder | null>(null);
   const [transcription, setTranscription] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
   const profile = useSelector(getProfile);
-
-  const apiKey = import.meta.env.VITE_APP_GOOGLE_API_KEY;
 
   const resetRecordingGoogle = async () => {
     setRecording(false);
@@ -79,23 +61,14 @@ export const useGoogleSpeech = () => {
       media?.addEventListener('dataavailable', async (event) => {
         const audioBlob = event.data;
 
-        const base64Audio = await audioBlobToBase64(audioBlob);
-
         try {
           const startTime = performance.now();
+          const data = new FormData();
+          data.append("audio", audioBlob);
 
           const response = await axios.post(
-            `https://speech.googleapis.com/v1/speech:recognize?key=${apiKey}`,
-            {
-              config: {
-                encoding: 'WEBM_OPUS',
-                sampleRateHertz: 48000,
-                languageCode: 'en-US',
-              },
-              audio: {
-                content: base64Audio,
-              },
-            }
+            `${import.meta.env.VITE_BACKEND_API_URL}${EUrls.GOOGLE_SPEECH_TRANSCRIBE}`,
+            data,
           );
 
           const endTime = performance.now();
@@ -103,7 +76,7 @@ export const useGoogleSpeech = () => {
 
           console.log('Time taken (ms):', elapsedTime);
 
-          resTranscript = response.data.results[0].alternatives[0].transcript;
+          resTranscript = response.data?.transcription;
 
           if (response.data.results && response.data.results.length > 0) {
             setTranscription(resTranscript);

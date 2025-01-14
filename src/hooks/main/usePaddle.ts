@@ -35,7 +35,7 @@ export function usePaddle(redirectUrl?: string) {
 
     useEffect(() => {
         initializePaddle({
-            environment: "sandbox",
+            // environment: "sandbox",
             token: import.meta.env.VITE_PADDLE_TOKEN || "No env",
             checkout: {
                 settings: {

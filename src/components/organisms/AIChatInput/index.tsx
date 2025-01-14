@@ -12,9 +12,9 @@ import Send from "@/assets/send.svg";
 
 import { ELocalization } from "@/constants";
 import { getLocalization } from "@/store/localization";
+import { useGoogleSpeech } from "@/hooks/audio/useGoogleSpeech";
 
 import styles from "./index.module.scss";
-import { useGoogleSpeech } from "@/hooks/audio/useGoogleSpeech";
 
 const SpeechRecognition =
   window.webkitSpeechRecognition || window.SpeechRecognition;
