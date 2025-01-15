@@ -74,6 +74,7 @@ const en: TLocalizationType = {
   [ELocalization.PRIVACY_POLICY]: "Privacy policy",
   [ELocalization.SUBSCRIPTION_POLICY]: "Subscription policy",
   [ELocalization.MONEY_BACK_POLICY]: "Money-back policy",
+  [ELocalization.REGISTER_AGREE]: "I agree to the privacy policy and terms of service",
 
   [ELocalization.ASSIGNMENT_TITLE]: "The assignment for today",
   [ELocalization.COURSES_TITLE]: "Courses",

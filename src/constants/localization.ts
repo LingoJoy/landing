@@ -242,6 +242,7 @@ export enum ELocalization {
     //terms
     TERMS_OF_SERVICE = 'termsOfService',
     PRIVACY_POLICY = "privacyPolicy",
+    REGISTER_AGREE = "registerAgree",
     SUBSCRIPTION_POLICY = 'subscriptionPolicy',
     MONEY_BACK_POLICY = 'moneyBackPolicy',
 }
