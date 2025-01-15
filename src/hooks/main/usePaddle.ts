@@ -35,7 +35,6 @@ export function usePaddle(redirectUrl?: string) {
 
     useEffect(() => {
         initializePaddle({
-            // environment: "sandbox",
             token: import.meta.env.VITE_PADDLE_TOKEN || "No env",
             checkout: {
                 settings: {
@@ -101,7 +100,7 @@ export function usePaddle(redirectUrl?: string) {
             items: [{ priceId, quantity: 1 }],
             discountId,
             customer: {
-                email: email || "test@test.gmail.com",
+                email: email || " ",
                 address: {
                     countryCode: location?.country_code || "",
                     postalCode: location?.zip || "",
