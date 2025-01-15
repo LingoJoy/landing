@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
+
+import Check from "@/components/atoms/Check";
 
 import BackButton from "@/components/atoms/BackButton";
 import LogoIcon from "@/components/atoms/icons/LogoIcon";
@@ -14,6 +16,7 @@ import Background from "@/assets/login-bg.png";
 
 import {
   DEFAULT_YOUR_PLAN_DATA,
+  ELocalization,
   ELocalizationQuestionnaire,
   ERoutes,
   EUrls,
@@ -33,6 +36,7 @@ import { logFBConventionsEvent, logFBEvent } from "@/utils/facebookSDK";
 import { TProfileResponse } from "@/types";
 
 import styles from "./index.module.scss";
+import { getLocalization } from "@/store/localization";
 
 interface IErrors {
   email: ELocalizationQuestionnaire | "";
@@ -47,9 +51,16 @@ interface IErrorResp {
   };
 }
 
+const DEFAULT_SUBSCRIBE_OPTIONS = [
+  ELocalization.REGISTER_AGREE,
+];
+
 const CreateAccountForm = () => {
   const questionnaire = useSelector(getQuestionnaire);
   const localization = useSelector(getLocalizationQuestionnaire);
+  const [options, setOptions] = useState<string[]>([]);
+  const localizationDefault = useSelector(getLocalization);
+  const [isDisabled, setIsDisabled] = useState(true);
 
   const { vocabulary, personal, email: storeEmail } = questionnaire;
 
@@ -72,6 +83,24 @@ const CreateAccountForm = () => {
 
   const handleErrors = (value: Partial<IErrors>) => {
     setErrors({ ...errors, ...value });
+  };
+
+  useEffect(() => {
+    if (!errors.email && !errors.password && options.includes(ELocalization.REGISTER_AGREE)) {
+      setIsDisabled(false);
+    } else {
+      setIsDisabled(true);
+    }
+  }, [errors, options]);
+
+  const handleOption = (value: string) => {
+    if (options.includes(value)) {
+      const filteredData = options.filter((el) => el !== value);
+
+      return setOptions(filteredData);
+    }
+
+    setOptions([...options, value]);
   };
 
   const handleSubmit = async () => {
@@ -118,7 +147,7 @@ const CreateAccountForm = () => {
   };
 
   return (
-    <Box className={styles.wrapper}>
+    <Box className={styles.wrapper} data-class="SignUp-CreateAccountForm">
       <Box className={styles.logoBox}>
         <LogoIcon textColor="#fff" width="100px" height="27px" />
       </Box>
@@ -155,7 +184,7 @@ const CreateAccountForm = () => {
                     type="email"
                     placeholder={
                       localization[
-                        ELocalizationQuestionnaire.LOGIN_EMAIL_PLACEHOLDER
+                      ELocalizationQuestionnaire.LOGIN_EMAIL_PLACEHOLDER
                       ]
                     }
                   />
@@ -180,19 +209,38 @@ const CreateAccountForm = () => {
                   <p className={styles.infoText}>
                     {
                       localization[
-                        ELocalizationQuestionnaire.CREATE_ACCOUNT_PASSWORD_RULE
+                      ELocalizationQuestionnaire.CREATE_ACCOUNT_PASSWORD_RULE
                       ]
                     }
                   </p>
                 </Box>
+
+                {DEFAULT_SUBSCRIBE_OPTIONS.map((el) => (
+                  <Box
+                    key={el}
+                    className={styles.contentAgree}
+                    onClick={() => handleOption(el)}
+                  >
+                    <Check isActive={options.includes(el)} />
+                    <Typography
+                      sx={{
+                        fontSize: "0.875rem",
+                        lineHeight: "1.125rem",
+                        ml: "8px",
+                      }}
+                    >
+                      {localizationDefault[el]}
+                    </Typography>
+                  </Box>
+                ))}
               </form>
-              <PulseButton onClick={handleSubmit} className={styles.button}>
+              <PulseButton disabled={isDisabled} onClick={handleSubmit} className={styles.button}>
                 {localization[ELocalizationQuestionnaire.SIGN_UP]}
               </PulseButton>
               <p className={styles.text}>
                 {
                   localization[
-                    ELocalizationQuestionnaire.CREATE_ACCOUNT_ALREADY
+                  ELocalizationQuestionnaire.CREATE_ACCOUNT_ALREADY
                   ]
                 }{" "}
                 <Link to={ERoutes.LOGIN}>
