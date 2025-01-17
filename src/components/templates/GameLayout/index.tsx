@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Box } from "@mui/material";
 
@@ -33,6 +33,7 @@ export const GameLayout: React.FC<ILayout> = ({
   backgroundType,
 }) => {
   const lesson = useSelector(selectExercise);
+  const completedExercises = [...lesson.completedExercises];
   const localization = useSelector(getLocalization);
   const profile = useSelector(getProfile);
   const activeCourse = useSelector((state: RootState) =>
@@ -44,9 +45,17 @@ export const GameLayout: React.FC<ILayout> = ({
   const courseIcon = renderIconCourseType(activeCourse?.courseType || "");
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    lesson.exercises.forEach((item) => {
+      if (profile?.lessons?.[item._id]) {
+        console.log('log: exercises', item._id, profile);
+      }
+    });
+  }, []);
+
   const progress = Number(
     (
-      (lesson.completedExercises.length / lesson.exercises.length) *
+      (completedExercises.length / lesson.exercises.length) *
       100
     ).toFixed(),
   );

@@ -30,9 +30,10 @@ import {
 } from "@/store/ActiveLesson";
 import { getBook, setBook } from "@/store/book";
 import { useAlert } from "../AlertMessage";
-import { getFinished } from "@/utils/courseHelpers";
+import { getFinished, getInProgress } from "@/utils/courseHelpers";
 import { logEvent } from "@/utils/amplitude";
 import { logFBConventionsEvent, logFBEvent } from "@/utils/facebookSDK";
+import { getPostProgress } from "@/utils/apiHelpers";
 
 import { Course, CourseType, EDefaultAxiosError, Exercise, IAxiosError, IBook } from "@/types";
 
@@ -134,6 +135,7 @@ export default function CourseList() {
       setIsLoading(true);
 
       const { data } = await axios.get(`${EUrls.LESSONS_SHOW}/${lessonId}`);
+      getPostProgress(lessonId);
 
       const exercises = data.exercises.map((el: Exercise) =>
         el._id ? el : { ...el, _id: "final" },
@@ -267,7 +269,7 @@ export default function CourseList() {
   }
 
   return (
-    <Layout withoutPadding>
+    <Layout withoutPadding data-class="CourseList">
       <Box className={styles.wrapper}>
         <Box className={`${styles.hideWrapper} ${styles.show}`}>
           {/* Test button */}
@@ -343,6 +345,10 @@ export default function CourseList() {
                         )
                       }
                       isFinished={getFinished(
+                        el?.lesson?._id || el._id,
+                        profile?.lessons || {},
+                      )}
+                      isProgress={getInProgress(
                         el?.lesson?._id || el._id,
                         profile?.lessons || {},
                       )}

@@ -130,6 +130,7 @@ const en: TLocalizationQuestionnaireType = {
   [ELocalizationQuestionnaire.LOGIN_FORGOT_DESCR_CODE]: "To recover your password, we’ve sent a secret code to your inbox. Please retrieve it and enter the code in the form below to proceed",
   [ELocalizationQuestionnaire.LOGIN_FORGOT_PLACEHOLDER_CODE]: "Enter secret code",
   [ELocalizationQuestionnaire.LOGIN_FORGOT_DESCR_PASSWORD]: "To maximize your password's security, we recommend using a mix of uppercase and lowercase letters, numbers, and symbols",
+  [ELocalizationQuestionnaire.CODE_NOT_FOUND]: "Code not found",
 
   [ELocalizationQuestionnaire.QUEST_START_TITLE]: "Improve Your English",
   [ELocalizationQuestionnaire.QUEST_START_DESCR]: "Answer the questions and get your Personalized Learning Plan",

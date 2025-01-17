@@ -15,6 +15,8 @@ import { logEvent } from "@/utils/amplitude";
 
 import styles from "./index.module.scss";
 import { useNavigate } from "react-router-dom";
+import { AxiosError } from "axios";
+import { EDefaultAxiosError, IAxiosError } from "@/types";
 
 interface IProps {
   isOpen: boolean;
@@ -70,7 +72,7 @@ const ForgotPasswordAuthModal: FC<IProps> = ({ isOpen, onClose }) => {
 
   const profile = useSelector(getProfile);
   const localization = useSelector(getLocalizationQuestionnaire);
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -94,10 +96,31 @@ const ForgotPasswordAuthModal: FC<IProps> = ({ isOpen, onClose }) => {
 
   const handleSubmitCode = async () => {
     try {
+      const { data }: { data: User } = await axios.post(
+        EUrls.USERS_CHANGE_PASS_AUTH,
+        {
+          email: profile?.email,
+          code,
+          newPass: newPassword,
+        },
+      );
+
+      console.log('log: handleSubmitCode', data);
+
       setStep(2);
-      logEvent(`web_forgot_password_code_sended`);
+      logEvent(`web_forgot_password_code_sended_${code}`);
     } catch (error) {
-      console.error(error);
+      const err = error as AxiosError;
+      const errData = err?.response?.data as IAxiosError;
+
+      if (err?.response?.status === 409 && errData?.message === EDefaultAxiosError.CODE_NOT_FOUND) {
+        setErrors({
+          ...errors,
+          code: ELocalizationQuestionnaire.CODE_NOT_FOUND,
+        });
+      } else {
+        console.error('log: error', error);
+      }
     }
   };
 
@@ -152,6 +175,15 @@ const ForgotPasswordAuthModal: FC<IProps> = ({ isOpen, onClose }) => {
     }
   };
 
+  const setCodeHandle = (value: string) => {
+    setCode(value);
+
+    setErrors({
+      ...errors,
+      code: '',
+    });
+  }
+
   return (
     <Modal
       isOpen={isOpen}
@@ -199,7 +231,7 @@ const ForgotPasswordAuthModal: FC<IProps> = ({ isOpen, onClose }) => {
               >
                 <Field
                   value={code}
-                  onChange={setCode}
+                  onChange={setCodeHandle}
                   error={errors.code ? localization[errors.code] : ""}
                   placeholder={
                     localization[

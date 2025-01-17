@@ -1,6 +1,6 @@
 import { TQuestionnaireType } from "@/types";
 import { baseApi } from "../baseApi";
-import { ETranslate, ISelectorData, ISelectorQuestData } from "@/constants";
+import { ETranslate, EUrls, ISelectorData, ISelectorQuestData } from "@/constants";
 
 export interface ILanguage extends ISelectorData {
   translate: ETranslate;
@@ -41,7 +41,7 @@ export const AuthAPI = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     login: builder.mutation<AuthResponse, { email: string; password: string }>({
       query: ({ email, password }) => ({
-        url: "/auth/signin",
+        url: EUrls.SIGN_IN,
         method: "POST",
         body: { email: email.toLowerCase().trim(), password },
       }),
