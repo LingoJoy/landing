@@ -4,5 +4,6 @@ export interface IAxiosError {
 }
 
 export enum EDefaultAxiosError {
-  NEED_SUBSCRIPTION = 'You need an active subscription to access this resource.'
+  NEED_SUBSCRIPTION = 'You need an active subscription to access this resource.',
+  CODE_NOT_FOUND = 'code not found'
 }

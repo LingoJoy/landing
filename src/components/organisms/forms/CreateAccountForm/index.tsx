@@ -37,6 +37,7 @@ import { TProfileResponse } from "@/types";
 
 import styles from "./index.module.scss";
 import { getLocalization } from "@/store/localization";
+import { AuthResponse, useLoginMutation } from "@/store/auth/query";
 
 interface IErrors {
   email: ELocalizationQuestionnaire | "";
@@ -71,6 +72,7 @@ const CreateAccountForm = () => {
     password: "",
   });
 
+  const [login] = useLoginMutation();
   const dispatch = useDispatch();
   const { showAlert } = useAlert();
 
@@ -103,6 +105,19 @@ const CreateAccountForm = () => {
     setOptions([...options, value]);
   };
 
+  const handleLogin = async () => {
+    const data: AuthResponse = await login({ email, password }).unwrap();
+    dispatch(setProfile(data.user));
+
+    dispatch(
+      setPlan({
+        ...DEFAULT_YOUR_PLAN_DATA[0],
+      }),
+    );
+
+    sessionStorage.setItem("LingoJoyLogin", "true");
+  }
+
   const handleSubmit = async () => {
     if (errors.email || errors.password || !email || !password) return;
 
@@ -119,6 +134,8 @@ const CreateAccountForm = () => {
         EUrls.SIGN_UP,
         userData,
       );
+
+      await handleLogin();
 
       dispatch(setProfile(data.user));
       dispatch(
@@ -139,6 +156,7 @@ const CreateAccountForm = () => {
     } catch (error: unknown) {
       if (error instanceof Error) {
         const err = error as unknown as IErrorResp;
+        console.error('log: err', err.response.data.message);
 
         if (err.response.data.message)
           showAlert(false, err.response.data.message);

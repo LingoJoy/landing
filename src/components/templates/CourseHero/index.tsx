@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useCallback, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { LineItem } from "@paddle/paddle-js/types/price-preview/price-preview";
 import { Box, Button } from "@mui/material";
@@ -7,10 +7,13 @@ import ContentContainer from "@/components/organisms/ContentContainer";
 import Discount from "@/components/molecules/Discount";
 import DreamsIcon from "@/components/atoms/icons/DreamsIcon";
 import LogoIcon from "@/components/atoms/icons/LogoIcon";
+import PayModal from "@/components/organisms/modals/PayModal";
+import { IPlan } from "@/types";
+import { createPlan } from "@/utils/objectCreators";
 
 import BookImage from "@/assets/book.png";
 
-import { DEFAULT_COURSE_DATA, ELocalizationQuestionnaire } from "@/constants";
+import { DEFAULT_COURSE_DATA, ELocalizationQuestionnaire, ERoutes } from "@/constants";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 import { usePaddle } from "@/hooks/main/usePaddle";
 
@@ -22,14 +25,20 @@ interface IProps {
 
 const CourseHero: FC<IProps> = ({ onNext }) => {
   const [price, setPrice] = useState<LineItem | null>(null);
+  const [plan, setPlan] = useState<IPlan | null>(null);
+  const [isOpenPay, setIsOpenPay] = useState(false);
 
-  const { openCheckout, getPrices, paddle } = usePaddle();
+  const { getPrices, paddle, openCheckout, closeCheckout } = usePaddle(ERoutes.PAY);
 
   const localization = useSelector(getLocalizationQuestionnaire);
 
   const getData = async () => {
     try {
       const data = await getPrices(paddle, DEFAULT_COURSE_DATA);
+      if (data?.data?.details.lineItems[0]) {
+        const planRes = createPlan(data?.data?.details.lineItems[0], 0);
+        setPlan(planRes);
+      }
 
       if (!data) return;
 
@@ -43,8 +52,17 @@ const CourseHero: FC<IProps> = ({ onNext }) => {
     getData();
   }, [paddle]);
 
+  const onCloseHandler = useCallback(
+    () => {
+      setIsOpenPay(false);
+
+      closeCheckout();
+    },
+    [closeCheckout],
+  );
+
   return (
-    <Box className={styles.wrapper}>
+    <Box className={styles.wrapper} data-class="CourseHero">
       <Box className={styles.logoBox}>
         <LogoIcon textColor="#fff" width="100px" height="27px" />
       </Box>
@@ -90,9 +108,10 @@ const CourseHero: FC<IProps> = ({ onNext }) => {
           {price && (
             <Button
               sx={{ width: "100%" }}
-              onClick={() =>
-                openCheckout(price.price.id, price.discounts?.[0].discount.id)
-              }
+              onClick={() => {
+                openCheckout(price.price.id, price.discounts?.[0].discount.id);
+                setIsOpenPay(true);
+              }}
             >
               {localization[ELocalizationQuestionnaire.GET_FOR]}{" "}
               {price.formattedTotals.total}
@@ -106,6 +125,14 @@ const CourseHero: FC<IProps> = ({ onNext }) => {
           </p>
         </Box>
       </Box>
+      {plan && (
+        <PayModal
+          isOpen={isOpenPay}
+          onClose={onCloseHandler}
+          title={plan.title}
+          price={plan.price}
+          discount={plan.discount}
+        />)}
     </Box>
   );
 };

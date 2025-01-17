@@ -279,6 +279,7 @@ export enum ELocalizationQuestionnaire {
     LOGIN_FORGOT_DESCR_CODE = 'loginForgotDescrCode',
     LOGIN_FORGOT_PLACEHOLDER_CODE = 'loginForgotPlaceholderCode',
     LOGIN_FORGOT_DESCR_PASSWORD = 'loginForgotDescrPassword',
+    CODE_NOT_FOUND = 'codeNotFound',
 
     // landing
     LANDING_HEADER = 'landingHeader',

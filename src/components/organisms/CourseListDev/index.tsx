@@ -23,7 +23,7 @@ import { getLocalization } from "@/store/localization";
 import { selectCurrentExercise, setStartLesson } from "@/store/ActiveLesson";
 import { getBook, setBook } from "@/store/book";
 import { useAlert } from "../AlertMessage";
-import { getFinished } from "@/utils/courseHelpers";
+import { getFinished, getInProgress } from "@/utils/courseHelpers";
 
 import { Course, CourseType, Exercise, IBook } from "@/types";
 
@@ -261,6 +261,10 @@ export default function CourseListDev() {
                         )
                       }
                       isFinished={getFinished(
+                        el?.lesson?._id || el._id,
+                        profile?.lessons || {},
+                      )}
+                      isProgress={getInProgress(
                         el?.lesson?._id || el._id,
                         profile?.lessons || {},
                       )}

@@ -66,7 +66,7 @@ const TimeSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
   };
 
   return (
-    <MainContainer background="#eef3f9">
+    <MainContainer background="#eef3f9" data-class="TimePage-TimeSelector">
       <Box>
         <SelectorHeader
           title={
@@ -80,9 +80,6 @@ const TimeSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
           onBack={handleBack}
         />
         <Box className={styles.selectorWrapper}>
-          <p className={styles.selectorHelperText}>
-            {localization[ELocalizationQuestionnaire.QUEST_MORE_ONE]}
-          </p>
           <Box className={styles.timeWrapper}>
             <SwipeTime
               data={DEFAULT_TIME_DATA}

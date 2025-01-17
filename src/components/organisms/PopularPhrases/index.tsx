@@ -23,7 +23,7 @@ import { getLocalization } from "@/store/localization";
 import { getBook, setBook } from "@/store/book";
 import { getProfile, setProfile } from "@/store/profile";
 import { useAlert } from "../AlertMessage";
-import { getFinished } from "@/utils/courseHelpers";
+import { getFinished, getInProgress } from "@/utils/courseHelpers";
 import { logEvent } from "@/utils/amplitude";
 import { logFBConventionsEvent, logFBEvent } from "@/utils/facebookSDK";
 
@@ -264,6 +264,10 @@ export default function PopularPhrases() {
                     )
                   }
                   isFinished={getFinished(
+                    course?.lesson?._id || course._id,
+                    profile?.lessons || {},
+                  )}
+                  isProgress={getInProgress(
                     course?.lesson?._id || course._id,
                     profile?.lessons || {},
                   )}

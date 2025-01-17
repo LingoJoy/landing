@@ -1,5 +1,9 @@
 @import "@styles/variables.scss";
 
+.none {
+  display: none;
+}
+
 .wrapper {
   display: flex;
   gap: 10px;
