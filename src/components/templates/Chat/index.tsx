@@ -44,6 +44,7 @@ const Chat = () => {
   const vidRef = useRef<HTMLVideoElement>(null);
   const socketRef = useRef<Socket>();
   const [modalEndFreePeriod, setModalEndFreePeriod] = useState(false);
+  const [isEndFree, setIsEndFree] = useState(false);
 
   const { showAlert } = useAlert();
 
@@ -76,6 +77,7 @@ const Chat = () => {
       console.log('log: getAgents setModalEndFreePeriod', err, errData?.message);
       if (err?.response?.status === 403 && errData?.message === EDefaultAxiosError.NEED_SUBSCRIPTION) {
         setModalEndFreePeriod(true);
+        setIsEndFree(true);
       } else {
         showAlert(false, localization[ELocalization.SOMETHING_WRONG]);
       }
@@ -86,6 +88,12 @@ const Chat = () => {
     const content = text;
     setChatValue("");
     setVideoLoad(false);
+
+    if (isEndFree) {
+      setModalEndFreePeriod(true);
+      setVideoLoad(true);
+      return;
+    }
 
     if (!socketRef.current) return;
 
