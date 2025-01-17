@@ -44,7 +44,7 @@ const EmailHero = () => {
   };
 
   return (
-    <Box className={styles.wrapper}>
+    <Box className={styles.wrapper} data-class="TimePage-EmailHero">
       <Box className={styles.logoBox}>
         <LogoIcon textColor="#fff" width="100px" height="27px" />
       </Box>

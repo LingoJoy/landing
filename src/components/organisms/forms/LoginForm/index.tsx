@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Box } from "@mui/material";
+// import axios from "axios";
 
 import BackButton from "@/components/atoms/BackButton";
 import LogoIcon from "@/components/atoms/icons/LogoIcon";
@@ -10,6 +11,7 @@ import ForgotPasswordModal from "../../modals/ForgotPasswordModal";
 import Field from "@/components/atoms/Field";
 import CardWrapper from "../../CardWrapper";
 import PulseButton from "@/components/atoms/PulseButton";
+// import { usePaddle } from "@/hooks/main/usePaddle";
 
 import Background from "@/assets/login-bg.png";
 import CheckImage from "@/assets/check.svg";
@@ -44,6 +46,7 @@ const LoginForm = () => {
     email: "",
     password: "",
   });
+  // const { paddle } = usePaddle(ERoutes.LOGIN);
 
   const localization = useSelector(getLocalizationQuestionnaire);
 
@@ -61,10 +64,16 @@ const LoginForm = () => {
     try {
       const data: AuthResponse = await login({ email, password }).unwrap();
       dispatch(setProfile(data.user));
+      // const data3 = paddle.
+      // const data2 = await axios.get(
+      //   `https://api.paddle.com/subscriptions/9035513f9d4bef93-WAW`,
+      // );
+      // console.log('log: data2', data, paddle);
 
       dispatch(
         setPlan({
           ...DEFAULT_YOUR_PLAN_DATA[0],
+          // createDate: '2024-10-17T11:32:19.395Z',
         }),
       );
 
@@ -156,7 +165,7 @@ const LoginForm = () => {
                     type="email"
                     placeholder={
                       localization[
-                        ELocalizationQuestionnaire.LOGIN_EMAIL_PLACEHOLDER
+                      ELocalizationQuestionnaire.LOGIN_EMAIL_PLACEHOLDER
                       ]
                     }
                   />
@@ -167,7 +176,7 @@ const LoginForm = () => {
                   type="password"
                   placeholder={
                     localization[
-                      ELocalizationQuestionnaire.LOGIN_PASSWORD_PLACEHOLDER
+                    ELocalizationQuestionnaire.LOGIN_PASSWORD_PLACEHOLDER
                     ]
                   }
                   error={errors.password ? localization[errors.password] : ""}

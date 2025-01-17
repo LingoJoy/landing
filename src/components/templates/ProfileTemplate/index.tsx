@@ -65,7 +65,6 @@ export const ProfileTemplate: React.FC = () => {
     }
   };
 
-  console.log('log: profile', profile);
   const DEFAULT_ACCOUNT_MENU: IMenu[] = [
     {
       id: 0,

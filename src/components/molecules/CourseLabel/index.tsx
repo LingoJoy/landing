@@ -21,6 +21,7 @@ interface ICourseLabel {
   onClick: () => void;
   backgroundColor: string;
   isFinished: boolean;
+  isProgress?: boolean;
   imageURL: string;
   course: Course;
 }
@@ -29,6 +30,7 @@ const CourseLabel: React.FC<ICourseLabel> = ({
   onClick,
   backgroundColor,
   isFinished,
+  isProgress,
   imageURL,
   course,
 }) => {
@@ -44,11 +46,14 @@ const CourseLabel: React.FC<ICourseLabel> = ({
       ? course.author
       : course.desc?.[profile?.locale || ETranslate.ENGLISH];
 
+  const progress = isProgress ? localization[ELocalization.FIVE_MINUTES] : null;
+
   return (
     <Box
       onClick={onClick}
       className={styles.wrapper}
       sx={{ background: backgroundColor }}
+      data-class="CourseList-CourseLabel"
     >
       <Box className={styles.content}>
         <Typography className={styles.type}>
@@ -59,12 +64,12 @@ const CourseLabel: React.FC<ICourseLabel> = ({
           <Typography>{title}</Typography>
           <Typography>{descr}</Typography>
         </Box>
-        <Box className={styles.remainingTime}>
-          {isFinished ? <Timer /> : <Done />}
+        <Box className={(isFinished || isProgress ) ? styles.remainingTime : styles.none}>
+          {isFinished ? <Timer /> : (progress && <Done />)}
           <Typography>
             {isFinished
               ? localization[ELocalization.FINISHED]
-              : localization[ELocalization.FIVE_MINUTES]}
+              : progress}
           </Typography>
         </Box>
       </Box>

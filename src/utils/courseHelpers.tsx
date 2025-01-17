@@ -40,3 +40,14 @@ export const getFinished = (
 
   return false;
 };
+
+export const getInProgress = (
+  courseId: string,
+  lessons: { [x: string]: { status: string } },
+) => {
+  const progress = lessons[courseId];
+
+  if (progress && progress.status === "in_progress") return true;
+
+  return false;
+};

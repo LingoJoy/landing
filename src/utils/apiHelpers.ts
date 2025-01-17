@@ -20,6 +20,15 @@ export const updatePostProgress = async (lessonId: string, exerciseId: string, s
     }
 }
 
+export const getPostProgress = async (lessonId: string) => {
+    try {
+        const res = await axios.get(`${EUrls.USERS_PROGRESS}/${lessonId}`);
+        console.log('log: getPostProgress', res);
+    } catch (error) {
+        console.error(error)
+    }
+}
+
 export const getServerLocalization = async () => {
     const { data }: TLocalizationResponse = await axios.get(`${EUrls.CONTAINERS}/web`, {
         headers: {
