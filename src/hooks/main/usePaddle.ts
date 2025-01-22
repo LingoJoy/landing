@@ -79,7 +79,7 @@ export function usePaddle(redirectUrl?: string) {
         discountId?: string,
         successUrl?: string,
     ) => {
-        console.log(location);
+        const FRONTEND_URL = `${window.location.origin}${successUrl || ''}`;
         const email = profile?.email || state?.email;
 
         let items: any[];
@@ -90,7 +90,7 @@ export function usePaddle(redirectUrl?: string) {
             items = [{ priceId, quantity: 1 }];
         }
 
-        console.log(location, email, priceId, items);
+        console.log(location, email, priceId, items, FRONTEND_URL);
 
         if (!email) {
             paddle?.Update({
@@ -103,10 +103,11 @@ export function usePaddle(redirectUrl?: string) {
             })
         }
 
+        paddle?.Checkout.updateItems(items);
+
         paddle?.Checkout.open({
             settings: {
-                successUrl: `${import.meta.env.VITE_FRONTEND_URL || "http://localhost:5173"
-                    }${successUrl}`,
+                successUrl: FRONTEND_URL,
             },
             items,
             discountId,
