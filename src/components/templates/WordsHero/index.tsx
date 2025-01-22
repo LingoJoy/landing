@@ -1,16 +1,16 @@
-import { useLocation, useNavigate } from "react-router";
-import { useSelector } from "react-redux";
 import { Box } from "@mui/material";
+import { useSelector } from "react-redux";
+import { useLocation, useNavigate } from "react-router";
 
-import ContentContainer from "@/components/organisms/ContentContainer";
 import SelectorFooter from "@/components/molecules/SelectorFooter";
+import ContentContainer from "@/components/organisms/ContentContainer";
 
-import StatusIcon from "@/assets/icons/status-up.svg";
 import FlagIcon from "@/assets/icons/flag.svg";
+import StatusIcon from "@/assets/icons/status-up.svg";
 import BookIcon from "@/assets/main/open-book.png";
 
-import { ERoutes } from "@/constants/pages";
 import { DEFAULT_LEVEL_DATA, ELocalizationQuestionnaire } from "@/constants";
+import { ERoutes } from "@/constants/pages";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 import { getQuestionnaire } from "@/store/questionnaire";
 import { getLevel } from "@/utils/getLevel";
@@ -91,7 +91,12 @@ const WordsHero = () => {
               {localization[ELocalizationQuestionnaire.WORDS_TITLE]}
             </Box>
             <Box className={styles.wordTitle}>
-              {dataLevel.active}{" "}
+              {(
+                Math.round(
+                  ((dataLevel.active + dataLevel.passive) / 2) +
+                  (Math.random() * 40 - 20)
+                )
+              )}{" "}
               {localization[ELocalizationQuestionnaire.LANDING_WORDS]}
             </Box>
           </Box>
