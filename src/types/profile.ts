@@ -19,6 +19,7 @@ export interface IPlan {
   isMostPopular?: boolean;
   createDate?: string;
   priceId?: string;
+  productIds: string[];
 }
 
 export type TProfileResponse = {

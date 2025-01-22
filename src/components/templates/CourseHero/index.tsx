@@ -1,12 +1,12 @@
+import { Box, Button } from "@mui/material";
+import { LineItem } from "@paddle/paddle-js/types/price-preview/price-preview";
 import { FC, useCallback, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { LineItem } from "@paddle/paddle-js/types/price-preview/price-preview";
-import { Box, Button } from "@mui/material";
 
-import ContentContainer from "@/components/organisms/ContentContainer";
-import Discount from "@/components/molecules/Discount";
 import DreamsIcon from "@/components/atoms/icons/DreamsIcon";
 import LogoIcon from "@/components/atoms/icons/LogoIcon";
+import Discount from "@/components/molecules/Discount";
+import ContentContainer from "@/components/organisms/ContentContainer";
 import PayModal from "@/components/organisms/modals/PayModal";
 import { IPlan } from "@/types";
 import { createPlan } from "@/utils/objectCreators";
@@ -14,8 +14,8 @@ import { createPlan } from "@/utils/objectCreators";
 import BookImage from "@/assets/book.png";
 
 import { DEFAULT_COURSE_DATA, ELocalizationQuestionnaire, ERoutes } from "@/constants";
-import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 import { usePaddle } from "@/hooks/main/usePaddle";
+import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 
 import styles from "./index.module.scss";
 
@@ -36,7 +36,7 @@ const CourseHero: FC<IProps> = ({ onNext }) => {
     try {
       const data = await getPrices(paddle, DEFAULT_COURSE_DATA);
       if (data?.data?.details.lineItems[0]) {
-        const planRes = createPlan(data?.data?.details.lineItems[0], 0);
+        const planRes = createPlan(data?.data?.details.lineItems, 0);
         setPlan(planRes);
       }
 

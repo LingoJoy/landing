@@ -1,6 +1,3 @@
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import {
     CheckoutSettings,
     initializePaddle,
@@ -8,12 +5,15 @@ import {
     PricePreviewParams,
     PricePreviewResponse,
 } from "@paddle/paddle-js";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import { FB_EVENT } from "@/constants";
-import { logEvent } from "@/utils/amplitude";
-import { logFBConventionsEvent, logFBEvent } from "@/utils/facebookSDK";
 import { getLocation, getProfile } from "@/store/profile";
 import { getQuestionnaire } from "@/store/questionnaire";
+import { logEvent } from "@/utils/amplitude";
+import { logFBConventionsEvent, logFBEvent } from "@/utils/facebookSDK";
 
 const checkoutSettings: CheckoutSettings = {
     displayMode: "inline",
@@ -75,12 +75,22 @@ export function usePaddle(redirectUrl?: string) {
     const state = useSelector(getQuestionnaire);
 
     const openCheckout = async (
-        priceId: string,
+        priceId: string[] | string,
         discountId?: string,
         successUrl?: string,
     ) => {
         console.log(location);
         const email = profile?.email || state?.email;
+
+        let items: any[];
+
+        if (Array.isArray(priceId)) {
+            items = priceId.map((item) => ({ priceId: item, quantity: 1 }));
+        } else {
+            items = [{ priceId, quantity: 1 }];
+        }
+
+        console.log(location, email, priceId, items);
 
         if (!email) {
             paddle?.Update({
@@ -96,9 +106,9 @@ export function usePaddle(redirectUrl?: string) {
         paddle?.Checkout.open({
             settings: {
                 successUrl: `${import.meta.env.VITE_FRONTEND_URL || "http://localhost:5173"
-                    }/${successUrl}`,
+                    }${successUrl}`,
             },
-            items: [{ priceId, quantity: 1 }],
+            items,
             discountId,
             customer: {
                 email: email || " ",

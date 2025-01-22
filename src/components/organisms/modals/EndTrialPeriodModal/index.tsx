@@ -1,21 +1,21 @@
+import { Box } from "@mui/material";
 import { FC, useCallback, useEffect, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
-import { Box } from "@mui/material";
 
 import Modal from "@/components/atoms/Modal";
 
-import Infinity from "@/assets/main/infinity.png";
 import VerifyImage from "@/assets/icons/verify-opacity.svg";
+import Infinity from "@/assets/main/infinity.png";
 
 import { DEFAULT_PADDLE_PLAN_DATA, DEFAULT_YOUR_PLAN_DATA, ELocalizationQuestionnaire, ERoutes } from "@/constants";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 
-import styles from "./index.module.scss";
-import { IPlan } from "@/types";
 import { usePaddle } from "@/hooks/main/usePaddle";
+import { IPlan } from "@/types";
 import { createPlan, parseNumber } from "@/utils/objectCreators";
-import YourPlanSection from "./YourPlanSection";
 import PayModal from "../PayModal";
+import styles from "./index.module.scss";
+import YourPlanSection from "./YourPlanSection";
 
 interface IProps {
   isOpen: boolean;
@@ -66,9 +66,10 @@ const EndTrialPeriodModal: FC<IProps> = ({
         createDate: plan1Data.data.details.lineItems[0].product.createdAt,
         isFourWeek: true,
         isMostPopular: false,
+        productIds: plan1Data.data.details.lineItems.map((item) => item.price.id)
       };
-      const plan2 = createPlan(plan2Data.data.details.lineItems[0], 1, true);
-      const plan3 = createPlan(plan3Data.data.details.lineItems[0], 2);
+      const plan2 = createPlan(plan2Data.data.details.lineItems, 1, true);
+      const plan3 = createPlan(plan3Data.data.details.lineItems, 2);
 
       const newPlans = [plan1, plan2, plan3];
 
@@ -82,7 +83,7 @@ const EndTrialPeriodModal: FC<IProps> = ({
   };
 
   const handlePlan = useCallback((plan: IPlan) => {
-    openCheckout(plan.id, undefined, ERoutes.COURSES);
+    openCheckout(plan.productIds, undefined, ERoutes.COURSES);
     setIsOpenPay(true);
   }, [openCheckout]);
 

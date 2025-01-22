@@ -3,14 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 // import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-import { getQuestionnaire } from "@/store/questionnaire";
 import {
   EPayUrls,
-  // ERoutes,
 } from "@/constants";
-import { getServerLocalization } from "@/utils/apiHelpers";
-import { ILocation, setLocation } from "@/store/profile";
 import { setLocalizationQuestionnaire } from "@/store/localization-questionnaire";
+import { ILocation, setLocation } from "@/store/profile";
+import { getQuestionnaire } from "@/store/questionnaire";
+import { getServerLocalization } from "@/utils/apiHelpers";
 
 import { TLocalizationQuestionnaireType } from "@/types";
 
@@ -31,7 +30,7 @@ const QuestionnaireWrapper: FC<IProps> = ({
   const getLocation = async () => {
     try {
       const { data }: { data: { data: ILocation } } = await axios.get(
-        `${import.meta.env.VITE_BACKEND_PAY_API_URL}/${EPayUrls.LOCATION}`,
+        `${import.meta.env.VITE_BACKEND_PAY_API_URL}${EPayUrls.LOCATION}`,
         {
           headers: {
             Authorization: import.meta.env.VITE_BACKEND_PAY_API_TOKEN,
