@@ -75,22 +75,18 @@ export function usePaddle(redirectUrl?: string) {
     const state = useSelector(getQuestionnaire);
 
     const openCheckout = async (
-        priceId: string[] | string,
+        priceIds: string[] | string,
         discountId?: string,
         successUrl?: string,
     ) => {
         const FRONTEND_URL = `${window.location.origin}${successUrl || ''}`;
         const email = profile?.email || state?.email;
 
-        let items: any[];
+        const items: { price: string; quantity: number }[] = Array.isArray(priceIds)
+            ? priceIds.map((id) => ({ price: id, quantity: 1 }))
+            : [{ price: priceIds, quantity: 1 }];
 
-        if (Array.isArray(priceId)) {
-            items = priceId.map((item) => ({ priceId: item, quantity: 1 }));
-        } else {
-            items = [{ priceId, quantity: 1 }];
-        }
-
-        console.log(location, email, priceId, items, FRONTEND_URL);
+        console.log(location, email, priceIds, items, FRONTEND_URL);
 
         if (!email) {
             paddle?.Update({
@@ -103,13 +99,11 @@ export function usePaddle(redirectUrl?: string) {
             })
         }
 
-        paddle?.Checkout.updateItems(items);
-
         paddle?.Checkout.open({
             settings: {
                 successUrl: FRONTEND_URL,
             },
-            items,
+            items: items,
             discountId,
             customer: {
                 email: email || " ",
