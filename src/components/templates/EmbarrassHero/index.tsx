@@ -1,24 +1,24 @@
-import { FC, useCallback, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { Box, Button } from "@mui/material";
 import { LineItem } from "@paddle/paddle-js/types/price-preview/price-preview";
+import { FC, useCallback, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
-import ContentContainer from "@/components/organisms/ContentContainer";
-import OptionList from "@/components/molecules/OptionList";
 import LogoIcon from "@/components/atoms/icons/LogoIcon";
+import OptionList from "@/components/molecules/OptionList";
+import ContentContainer from "@/components/organisms/ContentContainer";
 import PayModal from "@/components/organisms/modals/PayModal";
-import { createPlan } from "@/utils/objectCreators";
 import { IPlan } from "@/types";
+import { createPlan } from "@/utils/objectCreators";
 
 import WomanImage from "@/assets/woman.png";
 
-import { usePaddle } from "@/hooks/main/usePaddle";
 import {
   DEFAULT_EMBARRASS_DATA,
   DEFAULT_IRREGULAR_DATA,
   ELocalizationQuestionnaire,
   ERoutes,
 } from "@/constants";
+import { usePaddle } from "@/hooks/main/usePaddle";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 
 import styles from "./index.module.scss";
@@ -40,7 +40,7 @@ const EmbarrassHero: FC<IProps> = ({ onNext }) => {
     try {
       const data = await getPrices(paddle, DEFAULT_IRREGULAR_DATA);
       if (data?.data?.details.lineItems[0]) {
-        const planRes = createPlan(data?.data?.details.lineItems[0], 0);
+        const planRes = createPlan(data?.data?.details.lineItems, 0);
         setPlan(planRes);
       }
 

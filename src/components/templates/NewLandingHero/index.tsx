@@ -1,16 +1,16 @@
-import { useSelector } from "react-redux";
-import { useCallback, useEffect, useState } from "react";
 import { Box } from "@mui/material";
+import { useCallback, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
-import PlanSection from "./PlanSection";
-import LessonsSection from "./LessonsSection";
-import WhatYouGetSection from "./WhatYouGetSection";
-import GuaranteeSection from "./GuaranteeSection";
-import YourPlanSection from "./YourPlanSection";
-import PlanReservedSection from "./PlanReservedSection";
-import ChartSection from "./ChartSection";
 import PulseButton from "@/components/atoms/PulseButton";
 import PayModal from "@/components/organisms/modals/PayModal";
+import ChartSection from "./ChartSection";
+import GuaranteeSection from "./GuaranteeSection";
+import LessonsSection from "./LessonsSection";
+import PlanReservedSection from "./PlanReservedSection";
+import PlanSection from "./PlanSection";
+import WhatYouGetSection from "./WhatYouGetSection";
+import YourPlanSection from "./YourPlanSection";
 
 import PercentImage from "@/assets/icons/badge-percent.svg";
 
@@ -21,14 +21,14 @@ import {
   ERoutes,
   PADDLE_STATUS_TRANSACTION,
 } from "@/constants";
-import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 import { usePaddle } from "@/hooks/main/usePaddle";
+import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 import { createPlan, parseNumber } from "@/utils/objectCreators";
 
 import { IPlan } from "@/types";
 
-import styles from "./index.module.scss";
 import { useNavigate } from "react-router-dom";
+import styles from "./index.module.scss";
 
 const NewLandingHero = () => {
   const [time, setTime] = useState(600);
@@ -76,9 +76,10 @@ const NewLandingHero = () => {
         createDate: plan1Data.data.details.lineItems[0].product.createdAt,
         isFourWeek: true,
         isMostPopular: false,
+        productIds: plan1Data.data.details.lineItems.map((item) => item.price.id)
       };
-      const plan2 = createPlan(plan2Data.data.details.lineItems[0], 1, true);
-      const plan3 = createPlan(plan3Data.data.details.lineItems[0], 2);
+      const plan2 = createPlan(plan2Data.data.details.lineItems, 1, true);
+      const plan3 = createPlan(plan3Data.data.details.lineItems, 2);
 
       const newPlans = [plan1, plan2, plan3];
 
@@ -92,7 +93,7 @@ const NewLandingHero = () => {
   };
 
   const handlePlan = (plan: IPlan) => {
-    openCheckout(plan.id, undefined, ERoutes.FACT);
+    openCheckout(plan.productIds, undefined, ERoutes.FACT);
     setIsOpenPay(true);
   };
 

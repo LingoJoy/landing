@@ -1,14 +1,14 @@
-import { useSelector } from "react-redux";
-import { useCallback, useEffect, useState } from "react";
 import { Box } from "@mui/material";
+import { useCallback, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
-import YourPlanSection from "./YourPlanSection";
-import LevelSection from "./LevelSection";
 import PulseButton from "@/components/atoms/PulseButton";
-import HighlightsSection from "./HighlightsSection";
-import UsersSection from "./UsersSection";
-import FAQSection from "./FAQSection";
 import CommentSection from "./CommentSection";
+import FAQSection from "./FAQSection";
+import HighlightsSection from "./HighlightsSection";
+import LevelSection from "./LevelSection";
+import UsersSection from "./UsersSection";
+import YourPlanSection from "./YourPlanSection";
 
 import {
   DEFAULT_PADDLE_PLAN_DATA,
@@ -17,15 +17,15 @@ import {
   ERoutes,
   PADDLE_STATUS_TRANSACTION,
 } from "@/constants";
-import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 import { usePaddle } from "@/hooks/main/usePaddle";
+import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 import { createPlan, parseNumber } from "@/utils/objectCreators";
 
 import { IPlan } from "@/types";
 
-import styles from "./index.module.scss";
 import PayModal from "@/components/organisms/modals/PayModal";
 import { useNavigate } from "react-router-dom";
+import styles from "./index.module.scss";
 
 const NewPremiumHero = () => {
   const [time, setTime] = useState(600);
@@ -70,9 +70,10 @@ const NewPremiumHero = () => {
         createDate: plan1Data.data.details.lineItems[0].product.createdAt,
         isFourWeek: true,
         isMostPopular: false,
+        productIds: plan1Data.data.details.lineItems.map((item) => item.price.id)
       };
-      const plan2 = createPlan(plan2Data.data.details.lineItems[0], 1, true);
-      const plan3 = createPlan(plan3Data.data.details.lineItems[0], 2);
+      const plan2 = createPlan(plan2Data.data.details.lineItems, 1, true);
+      const plan3 = createPlan(plan3Data.data.details.lineItems, 2);
 
       const newPlans = [plan1, plan2, plan3];
 
@@ -86,7 +87,7 @@ const NewPremiumHero = () => {
   };
 
   const handlePlan = (plan: IPlan) => {
-    openCheckout(plan.id, undefined, ERoutes.FACT);
+    openCheckout(plan.productIds, undefined, ERoutes.FACT);
     setIsOpenPay(true);
   };
 

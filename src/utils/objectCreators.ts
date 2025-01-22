@@ -7,10 +7,11 @@ import { IPlan } from "@/types";
 export const parseNumber = (string: string) => parseFloat(string.replace(/^\D|,+/g, ""))
 
 export const createPlan = (
-    el: LineItem,
+    elements: LineItem[],
     i: number,
     isMostPopular?: boolean,
 ): IPlan => {
+    const el = elements[0];
     const price = parseNumber(el.formattedTotals.subtotal);
     const discount = parseNumber(el.formattedTotals.total);
     const weeks = (el.price.billingCycle?.frequency || 0) * 4;
@@ -26,5 +27,6 @@ export const createPlan = (
         weeks,
         createDate: el.product.createdAt,
         isMostPopular,
+        productIds: elements.map((item) => item.price.id)
     };
 };
