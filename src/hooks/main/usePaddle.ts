@@ -82,9 +82,9 @@ export function usePaddle(redirectUrl?: string) {
         const FRONTEND_URL = `${window.location.origin}${successUrl || ''}`;
         const email = profile?.email || state?.email;
 
-        const items: { price: string; quantity: number }[] = Array.isArray(priceIds)
-            ? priceIds.map((id) => ({ price: id, quantity: 1 }))
-            : [{ price: priceIds, quantity: 1 }];
+        const items: { priceId: string; quantity: number }[] = Array.isArray(priceIds)
+            ? priceIds.map((id) => ({ priceId: id, quantity: 1 }))
+            : [{ priceId: priceIds, quantity: 1 }];
 
         console.log(location, email, priceIds, items, FRONTEND_URL);
 
