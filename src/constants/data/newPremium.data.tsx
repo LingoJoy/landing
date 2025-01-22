@@ -1,20 +1,20 @@
-import BrainIcon from "@/assets/new-premium/icons/brain.svg";
-import TimerIcon from "@/assets/new-premium/icons/timer.svg";
 import BookIcon from "@/assets/new-premium/icons/book-heart.svg";
-import LuggageIcon from "@/assets/new-premium/icons/luggage.svg";
+import BrainIcon from "@/assets/new-premium/icons/brain.svg";
 import GamepadIcon from "@/assets/new-premium/icons/gamepad.svg";
+import LuggageIcon from "@/assets/new-premium/icons/luggage.svg";
 import MessageIcon from "@/assets/new-premium/icons/message-circle.svg";
+import TimerIcon from "@/assets/new-premium/icons/timer.svg";
 
-import DiaImage from "@/assets/new-premium/Dia.png";
-import RuaImage from "@/assets/new-premium/Rua.png";
 import ArtImage from "@/assets/new-premium/Art.png";
-import MaxImage from "@/assets/new-premium/Max.png";
+import DiaImage from "@/assets/new-premium/Dia.png";
+import GabImage from "@/assets/new-premium/Gab.png";
 import KleImage from "@/assets/new-premium/Kle.png";
 import LucImage from "@/assets/new-premium/Luc.png";
-import SopImage from "@/assets/new-premium/Sop.png";
 import LuiImage from "@/assets/new-premium/Lui.png";
 import ManImage from "@/assets/new-premium/Man.png";
-import GabImage from "@/assets/new-premium/Gab.png";
+import MaxImage from "@/assets/new-premium/Max.png";
+import RuaImage from "@/assets/new-premium/Rua.png";
+import SopImage from "@/assets/new-premium/Sop.png";
 
 import { ELocalizationQuestionnaire } from "../localizationQuestionnaire";
 
@@ -34,6 +34,7 @@ export const DEFAULT_PREMIUM_PLAN_DATA: IPlan[] = [
     weeks: 1,
     isFourWeek: true,
     priceId: "",
+    productIds: [],
   },
   {
     id: "1",
@@ -47,6 +48,7 @@ export const DEFAULT_PREMIUM_PLAN_DATA: IPlan[] = [
     weeks: 4,
     isMostPopular: true,
     priceId: "",
+    productIds: [],
   },
   {
     id: "2",
@@ -59,6 +61,7 @@ export const DEFAULT_PREMIUM_PLAN_DATA: IPlan[] = [
     periodDiscount: 0.44,
     weeks: 12,
     priceId: "",
+    productIds: [],
   },
 ];
 

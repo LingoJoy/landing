@@ -3,26 +3,26 @@ import SecondImage from "@/assets/screens/iPhone-2.png";
 import ThirdImage from "@/assets/screens/iPhone-3.png";
 import FourthImage from "@/assets/screens/iPhone-4.png";
 
-import PaperImage from "@/assets/icons/paper.svg";
 import AppleImage from "@/assets/icons/apple.svg";
-import ScissorsImage from "@/assets/icons/scissors.svg";
 import MedalImage from "@/assets/icons/medal.svg";
+import PaperImage from "@/assets/icons/paper.svg";
+import ScissorsImage from "@/assets/icons/scissors.svg";
 
-import RaghunathImage from "@/assets/users/Raghunath.png";
 import JeniferImage from "@/assets/users/Jenifer.png";
 import KaiImage from "@/assets/users/Kai.png";
-import MehmetImage from "@/assets/users/Mehmet.png";
 import LucasImage from "@/assets/users/Lucas.png";
+import MehmetImage from "@/assets/users/Mehmet.png";
 import PatriciaImage from "@/assets/users/Patricia.png";
+import RaghunathImage from "@/assets/users/Raghunath.png";
 
-import InImage from "@/assets/flags/in.png";
-import UsImage from "@/assets/flags/us.png";
-import FiImage from "@/assets/flags/fi.png";
 import BrImage from "@/assets/flags/br.png";
+import FiImage from "@/assets/flags/fi.png";
+import InImage from "@/assets/flags/in.png";
 import TrImage from "@/assets/flags/tr.png";
+import UsImage from "@/assets/flags/us.png";
 
-import IntelligentImage from "@/assets/emoji/intelligent.png";
 import CoolImage from "@/assets/emoji/cool.png";
+import IntelligentImage from "@/assets/emoji/intelligent.png";
 import SmartImage from "@/assets/emoji/smart.png";
 
 import { ILevel, ISelectorQuestData, IUser } from ".";
@@ -295,6 +295,7 @@ export const DEFAULT_YOUR_PLAN_DATA: IPlan[] = [
     periodPrice: 0.63,
     weeks: 4,
     priceId: "",
+    productIds: []
   },
   {
     id: "1",
@@ -306,6 +307,7 @@ export const DEFAULT_YOUR_PLAN_DATA: IPlan[] = [
     periodPrice: 0.43,
     weeks: 13,
     priceId: "",
+    productIds: []
   },
   {
     id: "2",
@@ -317,5 +319,6 @@ export const DEFAULT_YOUR_PLAN_DATA: IPlan[] = [
     periodPrice: 0.27,
     weeks: 52,
     priceId: "",
+    productIds: []
   },
 ];
