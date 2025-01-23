@@ -1,16 +1,16 @@
+import { Box, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { Box, Typography } from "@mui/material";
 
 import Check from "@/components/atoms/Check";
 
 import BackButton from "@/components/atoms/BackButton";
-import LogoIcon from "@/components/atoms/icons/LogoIcon";
-import ContentContainer from "../../ContentContainer";
 import Field from "@/components/atoms/Field";
-import CardWrapper from "../../CardWrapper";
+import LogoIcon from "@/components/atoms/icons/LogoIcon";
 import PulseButton from "@/components/atoms/PulseButton";
+import CardWrapper from "../../CardWrapper";
+import ContentContainer from "../../ContentContainer";
 
 import Background from "@/assets/login-bg.png";
 
@@ -22,22 +22,22 @@ import {
   EUrls,
   FB_EVENT,
 } from "@/constants";
-import { validateQuestEmail, validateQuestPassword } from "@/utils/validations";
-import { setPlan } from "@/store/plan";
-import { setProfile } from "@/store/profile";
-import { getQuestionnaire } from "@/store/questionnaire";
-import axios from "@/utils/AxiosConfig";
-import { getLevel } from "@/utils/getLevel";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
+import { setPlan } from "@/store/plan";
+import { getProfile, setProfile } from "@/store/profile";
+import { getQuestionnaire } from "@/store/questionnaire";
 import { logEvent } from "@/utils/amplitude";
-import { useAlert } from "../../AlertMessage";
+import axios from "@/utils/AxiosConfig";
 import { logFBConventionsEvent, logFBEvent } from "@/utils/facebookSDK";
+import { getLevel } from "@/utils/getLevel";
+import { validateQuestEmail, validateQuestPassword } from "@/utils/validations";
+import { useAlert } from "../../AlertMessage";
 
 import { TProfileResponse } from "@/types";
 
-import styles from "./index.module.scss";
-import { getLocalization } from "@/store/localization";
 import { AuthResponse, useLoginMutation } from "@/store/auth/query";
+import { getLocalization } from "@/store/localization";
+import styles from "./index.module.scss";
 
 interface IErrors {
   email: ELocalizationQuestionnaire | "";
@@ -59,13 +59,15 @@ const DEFAULT_SUBSCRIBE_OPTIONS = [
 const CreateAccountForm = () => {
   const questionnaire = useSelector(getQuestionnaire);
   const localization = useSelector(getLocalizationQuestionnaire);
+  const profile = useSelector(getProfile);
+  
   const [options, setOptions] = useState<string[]>([]);
   const localizationDefault = useSelector(getLocalization);
   const [isDisabled, setIsDisabled] = useState(true);
 
   const { vocabulary, personal, email: storeEmail } = questionnaire;
 
-  const [email, setEmail] = useState(storeEmail || "");
+  const [email, setEmail] = useState(profile?.email || storeEmail || "");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState<IErrors>({
     email: "",
