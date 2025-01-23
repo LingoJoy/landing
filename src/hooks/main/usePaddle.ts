@@ -85,7 +85,7 @@ export function usePaddle(redirectUrl?: string) {
             ? priceIds.map((id) => ({ priceId: id, quantity: 1 }))
             : [{ priceId: priceIds, quantity: 1 }];
 
-        console.log(location, email, priceIds, items, SUCCESS_URL);
+        // console.log(location, email, priceIds, items, SUCCESS_URL);
 
         if (!email) {
             paddle?.Update({
@@ -123,15 +123,15 @@ export function usePaddle(redirectUrl?: string) {
     ) => {
 
         let priceParams = price;
-        if (location) {
-            priceParams = {
-                ...price,
-                address: {
-                    countryCode: location?.country_code,
-                },
-            };
-        }
-        console.log("priceparams", priceParams);
+        // if (location) {
+        //     priceParams = {
+        //         ...price,
+        //         address: {
+        //             countryCode: location?.country_code,
+        //         },
+        //     };
+        // }
+        // console.log("priceparams", priceParams);
 
         try {
             const data: PricePreviewResponse | undefined = await paddle?.PricePreview(

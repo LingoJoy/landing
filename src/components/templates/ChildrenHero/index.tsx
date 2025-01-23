@@ -26,17 +26,18 @@ const ChildrenHero: FC<IProps> = ({ onNext }) => {
   const navigate = useNavigate();
 
   const localization = useSelector(getLocalizationQuestionnaire);
+  const [searchParams] = useSearchParams();
 
   const state = useSelector(getQuestionnaire);
   const dispatch = useDispatch();
 
   const handleSkip = () => {
-    const [searchParams] = useSearchParams();
+    console.log("param", searchParams);
     const queryString = searchParams.toString();
     const targetRoute = `${ERoutes.QUESTIONNAIRE_TIME}${
       queryString ? `?${queryString}` : ""
     }`;
-    console.log(targetRoute, searchParams);
+    console.log(targetRoute);
     dispatch(setQuestionnaire({ ...state, step: 15 }));
     navigate(targetRoute);
   };
