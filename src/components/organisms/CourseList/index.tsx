@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { Box, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import CourseLabel from "@/components/molecules/CourseLabel";
 import FilterCarousel, { IFilter } from "@/components/molecules/FilterCarousel";
-import AssignmentBlock from "../AssignmentBlock";
 import { Layout } from "@/components/templates";
+import AssignmentBlock from "../AssignmentBlock";
 
 import { ReadBook } from "@/components/templates/ReadBook";
 import Game from "../Game";
@@ -20,26 +20,26 @@ import {
   EUrls,
   FB_EVENT,
 } from "@/constants";
-import axios from "@/utils/AxiosConfig";
-import { getProfile, setProfile } from "@/store/profile";
-import { getLocalization } from "@/store/localization";
 import {
   selectCurrentExercise,
   setCategory,
   setStartLesson,
 } from "@/store/ActiveLesson";
 import { getBook, setBook } from "@/store/book";
-import { useAlert } from "../AlertMessage";
-import { getFinished, getInProgress } from "@/utils/courseHelpers";
+import { getLocalization } from "@/store/localization";
+import { getProfile } from "@/store/profile";
 import { logEvent } from "@/utils/amplitude";
-import { logFBConventionsEvent, logFBEvent } from "@/utils/facebookSDK";
 import { getPostProgress } from "@/utils/apiHelpers";
+import axios from "@/utils/AxiosConfig";
+import { getFinished, getInProgress } from "@/utils/courseHelpers";
+import { logFBConventionsEvent, logFBEvent } from "@/utils/facebookSDK";
+import { useAlert } from "../AlertMessage";
 
 import { Course, CourseType, EDefaultAxiosError, Exercise, IAxiosError, IBook } from "@/types";
 
-import styles from "./index.module.scss";
 import { AxiosError } from "axios";
 import EndTrialPeriodModal from "../modals/EndTrialPeriodModal";
+import styles from "./index.module.scss";
 
 interface ICourseData {
   all: Course[];
@@ -273,7 +273,7 @@ export default function CourseList() {
       <Box className={styles.wrapper}>
         <Box className={`${styles.hideWrapper} ${styles.show}`}>
           {/* Test button */}
-          <button
+          {/* <button
             onClick={async () => {
               try {
                 setIsLoading(true);
@@ -301,7 +301,7 @@ export default function CourseList() {
             }}
           >
             Test Clear Progress
-          </button>
+          </button> */}
           {/*  */}
           <FilterCarousel
             filters={filters}

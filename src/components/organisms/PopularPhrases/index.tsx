@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { Box, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { ReadBook } from "@/components/templates/ReadBook";
-import { Layout } from "@/components/templates";
 import CourseLabel from "@/components/molecules/CourseLabel";
 import FilterCarousel, { IFilter } from "@/components/molecules/FilterCarousel";
+import { Layout } from "@/components/templates";
+import { ReadBook } from "@/components/templates/ReadBook";
 import Game from "../Game";
 
 import Timer from "@/assets/timer.svg";
@@ -18,14 +18,14 @@ import {
   FB_EVENT,
 } from "@/constants";
 import { selectCurrentExercise, setStartLesson } from "@/store/ActiveLesson";
-import axios from "@/utils/AxiosConfig";
-import { getLocalization } from "@/store/localization";
 import { getBook, setBook } from "@/store/book";
-import { getProfile, setProfile } from "@/store/profile";
-import { useAlert } from "../AlertMessage";
-import { getFinished, getInProgress } from "@/utils/courseHelpers";
+import { getLocalization } from "@/store/localization";
+import { getProfile } from "@/store/profile";
 import { logEvent } from "@/utils/amplitude";
+import axios from "@/utils/AxiosConfig";
+import { getFinished, getInProgress } from "@/utils/courseHelpers";
 import { logFBConventionsEvent, logFBEvent } from "@/utils/facebookSDK";
+import { useAlert } from "../AlertMessage";
 
 import { Course, CourseType, Exercise, IBook } from "@/types";
 
@@ -196,7 +196,7 @@ export default function PopularPhrases() {
       <Box className={styles.wrapper}>
         <Box className={`${styles.hideWrapper} ${styles.show}`}>
           {/* Test button */}
-          <button
+          {/* <button
             onClick={async () => {
               try {
                 setIsLoading(true);
@@ -224,7 +224,7 @@ export default function PopularPhrases() {
             }}
           >
             Test Clear Progress
-          </button>
+          </button> */}
           {/*  */}
           <FilterCarousel
             filters={filters}

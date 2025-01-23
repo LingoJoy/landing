@@ -1,9 +1,10 @@
-import React, { FC } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { Box } from "@mui/material";
+import { FC } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import { BuildSentence, Read, Speaking, Theory } from "@/components/templates";
 import { GameLayout } from "@/components/templates/GameLayout";
+import { ReadBook } from "@/components/templates/ReadBook";
 import {
   CardAlphabet,
   CardBooleanChoice,
@@ -17,19 +18,17 @@ import {
   CardPutWords,
   SwipedCard,
 } from "../Cards";
-import { ReadBook } from "@/components/templates/ReadBook";
 import CardFinalRepeat from "../Cards/CardFinalRepeat";
 
 import { EExerciseType } from "@/constants";
 import {
   getNextExerciseId,
   hideGood,
-  selectExercise,
-  setNextExercise,
+  selectExercise
 } from "@/store/ActiveLesson";
 import { getBook } from "@/store/book";
-import { getFinished } from "@/utils/courseHelpers";
 import { getProfile } from "@/store/profile";
+import { getFinished } from "@/utils/courseHelpers";
 
 import { Exercise } from "@/types";
 
@@ -142,7 +141,7 @@ const Game: FC<IProps> = ({ currentExercise }) => {
   return (
     <GameLayout className={layoutClassName} backgroundType={layoutBgType}>
       {/* Test button */}
-      <button
+      {/* <button
         onClick={() => {
           dispatch(setNextExercise(nextExerciseId || ""));
         }}
@@ -159,7 +158,7 @@ const Game: FC<IProps> = ({ currentExercise }) => {
         }}
       >
         Test Skip
-      </button>
+      </button> */}
       {/*  */}
       <Box
         sx={{

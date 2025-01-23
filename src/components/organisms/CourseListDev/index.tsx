@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { Box, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import CourseLabel from "@/components/molecules/CourseLabel";
 import { Layout } from "@/components/templates";
@@ -17,13 +17,13 @@ import {
   ETranslate,
   EUrls,
 } from "@/constants";
-import axios from "@/utils/AxiosConfig";
-import { getProfile, setProfile } from "@/store/profile";
-import { getLocalization } from "@/store/localization";
 import { selectCurrentExercise, setStartLesson } from "@/store/ActiveLesson";
 import { getBook, setBook } from "@/store/book";
-import { useAlert } from "../AlertMessage";
+import { getLocalization } from "@/store/localization";
+import { getProfile } from "@/store/profile";
+import axios from "@/utils/AxiosConfig";
 import { getFinished, getInProgress } from "@/utils/courseHelpers";
+import { useAlert } from "../AlertMessage";
 
 import { Course, CourseType, Exercise, IBook } from "@/types";
 
@@ -164,7 +164,7 @@ export default function CourseListDev() {
       <Box className={styles.wrapper}>
         <Box className={`${styles.hideWrapper} ${styles.show}`}>
           {/* Test button */}
-          <button
+          {/* <button
             onClick={async () => {
               try {
                 setIsLoading(true);
@@ -192,7 +192,7 @@ export default function CourseListDev() {
             }}
           >
             Test Clear Progress
-          </button>
+          </button> */}
           <Box
             style={{
               position: "absolute",
