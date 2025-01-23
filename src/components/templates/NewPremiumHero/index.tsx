@@ -55,15 +55,15 @@ const NewPremiumHero = () => {
         title: plan1Data.data.details.lineItems[1].product.name,
         icon: DEFAULT_YOUR_PLAN_DATA[0].icon,
         price: parseNumber(
-          plan1Data.data.details.lineItems[0].formattedTotals.subtotal,
+          plan1Data.data.details.lineItems[0].formattedTotals.total,
         ),
         thenPrice: parseNumber(
-          plan1Data.data.details.lineItems[1].formattedTotals.subtotal,
+          plan1Data.data.details.lineItems[1].formattedTotals.total,
         ),
         period: "per day",
         periodPrice: (
           parseNumber(
-            plan1Data.data.details.lineItems[0].formattedTotals.subtotal,
+            plan1Data.data.details.lineItems[0].formattedTotals.total,
           ) / 7
         ).toFixed(2),
         weeks: 1,
