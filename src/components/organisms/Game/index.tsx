@@ -117,9 +117,6 @@ const Lesson = () => {
 };
 
 const Game: FC<IProps> = ({ currentExercise }) => {
-  const dispatch = useDispatch();
-
-  const nextExerciseId = useSelector(getNextExerciseId);
   const book = useSelector(getBook);
 
   const layoutClassName =
