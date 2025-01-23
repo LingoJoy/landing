@@ -87,7 +87,7 @@ const NewPremiumHero = () => {
   };
 
   const handlePlan = (plan: IPlan) => {
-    openCheckout(plan.productIds, undefined, ERoutes.FACT);
+    openCheckout(plan.productIds, undefined, ERoutes.SIGN_UP);
     setIsOpenPay(true);
   };
 
@@ -99,7 +99,7 @@ const NewPremiumHero = () => {
         window.scrollTo(0, 0);
         closeCheckout();
 
-        navigate(ERoutes.PREMIUM);
+        navigate(ERoutes.FACT);
       }
     },
     [closeCheckout, getStatus, navigate],

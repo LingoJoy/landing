@@ -75,7 +75,7 @@ const NewestPremiumHero = () => {
   };
 
   const handlePlan = useCallback((plan: IPlan) => {
-    openCheckout(plan.productIds, undefined, ERoutes.NEWEST_LANDING);
+    openCheckout(plan.productIds, undefined, ERoutes.SIGN_UP);
     setIsOpenPay(true);
   }, [openCheckout]);
 
@@ -87,7 +87,7 @@ const NewestPremiumHero = () => {
         window.scrollTo(0, 0);
         closeCheckout();
 
-        navigate(ERoutes.PREMIUM);
+        navigate(ERoutes.FACT);
       }
     },
     [closeCheckout, getStatus, navigate],
