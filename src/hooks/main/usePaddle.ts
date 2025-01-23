@@ -79,14 +79,14 @@ export function usePaddle(redirectUrl?: string) {
         discountId?: string,
         successUrl?: string,
     ) => {
-        const FRONTEND_URL = `${window.location.origin}${successUrl || ''}`;
+        const SUCCESS_URL = `${window.location.origin}${successUrl || ''}`;
         const email = profile?.email || state?.email;
 
         const items: { priceId: string; quantity: number }[] = Array.isArray(priceIds)
             ? priceIds.map((id) => ({ priceId: id, quantity: 1 }))
             : [{ priceId: priceIds, quantity: 1 }];
 
-        console.log(location, email, priceIds, items, FRONTEND_URL);
+        // console.log(location, email, priceIds, items, SUCCESS_URL);
 
         if (!email) {
             paddle?.Update({
@@ -101,7 +101,7 @@ export function usePaddle(redirectUrl?: string) {
 
         paddle?.Checkout.open({
             settings: {
-                successUrl: FRONTEND_URL,
+                successUrl: SUCCESS_URL,
             },
             items: items,
             discountId,
@@ -122,9 +122,20 @@ export function usePaddle(redirectUrl?: string) {
         paddle: Paddle | undefined,
         price: PricePreviewParams,
     ) => {
+
+        let priceParams = price;
+        if (location) {
+            priceParams = {
+                ...price,
+                address: {
+                    countryCode: location?.country_code,
+                },
+            };
+        }
+
         try {
             const data: PricePreviewResponse | undefined = await paddle?.PricePreview(
-                price,
+                priceParams,
             );
 
             return data;

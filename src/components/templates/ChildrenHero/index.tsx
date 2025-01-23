@@ -1,19 +1,20 @@
-import { FC } from "react";
-import { useNavigate } from "react-router";
-import { useDispatch, useSelector } from "react-redux";
 import { Box } from "@mui/material";
+import { FC } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router";
+import { useSearchParams } from "react-router-dom";
 
-import ContentContainer from "@/components/organisms/ContentContainer";
 import DreamsIcon from "@/components/atoms/icons/DreamsIcon";
-import SelectorFooter from "@/components/molecules/SelectorFooter";
 import LogoIcon from "@/components/atoms/icons/LogoIcon";
+import SelectorFooter from "@/components/molecules/SelectorFooter";
+import ContentContainer from "@/components/organisms/ContentContainer";
 
 import ChatTextImage from "@/assets/chat-text.png";
 
-import { ERoutes } from "@/constants/pages";
-import { getQuestionnaire, setQuestionnaire } from "@/store/questionnaire";
-import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 import { ELocalizationQuestionnaire } from "@/constants";
+import { ERoutes } from "@/constants/pages";
+import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
+import { getQuestionnaire, setQuestionnaire } from "@/store/questionnaire";
 
 import styles from "./index.module.scss";
 
@@ -30,8 +31,13 @@ const ChildrenHero: FC<IProps> = ({ onNext }) => {
   const dispatch = useDispatch();
 
   const handleSkip = () => {
+    const [searchParams] = useSearchParams();
+    const queryString = searchParams.toString();
+    const targetRoute = `${ERoutes.QUESTIONNAIRE_TIME}${
+      queryString ? `?${queryString}` : ""
+    }`;
     dispatch(setQuestionnaire({ ...state, step: 15 }));
-    navigate(ERoutes.QUESTIONNAIRE_TIME);
+    navigate(targetRoute);
   };
 
   return (
@@ -53,14 +59,14 @@ const ChildrenHero: FC<IProps> = ({ onNext }) => {
             <h2 className={styles.title}>
               {
                 localization[
-                  ELocalizationQuestionnaire.QUEST_CHILDREN_HERO_TITLE
+                ELocalizationQuestionnaire.QUEST_CHILDREN_HERO_TITLE
                 ]
               }
             </h2>
             <p className={styles.description}>
               {
                 localization[
-                  ELocalizationQuestionnaire.QUEST_CHILDREN_HERO_DESCR
+                ELocalizationQuestionnaire.QUEST_CHILDREN_HERO_DESCR
                 ]
               }
             </p>
