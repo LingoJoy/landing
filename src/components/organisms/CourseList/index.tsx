@@ -114,6 +114,7 @@ export default function CourseList() {
     books: [],
   });
   const [courseList, setCourseList] = useState<Course[][]>([]);
+  const [dailyCourses, setDailyCourses] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [activeFilter, setActiveFilter] = useState(filters[0].key);
   const [modalEndFreePeriod, setModalEndFreePeriod] = useState(false);
@@ -227,6 +228,16 @@ export default function CourseList() {
         }
       });
       setCourseList(mostPopularity || data.category[ELocalization.FILTER_DAILY] || []);
+
+      const daily = homeData.all
+        .filter((el) =>
+          profile?.dailyCourses.lessonIds.includes(el?.lesson?._id || ""),
+        )
+        .filter(
+          (it) => !getFinished(it?.lesson?._id || "", profile?.lessons || {}),
+        );
+
+        setDailyCourses(daily);
     } catch (error) {
       showAlert(false, localization[ELocalization.SOMETHING_WRONG]);
     } finally {
@@ -253,14 +264,6 @@ export default function CourseList() {
     logFBEvent(FB_EVENT.COURSES);
     logFBConventionsEvent(FB_EVENT.COURSES, profile?.email || "");
   }, []);
-
-  const dailyCourses = homeData.all
-    .filter((el) =>
-      profile?.dailyCourses.lessonIds.includes(el?.lesson?._id || ""),
-    )
-    .filter(
-      (it) => !getFinished(it?.lesson?._id || "", profile?.lessons || {}),
-    );
 
   if (book) return <ReadBook book={book} />;
 
