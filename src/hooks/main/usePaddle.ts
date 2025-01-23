@@ -2,8 +2,7 @@ import {
     CheckoutSettings,
     initializePaddle,
     Paddle,
-    PricePreviewParams,
-    PricePreviewResponse,
+    PricePreviewResponse
 } from "@paddle/paddle-js";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
@@ -86,7 +85,7 @@ export function usePaddle(redirectUrl?: string) {
             ? priceIds.map((id) => ({ priceId: id, quantity: 1 }))
             : [{ priceId: priceIds, quantity: 1 }];
 
-        // console.log(location, email, priceIds, items, SUCCESS_URL);
+        console.log(location, email, priceIds, items, SUCCESS_URL);
 
         if (!email) {
             paddle?.Update({
@@ -120,7 +119,7 @@ export function usePaddle(redirectUrl?: string) {
 
     const getPrices = async (
         paddle: Paddle | undefined,
-        price: PricePreviewParams,
+        price: any,
     ) => {
 
         let priceParams = price;
@@ -132,6 +131,7 @@ export function usePaddle(redirectUrl?: string) {
                 },
             };
         }
+        console.log("priceparams", priceParams);
 
         try {
             const data: PricePreviewResponse | undefined = await paddle?.PricePreview(
