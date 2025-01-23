@@ -36,6 +36,7 @@ const ChildrenHero: FC<IProps> = ({ onNext }) => {
     const targetRoute = `${ERoutes.QUESTIONNAIRE_TIME}${
       queryString ? `?${queryString}` : ""
     }`;
+    console.log(targetRoute, searchParams);
     dispatch(setQuestionnaire({ ...state, step: 15 }));
     navigate(targetRoute);
   };
