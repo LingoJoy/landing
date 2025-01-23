@@ -229,7 +229,7 @@ export default function CourseList() {
       });
       setCourseList(mostPopularity || data.category[ELocalization.FILTER_DAILY] || []);
 
-      const daily = homeData.all
+      const daily = data.all
         .flat()
         .filter((el) =>
           profile?.dailyCourses.lessonIds.includes(el?.lesson?._id || ""),
@@ -237,6 +237,7 @@ export default function CourseList() {
         .filter(
           (it) => !getFinished(it?.lesson?._id || "", profile?.lessons || {}),
         );
+        console.log(data.all.flat().length, "daily length:", daily.length);
 
       setDailyCourses(daily);
     } catch (error) {
