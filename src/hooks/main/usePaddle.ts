@@ -19,7 +19,7 @@ const checkoutSettings: CheckoutSettings = {
     frameTarget: "checkout-container",
     frameStyle:
         "width: 100%; min-width: 312px; background-color: transparent; border: none;",
-    variant: 'one-page',
+    variant: 'multi-page',
 };
 
 export function usePaddle(redirectUrl?: string) {

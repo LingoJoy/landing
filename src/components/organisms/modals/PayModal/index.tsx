@@ -1,13 +1,12 @@
+import { Box } from "@mui/material";
 import { FC } from "react";
 import { useSelector } from "react-redux";
-import { Box } from "@mui/material";
 
-import Modal from "@/components/atoms/Modal";
 import CustomDivider from "@/components/atoms/CustomDivider";
+import Modal from "@/components/atoms/Modal";
 
-import Logo from "@/assets/pay-logo.svg";
 import HandshakeImage from "@/assets/icons/handshake.svg";
-import Stripe from "@/assets/Stripe.svg";
+import Logo from "@/assets/pay-logo.svg";
 import PayPal from "@/assets/PayPal.svg";
 
 import { ELocalizationQuestionnaire } from "@/constants";
@@ -82,7 +81,6 @@ const PayModal: FC<IProps> = ({ isOpen, onClose, title, price, discount }) => {
           </Box>
           <Box className={`checkout-container ${styles.checkout}`} />
           <Box className={styles.serviceWrapper}>
-            <Stripe />
             <PayPal />
           </Box>
         </Box>
