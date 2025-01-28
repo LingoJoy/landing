@@ -145,7 +145,7 @@ export function usePaddle(redirectUrl?: string) {
             const data: PricePreviewResponse | undefined = await paddle?.PricePreview(
                 priceParams,
             );
-
+            console.log("product", data);
             return data;
         } catch (error) {
             console.error(error);
