@@ -70,3 +70,17 @@ export const DEFAULT_PADDLE_PLAN_DATA = [
         discountId: import.meta.env.VITE_PADDLE_PLAN_DISCOUNT_3,
     },
 ];
+
+export const DEFAULT_MONTH_DATA = {
+    items: [
+        {
+            priceId: import.meta.env.VITE_PADDLE_PLAN_1_1,
+            quantity: 1,
+        },
+        {
+            priceId: import.meta.env.VITE_PADDLE_PLAN_OFFER_MONTH,
+            quantity: 1,
+        },
+    ],
+    discountId: import.meta.env.VITE_PADDLE_PLAN_OFFER_MONTH_DISCOUNT,
+};

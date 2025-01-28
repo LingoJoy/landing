@@ -1,13 +1,12 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
-import { useSelector } from "react-redux";
 import { Box } from "@mui/material";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 
 import HeaderQuestionnaire from "@/components/organisms/HeaderQuestionnaire";
-import PriceSection from "./PriceSection";
-import OrderSection from "./OrderSection";
-import UsersPremiumSection from "./UsersPremiumSection";
 import GuaranteePremiumSection from "./GuaranteePremiumSection";
+import PriceSection from "./PriceSection";
+import UsersPremiumSection from "./UsersPremiumSection";
 
 import ClockImage from "@/assets/main/clock.png";
 
@@ -53,8 +52,8 @@ const PremiumHero = () => {
         onClick={() => navigate(ERoutes.PAY)}
       />
       <Box className={styles.contentWrapper}>
-        <PriceSection />
-        <OrderSection />
+        <PriceSection onNext={() => navigate(ERoutes.PAY)} />
+        {/* <OrderSection /> */}
         <UsersPremiumSection />
         <GuaranteePremiumSection />
       </Box>

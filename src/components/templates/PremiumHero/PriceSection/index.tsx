@@ -1,16 +1,63 @@
+import { Box, Button } from "@mui/material";
 import { useSelector } from "react-redux";
-import { Box } from "@mui/material";
 
 import CupImage from "@/assets/icons/cup.svg";
 import FireImage from "@/assets/main/fire.png";
 
-import { ELocalizationQuestionnaire } from "@/constants";
+import { DEFAULT_MONTH_DATA, ELocalizationQuestionnaire, ERoutes } from "@/constants";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 
+import { LineItem } from "@paddle/paddle-js/types/price-preview/price-preview";
+import { FC, useCallback, useEffect, useState } from "react";
+import { usePaddle } from "../../../../hooks/main/usePaddle";
+import { IPlan } from "../../../../types";
+import { createPlan } from "../../../../utils/objectCreators";
+import PayModal from "../../../organisms/modals/PayModal";
 import styles from "../index.module.scss";
 
-const PriceSection = () => {
+interface IProps {
+  onNext: () => void;
+}
+
+const PriceSection: FC<IProps> = ({ onNext }) => {
+  const [latePrice, setLatePrice] = useState<LineItem | null>(null);
+  const [price, setPrice] = useState<LineItem | null>(null);
+  const [plan, setPlan] = useState<IPlan | null>(null);
+  const [isOpenPay, setIsOpenPay] = useState(false);
+
+  const { getPrices, paddle, openCheckout, closeCheckout } = usePaddle(ERoutes.SIGN_UP);
+
   const localization = useSelector(getLocalizationQuestionnaire);
+
+  const getData = async () => {
+    try {
+      const data = await getPrices(paddle, DEFAULT_MONTH_DATA);
+      if (data?.data?.details.lineItems[0]) {
+        const planRes = createPlan(data?.data?.details.lineItems, 0);
+        setPlan(planRes);
+      }
+
+      if (!data) return;
+
+      setPrice(data.data.details.lineItems[1]);
+      setLatePrice(data.data.details.lineItems[0]);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, [paddle]);
+
+  const onCloseHandler = useCallback(
+    () => {
+      setIsOpenPay(false);
+
+      closeCheckout();
+    },
+    [closeCheckout],
+  );
 
   return (
     <Box className={styles.priceWrapper}>
@@ -28,7 +75,9 @@ const PriceSection = () => {
               {localization[ELocalizationQuestionnaire.PREMIUM_PRICE_OLD_TITLE]}
             </p>
             <p className={styles.oldPrice}>
-              $39.99/{" "}
+              {latePrice && (
+                latePrice.formattedTotals.subtotal
+              )}
               {localization[ELocalizationQuestionnaire.LANDING_YOUR_PLAN_MONTH]}
             </p>
           </Box>
@@ -37,7 +86,7 @@ const PriceSection = () => {
               <p>
                 {
                   localization[
-                    ELocalizationQuestionnaire.PREMIUM_PRICE_NEW_TITLE
+                  ELocalizationQuestionnaire.PREMIUM_PRICE_NEW_TITLE
                   ]
                 }
               </p>
@@ -45,12 +94,17 @@ const PriceSection = () => {
               <img src={FireImage} alt="" />
             </Box>
             <p className={styles.newPrice}>
-              $19.99/{" "}
+              {latePrice && (
+                latePrice.formattedTotals.total
+              )}
               {localization[ELocalizationQuestionnaire.LANDING_YOUR_PLAN_MONTH]}
             </p>
             <p>
               7-
-              {localization[ELocalizationQuestionnaire.PREMIUM_PRICE_TRIAL]} $1
+              {localization[ELocalizationQuestionnaire.PREMIUM_PRICE_TRIAL]}
+              {price && (
+                price.formattedTotals.total
+              )}
             </p>
           </Box>
           <Box className={styles.discountBox}>
@@ -60,6 +114,36 @@ const PriceSection = () => {
           </Box>
         </Box>
       </Box>
+      <Box className={styles.footerWrapper}>
+        <Box className={styles.footerBox}>
+          {price && (
+            <Button
+              sx={{ width: "100%" }}
+              onClick={() => {
+                openCheckout(price.price.id, price.discounts?.[0].discount.id);
+                setIsOpenPay(true);
+              }}
+            >
+              {localization[ELocalizationQuestionnaire.GET_FOR]}{" "}
+              {price.formattedTotals.total}
+            </Button>
+          )}
+          <p
+            className={`${styles.description} ${styles.shortDescription}`}
+            onClick={onNext}
+          >
+            {localization[ELocalizationQuestionnaire.SKIP]}
+          </p>
+        </Box>
+      </Box>
+      {plan && (
+        <PayModal
+          isOpen={isOpenPay}
+          onClose={onCloseHandler}
+          title={plan.title}
+          price={plan.price}
+          discount={plan.discount}
+        />)}
     </Box>
   );
 };

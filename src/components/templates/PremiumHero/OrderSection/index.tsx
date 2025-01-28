@@ -1,21 +1,19 @@
-import { useNavigate } from "react-router";
-import { useSelector } from "react-redux";
 import { Box, Button } from "@mui/material";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 
 import OptionList from "@/components/molecules/OptionList";
 
-import TicketBGImage from "@/assets/icons/ticket-bg.svg";
-import TicketBGWebImage from "@/assets/icons/ticket-web-bg.svg";
 import WalletImage from "@/assets/icons/empty-wallet-remove.svg";
 import ReceiptImage from "@/assets/icons/receipt-item.svg";
-import StripeImage from "@/assets/payments/stripe.svg";
-import VisaImage from "@/assets/payments/visa.svg";
-import SkrillImage from "@/assets/payments/skrill.svg";
+import TicketBGImage from "@/assets/icons/ticket-bg.svg";
+import TicketBGWebImage from "@/assets/icons/ticket-web-bg.svg";
 import AmericanExpressImage from "@/assets/payments/american-express.svg";
-import MasterCardImage from "@/assets/payments/master-card.svg";
 import DiscoverImage from "@/assets/payments/discover.svg";
-import UnionPayImage from "@/assets/payments/union-pay.svg";
+import MasterCardImage from "@/assets/payments/master-card.svg";
 import PayPalImage from "@/assets/payments/pay-pal.svg";
+import UnionPayImage from "@/assets/payments/union-pay.svg";
+import VisaImage from "@/assets/payments/visa.svg";
 
 import {
   DEFAULT_ORDER_DATA,
@@ -90,9 +88,7 @@ const OrderSection = () => {
           {localization[ELocalizationQuestionnaire.PREMIUM_ORDER_GUARANTEE]}
         </h3>
         <Box className={styles.paymentsWrapper}>
-          <StripeImage />
           <VisaImage />
-          <SkrillImage />
           <AmericanExpressImage />
           <MasterCardImage />
           <DiscoverImage />

@@ -1,6 +1,6 @@
+import { Box } from "@mui/material";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-import { Box } from "@mui/material";
 
 import LogoIcon from "@/components/atoms/icons/LogoIcon";
 
@@ -35,7 +35,7 @@ const PrivacyPolicy = () => {
             For service improvements and ad delivery, we utilize third-party
             solutions. Consequently, we may process data using services
             developed by Amazon, Apple, Amplitude, Appsflyer, Google, Firebase,
-            Iterable, Stripe, PayPal, Solid, Firestorage, Zendesk, Tableau,
+            Iterable, PayPal, Solid, Firestorage, Zendesk, Tableau,
             Hotjar, and ironSource. Some data is stored and processed on the
             servers of these third parties, enabling us to (1) analyze various
             interactions (e.g., frequency of purchases, products viewed); (2)
@@ -501,7 +501,7 @@ const PrivacyPolicy = () => {
             notified that the payment has been made. We do not store or collect
             your payment card details; this information is provided directly to
             our third-party payment processors. For payment processing, we use
-            Stripe, a payment processing provider. We also use Solid, a payment
+            Paddle, a payment processing provider. We also use Solid, a payment
             gateway provider. For payments, we may propose using PayPal.
             <br />
             3.9 To enforce our Terms and Conditions of Use and to prevent and
@@ -588,7 +588,7 @@ const PrivacyPolicy = () => {
             <br />- Communication service providers (e.g., Apple, Firebase,
             Zendesk, Iterable) <br />- Marketing partners (e.g., social media
             networks, marketing agencies, email delivery services; Facebook,
-            Google) <br />- Payment service providers (e.g., Stripe, PayPal,
+            Google) <br />- Payment service providers (e.g., PayPal,
             Solid)
             <br />
             5.2 Law enforcement agencies and other public authorities

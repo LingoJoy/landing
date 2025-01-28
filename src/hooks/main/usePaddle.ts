@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { FB_EVENT } from "@/constants";
-import { getLocation, getProfile } from "@/store/profile";
+import { getLocation, getProfile, ILocation } from "@/store/profile";
 import { getQuestionnaire } from "@/store/questionnaire";
 import { logEvent } from "@/utils/amplitude";
 import { logFBConventionsEvent, logFBEvent } from "@/utils/facebookSDK";
@@ -86,7 +86,7 @@ export function usePaddle(redirectUrl?: string) {
             ? priceIds.map((id) => ({ priceId: id, quantity: 1 }))
             : [{ priceId: priceIds, quantity: 1 }];
 
-        // console.log(location, email, priceIds, items, SUCCESS_URL);
+            const locale: ILocation | null = validateCurrencyCode(location?.currency?.code) == true ? location : null;
 
         if (!email) {
             paddle?.Update({
@@ -102,7 +102,7 @@ export function usePaddle(redirectUrl?: string) {
         paddle?.Checkout.open({
             settings: {
                 successUrl: SUCCESS_URL,
-                locale: location?.country_code,
+                locale: locale?.country_code,
                 showAddDiscounts: false,
                 showAddTaxId: false
             },
@@ -111,8 +111,8 @@ export function usePaddle(redirectUrl?: string) {
             customer: {
                 email: email || " ",
                 address: {
-                    countryCode: location?.country_code || "",
-                    postalCode: location?.zip || ""
+                    countryCode: locale?.country_code || "",
+                    postalCode: locale?.zip || ""
                 },
             },
         });
@@ -126,18 +126,17 @@ export function usePaddle(redirectUrl?: string) {
         price: any,
     ) => {
 
-
-        console.log(location);
+        const locale: ILocation | null = validateCurrencyCode(location?.currency?.code) == true ? location : null;
 
         let priceParams = price;
-        if (location) {
+        if (locale) {
             priceParams = {
                 ...price,
                 address: {
-                    countryCode: location?.country_code,
-                    postalCode: location?.zip
+                    countryCode: locale?.country_code,
+                    postalCode: locale?.zip
                 },
-                currencyCode: location?.currency?.code || null
+                currencyCode: locale?.currency?.code || null
             };
         }
 
@@ -145,12 +144,24 @@ export function usePaddle(redirectUrl?: string) {
             const data: PricePreviewResponse | undefined = await paddle?.PricePreview(
                 priceParams,
             );
-            console.log("product", data);
             return data;
         } catch (error) {
             console.error(error);
         }
     };
+
+    function validateCurrencyCode(code?: string): boolean {
+        if (!code) { return false }
+
+        const validCodes: string[] = [
+            'USD', 'EUR', 'GBP', 'JPY', 'AUD', 'CAD', 'CHF', 'HKD',
+            'SGD', 'SEK', 'ARS', 'BRL', 'CNY', 'COP', 'CZK', 'DKK',
+            'HUF', 'ILS', 'INR', 'KRW', 'MXN', 'NOK', 'NZD', 'PLN',
+            'RUB', 'THB', 'TRY', 'TWD', 'UAH', 'ZAR'
+        ];
+
+        return validCodes.includes(code);
+    }
 
     const getStatus = () => statusTransaction;
 

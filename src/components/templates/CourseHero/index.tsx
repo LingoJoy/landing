@@ -93,9 +93,9 @@ const CourseHero: FC<IProps> = ({ onNext }) => {
           <h2 className={styles.title}>
             {localization[ELocalizationQuestionnaire.QUEST_PAY_TITLE_4]}
           </h2>
-          <p className={styles.description}>
+          {/* <p className={styles.description}>
             {localization[ELocalizationQuestionnaire.QUEST_PAY_DESCR_4]}
-          </p>
+          </p> */}
         </Box>
         <Box>
           <p className={styles.attention}>
