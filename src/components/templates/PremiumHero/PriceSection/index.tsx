@@ -103,7 +103,7 @@ const PriceSection: FC<IProps> = ({ onNext }) => {
               7-
               {localization[ELocalizationQuestionnaire.PREMIUM_PRICE_TRIAL]}
               {offerProductPrice && (
-                `${offerProductPrice.formattedTotals.total} `
+                ` ${offerProductPrice.formattedTotals.total}`
               )}
             </p>
           </Box>
