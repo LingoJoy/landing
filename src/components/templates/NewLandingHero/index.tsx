@@ -66,7 +66,7 @@ const NewLandingHero = () => {
         periodPrice: updatePriceFormatted(
           plan1Data.data.details.lineItems[0].formattedTotals.total, 
           (parseNumber(plan1Data.data.details.lineItems[0].formattedTotals.total)).toFixed(2), 
-          (parseNumber(plan1Data.data.details.lineItems[0].formattedTotals.total,) / 7).toFixed(2)
+          (parseNumber(plan1Data.data.details.lineItems[0].formattedTotals.total,) / 3).toFixed(2)
         ),
         weeks: 1,
         createDate: plan1Data.data.details.lineItems[0].product.createdAt,
