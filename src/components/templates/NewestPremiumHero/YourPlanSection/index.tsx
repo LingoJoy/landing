@@ -1,9 +1,9 @@
+import { Box } from "@mui/material";
 import { FC } from "react";
 import { useSelector } from "react-redux";
-import { Box } from "@mui/material";
 
-import PulseButton from "@/components/atoms/PulseButton";
 import Loader from "@/components/atoms/Loader";
+import PulseButton from "@/components/atoms/PulseButton";
 import RectangleBGIcon from "@/components/atoms/icons/RectangleBGIcon";
 
 import CheckIcon from "@/assets/icons/check.svg";
@@ -62,14 +62,14 @@ const PlanCard: FC<ICardProps> = ({ data, active }) => {
           <Box className={styles.discountBox}>
             {data.thenPrice && (
               <p>
-                <span>${data.price}</span>{" "}
+                <span>{data.price}</span>{" "}
                 <span className={styles.thenPrice}>
                   {
                     localization[
                       ELocalizationQuestionnaire.LANDING_YOUR_PLAN_AND_THEN
                     ]
                   }{" "}
-                  ${data.thenPrice}/
+                  {data.thenPrice}/
                   {
                     localization[
                       ELocalizationQuestionnaire.LANDING_YOUR_PLAN_MONTH
@@ -80,14 +80,14 @@ const PlanCard: FC<ICardProps> = ({ data, active }) => {
             )}
             {data.discount && (
               <p>
-                <span className={styles.discount}>${data.price}</span>{" "}
-                <span>${data.discount}</span>
+                <span className={styles.discount}>{data.price}</span>{" "}
+                <span>{data.discount}</span>
               </p>
             )}
             {!data.discount && !data.thenPrice && (
               <p>
                 <span>
-                  ${data.price}{" "}
+                  {data.price}{" "}
                   {
                     localization[
                       ELocalizationQuestionnaire.LANDING_YOUR_PLAN_PER_MONTH
@@ -108,7 +108,7 @@ const PlanCard: FC<ICardProps> = ({ data, active }) => {
             className={styles.planPrice}
             style={{ color: active ? "#FFFFFF" : "#303030" }}
           >
-            ${data.periodPrice}
+            {data.periodPrice}
           </p>
           <p
             className={styles.planPeriod}

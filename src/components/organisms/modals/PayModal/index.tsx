@@ -16,8 +16,8 @@ interface IProps {
   isOpen: boolean;
   onClose: () => void;
   title?: string;
-  price?: number;
-  discount?: number;
+  price?: number | string;
+  discount?: number | string;
 }
 
 // const getPercentage = (price: number, discount: number) => {

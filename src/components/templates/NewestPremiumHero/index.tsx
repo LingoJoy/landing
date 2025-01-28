@@ -13,7 +13,7 @@ import PayModal from "@/components/organisms/modals/PayModal";
 import { DEFAULT_PADDLE_PLAN_DATA, DEFAULT_YOUR_PLAN_DATA, ERoutes, PADDLE_STATUS_TRANSACTION } from "@/constants";
 import { usePaddle } from "@/hooks/main/usePaddle";
 import { IPlan } from "@/types";
-import { createPlan, parseNumber } from "@/utils/objectCreators";
+import { createPlan, parseNumber, updatePriceFormatted } from "@/utils/objectCreators";
 
 import styles from "./index.module.scss";
 
@@ -42,18 +42,14 @@ const NewestPremiumHero = () => {
         id: plan1Data.data.details.lineItems[0].price.id,
         title: plan1Data.data.details.lineItems[1].product.name,
         icon: DEFAULT_YOUR_PLAN_DATA[0].icon,
-        price: parseNumber(
-          plan1Data.data.details.lineItems[0].formattedTotals.total,
-        ),
-        thenPrice: parseNumber(
-          plan1Data.data.details.lineItems[1].formattedTotals.total,
-        ),
+        price: plan1Data.data.details.lineItems[0].formattedTotals.total,
+        thenPrice: plan1Data.data.details.lineItems[1].formattedTotals.total,
         period: "per day",
-        periodPrice: (
-          parseNumber(
-            plan1Data.data.details.lineItems[0].formattedTotals.total,
-          ) / 7
-        ).toFixed(2),
+        periodPrice: updatePriceFormatted(
+          plan1Data.data.details.lineItems[0].formattedTotals.total, 
+          (parseNumber(plan1Data.data.details.lineItems[0].formattedTotals.total)).toFixed(2), 
+          (parseNumber(plan1Data.data.details.lineItems[0].formattedTotals.total,) / 7).toFixed(2)
+        ),
         weeks: 1,
         createDate: plan1Data.data.details.lineItems[0].product.createdAt,
         isFourWeek: true,

@@ -8,9 +8,9 @@ export interface IPlan {
   id: string;
   title: string;
   icon?: string;
-  price: number;
-  discount?: number;
-  thenPrice?: number;
+  price: string;
+  discount?: string;
+  thenPrice?: string;
   period: string;
   periodPrice: number | string;
   periodDiscount?: number;

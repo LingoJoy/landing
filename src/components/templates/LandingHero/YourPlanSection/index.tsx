@@ -1,15 +1,15 @@
+import { Box, Button } from "@mui/material";
 import { FC, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Box, Button } from "@mui/material";
 
 import RectangleBGIcon from "@/components/atoms/icons/RectangleBGIcon";
 
+import CheckIcon from "@/assets/icons/check.svg";
+import HeartImage from "@/assets/main/heart.png";
 import FirstImage from "@/assets/screens/iPhone-5.png";
 import SecondImage from "@/assets/screens/iPhone-6.png";
 import ThirdImage from "@/assets/screens/iPhone-7.png";
-import HeartImage from "@/assets/main/heart.png";
-import CheckIcon from "@/assets/icons/check.svg";
 
 import {
   DEFAULT_YOUR_PLAN_DATA,
@@ -59,14 +59,14 @@ const PlanCard: FC<ICardProps> = ({ data, active }) => {
           <Box className={styles.discountBox}>
             {data.thenPrice && (
               <p>
-                <span>${data.price}</span>{" "}
+                <span>{data.price}</span>{" "}
                 <span className={styles.thenPrice}>
                   {
                     localization[
                       ELocalizationQuestionnaire.LANDING_YOUR_PLAN_AND_THEN
                     ]
                   }{" "}
-                  ${data.thenPrice}/
+                  {data.thenPrice}/
                   {
                     localization[
                       ELocalizationQuestionnaire.LANDING_YOUR_PLAN_MONTH
@@ -77,14 +77,14 @@ const PlanCard: FC<ICardProps> = ({ data, active }) => {
             )}
             {data.discount && (
               <p>
-                <span className={styles.discount}>${data.price}</span>{" "}
-                <span>${data.discount}</span>
+                <span className={styles.discount}>{data.price}</span>{" "}
+                <span>{data.discount}</span>
               </p>
             )}
             {!data.discount && !data.thenPrice && (
               <p>
                 <span>
-                  ${data.price}{" "}
+                  {data.price}{" "}
                   {
                     localization[
                       ELocalizationQuestionnaire.LANDING_YOUR_PLAN_PER_MONTH
@@ -105,7 +105,7 @@ const PlanCard: FC<ICardProps> = ({ data, active }) => {
             className={styles.planPrice}
             style={{ color: active ? "#FFFFFF" : "#303030" }}
           >
-            ${data.periodPrice}
+            {data.periodPrice}
           </p>
           <p
             className={styles.planPeriod}
