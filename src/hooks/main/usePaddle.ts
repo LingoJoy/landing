@@ -39,6 +39,7 @@ export function usePaddle(redirectUrl?: string) {
             checkout: {
                 settings: {
                     ...checkoutSettings,
+                    locale: location?.country_code,
                 },
             },
             eventCallback(event) {
