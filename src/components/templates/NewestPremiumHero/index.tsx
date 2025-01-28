@@ -53,10 +53,10 @@ const NewestPremiumHero = () => {
         weeks: 1,
         createDate: plan1Data.data.details.lineItems[0].product.createdAt,
         isFourWeek: true,
-        isMostPopular: false,
+        isMostPopular: true,
         productIds: plan1Data.data.details.lineItems.map((item) => item.price.id)
       };
-      const plan2 = createPlan(plan2Data.data.details.lineItems, 1, true);
+      const plan2 = createPlan(plan2Data.data.details.lineItems, 1);
       const plan3 = createPlan(plan3Data.data.details.lineItems, 2);
 
       const newPlans = [plan1, plan2, plan3];

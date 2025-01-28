@@ -20,7 +20,7 @@ interface IProps {
 }
 
 const PriceSection: FC<IProps> = ({ onNext }) => {
-  const [latePrice, setLatePrice] = useState<LineItem | null>(null);
+  const [offerProductPrice, setOfferProductPrice] = useState<LineItem | null>(null);
   const [price, setPrice] = useState<LineItem | null>(null);
   const [plan, setPlan] = useState<IPlan | null>(null);
   const [isOpenPay, setIsOpenPay] = useState(false);
@@ -40,7 +40,7 @@ const PriceSection: FC<IProps> = ({ onNext }) => {
       if (!data) return;
 
       setPrice(data.data.details.lineItems[1]);
-      setLatePrice(data.data.details.lineItems[0]);
+      setOfferProductPrice(data.data.details.lineItems[0]);
     } catch (error) {
       console.error(error);
     }
@@ -75,8 +75,8 @@ const PriceSection: FC<IProps> = ({ onNext }) => {
               {localization[ELocalizationQuestionnaire.PREMIUM_PRICE_OLD_TITLE]}
             </p>
             <p className={styles.oldPrice}>
-              {latePrice && (
-                latePrice.formattedTotals.subtotal
+              {price && (
+                price.formattedTotals.subtotal
               )}
               {localization[ELocalizationQuestionnaire.LANDING_YOUR_PLAN_MONTH]}
             </p>
@@ -94,16 +94,16 @@ const PriceSection: FC<IProps> = ({ onNext }) => {
               <img src={FireImage} alt="" />
             </Box>
             <p className={styles.newPrice}>
-              {latePrice && (
-                latePrice.formattedTotals.total
-              )}
+              {price && (
+                price.formattedTotals.total
+              )}/
               {localization[ELocalizationQuestionnaire.LANDING_YOUR_PLAN_MONTH]}
             </p>
             <p>
               7-
               {localization[ELocalizationQuestionnaire.PREMIUM_PRICE_TRIAL]}
-              {price && (
-                price.formattedTotals.total
+              {offerProductPrice && (
+                offerProductPrice.formattedTotals.total
               )}
             </p>
           </Box>
@@ -114,26 +114,28 @@ const PriceSection: FC<IProps> = ({ onNext }) => {
           </Box>
         </Box>
       </Box>
-      <Box className={styles.footerWrapper}>
-        <Box className={styles.footerBox}>
-          {price && (
-            <Button
-              sx={{ width: "100%" }}
-              onClick={() => {
-                openCheckout(price.price.id, price.discounts?.[0].discount.id);
-                setIsOpenPay(true);
-              }}
+      <Box mt="50px">
+        <Box className={styles.footerWrapper}>
+          <Box className={styles.footerBox}>
+            {offerProductPrice && (
+              <Button
+                sx={{ width: "100%" }}
+                onClick={() => {
+                  openCheckout(offerProductPrice.price.id, offerProductPrice.discounts?.[0].discount.id);
+                  setIsOpenPay(true);
+                }}
+              >
+                {localization[ELocalizationQuestionnaire.GET_FOR]}{" "}
+                {offerProductPrice.formattedTotals.total}
+              </Button>
+            )}
+            <p
+              className={`${styles.description} ${styles.shortDescription}`}
+              onClick={onNext}
             >
-              {localization[ELocalizationQuestionnaire.GET_FOR]}{" "}
-              {price.formattedTotals.total}
-            </Button>
-          )}
-          <p
-            className={`${styles.description} ${styles.shortDescription}`}
-            onClick={onNext}
-          >
-            {localization[ELocalizationQuestionnaire.SKIP]}
-          </p>
+              {localization[ELocalizationQuestionnaire.SKIP]}
+            </p>
+          </Box>
         </Box>
       </Box>
       {plan && (
