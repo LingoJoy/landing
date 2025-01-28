@@ -1,10 +1,11 @@
+import { defaultLanguage } from "@/constants";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AuthAPI, User } from "../auth/query";
-import { defaultLanguage } from "@/constants";
 
 export interface ILocation {
   country_code: string,
   zip: string,
+  currency?: any | null
 }
 
 export interface IProfileState {

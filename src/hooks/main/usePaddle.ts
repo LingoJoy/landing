@@ -136,7 +136,7 @@ export function usePaddle(redirectUrl?: string) {
                     countryCode: location?.country_code,
                     postalCode: location?.zip
                 },
-                currencyCode: "USD"
+                currencyCode: location?.currency?.code || null
             };
         }
 
