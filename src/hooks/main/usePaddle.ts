@@ -101,6 +101,9 @@ export function usePaddle(redirectUrl?: string) {
         paddle?.Checkout.open({
             settings: {
                 successUrl: SUCCESS_URL,
+                locale: location?.country_code,
+                showAddDiscounts: false,
+                showAddTaxId: false
             },
             items: items,
             discountId,
@@ -108,7 +111,7 @@ export function usePaddle(redirectUrl?: string) {
                 email: email || " ",
                 address: {
                     countryCode: location?.country_code || "",
-                    postalCode: location?.zip || "",
+                    postalCode: location?.zip || ""
                 },
             },
         });
@@ -122,16 +125,20 @@ export function usePaddle(redirectUrl?: string) {
         price: any,
     ) => {
 
+
+        console.log(location);
+
         let priceParams = price;
-        // if (location) {
-        //     priceParams = {
-        //         ...price,
-        //         address: {
-        //             countryCode: location?.country_code,
-        //         },
-        //     };
-        // }
-        // console.log("priceparams", priceParams);
+        if (location) {
+            priceParams = {
+                ...price,
+                address: {
+                    countryCode: location?.country_code,
+                    postalCode: location?.zip
+                },
+                currencyCode: "USD"
+            };
+        }
 
         try {
             const data: PricePreviewResponse | undefined = await paddle?.PricePreview(

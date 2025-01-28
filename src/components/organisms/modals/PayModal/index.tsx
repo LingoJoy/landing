@@ -2,11 +2,9 @@ import { Box } from "@mui/material";
 import { FC } from "react";
 import { useSelector } from "react-redux";
 
-import CustomDivider from "@/components/atoms/CustomDivider";
 import Modal from "@/components/atoms/Modal";
 
 import HandshakeImage from "@/assets/icons/handshake.svg";
-import Logo from "@/assets/pay-logo.svg";
 import PayPal from "@/assets/PayPal.svg";
 
 import { ELocalizationQuestionnaire } from "@/constants";
@@ -17,16 +15,16 @@ import styles from "./index.module.scss";
 interface IProps {
   isOpen: boolean;
   onClose: () => void;
-  title: string;
-  price: number;
+  title?: string;
+  price?: number;
   discount?: number;
 }
 
-const getPercentage = (price: number, discount: number) => {
-  return Number((discount / price).toFixed(2)) * 100;
-};
+// const getPercentage = (price: number, discount: number) => {
+//   return Number((discount / price).toFixed(2)) * 100;
+// };
 
-const PayModal: FC<IProps> = ({ isOpen, onClose, title, price, discount }) => {
+const PayModal: FC<IProps> = ({ isOpen, onClose }) => {
   const localization = useSelector(getLocalizationQuestionnaire);
 
   return (
@@ -39,7 +37,7 @@ const PayModal: FC<IProps> = ({ isOpen, onClose, title, price, discount }) => {
     >
       <Box className={styles.webWrapper}>
         <Box className={styles.contentWrapper}>
-          <Box className={styles.headerWrapper}>
+          {/* <Box className={styles.headerWrapper}>
             <Logo />
             <Box className={styles.headerBox}>
               <h4>{localization[ELocalizationQuestionnaire.PAY_TITLE]}</h4>
@@ -53,6 +51,7 @@ const PayModal: FC<IProps> = ({ isOpen, onClose, title, price, discount }) => {
               <p>{localization[ELocalizationQuestionnaire.PAY_PRICE]}</p>
               <span>{`$${price}`}</span>
             </Box>
+
             {discount ? (
               <Box className={styles.discountBox}>
                 <p>{localization[ELocalizationQuestionnaire.PAY_DISCOUNT]}</p>
@@ -69,7 +68,7 @@ const PayModal: FC<IProps> = ({ isOpen, onClose, title, price, discount }) => {
                 localization[ELocalizationQuestionnaire.PAY_SAVING]
               } ${getPercentage(price, discount)}%`}</p>
             ) : null}
-          </Box>
+          </Box> */}
           <Box className={styles.guaranteeWrapper}>
             <HandshakeImage />
             <h3>
