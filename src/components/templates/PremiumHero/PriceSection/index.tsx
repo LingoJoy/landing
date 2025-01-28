@@ -78,7 +78,7 @@ const PriceSection: FC<IProps> = ({ onNext }) => {
               {price && (
                 price.formattedTotals.subtotal
               )}
-              {localization[ELocalizationQuestionnaire.LANDING_YOUR_PLAN_MONTH]}
+              /{localization[ELocalizationQuestionnaire.LANDING_YOUR_PLAN_MONTH]}
             </p>
           </Box>
           <Box className={styles.newPriceBox}>
@@ -103,7 +103,7 @@ const PriceSection: FC<IProps> = ({ onNext }) => {
               7-
               {localization[ELocalizationQuestionnaire.PREMIUM_PRICE_TRIAL]}
               {offerProductPrice && (
-                offerProductPrice.formattedTotals.total
+                `${offerProductPrice.formattedTotals.total} `
               )}
             </p>
           </Box>
