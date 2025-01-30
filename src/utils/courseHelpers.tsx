@@ -32,7 +32,7 @@ export const renderIconCourseTitle = (courseType: string) => {
 
 export const getFinished = (
   courseId: string,
-  lessons: { [x: string]: { status: string } },
+  lessons: { [x: string]: { status: string, exercises?: { [key: string]: string }}},
 ) => {
   const finished = lessons[courseId];
 
@@ -43,7 +43,7 @@ export const getFinished = (
 
 export const getInProgress = (
   courseId: string,
-  lessons: { [x: string]: { status: string } },
+  lessons: { [x: string]: { status: string, exercises?: { [key: string]: string }}},
 ) => {
   const progress = lessons[courseId];
 

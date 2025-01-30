@@ -35,14 +35,14 @@ import { getFinished, getInProgress } from "@/utils/courseHelpers";
 import { logFBConventionsEvent, logFBEvent } from "@/utils/facebookSDK";
 import { useAlert } from "../AlertMessage";
 
-import { Course, CourseType, EDefaultAxiosError, Exercise, IAxiosError, IBook } from "@/types";
+import { Course, CourseType, DailyCourse, EDefaultAxiosError, Exercise, IAxiosError, IBook } from "@/types";
 
 import { AxiosError } from "axios";
 import EndTrialPeriodModal from "../modals/EndTrialPeriodModal";
 import styles from "./index.module.scss";
 
 interface ICourseData {
-  all: Course[];
+  all: DailyCourse[];
   category: {
     [x: string]: Course[][];
   };
@@ -114,7 +114,7 @@ export default function CourseList() {
     books: [],
   });
   const [courseList, setCourseList] = useState<Course[][]>([]);
-  const [dailyCourses, setDailyCourses] = useState<any[]>([]);
+  const [dailyCourses, setDailyCourses] = useState<DailyCourse[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [activeFilter, setActiveFilter] = useState(filters[0].key);
   const [modalEndFreePeriod, setModalEndFreePeriod] = useState(false);
@@ -145,16 +145,17 @@ export default function CourseList() {
       logFBEvent(FB_EVENT.LESSON_START);
       logFBConventionsEvent(FB_EVENT.LESSON_START, profile?.email || "");
 
-      dispatch(
-        setStartLesson({
-          courseId: data.course,
-          courseType: courseType,
-          title: title,
-          exercises: exercises,
-          lessonId: lessonId,
-          gameFinished,
-        }),
-      );
+      const completedExercises = profile?.lessons[lessonId]?.exercises ? Object.keys(profile.lessons[lessonId].exercises) : [];
+
+      dispatch(setStartLesson({
+        courseId: data.course,
+        courseType,
+        title,
+        exercises,
+        lessonId,
+        gameFinished,
+        completedExercises,
+      }));
     } catch (error) {
       console.log('log: error', error);
       const err = error as AxiosError;
