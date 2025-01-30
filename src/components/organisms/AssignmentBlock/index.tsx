@@ -13,12 +13,12 @@ import { getLocalization } from "@/store/localization";
 import { useHorizontalScroll } from "@/hooks/main/useHorizontalScroll";
 import { getProfile } from "@/store/profile";
 
-import { Course } from "@/types";
+import { DailyCourse } from "@/types";
 
 import styles from "./index.module.scss";
 
 interface IProps {
-  data: Course[];
+  data: DailyCourse[];
   onStart: (
     courseId: string,
     courseType: string,

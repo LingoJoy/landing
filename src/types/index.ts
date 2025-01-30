@@ -4,4 +4,5 @@ export * from './profile';
 export * from './questionnaire';
 export * from './chat';
 export * from './book';
+export * from './dailyCourses';
 export * from './axiosError';
