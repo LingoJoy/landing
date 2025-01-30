@@ -80,17 +80,40 @@ const exerciseSlice = createSlice({
         exercises: Exercise[];
         lessonId: string;
         gameFinished?: boolean;
+        completedExercises?: string[]
         gameRepeat?: boolean;
       }>,
     ) {
+      const lastCompletedId = action.payload.completedExercises?.length
+      ? action.payload.completedExercises[action.payload.completedExercises.length - 1]
+      : null;
+
+      const currentExercise = lastCompletedId
+      ? action.payload.exercises.find(exercise => exercise._id === lastCompletedId)
+      : null;
+
+      const currentIndex = currentExercise
+          ? action.payload.exercises.findIndex(ex => ex._id === currentExercise._id)
+          : -1;
+
+      let nextExercise = null;
+
+      if (currentIndex !== -1 && currentIndex + 1 < action.payload.exercises.length) {
+        nextExercise = action.payload.exercises[currentIndex + 1];
+      }
+
       state.gameRepeat = action.payload.gameRepeat || false;
       state.activeCourse = action.payload;
       state.gameFinished = action.payload.gameFinished || false;
-      state.completedExercises = [];
+      state.completedExercises = action.payload.completedExercises || [];
       state.wrongCompletedExercises = [];
-      state.currentExercise = action.payload.gameRepeat
-        ? { ...action.payload.exercises[0], completed: true }
-        : action.payload.exercises[0];
+      if (nextExercise) {
+        state.currentExercise = nextExercise;
+      } else if (action.payload.gameRepeat) {
+        state.currentExercise = { ...action.payload.exercises[0], completed: true };
+      } else {
+        state.currentExercise = action.payload.exercises[0];
+      }
       state.exercises = action.payload.gameRepeat
         ? action.payload.exercises.map((el) => ({ ...el, completed: true }))
         : action.payload.exercises;

@@ -19,7 +19,7 @@ export interface User {
   language?: ILanguage;
   locale: ETranslate;
   exercisesStatus: Record<string, unknown>;
-  lessons: { [x: string]: { status: string } };
+  lessons: { [x: string]: { status: string, exercises?: { [key: string]: string }}};
   image?: string;
   additional_info: TQuestionnaireType;
   createdAt: string;
