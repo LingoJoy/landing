@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import CourseLabel from "@/components/molecules/CourseLabel";
 import FilterCarousel, { IFilter } from "@/components/molecules/FilterCarousel";
@@ -13,6 +14,7 @@ import Timer from "@/assets/timer.svg";
 import {
   backgroundColors,
   ELocalization,
+  ERoutes,
   ETranslate,
   EUrls,
   FB_EVENT,
@@ -27,8 +29,10 @@ import { getFinished, getInProgress } from "@/utils/courseHelpers";
 import { logFBConventionsEvent, logFBEvent } from "@/utils/facebookSDK";
 import { useAlert } from "../AlertMessage";
 
-import { Course, CourseType, Exercise, IBook } from "@/types";
+import { Course, CourseType, EDefaultAxiosError, Exercise, IAxiosError, IBook } from "@/types";
 
+import EndTrialPeriodModal from "@/components/organisms/modals/EndTrialPeriodModal";
+import { AxiosError } from "axios";
 import styles from "./index.module.scss";
 
 interface ICourseData {
@@ -41,6 +45,7 @@ interface ICourseData {
 
 export default function PopularPhrases() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { showAlert } = useAlert();
 
@@ -80,6 +85,7 @@ export default function PopularPhrases() {
   const [courseList, setCourseList] = useState<Course[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [activeFilter, setActiveFilter] = useState(filters[0].key);
+  const [modalEndFreePeriod, setModalEndFreePeriod] = useState(false);
 
   const handleStartCourse = async (
     lessonId: string,
@@ -164,7 +170,14 @@ export default function PopularPhrases() {
       setHomeData(data);
       setCourseList(data.category[ELocalization.FILTER_DAILY] || []);
     } catch (error) {
-      console.error(error);
+      const err = error as AxiosError;
+      const errData = err?.response?.data as IAxiosError;
+
+      if (err?.response?.status === 403 && errData?.message === EDefaultAxiosError.NEED_SUBSCRIPTION) {
+        setModalEndFreePeriod(true);
+      } else {
+        showAlert(false, localization[ELocalization.SOMETHING_WRONG]);
+      }
     }
   };
 
@@ -277,6 +290,16 @@ export default function PopularPhrases() {
             ))}
           </Box>
         </Box>
+
+        <EndTrialPeriodModal
+          isOpen={modalEndFreePeriod}
+          onClose={() => {
+            setModalEndFreePeriod(false)
+            navigate(ERoutes.COURSES);
+          }}
+          title=""
+          price={0}
+        />
       </Box>
       {isLoading && (
         <Box

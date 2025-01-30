@@ -111,6 +111,7 @@ export enum ELocalizationQuestionnaire {
     PRIVACY_POLICY = "privacyPolicy",
     SUBSCRIPTION_POLICY = 'subscriptionPolicy',
     MONEY_BACK_POLICY = 'moneyBackPolicy',
+    REGISTER_AGREE = "registerAgree",
 
     //questionnaire
     QUEST_START_TITLE = 'questStartTitle',

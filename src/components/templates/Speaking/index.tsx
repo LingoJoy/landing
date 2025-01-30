@@ -1,19 +1,19 @@
-import "regenerator-runtime/runtime";
-import { useDispatch, useSelector } from "react-redux";
-import React, { useEffect, useState } from "react";
 import { Box, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import "regenerator-runtime/runtime";
 
-import ContentWrapper from "@/components/organisms/ContentWrapper";
-import PlayButton from "@/components/molecules/PlayButton";
 import AudioRecoder from "@/components/molecules/AudioRecoder";
-import CardWrapper from "@/components/organisms/CardWrapper";
 import NavigationButtons from "@/components/molecules/NavigationButtons";
+import PlayButton from "@/components/molecules/PlayButton";
+import CardWrapper from "@/components/organisms/CardWrapper";
+import ContentWrapper from "@/components/organisms/ContentWrapper";
 
-import { randomIntFromInterval } from "@/utils/randomIntFromInterval";
-import { setWrongCompletedExersises } from "@/store/ActiveLesson";
 import { ELocalization } from "@/constants";
-import { updatePostProgress } from "@/utils/apiHelpers";
+import { setWrongCompletedExersises } from "@/store/ActiveLesson";
 import { getLocalization } from "@/store/localization";
+import { updatePostProgress } from "@/utils/apiHelpers";
+import { randomIntFromInterval } from "@/utils/randomIntFromInterval";
 
 import { Exercise } from "@/types";
 
@@ -93,7 +93,7 @@ export const Speaking: React.FC<IProps> = ({ exercise, isMistake }) => {
                               fontSize: "1.5rem",
                               lineHeight: "1.25rem",
                               textAlign: "center",
-                              color: transcription.includes(el.toLowerCase())
+                              color: transcription && transcription.includes(el.toLowerCase())
                                 ? "#3F97FF"
                                 : "#303030",
                             }}

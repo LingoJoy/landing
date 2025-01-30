@@ -1,29 +1,30 @@
-import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import io, { Socket } from "socket.io-client";
-import { AxiosError } from "axios";
 import { Box, Button, IconButton } from "@mui/material";
+import { AxiosError } from "axios";
+import { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import io, { Socket } from "socket.io-client";
 
-import AutoHeightWrapper from "@/components/organisms/AutoHeightWrapper";
-import Header from "@/components/organisms/Header";
 import Modal from "@/components/atoms/Modal";
 import Sidebar from "@/components/atoms/Sidebar";
-import ModalAIContent from "@/components/organisms/modals/ModalAIContent";
 import AIChatInput from "@/components/organisms/AIChatInput";
 import { useAlert } from "@/components/organisms/AlertMessage";
+import AutoHeightWrapper from "@/components/organisms/AutoHeightWrapper";
+import Header from "@/components/organisms/Header";
 import EndTrialPeriodModal from "@/components/organisms/modals/EndTrialPeriodModal";
+import ModalAIContent from "@/components/organisms/modals/ModalAIContent";
 
 import Union from "@/assets/Union.svg";
-import Volume from "@/assets/volume-high.svg";
 import NoVolume from "@/assets/volume-cross.svg";
+import Volume from "@/assets/volume-high.svg";
 
 import { ELocalization, ERoutes, EUrls } from "@/constants";
-import axiosInter, { getToken } from "@/utils/AxiosConfig";
 import { getLocalization } from "@/store/localization";
+import axiosInter, { getToken } from "@/utils/AxiosConfig";
 
 import { EDefaultAxiosError, IAxiosError, IMessage, TAgent, TAgentResponse } from "@/types";
 
+import { useHorizontalScroll } from "@/hooks/main/useHorizontalScroll";
 import styles from "./index.module.scss";
 
 const Chat = () => {
@@ -46,6 +47,7 @@ const Chat = () => {
   const [modalEndFreePeriod, setModalEndFreePeriod] = useState(false);
   const [isEndFree, setIsEndFree] = useState(false);
 
+  const scrollRef = useHorizontalScroll();
   const { showAlert } = useAlert();
 
   const localization = useSelector(getLocalization);
@@ -238,7 +240,7 @@ const Chat = () => {
                 </Box>
               ))}
             </Box>
-            <Box className={`${styles.chatOptionWrapper} `}>
+            <Box className={`${styles.chatOptionWrapper} `} ref={scrollRef}>
               <p className={styles.chatOptionTitle}>
                 {localization[ELocalization.CHAT_WRITER_HELP]}{" "}
                 <span
@@ -247,8 +249,7 @@ const Chat = () => {
                 >
                   {!showPhrases
                     ? localization[ELocalization.CHAT_SHOW]
-                    : localization[ELocalization.CHAT_HIDE]}{" "}
-                  {localization[ELocalization.CHAT_PHRASES]}
+                    : localization[ELocalization.CHAT_HIDE]}
                 </span>
               </p>
               {options.length > 0 && (
@@ -315,7 +316,10 @@ const Chat = () => {
       </Box>
       <EndTrialPeriodModal
         isOpen={modalEndFreePeriod}
-        onClose={() => setModalEndFreePeriod(false)}
+        onClose={() => {
+          setModalEndFreePeriod(false)
+          navigate(ERoutes.COURSES)
+        }}
         title=""
         price={0}
       />

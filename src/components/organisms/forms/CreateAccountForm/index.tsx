@@ -36,7 +36,6 @@ import { useAlert } from "../../AlertMessage";
 import { TProfileResponse } from "@/types";
 
 import { AuthResponse, useLoginMutation } from "@/store/auth/query";
-import { getLocalization } from "@/store/localization";
 import styles from "./index.module.scss";
 
 interface IErrors {
@@ -60,9 +59,7 @@ const CreateAccountForm = () => {
   const questionnaire = useSelector(getQuestionnaire);
   const localization = useSelector(getLocalizationQuestionnaire);
   const profile = useSelector(getProfile);
-  
   const [options, setOptions] = useState<string[]>([]);
-  const localizationDefault = useSelector(getLocalization);
   const [isDisabled, setIsDisabled] = useState(true);
 
   const { vocabulary, personal, email: storeEmail } = questionnaire;
@@ -249,7 +246,7 @@ const CreateAccountForm = () => {
                         ml: "8px",
                       }}
                     >
-                      {localizationDefault[el]}
+                      {localization[ELocalizationQuestionnaire.REGISTER_AGREE]}
                     </Typography>
                   </Box>
                 ))}

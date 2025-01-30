@@ -75,6 +75,7 @@ const en: TLocalizationQuestionnaireType = {
   [ELocalizationQuestionnaire.PRIVACY_POLICY]: "Privacy policy",
   [ELocalizationQuestionnaire.SUBSCRIPTION_POLICY]: "Subscription policy",
   [ELocalizationQuestionnaire.MONEY_BACK_POLICY]: "Money-back policy",
+  [ELocalizationQuestionnaire.REGISTER_AGREE]: "I agree to the privacy policy and terms of service",
 
   [ELocalizationQuestionnaire.LANGUAGE_AF]: "Afrikaans",
   [ELocalizationQuestionnaire.LANGUAGE_BG]: "Bulgarian",
