@@ -34,7 +34,7 @@ const VocabularyPage = (): JSX.Element => {
     return (
       <Box className={styles.hideImages} data-class="hideImages">
         {DEFAULT_PRELOAD_IMAGES_DATA.map((image) => (
-          <img src={image.icon} alt="" />
+          <img key={image.id} src={image.icon} alt="" />
         ))}
       </Box>
     )
