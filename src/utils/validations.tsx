@@ -32,14 +32,14 @@ export const validateName = (name: string) => {
   return name.length < 0 ? ELocalization.VALIDATE_NAME : "";
 };
 
-export const validateQuestEmail = (email: string): ELocalizationQuestionnaire | null  => {
+export const validateQuestEmail = (email: string)  => {
   const emailFormatRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
   if (!emailFormatRegex.test(email)) {
     return ELocalizationQuestionnaire.VALIDATE_EMAIL_NOT_VALID;
   }
 
-  return null;
+  return "";
 };
 
 export const validateQuestPassword = (password: string) => {
