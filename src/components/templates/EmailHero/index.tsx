@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router";
 
-import Field from "@/components/atoms/Field";
 import DreamsIcon from "@/components/atoms/icons/DreamsIcon";
 import LogoIcon from "@/components/atoms/icons/LogoIcon";
 import SelectorFooter from "@/components/molecules/SelectorFooter";
@@ -18,23 +17,24 @@ import { getQuestionnaire, setQuestionnaire } from "@/store/questionnaire";
 import { validateQuestEmail } from "@/utils/validations";
 
 import { logEvent } from "@/utils/amplitude";
+import EmailField from "../../atoms/EmailField";
 import styles from "./index.module.scss";
 
 const popularDomains = [
-  "gmail.com", 
-  "icloud.com", 
-  "yahoo.com", 
-  "outlook.com", 
+  "gmail.com",
+  "icloud.com",
+  "yahoo.com",
+  "outlook.com",
   "mail.ru",
-  "hotmail.com", 
-  "aol.com", 
-  "protonmail.com", 
-  "yandex.ru", 
-  "zoho.com", 
-  "gmx.com", 
-  "live.com", 
-  "qq.com", 
-  "163.com", 
+  "hotmail.com",
+  "aol.com",
+  "protonmail.com",
+  "yandex.ru",
+  "zoho.com",
+  "gmx.com",
+  "live.com",
+  "qq.com",
+  "163.com",
   "inbox.com"
 ];
 
@@ -51,7 +51,8 @@ const EmailHero = () => {
   const [error, setError] = useState<ELocalizationQuestionnaire | "">("");
   const [suggestions, setSuggestions] = useState<string[]>([]);
 
-  const handleEmailChange = (newEmail: string) => {
+  const handleEmailChange = (email: string) => {
+    const newEmail = email;
     setEmail(newEmail);
     const validationError = validateQuestEmail(newEmail);
     setError(validationError ? validationError : "");
@@ -65,12 +66,6 @@ const EmailHero = () => {
     }
   };
 
-  const handleSuggestionClick = (suggestion: string) => {
-    setEmail(suggestion);
-    setSuggestions([]);
-    setError(validateQuestEmail(suggestion) || "");
-  };
-
   const handleEmail = () => {
     dispatch(setQuestionnaire({ ...state, email }));
 
@@ -80,6 +75,13 @@ const EmailHero = () => {
       pathname: ERoutes.WORDS,
       search,
     });
+  };
+
+  const handleSelectSuggestion = (suggestion: string) => {
+    setEmail(suggestion);
+    setSuggestions([]);
+    const validationError = validateQuestEmail(suggestion);
+    setError(validationError ? validationError : "");
   };
 
   return (
@@ -100,26 +102,17 @@ const EmailHero = () => {
             <h2 className={styles.title}>
               {localization[ELocalizationQuestionnaire.QUEST_EMAIL_TITLE]}
             </h2>
-            <Field
-              value={email}
-              onChange={handleEmailChange}
-              error={error ? localization[error] : ""}
-              onBlur={() => setSuggestions([])}
-              placeholder={localization[ELocalizationQuestionnaire.ENTER_YOUR_EMAIL]}
-            />
-            {suggestions.length > 0 && (
-              <Box className={styles.suggestionsBox}>
-                {suggestions.map((suggestion) => (
-                  <Box
-                    key={suggestion}
-                    className={styles.suggestionItem}
-                    onClick={() => handleSuggestionClick(suggestion)}
-                  >
-                    {suggestion}
-                  </Box>
-                ))}
-              </Box>
-            )}
+
+            <Box className={styles.wrapper}>
+              <EmailField
+                value={email}
+                onChange={handleEmailChange}
+                error={error ? localization[error] : ""}
+                placeholder={localization[ELocalizationQuestionnaire.ENTER_YOUR_EMAIL]}
+                suggestions={suggestions}
+                onSelectSuggestion={handleSelectSuggestion}
+              />
+            </Box>
             <Box className={styles.descriptionWrapper}>
               <LockImage />
               <p className={styles.description}>

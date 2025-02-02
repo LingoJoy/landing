@@ -32,18 +32,14 @@ export const validateName = (name: string) => {
   return name.length < 0 ? ELocalization.VALIDATE_NAME : "";
 };
 
-export const validateQuestEmail = (email: string) => {
+export const validateQuestEmail = (email: string): ELocalizationQuestionnaire | null  => {
   const emailFormatRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
   if (!emailFormatRegex.test(email)) {
     return ELocalizationQuestionnaire.VALIDATE_EMAIL_NOT_VALID;
   }
 
-  if (!email.endsWith("@gmail.com")) {
-    return ELocalizationQuestionnaire.VALIDATE_EMAIL_NOT_ALLOWED;
-  }
-
-  return "";
+  return null;
 };
 
 export const validateQuestPassword = (password: string) => {
