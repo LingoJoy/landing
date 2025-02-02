@@ -6,7 +6,7 @@ export const isRegexExactMatch = (value: string, regexp: string | RegExp) => {
 };
 
 export const validateEmail = (email: string) => {
-  const emailFormatRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const emailFormatRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
   if (!emailFormatRegex.test(email)) {
     return ELocalization.VALIDATE_EMAIL_NOT_VALID;
@@ -33,7 +33,7 @@ export const validateName = (name: string) => {
 };
 
 export const validateQuestEmail = (email: string) => {
-  const emailFormatRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const emailFormatRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
   if (!emailFormatRegex.test(email)) {
     return ELocalizationQuestionnaire.VALIDATE_EMAIL_NOT_VALID;

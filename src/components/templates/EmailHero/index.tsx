@@ -1,24 +1,25 @@
+import { Autocomplete, Box, TextField } from "@mui/material";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router";
-import { useState } from "react";
-import { Box } from "@mui/material";
 
-import ContentContainer from "@/components/organisms/ContentContainer";
-import Field from "@/components/atoms/Field";
-import SelectorFooter from "@/components/molecules/SelectorFooter";
 import DreamsIcon from "@/components/atoms/icons/DreamsIcon";
 import LogoIcon from "@/components/atoms/icons/LogoIcon";
+import SelectorFooter from "@/components/molecules/SelectorFooter";
+import ContentContainer from "@/components/organisms/ContentContainer";
 
-import MailImage from "@/assets/mail.png";
 import LockImage from "@/assets/icons/lock-circle.svg";
+import MailImage from "@/assets/mail.png";
 
-import { getQuestionnaire, setQuestionnaire } from "@/store/questionnaire";
-import { validateQuestEmail } from "@/utils/validations";
 import { ELocalizationQuestionnaire, ERoutes } from "@/constants";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
+import { getQuestionnaire, setQuestionnaire } from "@/store/questionnaire";
+import { validateQuestEmail } from "@/utils/validations";
 
-import styles from "./index.module.scss";
 import { logEvent } from "@/utils/amplitude";
+import styles from "./index.module.scss";
+
+const popularDomains = ["gmail.com", "icloud.com", "yahoo.com", "outlook.com", "mail.ru"];
 
 const EmailHero = () => {
   const state = useSelector(getQuestionnaire);
@@ -31,6 +32,21 @@ const EmailHero = () => {
 
   const [email, setEmail] = useState(state.email);
   const [error, setError] = useState<ELocalizationQuestionnaire | "">("");
+  const [suggestions, setSuggestions] = useState<string[]>([]);
+
+  const handleEmailChange = (newEmail: string) => {
+    setEmail(newEmail);
+    const validationError = validateQuestEmail(newEmail);
+    setError(validationError ? validationError : "");
+
+    if (newEmail.includes("@") && !newEmail.includes(".")) {
+      const [localPart, domainPart] = newEmail.split("@");
+      const filteredDomains = popularDomains.filter((domain) => domain.startsWith(domainPart));
+      setSuggestions(filteredDomains.map((domain) => `${localPart}@${domain}`));
+    } else {
+      setSuggestions([]);
+    }
+  };
 
   const handleEmail = () => {
     dispatch(setQuestionnaire({ ...state, email }));
@@ -61,18 +77,19 @@ const EmailHero = () => {
             <h2 className={styles.title}>
               {localization[ELocalizationQuestionnaire.QUEST_EMAIL_TITLE]}
             </h2>
-            <Field
-              value={email}
-              onChange={setEmail}
-              error={error ? localization[error] : ""}
-              onBlur={(email) => {
-                if (validateQuestEmail(email)) {
-                  setError(validateQuestEmail(email));
-                } else setError("");
-              }}
-              placeholder={
-                localization[ELocalizationQuestionnaire.ENTER_YOUR_EMAIL]
-              }
+            <Autocomplete
+              freeSolo
+              options={suggestions}
+              inputValue={email}
+              onInputChange={(_, newInputValue) => handleEmailChange(newInputValue)}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  error={!!error}
+                  helperText={error ? localization[error] : ""}
+                  placeholder={localization[ELocalizationQuestionnaire.ENTER_YOUR_EMAIL]}
+                />
+              )}
             />
             <Box className={styles.descriptionWrapper}>
               <LockImage />
