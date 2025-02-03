@@ -1,19 +1,13 @@
 import react from "@vitejs/plugin-react";
 import * as path from "path";
 import { defineConfig } from "vite";
+import viteCompression from 'vite-plugin-compression';
 import svgr from "vite-plugin-svgr";
 export default defineConfig({
     plugins: [
         react(),
-        svgr({
-            svgrOptions: {
-                exportType: "default",
-                ref: true,
-                svgo: false,
-                titleProp: true,
-            },
-            include: "**/*.svg",
-        }),
+        svgr({ svgrOptions: { exportType: "default", ref: true, svgo: false, titleProp: true }, include: "**/*.svg" }),
+        viteCompression(),
     ],
     resolve: {
         alias: {
@@ -29,20 +23,28 @@ export default defineConfig({
         },
     },
     build: {
-        target: "es2015", // Оптимизация для современных браузеров
-        minify: "terser", // Минификация с использованием Terser
+        target: "es2015",
+        minify: "terser",
         terserOptions: {
             compress: {
-                drop_console: true, // Удаление console.log
-                drop_debugger: true, // Удаление debugger
+                drop_console: true,
+                drop_debugger: true,
             },
         },
-        chunkSizeWarningLimit: 500, // Лимит предупреждения для больших чанков (можно настроить)
+        chunkSizeWarningLimit: 500,
         rollupOptions: {
             output: {
                 manualChunks(id) {
                     if (id.includes("node_modules")) {
-                        return id.toString().split("node_modules/")[1].split("/")[0]; // Разделение внешних библиотек
+                        if (id.includes("react"))
+                            return "react";
+                        if (id.includes("@mui/material"))
+                            return "mui";
+                        if (id.includes("@reduxjs/toolkit") || id.includes("react-redux"))
+                            return "redux";
+                        if (id.includes("i18next") || id.includes("react-i18next"))
+                            return "i18n";
+                        return "vendor";
                     }
                 },
             },
