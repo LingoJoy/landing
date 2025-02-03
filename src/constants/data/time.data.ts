@@ -1,27 +1,4 @@
-import OneImage from "@/assets/main/doc.png";
-import TwoImage from "@/assets/main/docs.png";
-import ThreeImage from "@/assets/main/notes.png";
-import FourImage from "@/assets/main/folder.png";
-import BusinessImage from "@/assets/statements/business.png";
-
-import ParachuteImage from "@/assets/transport/parachute.png";
-import HelicopterImage from "@/assets/transport/helicopter.png";
 import PlaneImage from "@/assets/transport/plane.png";
-import RocketImage from "@/assets/transport/rocket.png";
-
-import SunImage from "@/assets/main/sun.png";
-import FlyPlaneImage from "@/assets/transport/fly-plane.png";
-import HamburgerImage from "@/assets/main/hamburger.png";
-import AmourImage from "@/assets/main/amour.png";
-import DNAImage from "@/assets/main/dna.png";
-import BankImage from "@/assets/main/bank.png";
-import YenImage from "@/assets/main/yen.png";
-import LaptopImage from "@/assets/statements/laptop.png";
-
-import GirlWalkImage from "@/assets/main/girl-walk.png";
-import GirlRunImage from "@/assets/main/girl-run.png";
-import BicycleImage from "@/assets/main/bicycle.png";
-import HorseImage from "@/assets/main/horse.png";
 
 import { ISelectorQuestData } from ".";
 import { ELocalizationQuestionnaire } from "../localizationQuestionnaire";
@@ -31,31 +8,31 @@ export const DEFAULT_TIMER = 10000;
 export const DEFAULT_HOW_OFTEN_DATA: ISelectorQuestData[] = [
     {
         id: 0,
-        icon: OneImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}doc.png`,
         title: ELocalizationQuestionnaire.QUEST_TIME_OFTEN_1,
         value: "1 time per week",
     },
     {
         id: 1,
-        icon: TwoImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}docs.png`,
         title: ELocalizationQuestionnaire.QUEST_TIME_OFTEN_2,
         value: "2 times per week",
     },
     {
         id: 2,
-        icon: ThreeImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}notes.png`,
         title: ELocalizationQuestionnaire.QUEST_TIME_OFTEN_3,
         value: "3 times per week",
     },
     {
         id: 3,
-        icon: FourImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}folder.png`,
         title: ELocalizationQuestionnaire.QUEST_TIME_OFTEN_4,
         value: "4 times per week",
     },
     {
         id: 4,
-        icon: BusinessImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}business.png`,
         title: ELocalizationQuestionnaire.QUEST_TIME_OFTEN_5,
         value: "5 times per week",
     },
@@ -65,13 +42,13 @@ export const DEFAULT_HOW_OFTEN_DATA: ISelectorQuestData[] = [
 export const DEFAULT_HOW_MUCH_DATA: ISelectorQuestData[] = [
     {
         id: 0,
-        icon: ParachuteImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}parachute.png`,
         title: ELocalizationQuestionnaire.QUEST_TIME_MUCH_1,
         value: "10 - 15 min",
     },
     {
         id: 1,
-        icon: HelicopterImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}helicopter.png`,
         title: ELocalizationQuestionnaire.QUEST_TIME_MUCH_2,
         value: "20 - 40 min",
     },
@@ -83,7 +60,7 @@ export const DEFAULT_HOW_MUCH_DATA: ISelectorQuestData[] = [
     },
     {
         id: 3,
-        icon: RocketImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}rocket.png`,
         title: ELocalizationQuestionnaire.QUEST_TIME_MUCH_4,
         value: "> 1 hour",
     },
@@ -93,49 +70,49 @@ export const DEFAULT_HOW_MUCH_DATA: ISelectorQuestData[] = [
 export const DEFAULT_TOPICS_DATA: ISelectorQuestData[] = [
     {
         id: 0,
-        icon: SunImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}sun.png`,
         title: ELocalizationQuestionnaire.QUEST_TIME_TOPICS_DATA_1,
         value: "Daily Life",
     },
     {
         id: 1,
-        icon: FlyPlaneImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}fly-plane.png`,
         title: ELocalizationQuestionnaire.QUEST_TIME_TOPICS_DATA_2,
         value: "Travel and Adventure",
     },
     {
         id: 2,
-        icon: HamburgerImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}hamburger.png`,
         title: ELocalizationQuestionnaire.QUEST_TIME_TOPICS_DATA_3,
         value: "Food & Cooking",
     },
     {
         id: 3,
-        icon: AmourImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}amour.png`,
         title: ELocalizationQuestionnaire.QUEST_TIME_TOPICS_DATA_4,
         value: "Relationships & Emotions",
     },
     {
         id: 4,
-        icon: DNAImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}dna.png`,
         title: ELocalizationQuestionnaire.QUEST_TIME_TOPICS_DATA_5,
         value: "Health & Wellness",
     },
     {
         id: 5,
-        icon: BankImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}bank.png`,
         title: ELocalizationQuestionnaire.QUEST_TIME_TOPICS_DATA_6,
         value: "Careers & Jobs",
     },
     {
         id: 6,
-        icon: YenImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}yen.png`,
         title: ELocalizationQuestionnaire.QUEST_TIME_TOPICS_DATA_7,
         value: "Business & Finance",
     },
     {
         id: 7,
-        icon: LaptopImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}laptop.png`,
         title: ELocalizationQuestionnaire.QUEST_TIME_TOPICS_DATA_8,
         value: "Technology",
     },
@@ -144,25 +121,25 @@ export const DEFAULT_TOPICS_DATA: ISelectorQuestData[] = [
 export const DEFAULT_ACTIVITY_LEVEL_DATA: ISelectorQuestData[] = [
     {
         id: 0,
-        icon: GirlWalkImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}girl-walk.png`,
         title: ELocalizationQuestionnaire.QUEST_TIME_ACTIVITIES_DATA_1,
         value: "I'm just getting started!",
     },
     {
         id: 1,
-        icon: GirlRunImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}girl-run.png`,
         title: ELocalizationQuestionnaire.QUEST_TIME_ACTIVITIES_DATA_2,
         value: "I practice a bit here and there",
     },
     {
         id: 2,
-        icon: BicycleImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}bicycle.png`,
         title: ELocalizationQuestionnaire.QUEST_TIME_ACTIVITIES_DATA_3,
         value: "I study a few times a week!",
     },
     {
         id: 3,
-        icon: HorseImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}horse.png`,
         title: ELocalizationQuestionnaire.QUEST_TIME_ACTIVITIES_DATA_4,
         value: "I'm all in, studying every day!",
     },

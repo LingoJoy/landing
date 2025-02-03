@@ -1,54 +1,46 @@
-import CareerImage from "@/assets/motivations/career.png";
-import EducationImage from "@/assets/motivations/education.png";
-import CultureImage from "@/assets/motivations/culture.png";
-import BrainImage from "@/assets/motivations/brain.png";
-import FamilyImage from "@/assets/motivations/family.png";
-import TravelImage from "@/assets/motivations/travel.png";
-import OtherImage from "@/assets/motivations/other.png";
-
 import { ISelectorQuestData } from ".";
 import { ELocalizationQuestionnaire } from "../localizationQuestionnaire";
 
 export const DEFAULT_MOTIVATION_DATA: ISelectorQuestData[] = [
     {
         id: 0,
-        icon: CareerImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}career.png`,
         title: ELocalizationQuestionnaire.QUEST_MOTIVATION_CAREER,
         value: "Business Success",
     },
     {
         id: 1,
-        icon: EducationImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}education.png`,
         title: ELocalizationQuestionnaire.QUEST_MOTIVATION_EDUCATION,
         value: "Enjoy content in their original language",
     },
     {
         id: 2,
-        icon: CultureImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}culture.png`,
         title: ELocalizationQuestionnaire.QUEST_MOTIVATION_CULTURE,
         value: "Become a native speaker",
     },
     {
         id: 3,
-        icon: BrainImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}brain.png`,
         title: ELocalizationQuestionnaire.QUEST_MOTIVATION_BRAIN,
         value: "Mental Workout",
     },
     {
         id: 4,
-        icon: FamilyImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}family.png`,
         title: ELocalizationQuestionnaire.QUEST_MOTIVATION_FAMILY,
         value: "Relationships & Friends",
     },
     {
         id: 5,
-        icon: TravelImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}travel.png`,
         title: ELocalizationQuestionnaire.QUEST_MOTIVATION_TRAVEL,
         value: "Travel",
     },
     {
         id: 6,
-        icon: OtherImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}other.png`,
         title: ELocalizationQuestionnaire.QUEST_MOTIVATION_OTHER,
         value: "Other",
     },

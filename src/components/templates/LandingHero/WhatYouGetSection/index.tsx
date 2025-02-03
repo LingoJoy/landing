@@ -1,19 +1,6 @@
 import { useSelector } from "react-redux";
 import { Box } from "@mui/material";
 
-import GiftImage from "@/assets/main/gift.png";
-import VocabularyBoyImage from "@/assets/vocabulary-boy.png";
-import PaperImage from "@/assets/paper.png";
-import HeadphoneImage from "@/assets/headphone.png";
-import ChatTextImage from "@/assets/chat-text.png";
-import BoyWithLaptopImage from "@/assets/boy-with-laptop.png";
-import ChatImage from "@/assets/chat.png";
-import BoyWithBagImage from "@/assets/boy-with-bag.png";
-import SofaImage from "@/assets/boy-sofa.png";
-import UnionImage from "@/assets/icons/union.svg";
-import CircleImage from "@/assets/icons/tick-circle.svg";
-import TimerImage from "@/assets/icons/timer.svg";
-
 import { DEFAULT_GAMES_DATA, ELocalizationQuestionnaire } from "@/constants";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 
@@ -26,7 +13,7 @@ const WhatYouGetSection = () => {
     <Box className={styles.whatYouGetWrapper}>
       <Box className={`${styles.contentBox} ${styles.webMaxContentBox}`}>
         <Box className={styles.titleWrapper}>
-          <img src={GiftImage} alt="" />
+          <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}gift.png`} alt="" />
           <h2 className={styles.title}>
             {
               localization[
@@ -40,7 +27,7 @@ const WhatYouGetSection = () => {
             <Box className={styles.whatYouGetOptionBox}>
               <Box className={styles.vocabularyBlock}>
                 <img
-                  src={VocabularyBoyImage}
+                  src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}vocabulary-boy.png`}
                   alt=""
                   className={styles.vocabularyBg}
                 />
@@ -49,7 +36,7 @@ const WhatYouGetSection = () => {
                     <Box className={styles.whatYouGetOptionTitleBox}>
                       Vocabulary
                       <img
-                        src={PaperImage}
+                        src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}paper.png`}
                         alt=""
                         className={styles.whatYouGetOptionTitleImage}
                       />
@@ -60,7 +47,7 @@ const WhatYouGetSection = () => {
                     </Box>
                   </Box>
                   <button className={styles.whatYouGetOptionButton}>
-                    <CircleImage />
+                    <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}paper.png`} alt=""/>
                     <span>Finished</span>
                   </button>
                 </Box>
@@ -73,7 +60,7 @@ const WhatYouGetSection = () => {
                     <Box className={styles.whatYouGetOptionTitleBox}>
                       Listening and Speaking
                       <img
-                        src={HeadphoneImage}
+                        src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}headphone.png`}
                         alt=""
                         className={styles.whatYouGetOptionTitleImage}
                       />
@@ -84,7 +71,7 @@ const WhatYouGetSection = () => {
                     </Box>
                   </Box>
                   <button className={styles.whatYouGetOptionButton}>
-                    <TimerImage />
+                    <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}timer_1.svg`} alt=""/>
                     <span>5 minute lesson</span>
                   </button>
                 </Box>
@@ -95,7 +82,7 @@ const WhatYouGetSection = () => {
                     <Box className={styles.whatYouGetOptionTitleBox}>
                       Interactive Chat
                       <img
-                        src={ChatTextImage}
+                        src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}chat-text.png`}
                         alt=""
                         className={styles.whatYouGetOptionTitleImage}
                       />
@@ -107,7 +94,7 @@ const WhatYouGetSection = () => {
                   </Box>
                   <button className={styles.whatYouGetOptionButton}>
                     <img
-                      src={TimerImage}
+                      src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}timer_1.svg`}
                       alt=""
                       className={styles.whatYouGetOptionButtonIcon}
                     />
@@ -167,9 +154,9 @@ const WhatYouGetSection = () => {
           </Box>
           <Box className={styles.whatYouGetOptionWrapper}>
             <Box className={styles.knowledgeWrapper}>
-              <UnionImage />
+              <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}union.svg`} alt=""/>
               <img
-                src={BoyWithLaptopImage}
+                src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}boy-with-laptop.png`}
                 alt=""
                 className={styles.knowledgeBoy}
               />
@@ -221,7 +208,7 @@ const WhatYouGetSection = () => {
                 className={`${styles.whatYouGetOption} ${styles.whatYouGetOptionYellow} ${styles.whatYouGetOptionBig}`}
               >
                 <img
-                  src={SofaImage}
+                  src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}boy-sofa.png`}
                   alt=""
                   className={styles.popularPhrasesSofaImage}
                 />
@@ -229,7 +216,7 @@ const WhatYouGetSection = () => {
                   <Box className={styles.whatYouGetOptionTitleBox}>
                     Popular Phrases
                     <img
-                      src={ChatImage}
+                      src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}chat.png`}
                       alt=""
                       className={styles.whatYouGetOptionTitleImage}
                     />
@@ -241,7 +228,7 @@ const WhatYouGetSection = () => {
                 </Box>
                 <button className={styles.whatYouGetOptionButton}>
                   <img
-                    src={TimerImage}
+                    src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}timer_1.svg`}
                     alt=""
                     className={styles.whatYouGetOptionButtonIcon}
                   />
@@ -252,7 +239,7 @@ const WhatYouGetSection = () => {
                 className={`${styles.whatYouGetOption} ${styles.whatYouGetOptionRed} ${styles.whatYouGetOptionBig}`}
               >
                 <img
-                  src={BoyWithBagImage}
+                  src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}boy-with-bag.png`}
                   alt=""
                   className={styles.popularPhrasesBagImage}
                 />
@@ -260,7 +247,7 @@ const WhatYouGetSection = () => {
                   <Box className={styles.whatYouGetOptionTitleBox}>
                     Popular Phrases
                     <img
-                      src={ChatImage}
+                      src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}chat.png`}
                       alt=""
                       className={styles.whatYouGetOptionTitleImage}
                     />
@@ -272,7 +259,7 @@ const WhatYouGetSection = () => {
                 </Box>
                 <button className={styles.whatYouGetOptionButton}>
                   <img
-                    src={TimerImage}
+                    src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}timer_1.svg`}
                     alt=""
                     className={styles.whatYouGetOptionButtonIcon}
                   />

@@ -6,9 +6,6 @@ import ContentContainer from "@/components/organisms/ContentContainer";
 import SelectorFooter from "@/components/molecules/SelectorFooter";
 import Check from "@/components/atoms/Check";
 
-import PrizeIcon from "@/assets/levels/prize.png";
-import LevelImage from "@/assets/level-grow.png";
-
 import { ERoutes } from "@/constants/pages";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 import { getQuestionnaire } from "@/store/questionnaire";
@@ -51,7 +48,7 @@ const PlanHero = () => {
             <p>{localization[ELocalizationQuestionnaire.PLAN_DESCR]}</p>
           </Box>
           <Box className={styles.chartWrapper}>
-            <img src={LevelImage} alt="" />
+            <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}level-grow.png`} alt="" />
             <p className={styles.chartTitle}>
               {localization[ELocalizationQuestionnaire.PLAN_CHART_TITLE]}
             </p>
@@ -60,7 +57,7 @@ const PlanHero = () => {
                 className={`${styles.chartPointBox} ${styles.chartPointBoxRight}`}
               >
                 <Box className={styles.chartPointContent}>
-                  <img src={PrizeIcon} />
+                  <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}prize.png`} />
                   <p>
                     {localization[ELocalizationQuestionnaire.IN]} 28{" "}
                     {localization[ELocalizationQuestionnaire.DAYS]}

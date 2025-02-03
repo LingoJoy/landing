@@ -6,10 +6,6 @@ import { useNavigate } from "react-router-dom";
 import RectangleBGIcon from "@/components/atoms/icons/RectangleBGIcon";
 
 import CheckIcon from "@/assets/icons/check.svg";
-import HeartImage from "@/assets/main/heart.png";
-import FirstImage from "@/assets/screens/iPhone-5.png";
-import SecondImage from "@/assets/screens/iPhone-6.png";
-import ThirdImage from "@/assets/screens/iPhone-7.png";
 
 import {
   DEFAULT_YOUR_PLAN_DATA,
@@ -130,13 +126,13 @@ const YourPlanSection = () => {
     <Box className={styles.contentBox}>
       <Box className={styles.yourPlanWrapper}>
         <Box className={styles.yourPlanExampleBox}>
-          <img src={FirstImage} alt="" />
-          <img src={SecondImage} alt="" />
-          <img src={ThirdImage} alt="" />
+          <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}iPhone-5.png`} alt="" />
+          <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}iPhone-6.png`} alt="" />
+          <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}iPhone-7.png`} alt="" />
         </Box>
         <Box className={styles.indexBox}>
           <Box className={styles.titleWrapper}>
-            <img src={HeartImage} alt="" />
+            <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}heart.png`} alt="" />
             <h2 className={styles.title} id="plan">
               {localization[ELocalizationQuestionnaire.LANDING_YOUR_PLAN_TITLE]}
             </h2>

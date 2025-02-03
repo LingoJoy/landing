@@ -9,8 +9,6 @@ import LogoIcon from "@/components/atoms/icons/LogoIcon";
 import SelectorFooter from "@/components/molecules/SelectorFooter";
 import ContentContainer from "@/components/organisms/ContentContainer";
 
-import ChatTextImage from "@/assets/chat-text.png";
-
 import { ELocalizationQuestionnaire } from "@/constants";
 import { ERoutes } from "@/constants/pages";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
@@ -53,7 +51,7 @@ const ChildrenHero: FC<IProps> = ({ onNext }) => {
         </Box>
       </Box>
       <Box className={styles.logoWrapper}>
-        <img className={styles.logo} src={ChatTextImage} alt="" />
+        <img className={styles.logo} src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}chat-text.png`} alt="" />
       </Box>
       <ContentContainer>
         <Box className={styles.contentWrapper}>

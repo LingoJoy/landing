@@ -2,9 +2,6 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Box } from "@mui/material";
 
-import HandshakeImage from "@/assets/icons/handshake.svg";
-import ShieldImage from "@/assets/icons/shield-check.svg";
-
 import { ELocalizationQuestionnaire } from "@/constants";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 
@@ -18,7 +15,7 @@ const GuaranteeSection = () => {
       <Box className={styles.contentBox}>
         <Box className={styles.indexBox}>
           <Box className={styles.titleWrapper}>
-            <HandshakeImage />
+            <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}handshake.svg`} alt=""/>
             <h2 className={styles.guaranteeTitle}>
               {localization[ELocalizationQuestionnaire.LANDING_GUARANTEE_TITLE]}
             </h2>
@@ -54,7 +51,7 @@ const GuaranteeSection = () => {
             </p>
           </Box>
           <Box className={styles.refundsBox}>
-            <ShieldImage />
+            <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}shield-check.svg`} alt=""/>
             <p>
               {
                 localization[

@@ -3,8 +3,6 @@ import { Box } from "@mui/material";
 
 import Swipe from "@/components/organisms/Swipe";
 
-import IphoneImage from "@/assets//main/iphone.png";
-
 import { DEFAULT_LESSON_DATA, ELocalizationQuestionnaire } from "@/constants";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 
@@ -16,7 +14,7 @@ const LessonsSection = () => {
   return (
     <Box className={styles.lessonsWrapper}>
       <Box className={styles.titleWrapper}>
-        <img src={IphoneImage} alt="" />
+        <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}iphone.png`} alt="" />
         <h2 className={`${styles.title} ${styles.lessonTitle}`}>
           {localization[ELocalizationQuestionnaire.LANDING_LESSON_TITLE]}
         </h2>

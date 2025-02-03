@@ -1,5 +1,4 @@
 import BoyWalkImage from "@/assets/main/boy-walk.png";
-import GirlRunImage from "@/assets/main/girl-run.png";
 import BoyRunImage from "@/assets/main/boy-run.png";
 
 import { ISelectorQuestData } from ".";
@@ -55,7 +54,7 @@ export const DEFAULT_PREPARED_DATA: ISelectorQuestData[] = [
         id: 1,
         title: ELocalizationQuestionnaire.QUEST_ANALYZE_STUDENT,
         value: "Average Student",
-        icon: GirlRunImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}girl-run.png`,
     },
     {
         id: 2,

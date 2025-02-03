@@ -1,10 +1,6 @@
 import { useSelector } from "react-redux";
 import { Box } from "@mui/material";
 
-import Background from "@/assets/newest-landing/newest-hero-bg.png";
-import ShieldImage from "@/assets/icons/shield-check.svg";
-import AppleImage from "@/assets/newest-landing/icons/apple.svg";
-import GoogleImage from "@/assets/newest-landing/icons/playstore.svg";
 import LeftImage from "@/assets/newest-landing/icons/left-wreath.svg";
 import RightImage from "@/assets/newest-landing/icons/right-wreath.svg";
 import StarIcon from "@/components/atoms/icons/StarIcon";
@@ -20,7 +16,7 @@ const HeroSection = () => {
   return (
     <Box className={styles.heroWrapper}>
       <Box className={styles.heroBG}>
-        <img src={Background} alt="" />
+        <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}newest-hero-bg.png`} alt="" />
       </Box>
       <Box className={styles.heroBox}>
         <Box className={styles.contentBox}>
@@ -59,7 +55,7 @@ const HeroSection = () => {
           </h4>
           <Box className={styles.heroCancelBox}>
             <Box className={styles.heroIconBox}>
-              <ShieldImage />
+              <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}shield-check.svg`} alt=""/>
               <p>
                 {
                   localization[
@@ -78,7 +74,7 @@ const HeroSection = () => {
           </p>
           <Box className={styles.heroStoreBox}>
             <Box className={styles.heroIconBox}>
-              <AppleImage />
+              <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}apple_1.svg`} alt=""/>
               {
                 localization[
                   ELocalizationQuestionnaire.NEWEST_PREMIUM_HERO_APP_STORE
@@ -86,7 +82,7 @@ const HeroSection = () => {
               }
             </Box>
             <Box className={styles.heroIconBox}>
-              <GoogleImage />
+              <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}playstore.svg`} alt=""/>
               {
                 localization[
                   ELocalizationQuestionnaire.NEWEST_PREMIUM_HERO_GOOGLE_STORE

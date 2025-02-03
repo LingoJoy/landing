@@ -1,10 +1,3 @@
-import BookIcon from "@/assets/new-premium/icons/book-heart.svg";
-import BrainIcon from "@/assets/new-premium/icons/brain.svg";
-import GamepadIcon from "@/assets/new-premium/icons/gamepad.svg";
-import LuggageIcon from "@/assets/new-premium/icons/luggage.svg";
-import MessageIcon from "@/assets/new-premium/icons/message-circle.svg";
-import TimerIcon from "@/assets/new-premium/icons/timer.svg";
-
 import ArtImage from "@/assets/new-premium/Art.png";
 import DiaImage from "@/assets/new-premium/Dia.png";
 import GabImage from "@/assets/new-premium/Gab.png";
@@ -69,37 +62,37 @@ export const DEFAULT_PREMIUM_HIGHLIGHTS_DATA = [
   {
     id: 0,
     title: ELocalizationQuestionnaire.NEW_PREMIUM_HIGHLIGHTS_DATA_TITLE_1,
-    icon: <TimerIcon />,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}timer.svg`,
     description: ELocalizationQuestionnaire.NEW_PREMIUM_HIGHLIGHTS_DATA_DESCR_1,
   },
   {
     id: 1,
     title: ELocalizationQuestionnaire.NEW_PREMIUM_HIGHLIGHTS_DATA_TITLE_2,
-    icon: <BookIcon />,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}book-heart.svg`,
     description: ELocalizationQuestionnaire.NEW_PREMIUM_HIGHLIGHTS_DATA_DESCR_2,
   },
   {
     id: 2,
     title: ELocalizationQuestionnaire.NEW_PREMIUM_HIGHLIGHTS_DATA_TITLE_3,
-    icon: <BrainIcon />,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}brain.svg`,
     description: ELocalizationQuestionnaire.NEW_PREMIUM_HIGHLIGHTS_DATA_DESCR_3,
   },
   {
     id: 3,
     title: ELocalizationQuestionnaire.NEW_PREMIUM_HIGHLIGHTS_DATA_TITLE_4,
-    icon: <GamepadIcon />,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}gamepad.svg`,
     description: ELocalizationQuestionnaire.NEW_PREMIUM_HIGHLIGHTS_DATA_DESCR_4,
   },
   {
     id: 4,
     title: ELocalizationQuestionnaire.NEW_PREMIUM_HIGHLIGHTS_DATA_TITLE_5,
-    icon: <MessageIcon />,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}message-circle.svg`,
     description: ELocalizationQuestionnaire.NEW_PREMIUM_HIGHLIGHTS_DATA_DESCR_5,
   },
   {
     id: 5,
     title: ELocalizationQuestionnaire.NEW_PREMIUM_HIGHLIGHTS_DATA_TITLE_6,
-    icon: <LuggageIcon />,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}luggage.svg`,
     description: ELocalizationQuestionnaire.NEW_PREMIUM_HIGHLIGHTS_DATA_DESCR_6,
   },
 ];

@@ -4,9 +4,6 @@ import { Box } from "@mui/material";
 
 import PulseButton from "@/components/atoms/PulseButton";
 
-import GrowImage from "@/assets/new-landing/improve-chart.png";
-import Icon from "@/assets/transport/rocket.png";
-
 import { ELocalizationQuestionnaire } from "@/constants";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 
@@ -106,7 +103,7 @@ const ChartSection = () => {
               color="#1D8635"
               content={
                 <Box className={styles.chartPointUserBox}>
-                  <img src={Icon} alt="" />
+                  <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}rocket.png`} alt="" />
                   {
                     localization[
                       ELocalizationQuestionnaire.NEW_LANDING_CHART_USER
@@ -116,7 +113,7 @@ const ChartSection = () => {
               }
             />
           </Box>
-          <img src={GrowImage} alt="" className={styles.chart} />
+          <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}improve-chart.png`} alt="" className={styles.chart} />
         </Box>
         <PulseButton
           onClick={() => {

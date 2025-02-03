@@ -10,11 +10,6 @@ import GuaranteeSection from "./GuaranteeSection";
 import YourPlanSection from "./YourPlanSection";
 import WordsComment from "@/components/molecules/WordsComment";
 
-import StarImage from "@/assets/main/star.png";
-import PrizeImage from "@/assets/levels/prize.png";
-import RocketImage from "@/assets/transport/rocket.png";
-import GrowImage from "@/assets/grow.png";
-
 import { DEFAULT_LEVEL_DATA, ELocalizationQuestionnaire } from "@/constants";
 import { getQuestionnaire } from "@/store/questionnaire";
 import { getLevel } from "@/utils/getLevel";
@@ -44,7 +39,7 @@ const LandingHero = () => {
             <p className={styles.headerTitle}>
               {localization[ELocalizationQuestionnaire.LANDING_HEADER]}
             </p>
-            <img src={StarImage} alt="" />
+            <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}star.png`} alt="" />
           </Box>
         }
         onClick={() => {
@@ -54,7 +49,7 @@ const LandingHero = () => {
       <Box className={styles.contentWrapper}>
         <Box className={styles.contentBox}>
           <Box className={styles.titleWrapper}>
-            <img src={PrizeImage} alt="" />
+            <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}rocket.png`} alt="" />
             <h2 className={`${styles.title} ${styles.resultTitle}`}>
               {localization[ELocalizationQuestionnaire.LANDING_RESULT_TITLE]}
             </h2>
@@ -95,7 +90,7 @@ const LandingHero = () => {
         </Box>
         <Box className={styles.contentBox}>
           <Box className={styles.titleWrapper}>
-            <img src={RocketImage} alt="" />
+            <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}prize.png`} alt="" />
             <h2 className={`${styles.title} ${styles.chartTitle}`}>
               {localization[ELocalizationQuestionnaire.LANDING_CHART_TITLE]}
             </h2>
@@ -120,7 +115,7 @@ const LandingHero = () => {
             <Box className={styles.arrow} />
             {localization[ELocalizationQuestionnaire.LANDING_CHART_PLAN]}
           </Box>
-          <img src={GrowImage} alt="" className={styles.chart} />
+          <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}grow.png`} alt="" className={styles.chart} />
         </Box>
         <PlanSection />
         <LessonsSection />

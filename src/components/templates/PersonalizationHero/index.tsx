@@ -7,9 +7,6 @@ import SelectorFooter from "@/components/molecules/SelectorFooter";
 import LogoIcon from "@/components/atoms/icons/LogoIcon";
 import DreamsIcon from "@/components/atoms/icons/DreamsIcon";
 
-import ThumbUpImage from "@/assets/thumb-up.png";
-import ThumbUpImageWeb from "@/assets/thumb-up-web.png";
-
 import {
   DEFAULT_A_LEVEL_DATA,
   DEFAULT_B1_LEVEL_DATA,
@@ -49,8 +46,8 @@ const PersonalizationHero: FC<IProps> = ({ onNext }) => {
         </Box>
       </Box>
       <Box className={styles.logoWrapper}>
-        <img className={styles.logo} src={ThumbUpImage} alt="" />
-        <img className={styles.logoWeb} src={ThumbUpImageWeb} alt="" />
+        <img className={styles.logo} src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}thumb-up.png`} alt="" />
+        <img className={styles.logoWeb} src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}thumb-up-web.png`} alt="" />
       </Box>
       <ContentContainer>
         <Box className={styles.contentWrapper}>

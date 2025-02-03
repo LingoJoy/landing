@@ -13,7 +13,7 @@ import { getLocalization } from "@/store/localization";
 
 import styles from "./index.module.scss";
 
-export const NotificationTemplate: React.FC = () => {
+const NotificationTemplate: React.FC = () => {
   const navigate = useNavigate();
 
   const isNotMobile = useMediaQuery("(min-width:600px)");
@@ -81,3 +81,5 @@ export const NotificationTemplate: React.FC = () => {
     </Layout>
   );
 };
+
+export default NotificationTemplate
