@@ -1,24 +1,42 @@
+import { Box } from "@mui/material";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router";
-import { useState } from "react";
-import { Box } from "@mui/material";
 
-import ContentContainer from "@/components/organisms/ContentContainer";
-import Field from "@/components/atoms/Field";
-import SelectorFooter from "@/components/molecules/SelectorFooter";
 import DreamsIcon from "@/components/atoms/icons/DreamsIcon";
 import LogoIcon from "@/components/atoms/icons/LogoIcon";
+import SelectorFooter from "@/components/molecules/SelectorFooter";
+import ContentContainer from "@/components/organisms/ContentContainer";
 
-import MailImage from "@/assets/mail.png";
 import LockImage from "@/assets/icons/lock-circle.svg";
+import MailImage from "@/assets/mail.png";
 
-import { getQuestionnaire, setQuestionnaire } from "@/store/questionnaire";
-import { validateQuestEmail } from "@/utils/validations";
 import { ELocalizationQuestionnaire, ERoutes } from "@/constants";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
+import { getQuestionnaire, setQuestionnaire } from "@/store/questionnaire";
+import { validateQuestEmail } from "@/utils/validations";
 
-import styles from "./index.module.scss";
 import { logEvent } from "@/utils/amplitude";
+import EmailField from "../../atoms/EmailField";
+import styles from "./index.module.scss";
+
+const popularDomains = [
+  "gmail.com",
+  "icloud.com",
+  "yahoo.com",
+  "outlook.com",
+  "mail.ru",
+  "hotmail.com",
+  "aol.com",
+  "protonmail.com",
+  "yandex.ru",
+  "zoho.com",
+  "gmx.com",
+  "live.com",
+  "qq.com",
+  "163.com",
+  "inbox.com"
+];
 
 const EmailHero = () => {
   const state = useSelector(getQuestionnaire);
@@ -29,8 +47,24 @@ const EmailHero = () => {
 
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState(state.email);
+  const [email, setEmail] = useState<string>(state.email);
   const [error, setError] = useState<ELocalizationQuestionnaire | "">("");
+  const [suggestions, setSuggestions] = useState<string[]>([]);
+
+  const handleEmailChange = (email: string) => {
+    const newEmail = email;
+    setEmail(newEmail);
+    const validationError = validateQuestEmail(newEmail);
+    setError(validationError ? validationError : "");
+
+    if (newEmail.includes("@")) {
+      const [localPart, domainPart = ""] = newEmail.split("@");
+      const filteredDomains = popularDomains.filter((domain) => domain.startsWith(domainPart));
+      setSuggestions(filteredDomains.map((domain) => `${localPart}@${domain}`));
+    } else {
+      setSuggestions([]);
+    }
+  };
 
   const handleEmail = () => {
     dispatch(setQuestionnaire({ ...state, email }));
@@ -41,6 +75,13 @@ const EmailHero = () => {
       pathname: ERoutes.WORDS,
       search,
     });
+  };
+
+  const handleSelectSuggestion = (suggestion: string) => {
+    setEmail(suggestion);
+    setSuggestions([]);
+    const validationError = validateQuestEmail(suggestion);
+    setError(validationError ? validationError : "");
   };
 
   return (
@@ -61,19 +102,17 @@ const EmailHero = () => {
             <h2 className={styles.title}>
               {localization[ELocalizationQuestionnaire.QUEST_EMAIL_TITLE]}
             </h2>
-            <Field
-              value={email}
-              onChange={setEmail}
-              error={error ? localization[error] : ""}
-              onBlur={(email) => {
-                if (validateQuestEmail(email)) {
-                  setError(validateQuestEmail(email));
-                } else setError("");
-              }}
-              placeholder={
-                localization[ELocalizationQuestionnaire.ENTER_YOUR_EMAIL]
-              }
-            />
+
+            <Box className={styles.wrapper}>
+              <EmailField
+                value={email}
+                onChange={handleEmailChange}
+                error={error ? localization[error] : ""}
+                placeholder={localization[ELocalizationQuestionnaire.ENTER_YOUR_EMAIL]}
+                suggestions={suggestions}
+                onSelectSuggestion={handleSelectSuggestion}
+              />
+            </Box>
             <Box className={styles.descriptionWrapper}>
               <LockImage />
               <p className={styles.description}>
