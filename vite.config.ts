@@ -1,6 +1,7 @@
 import react from "@vitejs/plugin-react";
 import * as path from "path";
 import { defineConfig } from "vite";
+import viteCompression from 'vite-plugin-compression';
 import svgr from "vite-plugin-svgr";
 
 export default defineConfig({
@@ -15,6 +16,7 @@ export default defineConfig({
       },
       include: "**/*.svg",
     }),
+    viteCompression(),
   ],
   resolve: {
     alias: {
