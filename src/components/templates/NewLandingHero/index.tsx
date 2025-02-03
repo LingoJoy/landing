@@ -12,8 +12,6 @@ import PlanSection from "./PlanSection";
 import WhatYouGetSection from "./WhatYouGetSection";
 import YourPlanSection from "./YourPlanSection";
 
-import PercentImage from "@/assets/icons/badge-percent.svg";
-
 import {
   DEFAULT_PADDLE_PLAN_DATA,
   DEFAULT_YOUR_PLAN_DATA,
@@ -128,7 +126,7 @@ const NewLandingHero = () => {
         <Box className={styles.headerBox}>
           <Box>
             <Box className={styles.headerTitleBox}>
-              <PercentImage />
+              <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}badge-percent.svg`} alt=""/>
               <p className={styles.headerTitle}>
                 {localization[ELocalizationQuestionnaire.YOUR]} <b>50%</b>{" "}
                 {

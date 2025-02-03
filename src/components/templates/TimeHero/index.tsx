@@ -7,8 +7,6 @@ import DreamsIcon from "@/components/atoms/icons/DreamsIcon";
 import SelectorFooter from "@/components/molecules/SelectorFooter";
 import LogoIcon from "@/components/atoms/icons/LogoIcon";
 
-import HeartImage from "@/assets/heart.png";
-
 import { ELocalizationQuestionnaire } from "@/constants";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 
@@ -30,7 +28,7 @@ const TimeHero: FC<IProps> = ({ onNext }) => {
         <DreamsIcon color="#FFE8EE" />
       </Box>
       <Box className={styles.logoWrapper}>
-        <img className={styles.logo} src={HeartImage} alt="" />
+        <img className={styles.logo} src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}heart_1.png`} alt="" />
       </Box>
       <ContentContainer>
         <Box className={styles.contentWrapper}>

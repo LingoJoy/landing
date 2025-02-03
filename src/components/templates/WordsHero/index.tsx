@@ -5,10 +5,6 @@ import { useLocation, useNavigate } from "react-router";
 import SelectorFooter from "@/components/molecules/SelectorFooter";
 import ContentContainer from "@/components/organisms/ContentContainer";
 
-import FlagIcon from "@/assets/icons/flag.svg";
-import StatusIcon from "@/assets/icons/status-up.svg";
-import BookIcon from "@/assets/main/open-book.png";
-
 import { DEFAULT_LEVEL_DATA, ELocalizationQuestionnaire } from "@/constants";
 import { ERoutes } from "@/constants/pages";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
@@ -142,7 +138,7 @@ const WordsHero = () => {
               </p>
               {dataNextLevel ? (
                 <Box className={styles.levelInfoGoalBox}>
-                  <StatusIcon />
+                  <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}status-up.svg`} alt="" />
                   <p>
                     {localization[ELocalizationQuestionnaire.WORDS_NEXT_LEVEL]}:{" "}
                     <span
@@ -156,12 +152,12 @@ const WordsHero = () => {
                 </Box>
               ) : null}
               <Box className={styles.levelInfoGoalBox}>
-                <FlagIcon />
+                <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}flag.svg`} alt="" />
                 <p>
                   {localization[ELocalizationQuestionnaire.WORDS_GOAL_TITLE]}:{" "}
                   <span>
                     {localization[ELocalizationQuestionnaire.WORDS_GOAL]}
-                    <img src={BookIcon} alt="" />
+                    <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}open-book.png`} alt="" />
                   </span>
                 </p>
               </Box>

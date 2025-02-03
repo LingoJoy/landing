@@ -9,7 +9,6 @@ import SelectorFooter from "@/components/molecules/SelectorFooter";
 import ContentContainer from "@/components/organisms/ContentContainer";
 
 import LockImage from "@/assets/icons/lock-circle.svg";
-import MailImage from "@/assets/mail.png";
 
 import { ELocalizationQuestionnaire, ERoutes } from "@/constants";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
@@ -95,7 +94,7 @@ const EmailHero = () => {
       <Box className={styles.logoWrapper}>
         <LogoIcon width="90px" height="40" />
       </Box>
-      <img className={styles.centerImage} src={MailImage} alt="" />
+      <img className={styles.centerImage} src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}mail.png`} alt="" />
       <ContentContainer>
         <Box className={styles.contentWrapper}>
           <Box>

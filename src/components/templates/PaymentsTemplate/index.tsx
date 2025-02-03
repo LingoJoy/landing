@@ -12,7 +12,6 @@ import Check from "@/components/atoms/Check";
 import DreamsIcon from "@/components/atoms/icons/DreamsIcon";
 
 import Arrow from "@/assets/arrow-right.svg";
-import Thumb from "@/assets/thumb-up.png";
 
 import { ERoutes } from "@/constants/pages";
 import { formatDate } from "@/utils/dateHelpers";
@@ -214,7 +213,7 @@ export const PaymentsTemplate: React.FC = () => {
           <Box className={styles.finishDreamsWrapper}>
             <DreamsIcon width="100%" height="100%" color="#FFEDD2" />
           </Box>
-          <img src={Thumb} alt="" />
+          <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}thumb-up.png`} alt="" />
           <Stack className={styles.webWrapper} alignItems="center">
             <Typography
               sx={{

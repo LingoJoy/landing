@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 
 import Modal from "@/components/atoms/Modal";
 
-import HandshakeImage from "@/assets/icons/handshake.svg";
 import PayPal from "@/assets/PayPal.svg";
 
 import { ELocalizationQuestionnaire } from "@/constants";
@@ -19,10 +18,6 @@ interface IProps {
   price?: number | string;
   discount?: number | string;
 }
-
-// const getPercentage = (price: number, discount: number) => {
-//   return Number((discount / price).toFixed(2)) * 100;
-// };
 
 const PayModal: FC<IProps> = ({ isOpen, onClose }) => {
   const localization = useSelector(getLocalizationQuestionnaire);
@@ -70,7 +65,7 @@ const PayModal: FC<IProps> = ({ isOpen, onClose }) => {
             ) : null}
           </Box> */}
           <Box className={styles.guaranteeWrapper}>
-            <HandshakeImage />
+            <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}handshake.svg`} alt=""/>
             <h3>
               {localization[ELocalizationQuestionnaire.PAY_GUARANTEE_TITLE]}
             </h3>

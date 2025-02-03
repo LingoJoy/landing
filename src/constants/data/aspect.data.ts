@@ -1,40 +1,34 @@
-import SpellingImage from "@/assets/aspects/spelling.png";
-import VocabularyImage from "@/assets/aspects/vocabulary.png";
-import PunctuationImage from "@/assets/aspects/punctuation.png";
-import TensesImage from "@/assets/aspects/tenses.png";
-import PhrasalVerbsImage from "@/assets/aspects/phrasal-verbs.png";
-
 import { ISelectorQuestData } from ".";
 import { ELocalizationQuestionnaire } from "..";
 
 export const DEFAULT_ASPECT_DATA: ISelectorQuestData[] = [
     {
         id: 0,
-        icon: SpellingImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}spelling.png`,
         title: ELocalizationQuestionnaire.QUEST_ASPECT_DATA_1,
         value: "Vocabulary Building",
     },
     {
         id: 1,
-        icon: VocabularyImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}vocabulary.png`,
         title: ELocalizationQuestionnaire.QUEST_ASPECT_DATA_2,
         value: "Speaking Confidence",
     },
     {
         id: 2,
-        icon: PunctuationImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}punctuation.png`,
         title: ELocalizationQuestionnaire.QUEST_ASPECT_DATA_3,
         value: "Listening Skills",
     },
     {
         id: 3,
-        icon: TensesImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}tenses.png`,
         title: ELocalizationQuestionnaire.QUEST_ASPECT_DATA_4,
         value: "Pronunciation",
     },
     {
         id: 4,
-        icon: PhrasalVerbsImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}phrasal-verbs.png`,
         title: ELocalizationQuestionnaire.QUEST_ASPECT_DATA_5,
         value: "Everyday Conversation",
     },
