@@ -35,13 +35,9 @@ export default defineConfig({
     chunkSizeWarningLimit: 500,
     rollupOptions: {
       output: {
-        manualChunks(id: string) {
+        manualChunks(id) {
           if (id.includes("node_modules")) {
-            if (id.includes("react")) return "react";
-            if (id.includes("@mui/material")) return "mui";
-            if (id.includes("@reduxjs/toolkit") || id.includes("react-redux")) return "redux";
-            if (id.includes("i18next") || id.includes("react-i18next")) return "i18n";
-            return "vendor";
+            return id.toString().split("node_modules/")[1].split("/")[0];
           }
         },
       },
