@@ -34,26 +34,14 @@ export default defineConfig({
         rollupOptions: {
             output: {
                 manualChunks(id) {
-                    if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
-                        return 'react-vendor';
-                    }
-                    if (id.includes('node_modules/@mui/material')) {
-                        return 'mui-vendor';
-                    }
                     if (id.includes('node_modules/@reduxjs/toolkit') || id.includes('node_modules/react-redux')) {
                         return 'redux-vendor';
                     }
-                    if (id.includes('node_modules/axios')) {
-                        return 'axios-vendor';
+                    if (id.includes('node_modules/@paddle/paddle-js')) {
+                        return 'paddle-vendor';
                     }
-                    if (id.includes('node_modules/i18next') || id.includes('node_modules/react-i18next')) {
-                        return 'i18n-vendor';
-                    }
-                    if (id.includes('node_modules/swiper')) {
-                        return 'swiper-vendor';
-                    }
-                    if (id.includes('node_modules/wavesurfer.js')) {
-                        return 'wavesurfer-vendor';
+                    if (id.includes('node_modules/@socket.io/component-emitter')) {
+                        return 'socket-vendor';
                     }
                 }
             }
