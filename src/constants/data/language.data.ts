@@ -1,30 +1,3 @@
-import EnglishImage from "@/assets/flags/en.png";
-import SpainImage from "@/assets/flags/es.png";
-import PortugueseImage from "@/assets/flags/pt.png";
-import FrenchImage from "@/assets/flags/fr.png";
-import GermanImage from "@/assets/flags/de.png";
-import RussianImage from "@/assets/flags/ru.png";
-import IndonesianImage from "@/assets/flags/id.png";
-import TurkishImage from "@/assets/flags/tr.png";
-import ItalianImage from "@/assets/flags/it.png";
-import UkrainianImage from "@/assets/flags/ua.png";
-import PolishImage from "@/assets/flags/pl.png";
-import DutchtImage from "@/assets/flags/nl.png";
-import CzechImage from "@/assets/flags/cz.png";
-import RomanianImage from "@/assets/flags/ro.png";
-import GreekImage from "@/assets/flags/gr.png";
-import HungarianImage from "@/assets/flags/hu.png";
-import SwedishImage from "@/assets/flags/se.png";
-import BulgarianImage from "@/assets/flags/bg.png";
-import SerbianImage from "@/assets/flags/rs.png";
-import FinnishImage from "@/assets/flags/fi.png";
-import DanishImage from "@/assets/flags/dk.png";
-import SlovakImage from "@/assets/flags/sk.png";
-import CroatianImage from "@/assets/flags/hr.png";
-import LithuanianImage from "@/assets/flags/lt.png";
-import LatvianImage from "@/assets/flags/lv.png";
-import EstonianImage from "@/assets/flags/ee.png";
-
 import { ILanguage, IQuestLanguage } from "@/store/auth/query";
 import { ELocalizationQuestionnaire } from "../localizationQuestionnaire";
 import { ELocalization } from "../localization";
@@ -71,157 +44,157 @@ export enum ETranslate {
 export const DEFAULT_QUEST_LANGUAGE_DATA: IQuestLanguage[] = [
   {
     id: 0,
-    icon: EnglishImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}en.png`,
     title: ELocalizationQuestionnaire.LANGUAGE_EN,
     translate: ETranslate.ENGLISH,
   },
   {
     id: 1,
-    icon: SpainImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}es.png`,
     title: ELocalizationQuestionnaire.LANGUAGE_ES,
     translate: ETranslate.SPANISH,
   },
   {
     id: 2,
-    icon: PortugueseImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}pt.png`,
     title: ELocalizationQuestionnaire.LANGUAGE_PT,
     translate: ETranslate.PORTUGUESE,
   },
   {
     id: 3,
-    icon: FrenchImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}fr.png`,
     title: ELocalizationQuestionnaire.LANGUAGE_FR,
     translate: ETranslate.FRENCH,
   },
   {
     id: 4,
-    icon: GermanImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}de.png`,
     title: ELocalizationQuestionnaire.LANGUAGE_DE,
     translate: ETranslate.GERMAN,
   },
   {
     id: 5,
-    icon: RussianImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}ru.png`,
     title: ELocalizationQuestionnaire.LANGUAGE_RU,
     translate: ETranslate.RUSSIAN,
   },
   {
     id: 6,
-    icon: IndonesianImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}id.png`,
     title: ELocalizationQuestionnaire.LANGUAGE_ID,
     translate: ETranslate.INDONESIAN,
   },
   {
     id: 7,
-    icon: TurkishImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}tr.png`,
     title: ELocalizationQuestionnaire.LANGUAGE_TR,
     translate: ETranslate.TURKISH,
   },
   {
     id: 8,
-    icon: ItalianImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}it.png`,
     title: ELocalizationQuestionnaire.LANGUAGE_IT,
     translate: ETranslate.ITALIAN,
   },
   {
     id: 9,
-    icon: UkrainianImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}ua.png`,
     title: ELocalizationQuestionnaire.LANGUAGE_UA,
     translate: ETranslate.UKRAINIAN,
   },
   {
     id: 10,
-    icon: PolishImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}pl.png`,
     title: ELocalizationQuestionnaire.LANGUAGE_PL,
     translate: ETranslate.POLISH,
   },
   {
     id: 11,
-    icon: DutchtImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}nl.png`,
     title: ELocalizationQuestionnaire.LANGUAGE_NL,
     translate: ETranslate.DUTCH,
   },
   {
     id: 12,
-    icon: CzechImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}cz.png`,
     title: ELocalizationQuestionnaire.LANGUAGE_CS,
     translate: ETranslate.CZECH,
   },
   {
     id: 13,
-    icon: RomanianImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}ro.png`,
     title: ELocalizationQuestionnaire.LANGUAGE_RO,
     translate: ETranslate.ROMANIAN,
   },
   {
     id: 14,
-    icon: GreekImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}gr.png`,
     title: ELocalizationQuestionnaire.LANGUAGE_EL,
     translate: ETranslate.GREEK,
   },
   {
     id: 15,
-    icon: HungarianImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}hu.png`,
     title: ELocalizationQuestionnaire.LANGUAGE_HU,
     translate: ETranslate.HUNGARIAN,
   },
   {
     id: 16,
-    icon: SwedishImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}se.png`,
     title: ELocalizationQuestionnaire.LANGUAGE_SV,
     translate: ETranslate.SWEDISH,
   },
   {
     id: 17,
-    icon: BulgarianImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}bg.png`,
     title: ELocalizationQuestionnaire.LANGUAGE_BG,
     translate: ETranslate.BULGARIAN,
   },
   {
     id: 18,
-    icon: SerbianImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}rs.png`,
     title: ELocalizationQuestionnaire.LANGUAGE_SR,
     translate: ETranslate.SERBIAN,
   },
   {
     id: 19,
-    icon: FinnishImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}fi.png`,
     title: ELocalizationQuestionnaire.LANGUAGE_FI,
     translate: ETranslate.FINNISH,
   },
   {
     id: 20,
-    icon: DanishImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}dk.png`,
     title: ELocalizationQuestionnaire.LANGUAGE_DA,
     translate: ETranslate.DANISH,
   },
   {
     id: 21,
-    icon: SlovakImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}sk.png`,
     title: ELocalizationQuestionnaire.LANGUAGE_SK,
     translate: ETranslate.SLOVAK,
   },
   {
     id: 22,
-    icon: CroatianImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}hr.png`,
     title: ELocalizationQuestionnaire.LANGUAGE_HR,
     translate: ETranslate.CROATIAN,
   },
   {
     id: 23,
-    icon: LithuanianImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}lt.png`,
     title: ELocalizationQuestionnaire.LANGUAGE_LT,
     translate: ETranslate.LITHUANIAN,
   },
   {
     id: 24,
-    icon: LatvianImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}lv.png`,
     title: ELocalizationQuestionnaire.LANGUAGE_LV,
     translate: ETranslate.LATVIAN,
   },
   {
     id: 25,
-    icon: EstonianImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}ee.png`,
     title: ELocalizationQuestionnaire.LANGUAGE_ET,
     translate: ETranslate.ESTONIAN,
   },
@@ -230,157 +203,157 @@ export const DEFAULT_QUEST_LANGUAGE_DATA: IQuestLanguage[] = [
 export const DEFAULT_LANGUAGE_DATA: ILanguage[] = [
   {
     id: 0,
-    icon: EnglishImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}en.png`,
     title: ELocalization.LANGUAGE_EN,
     translate: ETranslate.ENGLISH,
   },
   {
     id: 1,
-    icon: SpainImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}es.png`,
     title: ELocalization.LANGUAGE_ES,
     translate: ETranslate.SPANISH,
   },
   {
     id: 2,
-    icon: PortugueseImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}pt.png`,
     title: ELocalization.LANGUAGE_PT,
     translate: ETranslate.PORTUGUESE,
   },
   {
     id: 3,
-    icon: FrenchImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}fr.png`,
     title: ELocalization.LANGUAGE_FR,
     translate: ETranslate.FRENCH,
   },
   {
     id: 4,
-    icon: GermanImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}de.png`,
     title: ELocalization.LANGUAGE_DE,
     translate: ETranslate.GERMAN,
   },
   {
     id: 5,
-    icon: RussianImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}ru.png`,
     title: ELocalization.LANGUAGE_RU,
     translate: ETranslate.RUSSIAN,
   },
   {
     id: 6,
-    icon: IndonesianImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}id.png`,
     title: ELocalization.LANGUAGE_ID,
     translate: ETranslate.INDONESIAN,
   },
   {
     id: 7,
-    icon: TurkishImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}tr.png`,
     title: ELocalization.LANGUAGE_TR,
     translate: ETranslate.TURKISH,
   },
   {
     id: 8,
-    icon: ItalianImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}it.png`,
     title: ELocalization.LANGUAGE_IT,
     translate: ETranslate.ITALIAN,
   },
   {
     id: 9,
-    icon: UkrainianImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}ua.png`,
     title: ELocalization.LANGUAGE_UA,
     translate: ETranslate.UKRAINIAN,
   },
   {
     id: 10,
-    icon: PolishImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}pl.png`,
     title: ELocalization.LANGUAGE_PL,
     translate: ETranslate.POLISH,
   },
   {
     id: 11,
-    icon: DutchtImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}nl.png`,
     title: ELocalization.LANGUAGE_NL,
     translate: ETranslate.DUTCH,
   },
   {
     id: 12,
-    icon: CzechImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}cz.png`,
     title: ELocalization.LANGUAGE_CS,
     translate: ETranslate.CZECH,
   },
   {
     id: 13,
-    icon: RomanianImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}ro.png`,
     title: ELocalization.LANGUAGE_RO,
     translate: ETranslate.ROMANIAN,
   },
   {
     id: 14,
-    icon: GreekImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}gr.png`,
     title: ELocalization.LANGUAGE_EL,
     translate: ETranslate.GREEK,
   },
   {
     id: 15,
-    icon: HungarianImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}hu.png`,
     title: ELocalization.LANGUAGE_HU,
     translate: ETranslate.HUNGARIAN,
   },
   {
     id: 16,
-    icon: SwedishImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}se.png`,
     title: ELocalization.LANGUAGE_SV,
     translate: ETranslate.SWEDISH,
   },
   {
     id: 17,
-    icon: BulgarianImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}bg.png`,
     title: ELocalization.LANGUAGE_BG,
     translate: ETranslate.BULGARIAN,
   },
   {
     id: 18,
-    icon: SerbianImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}rs.png`,
     title: ELocalization.LANGUAGE_SR,
     translate: ETranslate.SERBIAN,
   },
   {
     id: 19,
-    icon: FinnishImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}fi.png`,
     title: ELocalization.LANGUAGE_FI,
     translate: ETranslate.FINNISH,
   },
   {
     id: 20,
-    icon: DanishImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}dk.png`,
     title: ELocalization.LANGUAGE_DA,
     translate: ETranslate.DANISH,
   },
   {
     id: 21,
-    icon: SlovakImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}sk.png`,
     title: ELocalization.LANGUAGE_SK,
     translate: ETranslate.SLOVAK,
   },
   {
     id: 22,
-    icon: CroatianImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}hr.png`,
     title: ELocalization.LANGUAGE_HR,
     translate: ETranslate.CROATIAN,
   },
   {
     id: 23,
-    icon: LithuanianImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}lt.png`,
     title: ELocalization.LANGUAGE_LT,
     translate: ETranslate.LITHUANIAN,
   },
   {
     id: 24,
-    icon: LatvianImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}lv.png`,
     title: ELocalization.LANGUAGE_LV,
     translate: ETranslate.LATVIAN,
   },
   {
     id: 25,
-    icon: EstonianImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}ee.png`,
     title: ELocalization.LANGUAGE_ET,
     translate: ETranslate.ESTONIAN,
   },

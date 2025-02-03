@@ -1,93 +1,4 @@
 import SettingsImage from "@/assets/setting-dynamic-color.png";
-import NotebookImage from "@/assets/notebook.png";
-
-import CareerImage from "@/assets/motivations/career.png";
-import EducationImage from "@/assets/motivations/education.png";
-import CultureImage from "@/assets/motivations/culture.png";
-import BrainImage from "@/assets/motivations/brain.png";
-import FamilyImage from "@/assets/motivations/family.png";
-import TravelImage from "@/assets/motivations/travel.png";
-import OtherImage from "@/assets/motivations/other.png";
-
-import SpellingImage from "@/assets/aspects/spelling.png";
-import VocabularyImage from "@/assets/aspects/vocabulary.png";
-import PunctuationImage from "@/assets/aspects/punctuation.png";
-import TensesImage from "@/assets/aspects/tenses.png";
-import PhrasalVerbsImage from "@/assets/aspects/phrasal-verbs.png";
-
-import YesImage from "@/assets/main/writer.png";
-import NoImage from "@/assets/main/explosion.png";
-
-import GameImage from "@/assets/statements/game.png";
-import RejectImage from "@/assets/main/reject.png";
-import IphoneImage from "@/assets//main/iphone.png";
-
-import CommunicateImage from "@/assets/statements/laptop.png";
-import EmailImage from "@/assets/statements/email.png";
-import CoffeeImage from "@/assets/statements/coffee.png";
-import BookImage from "@/assets/statements/book.png";
-
-import ThumbUpImage from "@/assets/thumb-up.png";
-import ThumbUpImageWeb from "@/assets/thumb-up-web.png";
-
-import FullMoonImage from "@/assets/moon/full.png";
-import GibbousMoonImage from "@/assets/moon/gibbous.png";
-import HalfMoonImage from "@/assets/moon/half.png";
-import CrescentMoonImage from "@/assets/moon/crescent.png";
-import NewMoonImage from "@/assets/moon/new.png";
-
-import ChatTextImage from "@/assets/chat-text.png";
-import PlaneImage from "@/assets/main/plane.png";
-import SofaImage from "@/assets/main/sofa.png";
-import ShirtImage from "@/assets/main/shirt.png";
-
-import HeartImage from "@/assets/heart.png";
-
-import OneImage from "@/assets/main/doc.png";
-import TwoImage from "@/assets/main/docs.png";
-import ThreeImage from "@/assets/main/notes.png";
-import FourImage from "@/assets/main/folder.png";
-import BusinessImage from "@/assets/statements/business.png";
-import ParachuteImage from "@/assets/transport/parachute.png";
-import HelicopterImage from "@/assets/transport/helicopter.png";
-import RocketImage from "@/assets/transport/rocket.png";
-import SunImage from "@/assets/main/sun.png";
-import FlyPlaneImage from "@/assets/transport/fly-plane.png";
-import HamburgerImage from "@/assets/main/hamburger.png";
-import AmourImage from "@/assets/main/amour.png";
-import DNAImage from "@/assets/main/dna.png";
-import BankImage from "@/assets/main/bank.png";
-import YenImage from "@/assets/main/yen.png";
-import LaptopImage from "@/assets/statements/laptop.png";
-import GirlWalkImage from "@/assets/main/girl-walk.png";
-import GirlRunImage from "@/assets/main/girl-run.png";
-import BicycleImage from "@/assets/main/bicycle.png";
-import HorseImage from "@/assets/main/horse.png";
-
-import MailImage from "@/assets/mail.png";
-import BookIcon from "@/assets/main/open-book.png";
-import PrizeIcon from "@/assets/levels/prize.png";
-import LevelImage from "@/assets/level-grow.png";
-
-import GrowImage from "@/assets/new-landing/improve-chart.png";
-import BoxImage from "@/assets/main/box.png";
-import FirstImage from "@/assets/new-landing/slide-1.png";
-import SecondImage from "@/assets/new-landing/slide-2.png";
-import ThirdImage from "@/assets/new-landing/slide-3.png";
-import FourthImage from "@/assets/new-landing/slide-4.png";
-import FifthImage from "@/assets/new-landing/slide-5.png";
-import SixthImage from "@/assets/new-landing/slide-6.png";
-import SeventhImage from "@/assets/new-landing/slide-7.png";
-import FirstWhatImage from "@/assets/new-landing/example-1.png";
-import SecondWhatImage from "@/assets/new-landing/example-2.png";
-import ThirdWhatImage from "@/assets/new-landing/example-3.png";
-import FourthWhatImage from "@/assets/new-landing/example-4.png";
-
-import IntelligentImage from "@/assets/emoji/intelligent.png";
-import CoolImage from "@/assets/emoji/cool.png";
-import SmartImage from "@/assets/emoji/smart.png";
-
-import Background from "@/assets/newest-landing/newest-hero-bg.png";
 
 import { IPreloadImagesData } from ".";
 
@@ -99,302 +10,302 @@ export const DEFAULT_PRELOAD_IMAGES_DATA: IPreloadImagesData[] = [
   },
   {
     id: 1,
-    icon: NotebookImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}notebook.png`,
   },
   {
     id: 2,
-    icon: CareerImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}career.png`,
   },
   {
     id: 3,
-    icon: EducationImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}education.png`,
   },
   {
     id: 4,
-    icon: CultureImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}culture.png`,
   },
   {
     id: 5,
-    icon: BrainImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}brain.png`,
   },
   {
     id: 6,
-    icon: FamilyImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}family.png`,
   },
   {
     id: 7,
-    icon: TravelImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}travel.png`,
   },
   {
     id: 8,
-    icon: OtherImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}other.png`,
   },
   {
     id: 9,
-    icon: SpellingImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}spelling.png`,
   },
   {
     id: 10,
-    icon: VocabularyImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}vocabulary.png`,
   },
   {
     id: 11,
-    icon: PunctuationImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}punctuation.png`,
   },
   {
     id: 12,
-    icon: TensesImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}tenses.png`,
   },
   {
     id: 13,
-    icon: PhrasalVerbsImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}phrasal-verbs.png`,
   },
   {
     id: 14,
-    icon: YesImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}writer.png`,
   },
   {
     id: 15,
-    icon: NoImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}explosion.png`,
   },
   {
     id: 16,
-    icon: GameImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}game.png`,
   },
   {
     id: 17,
-    icon: RejectImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}reject.png`,
   },
   {
     id: 18,
-    icon: IphoneImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}iphone.png`,
   },
   {
     id: 19,
-    icon: CommunicateImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}laptop.png`,
   },
   {
     id: 20,
-    icon: EmailImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}email.png`,
   },
   {
     id: 21,
-    icon: CoffeeImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}coffee.png`,
   },
   {
     id: 22,
-    icon: BookImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}book.png`,
   },
   {
     id: 23,
-    icon: ThumbUpImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}thumb-up.png`,
   },
   {
     id: 24,
-    icon: ThumbUpImageWeb,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}thumb-up-web.png`,
   },
   {
     id: 25,
-    icon: FullMoonImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}full.png`,
   },
   {
     id: 26,
-    icon: GibbousMoonImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}gibbous.png`,
   },
   {
     id: 27,
-    icon: HalfMoonImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}half.png`,
   },
   {
     id: 28,
-    icon: CrescentMoonImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}crescent.png`,
   },
   {
     id: 29,
-    icon: NewMoonImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}new.png`,
   },
   {
     id: 30,
-    icon: ChatTextImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}chat-text.png`,
   },
   {
     id: 31,
-    icon: PlaneImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}plane.png`,
   },
   {
     id: 32,
-    icon: SofaImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}sofa.png`,
   },
   {
     id: 33,
-    icon: ShirtImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}shirt.png`,
   },
   {
     id: 34,
-    icon: HeartImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}heart_1.png`,
   },
   {
     id: 35,
-    icon: OneImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}doc.png`,
   },
   {
     id: 36,
-    icon: TwoImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}docs.png`,
   },
   {
     id: 37,
-    icon: ThreeImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}notes.png`,
   },
   {
     id: 38,
-    icon: FourImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}folder.png`,
   },
   {
     id: 39,
-    icon: BusinessImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}business.png`,
   },
   {
     id: 40,
-    icon: ParachuteImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}parachute.png`,
   },
   {
     id: 41,
-    icon: HelicopterImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}helicopter.png`,
   },
   {
     id: 42,
-    icon: RocketImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}rocket.png`,
   },
   {
     id: 43,
-    icon: SunImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}sun.png`,
   },
   {
     id: 44,
-    icon: FlyPlaneImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}fly-plane.png`,
   },
   {
     id: 45,
-    icon: HamburgerImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}hamburger.png`,
   },
   {
     id: 46,
-    icon: AmourImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}amour.png`,
   },
   {
     id: 47,
-    icon: DNAImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}dna.png`,
   },
   {
     id: 48,
-    icon: BankImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}bank.png`,
   },
   {
     id: 49,
-    icon: YenImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}yen.png`,
   },
   {
     id: 50,
-    icon: LaptopImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}laptop.png`,
   },
   {
     id: 51,
-    icon: GirlWalkImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}girl-walk.png`,
   },
   {
     id: 52,
-    icon: GirlRunImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}girl-run.png`,
   },
   {
     id: 53,
-    icon: BicycleImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}bicycle.png`,
   },
   {
     id: 54,
-    icon: HorseImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}horse.png`,
   },
   {
     id: 55,
-    icon: MailImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}mail.png`,
   },
   {
     id: 56,
-    icon: BookIcon,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}open-book.png`,
   },
   {
     id: 57,
-    icon: PrizeIcon,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}prize.png`,
   },
   {
     id: 58,
-    icon: LevelImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}level-grow.png`,
   },
   {
     id: 59,
-    icon: GrowImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}improve-chart.png`,
   },
   {
     id: 60,
-    icon: BoxImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}box.png`,
   },
   {
     id: 61,
-    icon: FirstImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}slide-1.png`,
   },
   {
     id: 62,
-    icon: SecondImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}slide-2.png`,
   },
   {
     id: 63,
-    icon: ThirdImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}slide-3.png`,
   },
   {
     id: 64,
-    icon: FourthImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}slide-4.png`,
   },
   {
     id: 65,
-    icon: FifthImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}slide-5.png`,
   },
   {
     id: 66,
-    icon: SixthImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}slide-6.png`,
   },
   {
     id: 67,
-    icon: SeventhImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}slide-7.png`,
   },
   {
     id: 68,
-    icon: FirstWhatImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}example-1.png`,
   },
   {
     id: 69,
-    icon: SecondWhatImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}example-2.png`,
   },
   {
     id: 70,
-    icon: ThirdWhatImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}example-3.png`,
   },
   {
     id: 71,
-    icon: FourthWhatImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}example-4.png`,
   },
   {
     id: 72,
-    icon: IntelligentImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}intelligent.png`,
   },
   {
     id: 73,
-    icon: CoolImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}cool.png`,
   },
   {
     id: 74,
-    icon: SmartImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}smart.png`,
   },
   {
     id: 75,
-    icon: Background,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}newest-hero-bg.png`,
   },
 ];

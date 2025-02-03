@@ -6,7 +6,6 @@ import LogoIcon from "@/components/atoms/icons/LogoIcon";
 import PulseButton from "@/components/atoms/PulseButton";
 
 import StartEllipseImage from "@/assets/icons/start-ellipse.svg";
-import HeroImage from "@/assets/start-hero.png";
 
 import { ELocalizationQuestionnaire, ERoutes } from "@/constants";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
@@ -28,7 +27,7 @@ const StartHero = () => {
         <LogoIcon />
       </Box>
       <Box className={styles.centerWrapper}>
-        <img className={styles.leftCenterImage} src={HeroImage} alt="" />
+        <img className={styles.leftCenterImage} src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}start-hero.png`} alt="" />
       </Box>
       <Box className={styles.contentWrapper}>
         <h2 className={styles.title}>

@@ -3,8 +3,6 @@ import { Box } from "@mui/material";
 
 import AnalyzeOption from "@/components/molecules/AnalyzeOption";
 
-import BoxImage from "@/assets/main/box.png";
-
 import { DEFAULT_PLAN_DATA, ELocalizationQuestionnaire } from "@/constants";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 
@@ -17,7 +15,7 @@ const PlanSection = () => {
     <Box className={styles.planWrapper} data-class="NewLandingHero-PlanSection">
       <Box className={styles.contentBox}>
         <Box className={styles.titleWrapper}>
-          <img src={BoxImage} alt="" />
+          <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}box.png`} alt="" />
           <h2 className={`${styles.title} ${styles.planTitle}`}>
             {localization[ELocalizationQuestionnaire.LANDING_PLAN_TITLE]}
           </h2>

@@ -7,9 +7,6 @@ import Loader from "@/components/atoms/Loader";
 import PulseButton from "@/components/atoms/PulseButton";
 
 import CheckIcon from "@/assets/icons/check.svg";
-import FirstImage from "@/assets/new-landing/iPhone-1.png";
-import SecondImage from "@/assets/new-landing/iPhone-2.png";
-import ThirdImage from "@/assets/new-landing/iPhone-3.png";
 
 import { ELocalizationQuestionnaire } from "@/constants";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
@@ -138,9 +135,9 @@ const YourPlanSection: FC<IProps> = ({
     <Box className={styles.yourPlanWrapper}>
       <Box className={styles.contentBox}>
         <Box className={styles.yourPlanExampleBox}>
-          <img src={FirstImage} alt="" />
-          <img src={SecondImage} alt="" />
-          <img src={ThirdImage} alt="" />
+          <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}iPhone-1.png`} alt="" />
+          <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}iPhone-2.png`} alt="" />
+          <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}iPhone-3.png`} alt="" />
         </Box>
         <Box className={styles.indexBox}>
           <Box className={styles.yourPlanSizeBox}>

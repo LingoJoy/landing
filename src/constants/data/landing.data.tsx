@@ -1,29 +1,6 @@
-import FirstImage from "@/assets/screens/iPhone-1.png";
-import SecondImage from "@/assets/screens/iPhone-2.png";
-import ThirdImage from "@/assets/screens/iPhone-3.png";
-import FourthImage from "@/assets/screens/iPhone-4.png";
-
-import AppleImage from "@/assets/icons/apple.svg";
 import MedalImage from "@/assets/icons/medal.svg";
 import PaperImage from "@/assets/icons/paper.svg";
 import ScissorsImage from "@/assets/icons/scissors.svg";
-
-import JeniferImage from "@/assets/users/Jenifer.png";
-import KaiImage from "@/assets/users/Kai.png";
-import LucasImage from "@/assets/users/Lucas.png";
-import MehmetImage from "@/assets/users/Mehmet.png";
-import PatriciaImage from "@/assets/users/Patricia.png";
-import RaghunathImage from "@/assets/users/Raghunath.png";
-
-import BrImage from "@/assets/flags/br.png";
-import FiImage from "@/assets/flags/fi.png";
-import InImage from "@/assets/flags/in.png";
-import TrImage from "@/assets/flags/tr.png";
-import UsImage from "@/assets/flags/us.png";
-
-import CoolImage from "@/assets/emoji/cool.png";
-import IntelligentImage from "@/assets/emoji/intelligent.png";
-import SmartImage from "@/assets/emoji/smart.png";
 
 import { ILevel, ISelectorQuestData, IUser } from ".";
 import { ELocalizationQuestionnaire } from "../localizationQuestionnaire";
@@ -135,10 +112,10 @@ export const DEFAULT_PLAN_DATA: ISelectorQuestData[] = [
 ];
 
 export const DEFAULT_LESSON_DATA = [
-  FirstImage,
-  SecondImage,
-  ThirdImage,
-  FourthImage,
+  `${import.meta.env.VITE_BACKEND_IMAGE_URL}iPhone-1.png`,
+  `${import.meta.env.VITE_BACKEND_IMAGE_URL}iPhone-2.png`,
+  `${import.meta.env.VITE_BACKEND_IMAGE_URL}iPhone-3.png`,
+  `${import.meta.env.VITE_BACKEND_IMAGE_URL}iPhone-4.png`,
 ];
 
 export const DEFAULT_GAMES_DATA = [
@@ -160,7 +137,7 @@ export const DEFAULT_GAMES_DATA = [
   {
     id: 3,
     title: "Apple",
-    icon: <AppleImage />,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}apple_1.svg`,
   },
   {
     id: 4,
@@ -172,9 +149,9 @@ export const DEFAULT_GAMES_DATA = [
 export const DEFAULT_USERS_DATA: IUser[] = [
   {
     id: 0,
-    image: RaghunathImage,
+    image: `${import.meta.env.VITE_BACKEND_IMAGE_URL}Raghunath.png`,
     name: "Raghunath Venkatesh",
-    country: InImage,
+    country: `${import.meta.env.VITE_BACKEND_IMAGE_URL}in.png`,
     level: 5,
     comment:
       "If you are not a native speaker but you have to speak as one because you are living in other country, you definitely need this app!",
@@ -182,9 +159,9 @@ export const DEFAULT_USERS_DATA: IUser[] = [
   },
   {
     id: 1,
-    image: JeniferImage,
+    image: `${import.meta.env.VITE_BACKEND_IMAGE_URL}Jenifer.png`,
     name: "Jennifer King",
-    country: UsImage,
+    country: `${import.meta.env.VITE_BACKEND_IMAGE_URL}us.png`,
     level: 5,
     comment:
       "If you are not a native speaker but you have to speak as one because you are living in other country, you definitely need this app!",
@@ -192,9 +169,9 @@ export const DEFAULT_USERS_DATA: IUser[] = [
   },
   {
     id: 2,
-    image: KaiImage,
+    image: `${import.meta.env.VITE_BACKEND_IMAGE_URL}Kai.png`,
     name: "Kai Virtanen",
-    country: FiImage,
+    country: `${import.meta.env.VITE_BACKEND_IMAGE_URL}fi.png`,
     level: 5,
     comment:
       "If you are not a native speaker but you have to speak as one because you are living in other country, you definitely need this app!",
@@ -202,9 +179,9 @@ export const DEFAULT_USERS_DATA: IUser[] = [
   },
   {
     id: 3,
-    image: LucasImage,
+    image: `${import.meta.env.VITE_BACKEND_IMAGE_URL}Lucas.png`,
     name: "Lucas Oliveira",
-    country: BrImage,
+    country: `${import.meta.env.VITE_BACKEND_IMAGE_URL}br.png`,
     level: 5,
     comment:
       "If you are not a native speaker but you have to speak as one because you are living in other country, you definitely need this app!",
@@ -212,9 +189,9 @@ export const DEFAULT_USERS_DATA: IUser[] = [
   },
   {
     id: 4,
-    image: MehmetImage,
+    image: `${import.meta.env.VITE_BACKEND_IMAGE_URL}Mehmet.png`,
     name: "Mehmet Yılmaz",
-    country: TrImage,
+    country: `${import.meta.env.VITE_BACKEND_IMAGE_URL}tr.png`,
     level: 5,
     comment:
       "If you are not a native speaker but you have to speak as one because you are living in other country, you definitely need this app!",
@@ -225,9 +202,9 @@ export const DEFAULT_USERS_DATA: IUser[] = [
 export const DEFAULT_USERS_WEB_DATA: IUser[] = [
   {
     id: 0,
-    image: RaghunathImage,
+    image: `${import.meta.env.VITE_BACKEND_IMAGE_URL}Raghunath.png`,
     name: "Raghunath Venkatesh",
-    country: InImage,
+    country: `${import.meta.env.VITE_BACKEND_IMAGE_URL}in.png`,
     level: 5,
     comment:
       "If you are not a native speaker but you have to speak as one because you are living in other country, you definitely need this app!",
@@ -235,9 +212,9 @@ export const DEFAULT_USERS_WEB_DATA: IUser[] = [
   },
   {
     id: 1,
-    image: JeniferImage,
+    image: `${import.meta.env.VITE_BACKEND_IMAGE_URL}Jenifer.png`,
     name: "Jennifer King",
-    country: UsImage,
+    country: `${import.meta.env.VITE_BACKEND_IMAGE_URL}us.png`,
     level: 5,
     comment:
       "If you are not a native speaker but you have to speak as one because you are living in other country, you definitely need this app!",
@@ -245,9 +222,9 @@ export const DEFAULT_USERS_WEB_DATA: IUser[] = [
   },
   {
     id: 2,
-    image: KaiImage,
+    image: `${import.meta.env.VITE_BACKEND_IMAGE_URL}Kai.png`,
     name: "Kai Virtanen",
-    country: FiImage,
+    country: `${import.meta.env.VITE_BACKEND_IMAGE_URL}fi.png`,
     level: 5,
     comment:
       "If you are not a native speaker but you have to speak as one because you are living in other country, you definitely need this app!",
@@ -255,9 +232,9 @@ export const DEFAULT_USERS_WEB_DATA: IUser[] = [
   },
   {
     id: 3,
-    image: PatriciaImage,
+    image: `${import.meta.env.VITE_BACKEND_IMAGE_URL}Patricia.png`,
     name: "Patricia Gomes Barbosa",
-    country: BrImage,
+    country: `${import.meta.env.VITE_BACKEND_IMAGE_URL}br.png`,
     level: 5,
     comment:
       "If you are not a native speaker but you have to speak as one because you are living in other country, you definitely need this app!",
@@ -265,9 +242,9 @@ export const DEFAULT_USERS_WEB_DATA: IUser[] = [
   },
   {
     id: 4,
-    image: MehmetImage,
+    image: `${import.meta.env.VITE_BACKEND_IMAGE_URL}Mehmet.png`,
     name: "Mehmet Yılmaz",
-    country: TrImage,
+    country: `${import.meta.env.VITE_BACKEND_IMAGE_URL}tr.png`,
     level: 5,
     comment:
       "If you are not a native speaker but you have to speak as one because you are living in other country, you definitely need this app!",
@@ -275,9 +252,9 @@ export const DEFAULT_USERS_WEB_DATA: IUser[] = [
   },
   {
     id: 5,
-    image: LucasImage,
+    image: `${import.meta.env.VITE_BACKEND_IMAGE_URL}Lucas.png`,
     name: "Lucas Oliveira",
-    country: BrImage,
+    country: `${import.meta.env.VITE_BACKEND_IMAGE_URL}br.png`,
     level: 5,
     comment:
       "If you are not a native speaker but you have to speak as one because you are living in other country, you definitely need this app!",
@@ -289,7 +266,7 @@ export const DEFAULT_YOUR_PLAN_DATA: IPlan[] = [
   {
     id: "0",
     title: "1 month",
-    icon: IntelligentImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}intelligent.png`,
     price: "19.99",
     period: "per day",
     periodPrice: 0.63,
@@ -300,7 +277,7 @@ export const DEFAULT_YOUR_PLAN_DATA: IPlan[] = [
   {
     id: "1",
     title: "3 months",
-    icon: SmartImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}smart.png`,
     price:" 57.99",
     discount: "39.99",
     period: "per day",
@@ -312,7 +289,7 @@ export const DEFAULT_YOUR_PLAN_DATA: IPlan[] = [
   {
     id: "2",
     title: "12 Months",
-    icon: CoolImage,
+    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}cool.png`,
     price: "228",
     discount: "99.99",
     period: "per day",

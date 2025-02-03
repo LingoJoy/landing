@@ -4,9 +4,6 @@ import { Box } from "@mui/material";
 import SwipeUsers from "@/components/organisms/SwipeUsers";
 import UserCard from "@/components/organisms/UserCard";
 
-import MapImage from "@/assets//map.png";
-import LoveImage from "@/assets/emoji/love.png";
-
 import {
   DEFAULT_USERS_DATA,
   DEFAULT_USERS_WEB_DATA,
@@ -37,10 +34,10 @@ const UsersSection = () => {
 
   return (
     <Box className={styles.usersWrapper}>
-      <img src={MapImage} alt="" className={styles.usersBg} />
+      <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}map.png`} alt="" className={styles.usersBg} />
       <Box className={`${styles.contentBox} ${styles.indexBox}`}>
         <Box className={styles.titleWrapper}>
-          <img src={LoveImage} alt="" />
+          <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}love.png`} alt="" />
           <h2 className={styles.title}>
             {localization[ELocalizationQuestionnaire.LANDING_USERS_TITLE]}
           </h2>

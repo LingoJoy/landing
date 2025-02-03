@@ -6,7 +6,6 @@ import RectangleBGIcon from "@/components/atoms/icons/RectangleBGIcon";
 import Loader from "@/components/atoms/Loader";
 import PulseButton from "@/components/atoms/PulseButton";
 
-import PercentImage from "@/assets/icons/badge-percent.svg";
 import CheckIcon from "@/assets/icons/check.svg";
 
 import { ELocalizationQuestionnaire } from "@/constants";
@@ -157,7 +156,7 @@ const PlanReservedSection: FC<IProps> = ({
                   sx={{ width: `${(time / 600) * 100}%` }}
                 />
                 <Box className={styles.reservedLineContent}>
-                  <PercentImage />
+                  <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}badge-percent.svg`} alt=""/>
                   <p>
                     {
                       localization[

@@ -5,9 +5,6 @@ import { Box, Divider } from "@mui/material";
 import ContentWrapper from "../../ContentWrapper";
 import Check from "@/components/atoms/Check";
 
-// import Trash from "@/assets/trash.svg";
-import Trainer from "@/assets/main/girl-run.png";
-
 import { ELocalization } from "@/constants";
 import { getLocalization } from "@/store/localization";
 
@@ -58,7 +55,7 @@ const AICard: FC<IAICardProps> = ({
       </Box>
       <Box className={styles.cardTitleBox}>
         <p>{agent.previewName}</p>
-        <img src={Trainer} alt="" />
+        <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}girl-run.png`} alt="" />
       </Box>
     </Box>
   );

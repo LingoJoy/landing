@@ -5,8 +5,6 @@ import { Box } from "@mui/material";
 import PaperBGIcon from "@/components/atoms/icons/PaperBGIcon";
 import { PaperBigBGIcon } from "@/components/atoms/icons/PaperBGIcon";
 
-import CardImage from "@/assets/main/card.png";
-
 import { ELocalizationQuestionnaire } from "@/constants";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 
@@ -26,7 +24,7 @@ const GuaranteeSection = () => {
         </Box>
         <Box className={styles.indexBox}>
           <Box className={styles.titleWrapper}>
-            <img src={CardImage} alt="" />
+            <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}card.png`} alt="" />
             <h2 className={styles.title}>
               {localization[ELocalizationQuestionnaire.LANDING_GUARANTEE_TITLE]}
             </h2>

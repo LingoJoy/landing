@@ -6,8 +6,6 @@ import SelectorFooter from "@/components/molecules/SelectorFooter";
 import DreamsIcon from "@/components/atoms/icons/DreamsIcon";
 import LogoIcon from "@/components/atoms/icons/LogoIcon";
 
-import NotebookImage from "@/assets/notebook.png";
-
 import { ELocalizationQuestionnaire } from "@/constants";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 
@@ -30,7 +28,7 @@ const VocabularyHero: FC<IProps> = ({ onNext }) => {
           <DreamsIcon />
         </Box>
       </Box>
-      <img className={styles.logo} src={NotebookImage} alt="" />
+      <img className={styles.logo} src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}notebook.png`} alt="" />
       <Box className={styles.contentWrapper}>
         <Box>
           <h2 className={styles.title}>

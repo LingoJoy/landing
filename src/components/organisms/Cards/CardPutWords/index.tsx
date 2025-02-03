@@ -7,7 +7,7 @@ import WordOption from "@/components/atoms/WordOption";
 import { CardContentWrapper } from "@/components/atoms/CardWrapper";
 import NavigationButtons from "@/components/molecules/NavigationButtons";
 
-import BoyWithLaptopImage from "@/assets/boy-with-laptop.png";
+// import BoyWithLaptopImage from "@/assets/boy-with-laptop.png";
 import BoyOnChairImage from "@/assets/boy-on-chair.png";
 
 import { ELocalization } from "@/constants";
@@ -140,7 +140,7 @@ const CardPutWords: React.FC<CardPutWordsProps> = ({ exercise, isMistake }) => {
           ))}
         </Box>
         <img
-          src={isNotMobile ? BoyOnChairImage : BoyWithLaptopImage}
+          src={isNotMobile ? BoyOnChairImage : `${import.meta.env.VITE_BACKEND_IMAGE_URL}boy-with-laptop.png`}
           alt="boy"
           className={isNotMobile ? styles.cardImgDesktop : styles.cardImgMobile}
         />
