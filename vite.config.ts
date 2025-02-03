@@ -7,19 +7,19 @@ export default defineConfig({
   plugins: [
     react(),
     svgr({
-      svgrOptions: { 
-        exportType: "default", 
-        ref: true, 
-        svgo: true, 
-        titleProp: true 
-      }, 
-      include: "**/*.svg"
+      svgrOptions: {
+        exportType: "default",
+        ref: true,
+        svgo: false,
+        titleProp: true,
+      },
+      include: "**/*.svg",
     }),
   ],
   resolve: {
     alias: {
       "@styles": path.resolve(__dirname, "src/styles"),
-      "@": path.resolve(__dirname, "./src"),
+      "@": path.resolve(__dirname, "./src")
     },
   },
   css: {

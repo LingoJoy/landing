@@ -9,16 +9,16 @@ export default defineConfig({
             svgrOptions: {
                 exportType: "default",
                 ref: true,
-                svgo: true,
-                titleProp: true
+                svgo: false,
+                titleProp: true,
             },
-            include: "**/*.svg"
+            include: "**/*.svg",
         }),
     ],
     resolve: {
         alias: {
             "@styles": path.resolve(__dirname, "src/styles"),
-            "@": path.resolve(__dirname, "./src"),
+            "@": path.resolve(__dirname, "./src")
         },
     },
     css: {
