@@ -1,5 +1,5 @@
-import { FC, HTMLInputTypeAttribute, ReactNode } from "react";
 import { Box, Typography } from "@mui/material";
+import { FC, HTMLInputTypeAttribute, ReactNode } from "react";
 
 import KeyImage from "@/assets/key.svg";
 import PersonImage from "@/assets/person.svg";
@@ -59,6 +59,9 @@ const Field: FC<IProps> = ({
                 : "15px",
             borderColor: error ? "red" : "#a4abb6",
           }}
+          autoCorrect = "off"
+          autoComplete = "off"
+          spellCheck = "false" 
         />
       </Box>
       {error && (
