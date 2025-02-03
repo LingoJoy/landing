@@ -35,11 +35,7 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
-          if (id.includes('node_modules/react')) {
-            return 'react-vendor';
-          }
-
-          if (id.includes('node_modules/react-dom')) {
+          if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
             return 'react-vendor';
           }
 
@@ -47,7 +43,7 @@ export default defineConfig({
             return 'mui-vendor';
           }
 
-          if (id.includes('node_modules/@reduxjs/toolkit')) {
+          if (id.includes('node_modules/@reduxjs/toolkit') || id.includes('node_modules/react-redux')) {
             return 'redux-vendor';
           }
 
@@ -55,10 +51,7 @@ export default defineConfig({
             return 'axios-vendor';
           }
 
-          if (id.includes('node_modules/i18next')) {
-            return 'i18n-vendor';
-          }
-          if (id.includes('node_modules/react-i18next')) {
+          if (id.includes('node_modules/i18next') || id.includes('node_modules/react-i18next')) {
             return 'i18n-vendor';
           }
 
@@ -67,22 +60,6 @@ export default defineConfig({
           }
           if (id.includes('node_modules/wavesurfer.js')) {
             return 'wavesurfer-vendor';
-          }
-
-          if (id.includes('node_modules/@dnd-kit')) {
-            return 'dnd-kit-vendor';
-          }
-          if (id.includes('node_modules/@emotion')) {
-            return 'emotion-vendor';
-          }
-          if (id.includes('node_modules/@sentry/react')) {
-            return 'sentry-vendor';
-          }
-          if (id.includes('node_modules/react-redux')) {
-            return 'redux-vendor';
-          }
-          if (id.includes('node_modules/react-router-dom')) {
-            return 'router-vendor';
           }
         }
       }
