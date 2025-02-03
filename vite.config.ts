@@ -31,4 +31,61 @@ export default defineConfig({
       },
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules/react')) {
+            return 'react-vendor';
+          }
+
+          if (id.includes('node_modules/react-dom')) {
+            return 'react-vendor';
+          }
+
+          if (id.includes('node_modules/@mui/material')) {
+            return 'mui-vendor';
+          }
+
+          if (id.includes('node_modules/@reduxjs/toolkit')) {
+            return 'redux-vendor';
+          }
+
+          if (id.includes('node_modules/axios')) {
+            return 'axios-vendor';
+          }
+
+          if (id.includes('node_modules/i18next')) {
+            return 'i18n-vendor';
+          }
+          if (id.includes('node_modules/react-i18next')) {
+            return 'i18n-vendor';
+          }
+
+          if (id.includes('node_modules/swiper')) {
+            return 'swiper-vendor';
+          }
+          if (id.includes('node_modules/wavesurfer.js')) {
+            return 'wavesurfer-vendor';
+          }
+
+          if (id.includes('node_modules/@dnd-kit')) {
+            return 'dnd-kit-vendor';
+          }
+          if (id.includes('node_modules/@emotion')) {
+            return 'emotion-vendor';
+          }
+          if (id.includes('node_modules/@sentry/react')) {
+            return 'sentry-vendor';
+          }
+          if (id.includes('node_modules/react-redux')) {
+            return 'redux-vendor';
+          }
+          if (id.includes('node_modules/react-router-dom')) {
+            return 'router-vendor';
+          }
+        }
+      }
+    }
+  }
 });
