@@ -1,6 +1,6 @@
 @import "@styles/variables.scss";
 
-.footerWrapper {
+.positionFooterWrapper {
   padding: 10px 12px;
   border-top: 0.5px solid $main-border;
   background-color: $white-color;
@@ -9,6 +9,14 @@
   bottom: 0;
   width: 100%;
 
+
+  & button {
+    width: 100%;
+  }
+}
+
+.footerWrapper {
+  margin-top: 10px;
 
   & button {
     width: 100%;

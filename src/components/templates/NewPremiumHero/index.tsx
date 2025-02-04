@@ -116,6 +116,19 @@ const NewPremiumHero = () => {
     }, 1000);
   }, []);
 
+  const onClickHandler = () => {
+    const planElement = document.querySelector("#plan");
+
+    if (planElement) {
+      const top = planElement.getBoundingClientRect().top + window.scrollY - 65;
+
+      window.scrollTo({
+        top,
+        behavior: "smooth"
+      })
+    }
+  }
+
   return (
     <Box className={styles.wrapper}>
       <Box className={styles.headerContent}>
@@ -145,9 +158,7 @@ const NewPremiumHero = () => {
           </Box>
           <PulseButton
             className={styles.headerBtn}
-            onClick={() => {
-              window.location.href = "#plan";
-            }}
+            onClick={onClickHandler}
           >
             {localization[ELocalizationQuestionnaire.LANDING_YOUR_PLAN_BTN]}
           </PulseButton>

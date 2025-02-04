@@ -168,12 +168,12 @@ const YourPlanSection: FC<IProps> = ({
   const localization = useSelector(getLocalizationQuestionnaire);
 
   return (
-    <Box className={`${styles.yourPlanWrapper}`}>
+    <Box className={`${styles.yourPlanWrapper}`} id="plan">
       <Box className={styles.contentBox}>
         <Box className={styles.indexBox}>
           <Box className={`${styles.yourPlanSizeBox} ${className}`}>
             <Box className={styles.titleWrapper}>
-              <h2 className={styles.title} id="plan">
+              <h2 className={styles.title}>
                 {title}
               </h2>
             </Box>

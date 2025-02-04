@@ -88,12 +88,14 @@ const NameSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
               localization[ELocalizationQuestionnaire.ENTER_YOUR_NAME]
             }
           />
+
+          <SelectorFooter
+            onClick={handleSubmit}
+            disabled={name.length === 0 || error !== ""}
+            position={false}
+          />
         </Box>
       </Box>
-      <SelectorFooter
-        onClick={handleSubmit}
-        disabled={name.length === 0 || error !== ""}
-      />
     </MainContainer>
   );
 };

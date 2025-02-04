@@ -13,9 +13,10 @@ interface IProps {
   onClick: () => void;
   btnText?: ReactNode;
   disabled?: boolean;
+  position?: boolean;
 }
 
-const SelectorFooter: FC<IProps> = ({ onClick, disabled, btnText }) => {
+const SelectorFooter: FC<IProps> = ({ onClick, disabled, btnText, position = true }) => {
   const localization = useSelector(getLocalizationQuestionnaire);
 
   const text = btnText
@@ -23,7 +24,7 @@ const SelectorFooter: FC<IProps> = ({ onClick, disabled, btnText }) => {
     : localization[ELocalizationQuestionnaire.CONTINUE];
 
   return (
-    <Box className={styles.footerWrapper}>
+    <Box className={position ? styles.positionFooterWrapper : styles.footerWrapper}>
       <Box className={styles.webWrapper}>
         <PulseButton onClick={onClick} disabled={disabled}>
           {text}
