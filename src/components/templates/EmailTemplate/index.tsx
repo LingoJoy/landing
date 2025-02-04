@@ -58,7 +58,6 @@ export const EmailTemplate: React.FC = () => {
 
   const handleSubmit = async () => {
     try {
-      // console.log({ email, password });
       setIsOpenModal(false);
       if (profile)
         dispatch(

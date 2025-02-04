@@ -41,7 +41,7 @@
 
 .errorMessage {
   padding-left: 15px;
-  font-weight: 500;
-  font-size: 14px;
+  font-weight: 500 !important;
+  font-size: 14px !important;
   color: $error;
 }

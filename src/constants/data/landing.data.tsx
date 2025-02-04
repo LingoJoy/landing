@@ -1,3 +1,4 @@
+import AppleImage from "@/assets/icons/apple.svg";
 import MedalImage from "@/assets/icons/medal.svg";
 import PaperImage from "@/assets/icons/paper.svg";
 import ScissorsImage from "@/assets/icons/scissors.svg";
@@ -137,7 +138,7 @@ export const DEFAULT_GAMES_DATA = [
   {
     id: 3,
     title: "Apple",
-    icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}apple_1.svg`,
+    icon: <AppleImage />,
   },
   {
     id: 4,
