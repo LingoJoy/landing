@@ -5,14 +5,14 @@ import { Box, Typography, FormControl, Stack, Button } from "@mui/material";
 import { CardContentWrapper } from "@/components/atoms/CardWrapper";
 import DreamsIcon from "@/components/atoms/icons/DreamsIcon";
 
-import RocketResult from "@/assets/card-img/rocket-dynamic-color.svg";
-import FireResult from "@/assets/card-img/fire-dynamic-color.svg";
-import MedalResult from "@/assets/card-img/medal-dynamic-color.svg";
-import ThumbUpResult from "@/assets/card-img/thumb-up-dynamic-color.svg";
-import CrowResult from "@/assets/card-img/crow-dynamic-color.svg";
-import TrophyResult from "@/assets/card-img/trophy-dynamic-color.svg";
-import TargetResult from "@/assets/card-img/target-dynamic-color.svg";
-import Pen from "@/assets/pen.svg";
+import RocketResult from "@/assets/card-img/rocket-dynamic-color.png";
+import FireResult from "@/assets/card-img/fire-dynamic-color.png";
+import MedalResult from "@/assets/card-img/medal-dynamic-color.png";
+import ThumbUpResult from "@/assets/card-img/thumb-up-dynamic-color.png";
+import CrowResult from "@/assets/card-img/crow-dynamic-color.png";
+import TrophyResult from "@/assets/card-img/trophy-dynamic-color.png";
+import TargetResult from "@/assets/card-img/target-dynamic-color.png";
+import Pen from "@/assets/pen.png";
 
 import { hideGood, selectExercise, setStartFix } from "@/store/ActiveLesson";
 import { ELocalization } from "@/constants";
@@ -46,50 +46,50 @@ const resultConfig: Record<
   {
     title: ELocalization;
     subtitle: ELocalization;
-    SVGComponent: ReactNode;
+    imageComponent: ReactNode;
     backgroundColor: string;
   }
 > = {
   0: {
     title: ELocalization.RESULT_START,
     subtitle: ELocalization.RESULT_SUB_START,
-    SVGComponent: <RocketResult />,
+    imageComponent: <img src={RocketResult} alt=""/>,
     backgroundColor: "#fae7e3",
   },
   1: {
     title: ELocalization.RESULT_JOB,
     subtitle: ELocalization.RESULT_SUB_JOB,
-    SVGComponent: <ThumbUpResult />,
+    imageComponent: <img src={ThumbUpResult} alt=""/>,
     backgroundColor: "#ffedd2",
   },
   2: {
     title: ELocalization.RESULT_RESULT,
     subtitle: ELocalization.RESULT_SUB_JOB,
-    SVGComponent: <MedalResult />,
+    imageComponent: <img src={MedalResult} alt=""/>,
     backgroundColor: "#ffd6e3",
   },
   3: {
     title: ELocalization.RESULT_EXCELLENT,
     subtitle: ELocalization.RESULT_SUB_JOB,
-    SVGComponent: <TrophyResult />,
+    imageComponent: <img src={TrophyResult} alt=""/>,
     backgroundColor: "#ffe9dd",
   },
   4: {
     title: ELocalization.RESULT_OUTSTANDING,
     subtitle: ELocalization.RESULT_SUB_OUTSTANDING,
-    SVGComponent: <CrowResult />,
+    imageComponent: <img src={CrowResult} alt=""/>,
     backgroundColor: "#fae7e3",
   },
   5: {
     title: ELocalization.RESULT_SUPERB,
     subtitle: ELocalization.RESULT_SUB_SUPERB,
-    SVGComponent: <FireResult />,
+    imageComponent: <img src={FireResult} alt=""/>,
     backgroundColor: "#ffe8d2",
   },
   6: {
     title: ELocalization.RESULT_TERRIFIC,
     subtitle: ELocalization.RESULT_SUB_TERRIFIC,
-    SVGComponent: <TargetResult />,
+    imageComponent: <img src={TargetResult} alt=""/>,
     backgroundColor: "#ffc1d8",
   },
 };
@@ -121,7 +121,7 @@ const CardProgressResult: React.FC<CardProgressResultProps> = ({
       ? Object.keys(resultConfig).length - 1
       : resultType;
 
-  const { title, subtitle, SVGComponent, backgroundColor } =
+  const { title, subtitle, imageComponent, backgroundColor } =
     lesson.gameFinished && lesson.wrongCompletedExercises.length > 0
       ? {
           title:
@@ -129,7 +129,7 @@ const CardProgressResult: React.FC<CardProgressResultProps> = ({
               ? ELocalization.FOUND_MISTAKE
               : ELocalization.FOUND_MISTAKES,
           subtitle: ELocalization.FOUND_SUB_MISTAKE,
-          SVGComponent: <Pen />,
+          imageComponent: <img src={Pen} alt=""/>,
           backgroundColor: getMistakeBG(lesson.wrongCompletedExercises.length),
         }
       : resultConfig[type];
@@ -162,7 +162,7 @@ const CardProgressResult: React.FC<CardProgressResultProps> = ({
         <Box className={styles.ellipse}>
           <DreamsIcon color={backgroundColor} />
         </Box>
-        <Box className={styles.mainSvg}>{SVGComponent}</Box>
+        <Box className={styles.mainSvg}>{imageComponent}</Box>
       </Box>
 
       <Stack spacing={2} sx={{ textAlign: "center", maxHeight: "30vh" }}>

@@ -1,7 +1,7 @@
-import AppleImage from "@/assets/icons/apple.svg";
-import MedalImage from "@/assets/icons/medal.svg";
-import PaperImage from "@/assets/icons/paper.svg";
-import ScissorsImage from "@/assets/icons/scissors.svg";
+import AppleImage from "@/assets/icons/apple.png";
+import MedalImage from "@/assets/icons/medal.png";
+import PaperImage from "@/assets/icons/paper.png";
+import ScissorsImage from "@/assets/icons/scissors.png";
 
 import { ILevel, ISelectorQuestData, IUser } from ".";
 import { ELocalizationQuestionnaire } from "../localizationQuestionnaire";
@@ -123,7 +123,7 @@ export const DEFAULT_GAMES_DATA = [
   {
     id: 0,
     title: "Medal",
-    icon: <MedalImage />,
+    icon: <img src={MedalImage} alt=""/>,
   },
   {
     id: 1,
@@ -133,17 +133,17 @@ export const DEFAULT_GAMES_DATA = [
   {
     id: 2,
     title: "Notepad",
-    icon: <PaperImage />,
+    icon: <img src={PaperImage} alt=""/>,
   },
   {
     id: 3,
     title: "Apple",
-    icon: <AppleImage />,
+    icon: <img src={AppleImage} alt=""/>,
   },
   {
     id: 4,
     title: "Scissors",
-    icon: <ScissorsImage />,
+    icon: <img src={ScissorsImage} alt=""/>,
   },
 ];
 

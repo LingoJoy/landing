@@ -1,18 +1,18 @@
-import File from "@/assets/icons/file-icon.svg";
-import Headphone from "@/assets/icons/headphone-icon.svg";
-import Pencil from "@/assets/icons/pencil-icon.svg";
-import Chat from "@/assets/icons/popular-chat.svg";
-import Notebook from "@/assets/icons/notebook.svg";
+import File from "@/assets/icons/file-icon.png";
+import Headphone from "@/assets/icons/headphone-icon.png";
+import Pencil from "@/assets/icons/pencil-icon.png";
+import Chat from "@/assets/icons/popular-chat.png";
+import Notebook from "@/assets/icons/notebook.png";
 
 import { CourseTitle, CourseType } from "@/types";
 
 export const renderIconCourseType = (courseType: string) => {
   const icons = {
-    [CourseType.Vocabulary]: <File />,
-    [CourseType.ListeningSpeaking]: <Headphone />,
-    [CourseType.Grammar]: <Pencil />,
-    [CourseType.PopularPhrases]: <Chat />,
-    [CourseType.Reading]: <Notebook />,
+    [CourseType.Vocabulary]: <img src={File} alt="" />,
+    [CourseType.ListeningSpeaking]: <img src={Headphone} alt="" />,
+    [CourseType.Grammar]: <img src={Pencil} alt="" />,
+    [CourseType.PopularPhrases]: <img src={Chat} alt="" />,
+    [CourseType.Reading]: <img src={Notebook} alt="" />,
   };
 
   return icons[courseType as keyof typeof icons] || null;
