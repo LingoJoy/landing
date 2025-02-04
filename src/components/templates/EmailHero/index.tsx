@@ -111,6 +111,12 @@ const EmailHero = () => {
                 suggestions={suggestions}
                 onSelectSuggestion={handleSelectSuggestion}
               />
+              
+              <SelectorFooter
+                onClick={handleEmail}
+                disabled={email === "" || error !== ""}
+                position={false}
+              />
             </Box>
             <Box className={styles.descriptionWrapper}>
               <LockImage />
@@ -121,10 +127,6 @@ const EmailHero = () => {
           </Box>
         </Box>
       </ContentContainer>
-      <SelectorFooter
-        onClick={handleEmail}
-        disabled={email === "" || error !== ""}
-      />
     </Box>
   );
 };

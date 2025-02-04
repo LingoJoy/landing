@@ -27,7 +27,7 @@ const HighlightsSection = () => {
         <Box className={styles.highlightsBox}>
           {DEFAULT_PREMIUM_HIGHLIGHTS_DATA.map((el, i) => (
             <Box className={styles.yourPlanGoalOptionBox} key={i}>
-              {el.icon}
+              <img src={el.icon} alt=""/>
               <Box>
                 <p>{localization[el.title]}</p>
                 <h4>{localization[el.description]}</h4>
