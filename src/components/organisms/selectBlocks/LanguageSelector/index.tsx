@@ -106,11 +106,15 @@ const LanguageSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
   const handleNext = (selectedLanguage: string) => {
     if (isLoading || isOptionHandled) return;
 
+    setIsOptionHandled(true);
+
     if (defaultLanguage === selectedLanguage) {
       handleOption(selectedLanguage);
     } else {
       logEvent(`web_quest_language_${selectedLanguage}_on_select`);
       setLanguage(selectedLanguage);
+      setIsOptionHandled(false);
+      setTimeout(() => window.scrollTo(0, 0), 50);
     }
   };
 

@@ -20,8 +20,8 @@ const MotivationPage = (): JSX.Element => {
   const { search } = useLocation();
   const navigate = useNavigate();
 
-  const handleNext = () => setStep(step + 1);
-  const handleBack = () => setStep(step - 1);
+  const handleNext = () => setStep((prevStep) => prevStep + 1);
+  const handleBack = () => setStep((prevStep) => Math.max(prevStep - 1, 1));
 
   useEffect(() => {
     const loadImage = (image: IPreloadImagesData) => {
