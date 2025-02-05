@@ -67,13 +67,11 @@ const LanguageSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
   const handleOption = async (option?: string) => {
     const optionLanguage = option || language;
 
-    dispatch(
-      setQuestionnaire({
-        ...state,
-        motivation: { ...state.motivation, language: optionLanguage },
-        step: progress + 1,
-      }),
-    );
+    dispatch(setQuestionnaire({
+      ...state,
+      motivation: { ...state.motivation, language: optionLanguage },
+      step: progress + 1,
+    }));
 
     questFBProgressLog(progress + 1);
 
@@ -89,16 +87,18 @@ const LanguageSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
 
       dispatch(setLocalizationQuestionnaire(data));
 
-      logEvent(`web_quest_language_${language}_on_continue`);
+      logEvent(`web_quest_language_${optionLanguage}_on_continue`);
 
       onNext();
     } catch (error) {
-      console.error(error);
+      console.error("Error handling option selection", error);
     }
   };
 
   const handleNext = (language: string) => {
-    if (defaultLanguage === language) return handleOption(defaultLanguage);
+    if (defaultLanguage === language) {
+      return handleOption(defaultLanguage);
+    }
 
     logEvent(`web_quest_language_${language}_on_select`);
     setLanguage(language);
@@ -108,6 +108,8 @@ const LanguageSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
     logEvent(`web_quest_language_${language}_on_cancel`);
     setLanguage("");
   };
+
+  const isTouchDevice = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0
 
   if (language)
     return (
@@ -129,15 +131,16 @@ const LanguageSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
           onBack={handleBack}
         />
         <Box className={styles.selectorWrapper}>
-          {languages.map((el) => (
-            <SelectorOption
-              key={el.id}
-              icon={el.icon}
-              title={localization[el.title]}
-              onClick={() => handleNext(el.translate || "")}
-              isActive={defaultLanguage === el.translate}
-            />
-          ))}
+        {languages.map((el) => (
+          <SelectorOption
+            key={el.id}
+            icon={el.icon}
+            title={localization[el.title]}
+            onClick={() => handleNext(el.translate || "")}
+            onTouchEnd={isTouchDevice() ? () => handleNext(el.translate || "") : undefined}
+            isActive={defaultLanguage === el.translate}
+          />
+        ))}
         </Box>
       </Box>
     </MainContainer>

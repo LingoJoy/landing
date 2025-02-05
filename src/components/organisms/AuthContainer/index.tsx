@@ -30,19 +30,20 @@ const AuthContainer: FC<IProps> = ({ children }) => {
   const dispatch = useDispatch();
 
   const getProfile = async () => {
-    const { data }: IProfileResponse = await axiosConfig.get(
-      EUrls.USERS_PROFILE,
-    );
+    try {
+      const { data }: IProfileResponse = await axiosConfig.get(EUrls.USERS_PROFILE);
+      dispatch(setProfile(data.user));
 
-    dispatch(setProfile(data.user));
+      const { localization } = await getServerLocalization();
 
-    const { localization } = await getServerLocalization();
+      const { data: dataLocale }: { data: TLocalizationType } = await axios.get(
+        `${localization}/${data.user.locale || ETranslate.ENGLISH}.json`
+      );
 
-    const { data: dataLocale }: { data: TLocalizationType } = await axios.get(
-      `${localization}/${data.user.locale || ETranslate.ENGLISH}.json`,
-    );
-
-    dispatch(setLocalization(dataLocale));
+      dispatch(setLocalization(dataLocale));
+    } catch (error) {
+      console.error("Error fetching profile and localization", error);
+    }
   };
 
   useEffect(() => {
