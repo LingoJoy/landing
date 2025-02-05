@@ -1,10 +1,10 @@
+import { Box } from "@mui/material";
+import axios from "axios";
 import { FC, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
-import { Box } from "@mui/material";
 
-import SelectorOption from "@/components/molecules/SelectorOption";
 import SelectorHeader from "@/components/molecules/SelectorHeader";
+import SelectorOption from "@/components/molecules/SelectorOption";
 import MainContainer from "@/components/organisms/MainContainer";
 import ChangeLanguageHero from "@/components/templates/ChangeLanguageHero";
 
@@ -12,13 +12,13 @@ import {
   DEFAULT_QUEST_LANGUAGE_DATA,
   ELocalizationQuestionnaire,
 } from "@/constants";
-import { getQuestionnaire, setQuestionnaire } from "@/store/questionnaire";
 import {
   getLocalizationQuestionnaire,
   setLocalizationQuestionnaire,
 } from "@/store/localization-questionnaire";
-import { getServerLocalization } from "@/utils/apiHelpers";
+import { getQuestionnaire, setQuestionnaire } from "@/store/questionnaire";
 import { logEvent } from "@/utils/amplitude";
+import { getServerLocalization } from "@/utils/apiHelpers";
 import { questFBProgressLog } from "@/utils/questionnaireHelpers";
 
 import { TLocalizationQuestionnaireType } from "@/types";
@@ -33,6 +33,7 @@ interface IProps {
 
 const LanguageSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
   const [language, setLanguage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const state = useSelector(getQuestionnaire);
   const dispatch = useDispatch();
@@ -42,10 +43,10 @@ const LanguageSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
   const defaultLanguage =
     localStorage.getItem("localeQuest") || navigator.language.split("-")[0];
   const activeLanguage = DEFAULT_QUEST_LANGUAGE_DATA.find(
-    (el) => el.translate === defaultLanguage,
+    (el) => el.translate === defaultLanguage
   );
   const filterLanguages = DEFAULT_QUEST_LANGUAGE_DATA.filter(
-    (el) => el.translate !== defaultLanguage,
+    (el) => el.translate !== defaultLanguage
   );
   const languages = activeLanguage
     ? [activeLanguage, ...filterLanguages]
@@ -56,7 +57,7 @@ const LanguageSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
       setQuestionnaire({
         ...state,
         step: progress - 1 || 1,
-      }),
+      })
     );
 
     questFBProgressLog(progress - 1 || 1);
@@ -67,17 +68,19 @@ const LanguageSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
   const handleOption = async (option?: string) => {
     const optionLanguage = option || language;
 
-    dispatch(setQuestionnaire({
-      ...state,
-      motivation: { ...state.motivation, language: optionLanguage },
-      step: progress + 1,
-    }));
-
-    questFBProgressLog(progress + 1);
-
-    localStorage.setItem("localeQuest", optionLanguage);
-
+    setIsLoading(true);
     try {
+      dispatch(
+        setQuestionnaire({
+          ...state,
+          motivation: { ...state.motivation, language: optionLanguage },
+          step: progress + 1,
+        })
+      );
+
+      questFBProgressLog(progress + 1);
+      localStorage.setItem("localeQuest", optionLanguage);
+
       const { localizationQuest } = await getServerLocalization();
 
       const { data }: { data: TLocalizationQuestionnaireType } = await axios({
@@ -86,22 +89,25 @@ const LanguageSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
       });
 
       dispatch(setLocalizationQuestionnaire(data));
-
       logEvent(`web_quest_language_${optionLanguage}_on_continue`);
 
       onNext();
     } catch (error) {
       console.error("Error handling option selection", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  const handleNext = (language: string) => {
-    if (defaultLanguage === language) {
-      return handleOption(defaultLanguage);
-    }
+  const handleNext = (selectedLanguage: string) => {
+    if (isLoading) return;
 
-    logEvent(`web_quest_language_${language}_on_select`);
-    setLanguage(language);
+    logEvent(`web_quest_language_${selectedLanguage}_on_select`);
+    setLanguage(selectedLanguage);
+
+    if (defaultLanguage === selectedLanguage) {
+      handleOption(selectedLanguage);
+    }
   };
 
   const handleCancel = () => {
@@ -109,9 +115,7 @@ const LanguageSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
     setLanguage("");
   };
 
-  const isTouchDevice = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0
-
-  if (language)
+  if (language && !isLoading)
     return (
       <ChangeLanguageHero
         onChange={() => handleOption(language)}
@@ -131,15 +135,14 @@ const LanguageSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
           onBack={handleBack}
         />
         <Box className={styles.selectorWrapper}>
-        {languages.map((el) => (
-          <SelectorOption
-            key={el.id}
-            icon={el.icon}
-            title={localization[el.title]}
-            onClick={() => handleNext(el.translate || "")}
-            onTouchEnd={isTouchDevice() ? () => handleNext(el.translate || "") : undefined}
-          />
-        ))}
+          {languages.map((el) => (
+            <SelectorOption
+              key={el.id}
+              icon={el.icon}
+              title={localization[el.title] || el.title}
+              onClick={() => handleNext(el.translate || "")}
+            />
+          ))}
         </Box>
       </Box>
     </MainContainer>
