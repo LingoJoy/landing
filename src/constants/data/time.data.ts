@@ -1,5 +1,3 @@
-import PlaneImage from "@/assets/transport/plane.png";
-
 import { ISelectorQuestData } from ".";
 import { ELocalizationQuestionnaire } from "../localizationQuestionnaire";
 
@@ -54,7 +52,7 @@ export const DEFAULT_HOW_MUCH_DATA: ISelectorQuestData[] = [
     },
     {
         id: 2,
-        icon: PlaneImage,
+        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}plane.png`,
         title: ELocalizationQuestionnaire.QUEST_TIME_MUCH_3,
         value: "1 hour",
     },

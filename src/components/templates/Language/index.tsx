@@ -33,34 +33,31 @@ export const LanguageTemplate: React.FC = () => {
 
   const handleSubmit = async (language: ILanguage) => {
     try {
-      if (profile)
-        try {
-          const { data }: { data: User } = await axiosConfig.patch(
-            EUrls.USERS_PROFILE,
-            {
-              locale: language.translate,
-            },
-          );
+      if (!profile) {
+        console.error("No profile available");
+        return;
+      }
 
-          dispatch(setProfile({ ...data, language }));
+      const { data }: { data: User } = await axiosConfig.patch(
+        EUrls.USERS_PROFILE,
+        { locale: language.translate },
+      );
 
-          const { localization } = await getServerLocalization();
+      dispatch(setProfile({ ...data, language }));
 
-          const { data: dataLang }: { data: TLocalizationType } =
-            await axios.get(`${localization}/${language.translate}.json`);
+      const { localization } = await getServerLocalization();
 
-          localStorage.setItem("localeQuest", language.translate);
+      const { data: dataLang }: { data: TLocalizationType } = await axios.get(
+        `${localization}/${language.translate}.json`
+      );
 
-          dispatch(setLocalization(dataLang));
+      localStorage.setItem("localeQuest", language.translate);
 
-          logEvent(
-            `profile_${profile?.level}_language_${language.translate}_on_change`,
-          );
-        } catch (e) {
-          console.error(e);
-        }
+      dispatch(setLocalization(dataLang));
+
+      logEvent(`profile_${profile?.level}_language_${language.translate}_on_change`);
     } catch (error) {
-      console.error(error);
+      console.error("Error in handleSubmit function", error);
     }
   };
 
