@@ -34,6 +34,7 @@ interface IProps {
 const LanguageSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
   const [language, setLanguage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isOptionHandled, setIsOptionHandled] = useState(false);
 
   const state = useSelector(getQuestionnaire);
   const dispatch = useDispatch();
@@ -68,7 +69,10 @@ const LanguageSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
   const handleOption = async (option?: string) => {
     const optionLanguage = option || language;
 
+    if (isOptionHandled) return;
+    setIsOptionHandled(true);
     setIsLoading(true);
+
     try {
       dispatch(
         setQuestionnaire({
@@ -100,22 +104,23 @@ const LanguageSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
   };
 
   const handleNext = (selectedLanguage: string) => {
-    if (isLoading) return;
-
-    logEvent(`web_quest_language_${selectedLanguage}_on_select`);
-    setLanguage(selectedLanguage);
+    if (isLoading || isOptionHandled) return;
 
     if (defaultLanguage === selectedLanguage) {
       handleOption(selectedLanguage);
+    } else {
+      logEvent(`web_quest_language_${selectedLanguage}_on_select`);
+      setLanguage(selectedLanguage);
     }
   };
 
   const handleCancel = () => {
     logEvent(`web_quest_language_${language}_on_cancel`);
     setLanguage("");
+    setIsOptionHandled(false);
   };
 
-  if (language && !isLoading)
+  if (language && !isLoading && !isOptionHandled)
     return (
       <ChangeLanguageHero
         onChange={() => handleOption(language)}
