@@ -138,7 +138,6 @@ const LanguageSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
             title={localization[el.title]}
             onClick={() => handleNext(el.translate || "")}
             onTouchEnd={isTouchDevice() ? () => handleNext(el.translate || "") : undefined}
-            isActive={defaultLanguage === el.translate}
           />
         ))}
         </Box>
