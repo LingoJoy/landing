@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, TouchEvent, useState } from "react";
 import { Box } from "@mui/material";
 
 import BackButton from "@/components/atoms/BackButton";
@@ -23,13 +23,27 @@ const SelectorOption: FC<IProps> = ({
   onClick,
   onTouchEnd
 }) => {
-  const handleClick = onTouchEnd || onClick;
+  const [isTouching, setIsTouching] = useState(false);
+
+  const handleTouchStart = () => setIsTouching(true);
+  const handleTouchMove = () => setIsTouching(false)
+
+  const handleTouchEnd = (event: TouchEvent<HTMLButtonElement>) => {
+    if (isTouching) {
+      event.preventDefault();
+      onTouchEnd ? onTouchEnd() : onClick();
+    }
+
+    setIsTouching(false);
+  };
 
   return (
     <button
       className={styles.optionWrapper}
       onClick={onClick}
-      onTouchEnd={onTouchEnd ? handleClick : undefined}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={onTouchEnd ? handleTouchEnd : undefined}
       style={isActive && !isMultiselect ? { background: "#EEF3F9" } : {}}
     >
       <Box className={styles.infoWrapper}>
@@ -42,3 +56,4 @@ const SelectorOption: FC<IProps> = ({
 };
 
 export default SelectorOption;
+
