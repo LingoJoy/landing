@@ -15,6 +15,7 @@ import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire
 import { getQuestionnaire, setQuestionnaire } from "@/store/questionnaire";
 import { validateQuestEmail } from "@/utils/validations";
 
+import withKeyboardDismiss from "@/HOCs/withKeyboardDismiss";
 import { logEvent } from "@/utils/amplitude";
 import EmailField from "../../atoms/EmailField";
 import styles from "./index.module.scss";
@@ -36,6 +37,8 @@ const popularDomains = [
   "163.com",
   "inbox.com"
 ];
+
+const BoxWithDismiss = withKeyboardDismiss(Box);
 
 const EmailHero = () => {
   const state = useSelector(getQuestionnaire);
@@ -84,7 +87,7 @@ const EmailHero = () => {
   };
 
   return (
-    <Box className={styles.wrapper} data-class="TimePage-EmailHero">
+    <BoxWithDismiss className={styles.wrapper} data-class="TimePage-EmailHero">
       <Box className={styles.logoBox}>
         <LogoIcon textColor="#fff" width="100px" height="27px" />
       </Box>
@@ -127,7 +130,7 @@ const EmailHero = () => {
           </Box>
         </Box>
       </ContentContainer>
-    </Box>
+    </BoxWithDismiss>
   );
 };
 

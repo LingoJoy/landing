@@ -14,6 +14,7 @@ import { validateQuestName } from "@/utils/validations";
 import { logEvent } from "@/utils/amplitude";
 import { questFBProgressLog } from "@/utils/questionnaireHelpers";
 
+import withKeyboardDismiss from "@/HOCs/withKeyboardDismiss";
 import styles from "../index.module.scss";
 
 interface IProps {
@@ -21,6 +22,8 @@ interface IProps {
   onBack: () => void;
   progress: number;
 }
+
+const MainContainerWithDismiss = withKeyboardDismiss(MainContainer);
 
 const NameSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
   const [name, setName] = useState("");
@@ -61,7 +64,7 @@ const NameSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
   };
 
   return (
-    <MainContainer background="#eef3f9">
+    <MainContainerWithDismiss background="#eef3f9">
       <Box>
         <SelectorHeader
           title={
@@ -96,7 +99,7 @@ const NameSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
           />
         </Box>
       </Box>
-    </MainContainer>
+    </MainContainerWithDismiss>
   );
 };
 
