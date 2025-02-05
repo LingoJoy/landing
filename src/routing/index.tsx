@@ -1,16 +1,27 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import { ContactUsTemplate, ProfileTemplate, PasswordTemplate, EmailTemplate, ManagePersonalTemplate, TermsTemplate, LanguageTemplate, PaymentsTemplate } from "@/components/templates";
 import { createElement, lazy, Suspense } from "react";
+import TermsOfSubcriptionsPage from "@/components/pages/TermsOfSubcriptionsPage";
+import TermsAndConditionsPage from "@/components/pages/TermsAndConditionsPage";
+import NotificationTemplate from "@/components/templates/Notification";
+import PrivacyPolicyPage from "@/components/pages/PrivacyPolicyPage";
+import NewestPremiumPage from "@/components/pages/NewestPremiumPage";
 import CreateAccountPage from "@/components/pages/CreateAccountPage";
+import PopularPhrases from "@/components/organisms/PopularPhrases";
 import CourseListDev from "@/components/organisms/CourseListDev";
+import NewLandingPage from "@/components/pages/NewLandingPage";
+import NewPremiumPage from "@/components/pages/NewPremiumPage";
+import MoneyBackPage from "@/components/pages/MoneyBackPage";
 import CourseList from "@/components/organisms/CourseList";
+import LandingPage from "@/components/pages/LandingPage";
+import Profile from "@/components/pages/ProfilePage";
 import LoginPage from "@/components/pages/LoginPage";
+import StartPage from "@/components/pages/StartPage";
+import ChatPage from "@/components/pages/ChatPage";
 import { ERoutes } from "@/constants/pages";
 
 const pages = {
   CoursesPage: lazy(() => import("@/components/pages/Courses")),
-  Profile: lazy(() => import("@/components/pages/ProfilePage")),
-  StartPage: lazy(() => import("@/components/pages/StartPage")),
   MotivationPage: lazy(() => import("@/components/pages/MotivationPage")),
   VocabularyPage: lazy(() => import("@/components/pages/VocabularyPage")),
   PersonalizationPage: lazy(() => import("@/components/pages/PersonalizationPage")),
@@ -21,22 +32,9 @@ const pages = {
   DidYouKnowPage: lazy(() => import("@/components/pages/DidYouKnowPage")),
   PayPage: lazy(() => import("@/components/pages/PayPage")),
   PremiumPage: lazy(() => import("@/components/pages/PremiumPage")),
-  TermsAndConditionsPage: lazy(() => import("@/components/pages/TermsAndConditionsPage")),
-  TermsOfSubcriptionsPage: lazy(() => import("@/components/pages/TermsOfSubcriptionsPage")),
-  PrivacyPolicyPage: lazy(() => import("@/components/pages/PrivacyPolicyPage")),
-  MoneyBackPage: lazy(() => import("@/components/pages/MoneyBackPage")),
-  ChatPage: lazy(() => import("@/components/pages/ChatPage")),
-  CourseList: lazy(() => import("@/components/organisms/CourseList")),
-  NotificationTemplate: lazy(() => import("@/components/templates/Notification")),
-  PopularPhrases: lazy(() => import("@/components/organisms/PopularPhrases")),
   WordsPage: lazy(() => import("@/components/pages/WordsPage")),
   PlanPage: lazy(() => import("@/components/pages/PlanPage")),
   FactPage: lazy(() => import("@/components/pages/FactPage")),
-  NewLandingPage: lazy(() => import("@/components/pages/NewLandingPage")),
-  LandingPage: lazy(() => import("@/components/pages/LandingPage")),
-  NewPremiumPage: lazy(() => import("@/components/pages/NewPremiumPage")),
-  NewestPremiumPage: lazy(() => import("@/components/pages/NewestPremiumPage")),
-  CourseListDev: lazy(() => import("@/components/organisms/CourseListDev")),
 };
 
 export const router = createBrowserRouter([
@@ -54,11 +52,11 @@ export const router = createBrowserRouter([
   },
   {
     path: ERoutes.POPULAR_PHRASES,
-    element: <Suspense fallback={<div>Loading Popular phrases...</div>}>{createElement(pages.PopularPhrases)}</Suspense>,
+    element: <PopularPhrases />,
   },
   {
     path: ERoutes.PROFILE,
-    element: <Suspense fallback={<div>Loading Profile...</div>}>{createElement(pages.Profile)}</Suspense>,
+    element: <Profile />,
     children: [
       { element: <ProfileTemplate />, index: true },
       {
@@ -100,7 +98,7 @@ export const router = createBrowserRouter([
   },
   {
     path: ERoutes.QUESTIONNAIRE_START,
-    element: <Suspense fallback={<div>Loading Start...</div>}>{createElement(pages.StartPage)}</Suspense>,
+    element: <StartPage />,
   },
   {
     path: ERoutes.LOGIN,
@@ -148,19 +146,19 @@ export const router = createBrowserRouter([
   },
   {
     path: ERoutes.LANDING,
-    element: <Suspense fallback={<div>Loading Landing...</div>}>{createElement(pages.LandingPage)}</Suspense>,
+    element: <LandingPage />,
   },
   {
     path: ERoutes.NEW_LANDING,
-    element: <Suspense fallback={<div>Loading New landing...</div>}>{createElement(pages.NewLandingPage)}</Suspense>,
+    element: <NewLandingPage />,
   },
   {
     path: ERoutes.NEW_PREMIUM,
-    element: <Suspense fallback={<div>Loading New premium...</div>}>{createElement(pages.NewPremiumPage)}</Suspense>,
+    element: <NewPremiumPage />,
   },
   {
     path: ERoutes.NEWEST_LANDING,
-    element: <Suspense fallback={<div>Loading Newest premium...</div>}>{createElement(pages.NewestPremiumPage)}</Suspense>,
+    element: <NewestPremiumPage />,
   },
   {
     path: ERoutes.WORDS,
@@ -180,27 +178,27 @@ export const router = createBrowserRouter([
   },
   {
     path: ERoutes.TERMS_AND_CONDITIONS,
-    element: <Suspense fallback={<div>Loading Terms and Conditions...</div>}>{createElement(pages.TermsAndConditionsPage)}</Suspense>,
+    element: <TermsAndConditionsPage />,
   },
   {
     path: ERoutes.SUBSCRIPTIONS,
-    element: <Suspense fallback={<div>Loading Terms of Subcriptions...</div>}>{createElement(pages.TermsOfSubcriptionsPage)}</Suspense>,
+    element: <TermsOfSubcriptionsPage />,
   },
   {
     path: ERoutes.PRIVACY_POLICY,
-    element: <Suspense fallback={<div>Loading Privacy policy...</div>}>{createElement(pages.PrivacyPolicyPage)}</Suspense>,
+    element: <PrivacyPolicyPage />,
   },
   {
     path: ERoutes.MONEY,
-    element: <Suspense fallback={<div>Loading Money back...</div>}>{createElement(pages.MoneyBackPage)}</Suspense>,
+    element: <MoneyBackPage />,
   },
   {
     path: ERoutes.CHAT,
-    element: <Suspense fallback={<div>Loading Chat...</div>}>{createElement(pages.ChatPage)}</Suspense>,
+    element: <ChatPage />,
   },
   {
     path: ERoutes.NOTIFICATION,
-    element: <Suspense fallback={<div>Loading Notification template...</div>}>{createElement(pages.NotificationTemplate)}</Suspense>,
+    element: <NotificationTemplate />,
   },
   {
     path: ERoutes.NOT_FOUND,

@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router";
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 
-import EmbarrassHero from "@/components/templates/EmbarrassHero";
-import VerbsHero from "@/components/templates/VerbsHero";
-import CourseHero from "@/components/templates/CourseHero";
-import PayHero from "@/components/templates/PayHero/PayHero";
-import QuestionnaireWrapper from "@/components/organisms/QuestionnaireWrapper";
+const EmbarrassHero = lazy(() => import("@/components/templates/EmbarrassHero"));
+const VerbsHero = lazy(() => import("@/components/templates/VerbsHero"));
+const CourseHero = lazy(() => import("@/components/templates/CourseHero"));
+const PayHero = lazy(() => import("@/components/templates/PayHero/PayHero"));
+const QuestionnaireWrapper = lazy(() => import("@/components/organisms/QuestionnaireWrapper"));
 
 import { ERoutes } from "@/constants";
 
@@ -16,21 +16,26 @@ const PayPage = (): JSX.Element => {
 
   const handleNext = () => setStep(step + 1);
 
-  switch (step) {
-    case 1:
-      return <VerbsHero onNext={handleNext} />;
-    case 2:
-      return <CourseHero onNext={handleNext} />;
-    case 3:
-      return <PayHero onNext={() => navigate(ERoutes.SIGN_UP)} />;
-
-    default:
-      return (
-        <QuestionnaireWrapper>
-          <EmbarrassHero onNext={handleNext} />
-        </QuestionnaireWrapper>
-      );
-  }
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      {(() => {
+        switch (step) {
+          case 1:
+            return <VerbsHero onNext={handleNext} />;
+          case 2:
+            return <CourseHero onNext={handleNext} />;
+          case 3:
+            return <PayHero onNext={() => navigate(ERoutes.SIGN_UP)} />;
+          default:
+            return (
+              <QuestionnaireWrapper>
+                <EmbarrassHero onNext={handleNext} />
+              </QuestionnaireWrapper>
+            );
+        }
+      })()}
+    </Suspense>
+  );
 };
 
 export default PayPage;
