@@ -1,13 +1,13 @@
-import { useEffect, useMemo, useState, Suspense, lazy } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 
-const AspectsSelector = lazy(() => import("@/components/organisms/selectBlocks/AspectsSelector"));
-const EnglishEnvironmentSelector = lazy(() => import("@/components/organisms/selectBlocks/EnglishEnvironmentSelector"));
-const LanguageSelector = lazy(() => import("@/components/organisms/selectBlocks/LanguageSelector"));
-const MotivationSelector = lazy(() => import("@/components/organisms/selectBlocks/MotivationSelector"));
-const NotesSelector = lazy(() => import("@/components/organisms/selectBlocks/NotesSelector"));
-const StatementsSelector = lazy(() => import("@/components/organisms/selectBlocks/StatementsSelector"));
-const QuestionnaireWrapper = lazy(() => import("@/components/organisms/QuestionnaireWrapper"));
+import QuestionnaireWrapper from "@/components/organisms/QuestionnaireWrapper";
+import AspectsSelector from "@/components/organisms/selectBlocks/AspectsSelector";
+import EnglishEnvironmentSelector from "@/components/organisms/selectBlocks/EnglishEnvironmentSelector";
+import LanguageSelector from "@/components/organisms/selectBlocks/LanguageSelector";
+import MotivationSelector from "@/components/organisms/selectBlocks/MotivationSelector";
+import NotesSelector from "@/components/organisms/selectBlocks/NotesSelector";
+import StatementsSelector from "@/components/organisms/selectBlocks/StatementsSelector";
 
 import { ERoutes, IPreloadImagesData } from "@/constants";
 import { DEFAULT_PRELOAD_IMAGES_DATA } from "@/constants/data/preloadImages.data";
@@ -50,74 +50,68 @@ const MotivationPage = (): JSX.Element => {
     []
   );
 
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      {(() => {
-        switch (step) {
-          case 2:
-            return (
-              <>
-                <MotivationSelector onNext={handleNext} onBack={handleBack} progress={2} />
-                {GetImg}
-              </>
-            );
-          case 3:
-            return (
-              <>
-                <AspectsSelector onNext={handleNext} onBack={handleBack} progress={3} />
-                {GetImg}
-              </>
-            );
-          case 4:
-            return (
-              <>
-                <NotesSelector onNext={handleNext} onBack={handleBack} progress={4} />
-                {GetImg}
-              </>
-            );
-          case 5:
-            return (
-              <>
-                <EnglishEnvironmentSelector onNext={handleNext} onBack={handleBack} progress={5} />
-                {GetImg}
-              </>
-            );
-          case 6:
-            return (
-              <>
-                <StatementsSelector
-                  onNext={() =>
-                    navigate({
-                      pathname: ERoutes.QUESTIONNAIRE_VOCABULARY,
-                      search,
-                    })
-                  }
-                  onBack={handleBack}
-                  progress={6}
-                />
-                {GetImg}
-              </>
-            );
-          default:
-            return (
-              <QuestionnaireWrapper isNoRedirect>
-                <LanguageSelector
-                  onNext={handleNext}
-                  onBack={() =>
-                    navigate({
-                      pathname: ERoutes.QUESTIONNAIRE_START,
-                      search,
-                    })
-                  }
-                  progress={1}
-                />
-                {GetImg}
-              </QuestionnaireWrapper>
-            );
-        }
-      })()}
-    </Suspense>
-  );
+  switch (step) {
+    case 2:
+      return (
+        <>
+          <MotivationSelector onNext={handleNext} onBack={handleBack} progress={2} />
+          {GetImg}
+        </>
+      );
+    case 3:
+      return (
+        <>
+          <AspectsSelector onNext={handleNext} onBack={handleBack} progress={3} />
+          {GetImg}
+        </>
+      );
+    case 4:
+      return (
+        <>
+          <NotesSelector onNext={handleNext} onBack={handleBack} progress={4} />
+          {GetImg}
+        </>
+      );
+    case 5:
+      return (
+        <>
+          <EnglishEnvironmentSelector onNext={handleNext} onBack={handleBack} progress={5} />
+          {GetImg}
+        </>
+      );
+    case 6:
+      return (
+        <>
+          <StatementsSelector
+            onNext={() =>
+              navigate({
+                pathname: ERoutes.QUESTIONNAIRE_VOCABULARY,
+                search,
+              })
+            }
+            onBack={handleBack}
+            progress={6}
+          />
+          {GetImg}
+        </>
+      );
+    default:
+      return (
+        <QuestionnaireWrapper isNoRedirect>
+          <LanguageSelector
+            onNext={handleNext}
+            onBack={() =>
+              navigate({
+                pathname: ERoutes.QUESTIONNAIRE_START,
+                search,
+              })
+            }
+            progress={1}
+          />
+          {GetImg}
+        </QuestionnaireWrapper>
+      );
+  }
 };
 
 export default MotivationPage;

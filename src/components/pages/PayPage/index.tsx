@@ -1,41 +1,35 @@
-import { useNavigate } from "react-router";
-import { lazy, Suspense, useState } from "react";
+import { useState } from "react";
 
-const EmbarrassHero = lazy(() => import("@/components/templates/EmbarrassHero"));
-const VerbsHero = lazy(() => import("@/components/templates/VerbsHero"));
-const CourseHero = lazy(() => import("@/components/templates/CourseHero"));
-const PayHero = lazy(() => import("@/components/templates/PayHero/PayHero"));
-const QuestionnaireWrapper = lazy(() => import("@/components/organisms/QuestionnaireWrapper"));
+import QuestionnaireWrapper from "@/components/organisms/QuestionnaireWrapper";
+import CourseHero from "@/components/templates/CourseHero";
+import EmbarrassHero from "@/components/templates/EmbarrassHero";
+import PayHero from "@/components/templates/PayHero/PayHero";
+import VerbsHero from "@/components/templates/VerbsHero";
 
 import { ERoutes } from "@/constants";
 
 const PayPage = (): JSX.Element => {
   const [step, setStep] = useState(0);
 
-  const navigate = useNavigate();
-
   const handleNext = () => setStep(step + 1);
+  const handleNavigate = (route: string) => {
+    window.location.href = route;
+  };
 
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      {(() => {
-        switch (step) {
-          case 1:
-            return <VerbsHero onNext={handleNext} />;
-          case 2:
-            return <CourseHero onNext={handleNext} />;
-          case 3:
-            return <PayHero onNext={() => navigate(ERoutes.SIGN_UP)} />;
-          default:
-            return (
-              <QuestionnaireWrapper>
-                <EmbarrassHero onNext={handleNext} />
-              </QuestionnaireWrapper>
-            );
-        }
-      })()}
-    </Suspense>
-  );
+  switch (step) {
+    case 1:
+      return <VerbsHero onNext={handleNext} />;
+    case 2:
+      return <CourseHero onNext={handleNext} />;
+    case 3:
+      return <PayHero onNext={() => handleNavigate(ERoutes.SIGN_UP)} />;
+    default:
+      return (
+        <QuestionnaireWrapper>
+          <EmbarrassHero onNext={handleNext} />
+        </QuestionnaireWrapper>
+      );
+  }
 };
 
 export default PayPage;
