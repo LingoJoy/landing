@@ -9,7 +9,9 @@
   flex-direction: column;
   justify-content: space-between;
 
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: calc(100vh - 65px);
 }
 
 .ellipseBox {
