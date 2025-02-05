@@ -1,18 +1,7 @@
 import YesImage from "@/assets/animals/bird.png";
 import NoImage from "@/assets/animals/egg.png";
 
-import SmileImage from "@/assets/emoji/smile.png";
-import BigSmileImage from "@/assets/emoji/big-smile.png";
-import SmileWithHeartsImage from "@/assets/emoji/smile-with-hearts.png";
-import BestSmileImage from "@/assets/emoji/best.png";
-
-import OctopusImage from "@/assets/animals/octopus.png";
-import FishImage from "@/assets/animals/fish.png";
-import DolphinImage from "@/assets/animals/dolphin.png";
-import SharkImage from "@/assets/animals/shark.png";
-import WhaleImage from "@/assets/animals/whale.png";
-
-import { ISelectorQuestData, ISelectorValueData } from ".";
+import { ISelectorQuestData } from ".";
 import { ELocalizationQuestionnaire } from "../localizationQuestionnaire";
 
 export const DEFAULT_HAVE_CHILDREN_DATA: ISelectorQuestData[] = [
@@ -27,62 +16,6 @@ export const DEFAULT_HAVE_CHILDREN_DATA: ISelectorQuestData[] = [
         icon: NoImage,
         title: ELocalizationQuestionnaire.QUEST_NO,
         value: "No",
-    },
-];
-
-export const DEFAULT_COUNT_CHILDREN_DATA: ISelectorValueData[] = [
-    {
-        id: 0,
-        icon: SmileImage,
-        value: "1",
-    },
-    {
-        id: 1,
-        icon: BigSmileImage,
-        value: "2",
-    },
-    {
-        id: 2,
-        icon: SmileWithHeartsImage,
-        value: "3",
-    },
-    {
-        id: 3,
-        icon: `${import.meta.env.VITE_BACKEND_IMAGE_URL}love.png`,
-        value: "4",
-    },
-    {
-        id: 4,
-        icon: BestSmileImage,
-        value: "5",
-    },
-];
-
-export const DEFAULT_AGE_CHILDREN_DATA: ISelectorValueData[] = [
-    {
-        id: 0,
-        icon: OctopusImage,
-        value: "1 - 5 y.o.",
-    },
-    {
-        id: 1,
-        icon: FishImage,
-        value: "6 - 11 y.o.",
-    },
-    {
-        id: 2,
-        icon: DolphinImage,
-        value: "12 - 15 y.o.",
-    },
-    {
-        id: 3,
-        icon: SharkImage,
-        value: "15 - 18 y.o.",
-    },
-    {
-        id: 4,
-        icon: WhaleImage,
-        value: "18 +",
     },
 ];
 
