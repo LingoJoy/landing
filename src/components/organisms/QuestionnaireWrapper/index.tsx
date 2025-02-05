@@ -44,16 +44,20 @@ const QuestionnaireWrapper: FC<IProps> = ({
   };
 
   const getLang = async () => {
-    const { localizationQuest } = await getServerLocalization();
+    try {
+      const { localizationQuest } = await getServerLocalization();
 
-    const locale = localStorage.getItem("localeQuest");
+      const locale = localStorage.getItem("localeQuest") || navigator.language.split("-")[0];
 
-    const { data }: { data: TLocalizationQuestionnaireType } = await axios({
-      url: `${locale || navigator.language.split("-")[0]}.json`,
-      baseURL: localizationQuest,
-    });
+      const { data }: { data: TLocalizationQuestionnaireType } = await axios({
+        url: `${locale}.json`,
+        baseURL: localizationQuest,
+      });
 
-    dispatch(setLocalizationQuestionnaire(data));
+      dispatch(setLocalizationQuestionnaire(data));
+    } catch (error) {
+      console.error("Error fetching localization questionnaire data", error);
+    }
   };
 
   useEffect(() => {
