@@ -10,6 +10,7 @@ interface IProps {
   icon?: string;
   title: ReactNode;
   onClick: () => void;
+  onTouchEnd?: () => void;
   isMultiselect?: boolean;
   isActive?: boolean;
 }
@@ -20,11 +21,15 @@ const SelectorOption: FC<IProps> = ({
   isMultiselect,
   isActive,
   onClick,
+  onTouchEnd
 }) => {
+  const handleClick = onTouchEnd || onClick;
+
   return (
     <button
       className={styles.optionWrapper}
       onClick={onClick}
+      onTouchEnd={onTouchEnd ? handleClick : undefined}
       style={isActive && !isMultiselect ? { background: "#EEF3F9" } : {}}
     >
       <Box className={styles.infoWrapper}>
