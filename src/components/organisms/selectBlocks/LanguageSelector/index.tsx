@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, CircularProgress, Modal, Typography } from "@mui/material";
 import axios from "axios";
 import { FC, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -35,6 +35,7 @@ const LanguageSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
   const [language, setLanguage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isOptionHandled, setIsOptionHandled] = useState(false);
+  const [loadingMessage, setLoadingMessage] = useState("");
 
   const state = useSelector(getQuestionnaire);
   const dispatch = useDispatch();
@@ -72,6 +73,7 @@ const LanguageSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
     if (isOptionHandled) return;
     setIsOptionHandled(true);
     setIsLoading(true);
+    setLoadingMessage(`${optionLanguage} start loading`);
 
     try {
       dispatch(
@@ -154,6 +156,25 @@ const LanguageSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
           ))}
         </Box>
       </Box>
+
+      <Modal open={isLoading}>
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            bgcolor: "background.paper",
+            boxShadow: 24,
+            p: 4,
+            borderRadius: 2,
+            textAlign: "center",
+          }}
+        >
+          <CircularProgress />
+          <Typography sx={{ mt: 2 }}>{loadingMessage}</Typography>
+        </Box>
+      </Modal>
     </MainContainer>
   );
 };
