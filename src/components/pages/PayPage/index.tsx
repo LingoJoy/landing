@@ -11,24 +11,24 @@ import { ERoutes } from "@/constants";
 const PayPage = (): JSX.Element => {
   const [step, setStep] = useState(0);
 
-  const handleNext = () => setStep(step + 1);
+  const handleNext = () => setStep((prevStep) => Math.min(prevStep + 1, 3));
   const handleNavigate = (route: string) => {
     window.location.href = route;
   };
 
   switch (step) {
-    case 1:
-      return <VerbsHero onNext={handleNext} />;
-    case 2:
-      return <CourseHero onNext={handleNext} />;
-    case 3:
-      return <PayHero onNext={() => handleNavigate(ERoutes.SIGN_UP)} />;
-    default:
+    case 0:
       return (
         <QuestionnaireWrapper>
           <EmbarrassHero onNext={handleNext} />
         </QuestionnaireWrapper>
       );
+    case 1:
+      return <VerbsHero onNext={handleNext} />;
+    case 2:
+      return <CourseHero onNext={handleNext} />;
+    default:
+      return <PayHero onNext={() => handleNavigate(ERoutes.SIGN_UP)} />;
   }
 };
 

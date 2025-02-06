@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
-import { useLocation, useNavigate } from "react-router";
 import { useSelector } from "react-redux";
+import { useLocation, useNavigate } from "react-router";
 
+import QuestionnaireWrapper from "@/components/organisms/QuestionnaireWrapper";
 import VocabularySelector from "@/components/organisms/selectBlocks/VocabularySelector";
 import VocabularyHero from "@/components/templates/VocabularyHero";
-import QuestionnaireWrapper from "@/components/organisms/QuestionnaireWrapper";
 
 import {
   DEFAULT_A_LEVEL_DATA,
@@ -16,8 +16,8 @@ import {
 import { getQuestionnaire } from "@/store/questionnaire";
 import { Box } from "@mui/material";
 
-import styles from "./index.module.scss";
 import { DEFAULT_PRELOAD_IMAGES_DATA } from "@/constants/data/preloadImages.data";
+import styles from "./index.module.scss";
 
 const VocabularyPage = (): JSX.Element => {
   const [step, setStep] = useState(0);
@@ -27,8 +27,8 @@ const VocabularyPage = (): JSX.Element => {
 
   const state = useSelector(getQuestionnaire);
 
-  const handleNext = () => setStep(step + 1);
-  const handleBack = () => setStep(step - 1);
+  const handleNext = () => setStep((prevStep) => Math.min(prevStep + 1, 3));
+  const handleBack = () => setStep((prevStep) => Math.max(prevStep - 1, 0));
 
   const GetImg = useMemo(() => {
     return (
@@ -58,6 +58,13 @@ const VocabularyPage = (): JSX.Element => {
   }, [])
 
   switch (step) {
+    case 0:
+      return (
+        <QuestionnaireWrapper>
+          <VocabularyHero onNext={handleNext} />
+          {GetImg}
+        </QuestionnaireWrapper>
+      );
     case 1:
       return (
         <VocabularySelector
@@ -80,7 +87,7 @@ const VocabularyPage = (): JSX.Element => {
           levelData={DEFAULT_B1_LEVEL_DATA}
         />
       );
-    case 3:
+    default:
       return (
         <VocabularySelector
           onNext={() => navigate({
@@ -93,14 +100,6 @@ const VocabularyPage = (): JSX.Element => {
           storeKey="b2"
           levelData={DEFAULT_B2_LEVEL_DATA}
         />
-      );
-
-    default:
-      return (
-        <QuestionnaireWrapper>
-          <VocabularyHero onNext={handleNext} />
-          {GetImg}
-        </QuestionnaireWrapper>
       );
   }
 };

@@ -20,7 +20,7 @@ const MotivationPage = (): JSX.Element => {
   const { search } = useLocation();
   const navigate = useNavigate();
 
-  const handleNext = () => setStep((prevStep) => prevStep + 1);
+  const handleNext = () => setStep((prevStep) => Math.min(prevStep + 1, 6));
   const handleBack = () => setStep((prevStep) => Math.max(prevStep - 1, 1));
 
   useEffect(() => {
@@ -51,6 +51,22 @@ const MotivationPage = (): JSX.Element => {
   );
 
   switch (step) {
+    case 1:
+      return (
+        <QuestionnaireWrapper isNoRedirect>
+          <LanguageSelector
+            onNext={handleNext}
+            onBack={() =>
+              navigate({
+                pathname: ERoutes.QUESTIONNAIRE_START,
+                search,
+              })
+            }
+            progress={1}
+          />
+          {GetImg}
+        </QuestionnaireWrapper>
+      );
     case 2:
       return (
         <>
@@ -79,7 +95,7 @@ const MotivationPage = (): JSX.Element => {
           {GetImg}
         </>
       );
-    case 6:
+    default:
       return (
         <>
           <StatementsSelector
@@ -94,22 +110,6 @@ const MotivationPage = (): JSX.Element => {
           />
           {GetImg}
         </>
-      );
-    default:
-      return (
-        <QuestionnaireWrapper isNoRedirect>
-          <LanguageSelector
-            onNext={handleNext}
-            onBack={() =>
-              navigate({
-                pathname: ERoutes.QUESTIONNAIRE_START,
-                search,
-              })
-            }
-            progress={1}
-          />
-          {GetImg}
-        </QuestionnaireWrapper>
       );
   }
 };
