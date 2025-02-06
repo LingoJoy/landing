@@ -21,6 +21,7 @@ import {
 import { usePaddle } from "@/hooks/main/usePaddle";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 
+import { logEvent } from "../../../utils/amplitude";
 import styles from "./index.module.scss";
 
 interface IProps {
@@ -53,6 +54,7 @@ const EmbarrassHero: FC<IProps> = ({ onNext }) => {
   };
 
   useEffect(() => {
+    logEvent(`web_showed_pay_embarrass_page`);
     getData();
   }, [paddle]);
 

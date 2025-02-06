@@ -1,21 +1,23 @@
-import { useSelector } from "react-redux";
 import { Box } from "@mui/material";
+import { useSelector } from "react-redux";
 
-import HeaderQuestionnaire from "@/components/organisms/HeaderQuestionnaire";
-import PlanSection from "./PlanSection";
-import LessonsSection from "./LessonsSection";
-import WhatYouGetSection from "./WhatYouGetSection";
-import UsersSection from "./UsersSection";
-import GuaranteeSection from "./GuaranteeSection";
-import YourPlanSection from "./YourPlanSection";
 import WordsComment from "@/components/molecules/WordsComment";
+import HeaderQuestionnaire from "@/components/organisms/HeaderQuestionnaire";
+import GuaranteeSection from "./GuaranteeSection";
+import LessonsSection from "./LessonsSection";
+import PlanSection from "./PlanSection";
+import UsersSection from "./UsersSection";
+import WhatYouGetSection from "./WhatYouGetSection";
+import YourPlanSection from "./YourPlanSection";
 
 import { DEFAULT_LEVEL_DATA, ELocalizationQuestionnaire } from "@/constants";
+import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 import { getQuestionnaire } from "@/store/questionnaire";
 import { getLevel } from "@/utils/getLevel";
 import { randomIntFromInterval } from "@/utils/randomIntFromInterval";
-import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 
+import { useEffect } from "react";
+import { logEvent } from "../../../utils/amplitude";
 import styles from "./index.module.scss";
 
 const LandingHero = () => {
@@ -30,6 +32,10 @@ const LandingHero = () => {
     randomIntFromInterval(1, 70);
 
   const level = getLevel(words);
+
+  useEffect(() => {
+    logEvent(`web_showed_landing_page`);
+  }, [])
 
   return (
     <Box className={styles.wrapper}>

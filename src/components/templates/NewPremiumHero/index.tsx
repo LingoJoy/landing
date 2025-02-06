@@ -25,6 +25,7 @@ import { IPlan } from "@/types";
 
 import PayModal from "@/components/organisms/modals/PayModal";
 import { useNavigate } from "react-router-dom";
+import { logEvent } from "../../../utils/amplitude";
 import styles from "./index.module.scss";
 
 const NewPremiumHero = () => {
@@ -102,6 +103,7 @@ const NewPremiumHero = () => {
   );
 
   useEffect(() => {
+    logEvent(`web_showed_new-premium_page`);
     getData();
   }, [paddle]);
 

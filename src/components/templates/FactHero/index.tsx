@@ -1,19 +1,20 @@
-import { FC, ReactNode } from "react";
-import { useNavigate } from "react-router";
-import { useSelector } from "react-redux";
 import { Box } from "@mui/material";
+import { FC, ReactNode, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 
-import ContentContainer from "@/components/organisms/ContentContainer";
-import SelectorFooter from "@/components/molecules/SelectorFooter";
 import LogoIcon from "@/components/atoms/icons/LogoIcon";
+import SelectorFooter from "@/components/molecules/SelectorFooter";
+import ContentContainer from "@/components/organisms/ContentContainer";
 
-import AttentionImage from "@/assets/main/attention.png";
 import LevelImage from "@/assets/fact-chart.png";
+import AttentionImage from "@/assets/main/attention.png";
 
+import { ELocalizationQuestionnaire } from "@/constants";
 import { ERoutes } from "@/constants/pages";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
-import { ELocalizationQuestionnaire } from "@/constants";
 
+import { logEvent } from "../../../utils/amplitude";
 import styles from "./index.module.scss";
 
 interface IChartOptionProps {
@@ -32,6 +33,10 @@ const ChartOption: FC<IChartOptionProps> = ({ color, content }) => {
     </Box>
   );
 };
+
+useEffect(() => {
+  logEvent(`web_showed_fact_page`);
+}, [])
 
 const FactHero = () => {
   const localization = useSelector(getLocalizationQuestionnaire);

@@ -1,15 +1,16 @@
-import { useEffect, useRef, useState } from "react";
-import { useLocation, useNavigate } from "react-router";
-import { useSelector } from "react-redux";
 import { Box } from "@mui/material";
+import { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
+import { useLocation, useNavigate } from "react-router";
 
-import AnalyzeOption from "@/components/molecules/AnalyzeOption";
 import LogoIcon from "@/components/atoms/icons/LogoIcon";
+import AnalyzeOption from "@/components/molecules/AnalyzeOption";
 import Progress from "@/components/molecules/Progress";
-import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 import { DEFAULT_ANALYZE_DATA, DEFAULT_TIMER } from "@/constants";
 import { ERoutes } from "@/constants/pages";
+import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 
+import { logEvent } from "../../../utils/amplitude";
 import styles from "./index.module.scss";
 
 const AnalyzeHero = () => {
@@ -24,6 +25,8 @@ const AnalyzeHero = () => {
   const intervalId: { current: NodeJS.Timeout | null } = useRef(null);
 
   useEffect(() => {
+    logEvent(`web_showed_analyze_page`);
+    
     intervalId.current = setInterval(() => {
       setStep((percentage * DEFAULT_ANALYZE_DATA.length) / 100);
       if (percentage < 100) {

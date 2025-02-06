@@ -15,6 +15,7 @@ import { usePaddle } from "@/hooks/main/usePaddle";
 import { IPlan } from "@/types";
 import { createPlan, parseNumber, updatePriceFormatted } from "@/utils/objectCreators";
 
+import { logEvent } from "../../../utils/amplitude";
 import styles from "./index.module.scss";
 
 const NewestPremiumHero = () => {
@@ -110,6 +111,7 @@ const NewestPremiumHero = () => {
   }, [plans]);
 
   useEffect(() => {
+    logEvent(`web_showed_newest-landing_page`);
     getData();
   }, [paddle]);
 

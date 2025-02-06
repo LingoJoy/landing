@@ -12,6 +12,8 @@ import { getQuestionnaire } from "@/store/questionnaire";
 import { getLevel } from "@/utils/getLevel";
 import { randomIntFromInterval } from "@/utils/randomIntFromInterval";
 
+import { useEffect } from "react";
+import { logEvent } from "../../../utils/amplitude";
 import styles from "./index.module.scss";
 
 const DEFAULT_COLORS = [
@@ -77,6 +79,10 @@ const WordsHero = () => {
   const dataNextLevel = DEFAULT_COLORS[dataLevel.id + 1];
 
   const navigate = useNavigate();
+
+  useEffect(()=> {
+    logEvent(`web_showed_words_page`);
+  }, [])
 
   return (
     <Box className={styles.wrapper}>

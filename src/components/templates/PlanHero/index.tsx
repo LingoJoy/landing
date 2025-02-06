@@ -1,19 +1,20 @@
-import { useNavigate } from "react-router";
-import { useSelector } from "react-redux";
 import { Box } from "@mui/material";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 
-import ContentContainer from "@/components/organisms/ContentContainer";
-import SelectorFooter from "@/components/molecules/SelectorFooter";
 import Check from "@/components/atoms/Check";
+import SelectorFooter from "@/components/molecules/SelectorFooter";
+import ContentContainer from "@/components/organisms/ContentContainer";
 
+import { ELocalizationQuestionnaire } from "@/constants";
 import { ERoutes } from "@/constants/pages";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 import { getQuestionnaire } from "@/store/questionnaire";
-import { ELocalizationQuestionnaire } from "@/constants";
 
-import styles from "./index.module.scss";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
+import { logEvent } from "../../../utils/amplitude";
+import styles from "./index.module.scss";
 
 const PlanHero = () => {
   const { personal } = useSelector(getQuestionnaire);
@@ -22,6 +23,10 @@ const PlanHero = () => {
 
   const newPremium = searchParams.get("new-premium");
   const newestLanding = searchParams.get("newest-landing");
+
+  useEffect(() => {
+    logEvent(`web_showed_plan_page`);
+  }, [])
 
   const navigate = useNavigate();
   const pathname = useMemo(() => {

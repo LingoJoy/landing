@@ -16,6 +16,7 @@ import { DEFAULT_ALL_DATA, ELocalizationQuestionnaire, ERoutes } from "@/constan
 import { usePaddle } from "@/hooks/main/usePaddle";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 
+import { logEvent } from "../../../utils/amplitude";
 import styles from "./index.module.scss";
 
 interface IProps {
@@ -48,6 +49,7 @@ const PayHero: FC<IProps> = ({ onNext }) => {
   };
 
   useEffect(() => {
+    logEvent(`web_showed_pay_last_page`);
     getData();
   }, [paddle]);
 
