@@ -1,32 +1,32 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 import { Box } from "@mui/material";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 // import axios from "axios";
 
 import BackButton from "@/components/atoms/BackButton";
+import Field from "@/components/atoms/Field";
 import LogoIcon from "@/components/atoms/icons/LogoIcon";
+import PulseButton from "@/components/atoms/PulseButton";
+import CardWrapper from "../../CardWrapper";
 import ContentContainer from "../../ContentContainer";
 import ForgotPasswordModal from "../../modals/ForgotPasswordModal";
-import Field from "@/components/atoms/Field";
-import CardWrapper from "../../CardWrapper";
-import PulseButton from "@/components/atoms/PulseButton";
 // import { usePaddle } from "@/hooks/main/usePaddle";
 
-import Background from "@/assets/login-bg.png";
 import CheckImage from "@/assets/check.svg";
+import Background from "@/assets/login-bg.png";
 
 import {
   DEFAULT_YOUR_PLAN_DATA,
   ELocalizationQuestionnaire,
   ERoutes,
 } from "@/constants";
-import { setPlan } from "@/store/plan";
-import { validateQuestEmail, validateQuestPassword } from "@/utils/validations";
 import { AuthResponse, useLoginMutation } from "@/store/auth/query";
-import { setProfile } from "@/store/profile";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
+import { setPlan } from "@/store/plan";
+import { setProfile } from "@/store/profile";
 import { logEvent } from "@/utils/amplitude";
+import { validateQuestEmail, validateQuestPassword } from "@/utils/validations";
 
 import { IError } from "@/types";
 
@@ -55,6 +55,10 @@ const LoginForm = () => {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
+  
+  useEffect(() => {
+    logEvent(`web_showed_signup_page`);
+  }, [])
 
   const handleErrors = (value: Partial<IErrors>) => {
     setErrors({ ...errors, ...value });

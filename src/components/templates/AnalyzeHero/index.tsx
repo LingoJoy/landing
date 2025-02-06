@@ -26,7 +26,9 @@ const AnalyzeHero = () => {
 
   useEffect(() => {
     logEvent(`web_showed_analyze_page`);
-    
+  },[]);
+
+  useEffect(() => {
     intervalId.current = setInterval(() => {
       setStep((percentage * DEFAULT_ANALYZE_DATA.length) / 100);
       if (percentage < 100) {

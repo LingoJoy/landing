@@ -104,6 +104,9 @@ const NewPremiumHero = () => {
 
   useEffect(() => {
     logEvent(`web_showed_new-premium_page`);
+  }, []);
+
+  useEffect(() => {
     getData();
   }, [paddle]);
 

@@ -4,15 +4,19 @@ import { useSelector } from "react-redux";
 import CupImage from "@/assets/icons/cup.svg";
 import FireImage from "@/assets/main/fire.png";
 
-import { DEFAULT_MONTH_DATA, ELocalizationQuestionnaire, ERoutes } from "@/constants";
+import { DEFAULT_MONTH_DATA, DEFAULT_USERS_PREMIUM_DATA, DEFAULT_USERS_WEB_DATA, ELocalizationQuestionnaire, ERoutes } from "@/constants";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 
+import ShieldImage from "@/assets/shield-dynamic-color.png";
 import { LineItem } from "@paddle/paddle-js/types/price-preview/price-preview";
 import { FC, useCallback, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { usePaddle } from "../../../../hooks/main/usePaddle";
 import { IPlan } from "../../../../types";
 import { createPlan } from "../../../../utils/objectCreators";
+import PaperBGIcon, { PaperBigBGIcon } from "../../../atoms/icons/PaperBGIcon";
 import PayModal from "../../../organisms/modals/PayModal";
+import UserCard from "../../../organisms/UserCard";
 import styles from "../index.module.scss";
 
 interface IProps {
@@ -114,28 +118,93 @@ const PriceSection: FC<IProps> = ({ onNext }) => {
           </Box>
         </Box>
       </Box>
-      <Box mt="50px">
-        <Box className={styles.footerWrapper}>
-          <Box className={styles.footerBox}>
-            {offerProductPrice && (
-              <Button
-                sx={{ width: "100%" }}
-                onClick={() => {
-                  openCheckout(offerProductPrice.price.id, offerProductPrice.discounts?.[0].discount.id);
-                  setIsOpenPay(true);
-                }}
-              >
-                {localization[ELocalizationQuestionnaire.GET_FOR]}{" "}
-                {offerProductPrice.formattedTotals.total}
-              </Button>
-            )}
-            <p
-              className={`${styles.description} ${styles.shortDescription}`}
-              onClick={onNext}
-            >
-              {localization[ELocalizationQuestionnaire.SKIP]}
-            </p>
+      <Box className={styles.usersWrapper}>
+        <Box className={styles.contentBox}>
+          <h2 className={styles.usersTitle}>
+            {localization[ELocalizationQuestionnaire.PREMIUM_USERS_TITLE]}
+          </h2>
+          <Box className={styles.cardBox}>
+            {DEFAULT_USERS_PREMIUM_DATA.map((el, i) => (
+              <Box className={styles.usersCardWrapper} key={i}>
+                <UserCard data={el} />
+              </Box>
+            ))}
           </Box>
+        </Box>
+        <Box className={styles.cardWebBox}>
+          {DEFAULT_USERS_WEB_DATA.map((el, i) => (
+            <Box className={styles.usersCardWrapper} key={i}>
+              <UserCard data={el} commentStyle={{ color: "#6E6E6E" }} />
+            </Box>
+          ))}
+        </Box>
+      </Box>
+      <Box className={styles.guaranteeContentBox}>
+        <Box className={styles.guaranteeWrapper}>
+          <Box className={styles.guaranteeBG}>
+            <PaperBGIcon height="400px" />
+          </Box>
+          <Box className={styles.guaranteeWebBG}>
+            <PaperBigBGIcon height="450px" />
+          </Box>
+          <Box className={styles.indexBox}>
+            <img src={ShieldImage} alt="" className={styles.guaranteeIcon} />
+            <h2 className={styles.guaranteeName}>
+              {localization[ELocalizationQuestionnaire.LANDING_GUARANTEE_TITLE]}
+            </h2>
+            <Box className={styles.guaranteeBox}>
+              <p className={styles.guarantee}>
+                {
+                  localization[
+                  ELocalizationQuestionnaire.LANDING_GUARANTEE_TEXT_1
+                  ]
+                }{" "}
+                <Link to={""}>
+                  <span className={styles.link}>
+                    {
+                      localization[
+                      ELocalizationQuestionnaire.LANDING_GUARANTEE_RETURN
+                      ]
+                    }
+                  </span>
+                </Link>{" "}
+                {
+                  localization[
+                  ELocalizationQuestionnaire.LANDING_GUARANTEE_TEXT_2
+                  ]
+                }
+              </p>
+              <p className={styles.guarantee}>
+                {
+                  localization[
+                  ELocalizationQuestionnaire.LANDING_GUARANTEE_FIND_MORE
+                  ]
+                }
+              </p>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+      <Box className={styles.footerWrapper}>
+        <Box className={styles.footerBox}>
+          {offerProductPrice && (
+            <Button
+              sx={{ width: "100%" }}
+              onClick={() => {
+                openCheckout(offerProductPrice.price.id, offerProductPrice.discounts?.[0].discount.id);
+                setIsOpenPay(true);
+              }}
+            >
+              {localization[ELocalizationQuestionnaire.GET_FOR]}{" "}
+              {offerProductPrice.formattedTotals.total}
+            </Button>
+          )}
+          <p
+            className={`${styles.description} ${styles.shortDescription}`}
+            onClick={onNext}
+          >
+            {localization[ELocalizationQuestionnaire.SKIP]}
+          </p>
         </Box>
       </Box>
       {plan && (

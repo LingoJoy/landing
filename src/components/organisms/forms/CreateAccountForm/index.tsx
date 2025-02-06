@@ -86,6 +86,10 @@ const CreateAccountForm = () => {
     setErrors({ ...errors, ...value });
   };
 
+  useEffect(()=> {
+    logEvent(`web_showed_signup_page`);
+  }, [])
+
   useEffect(() => {
     if (!errors.email && !errors.password && options.includes(ELocalization.REGISTER_AGREE)) {
       setIsDisabled(false);

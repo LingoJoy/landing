@@ -55,6 +55,9 @@ const VerbsHero: FC<IProps> = ({ onNext }) => {
 
   useEffect(() => {
     logEvent(`web_showed_pay_verbs_page`);
+  }, []);
+
+  useEffect(() => {
     getData();
   }, [paddle]);
 

@@ -26,7 +26,7 @@ const PlanHero = () => {
 
   useEffect(() => {
     logEvent(`web_showed_plan_page`);
-  }, [])
+  }, []);
 
   const navigate = useNavigate();
   const pathname = useMemo(() => {

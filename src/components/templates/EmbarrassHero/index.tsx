@@ -55,6 +55,9 @@ const EmbarrassHero: FC<IProps> = ({ onNext }) => {
 
   useEffect(() => {
     logEvent(`web_showed_pay_embarrass_page`);
+  }, []);
+
+  useEffect(() => {
     getData();
   }, [paddle]);
 

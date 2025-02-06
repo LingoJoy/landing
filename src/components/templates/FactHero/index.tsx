@@ -40,7 +40,7 @@ const FactHero = () => {
 
   useEffect(() => {
     logEvent(`web_showed_fact_page`);
-  }, [])
+  }, []);
 
   const navigate = useNavigate();
 

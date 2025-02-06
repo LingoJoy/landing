@@ -108,6 +108,9 @@ const NewLandingHero = () => {
 
   useEffect(() => {
     logEvent(`web_showed_new-landing_page`);
+  }, []);
+
+  useEffect(() => {
     getData();
   }, [paddle]);
 

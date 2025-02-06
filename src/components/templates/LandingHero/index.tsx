@@ -35,7 +35,7 @@ const LandingHero = () => {
 
   useEffect(() => {
     logEvent(`web_showed_landing_page`);
-  }, [])
+  }, []);
 
   return (
     <Box className={styles.wrapper}>

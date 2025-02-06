@@ -112,6 +112,9 @@ const NewestPremiumHero = () => {
 
   useEffect(() => {
     logEvent(`web_showed_newest-landing_page`);
+  }, [])
+
+  useEffect(() => {
     getData();
   }, [paddle]);
 

@@ -50,6 +50,9 @@ const PayHero: FC<IProps> = ({ onNext }) => {
 
   useEffect(() => {
     logEvent(`web_showed_pay_last_page`);
+  }, []);
+
+  useEffect(() => {
     getData();
   }, [paddle]);
 
