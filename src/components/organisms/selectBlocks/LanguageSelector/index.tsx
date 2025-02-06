@@ -154,7 +154,19 @@ const LanguageSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
       </Box>
 
       <Modal open={isLoading}>
-        <Box className={styles.modalBox}>
+      <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            bgcolor: "background.paper",
+            boxShadow: 24,
+            p: 4,
+            borderRadius: 2,
+            textAlign: "center",
+          }}
+        >
           <CircularProgress />
           <Typography sx={{ mt: 2 }}>{loadingMessage}</Typography>
         </Box>
