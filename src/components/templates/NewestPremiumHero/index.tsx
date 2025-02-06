@@ -15,7 +15,7 @@ import { usePaddle } from "@/hooks/main/usePaddle";
 import { IPlan } from "@/types";
 import { createPlan, parseNumber, updatePriceFormatted } from "@/utils/objectCreators";
 
-import { logEvent } from "../../../utils/amplitude";
+import { logEvent } from "@/utils/amplitude";
 import styles from "./index.module.scss";
 
 const NewestPremiumHero = () => {

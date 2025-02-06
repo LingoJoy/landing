@@ -14,7 +14,7 @@ import { ELocalizationQuestionnaire } from "@/constants";
 import { ERoutes } from "@/constants/pages";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 
-import { logEvent } from "../../../utils/amplitude";
+import { logEvent } from "@/utils/amplitude";
 import styles from "./index.module.scss";
 
 interface IChartOptionProps {
@@ -34,12 +34,13 @@ const ChartOption: FC<IChartOptionProps> = ({ color, content }) => {
   );
 };
 
-useEffect(() => {
-  logEvent(`web_showed_fact_page`);
-}, [])
-
 const FactHero = () => {
+  
   const localization = useSelector(getLocalizationQuestionnaire);
+
+  useEffect(() => {
+    logEvent(`web_showed_fact_page`);
+  }, [])
 
   const navigate = useNavigate();
 

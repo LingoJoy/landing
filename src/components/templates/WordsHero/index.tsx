@@ -12,8 +12,8 @@ import { getQuestionnaire } from "@/store/questionnaire";
 import { getLevel } from "@/utils/getLevel";
 import { randomIntFromInterval } from "@/utils/randomIntFromInterval";
 
+import { logEvent } from "@/utils/amplitude";
 import { useEffect } from "react";
-import { logEvent } from "../../../utils/amplitude";
 import styles from "./index.module.scss";
 
 const DEFAULT_COLORS = [

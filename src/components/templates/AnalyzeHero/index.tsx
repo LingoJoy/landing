@@ -10,7 +10,7 @@ import { DEFAULT_ANALYZE_DATA, DEFAULT_TIMER } from "@/constants";
 import { ERoutes } from "@/constants/pages";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 
-import { logEvent } from "../../../utils/amplitude";
+import { logEvent } from "@/utils/amplitude";
 import styles from "./index.module.scss";
 
 const AnalyzeHero = () => {

@@ -13,7 +13,7 @@ import ClockImage from "@/assets/main/clock.png";
 import { ELocalizationQuestionnaire, ERoutes } from "@/constants";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 
-import { logEvent } from "../../../utils/amplitude";
+import { logEvent } from "@/utils/amplitude";
 import styles from "./index.module.scss";
 
 const PremiumHero = () => {

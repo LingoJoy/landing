@@ -17,7 +17,7 @@ import { DEFAULT_COURSE_DATA, ELocalizationQuestionnaire, ERoutes } from "@/cons
 import { usePaddle } from "@/hooks/main/usePaddle";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 
-import { logEvent } from "../../../utils/amplitude";
+import { logEvent } from "@/utils/amplitude";
 import styles from "./index.module.scss";
 
 interface IProps {

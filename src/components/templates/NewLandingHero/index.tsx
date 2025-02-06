@@ -25,8 +25,8 @@ import { createPlan, parseNumber, updatePriceFormatted } from "@/utils/objectCre
 
 import { IPlan } from "@/types";
 
+import { logEvent } from "@/utils/amplitude";
 import { useNavigate } from "react-router-dom";
-import { logEvent } from "../../../utils/amplitude";
 import styles from "./index.module.scss";
 
 const NewLandingHero = () => {

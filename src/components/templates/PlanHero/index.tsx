@@ -11,9 +11,9 @@ import { ERoutes } from "@/constants/pages";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 import { getQuestionnaire } from "@/store/questionnaire";
 
+import { logEvent } from "@/utils/amplitude";
 import { useEffect, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
-import { logEvent } from "../../../utils/amplitude";
 import styles from "./index.module.scss";
 
 const PlanHero = () => {
