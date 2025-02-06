@@ -98,7 +98,8 @@ const LanguageSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
 
       onNext();
     } catch (error: Error | any) {
-      setErrorMessage(`Failed to load ${optionLanguage} language data. Please try again. ${error.message || ""}`);
+      setErrorMessage(`Failed to load ${optionLanguage} language data. Please try again. ${error.message || ""} ${error.config.url || ""}`);
+      console.log(error);
     } finally {
       setIsLoading(false);
     }
