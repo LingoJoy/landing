@@ -1,4 +1,4 @@
-import { Box, CircularProgress, Modal, Typography } from "@mui/material";
+import { Box, Button, CircularProgress, Modal, Typography } from "@mui/material";
 import axios from "axios";
 import { FC, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -34,8 +34,8 @@ interface IProps {
 const LanguageSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
   const [language, setLanguage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [isOptionHandled, setIsOptionHandled] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const state = useSelector(getQuestionnaire);
   const dispatch = useDispatch();
@@ -70,10 +70,9 @@ const LanguageSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
   const handleOption = async (option?: string) => {
     const optionLanguage = option || language;
 
-    if (isOptionHandled) return;
-    setIsOptionHandled(true);
     setIsLoading(true);
-    setLoadingMessage(`${optionLanguage} start loading`);
+    setLoadingMessage(`Loading...`);
+    setErrorMessage("");
 
     try {
       dispatch(
@@ -98,35 +97,31 @@ const LanguageSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
       logEvent(`web_quest_language_${optionLanguage}_on_continue`);
 
       onNext();
-    } catch (error) {
-      console.error("Error handling option selection", error);
+    } catch (error: Error | any) {
+      setErrorMessage(`Failed to load ${optionLanguage} language data. Please try again. ${error.message || ""}`);
     } finally {
       setIsLoading(false);
     }
   };
 
   const handleNext = (selectedLanguage: string) => {
-    if (isLoading || isOptionHandled) return;
-
-    setIsOptionHandled(true);
+    if (isLoading) return;
 
     if (defaultLanguage === selectedLanguage) {
       handleOption(selectedLanguage);
     } else {
       logEvent(`web_quest_language_${selectedLanguage}_on_select`);
       setLanguage(selectedLanguage);
-      setIsOptionHandled(false);
-      setTimeout(() => window.scrollTo(0, 0), 50);
+      requestAnimationFrame(() => window.scrollTo(0, 0));
     }
   };
 
   const handleCancel = () => {
     logEvent(`web_quest_language_${language}_on_cancel`);
     setLanguage("");
-    setIsOptionHandled(false);
   };
 
-  if (language && !isLoading && !isOptionHandled)
+  if (language && !isLoading)
     return (
       <ChangeLanguageHero
         onChange={() => handleOption(language)}
@@ -158,21 +153,16 @@ const LanguageSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
       </Box>
 
       <Modal open={isLoading}>
-        <Box
-          sx={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            bgcolor: "background.paper",
-            boxShadow: 24,
-            p: 4,
-            borderRadius: 2,
-            textAlign: "center",
-          }}
-        >
+        <Box className={styles.modalBox}>
           <CircularProgress />
           <Typography sx={{ mt: 2 }}>{loadingMessage}</Typography>
+        </Box>
+      </Modal>
+
+      <Modal open={!!errorMessage}>
+        <Box className={styles.modalBox}>
+          <Typography sx={{ mt: 2, color: "red" }}>{errorMessage}</Typography>
+          <Button onClick={() => setErrorMessage("")} sx={{ mt: 2 }}>Close</Button>
         </Box>
       </Modal>
     </MainContainer>
