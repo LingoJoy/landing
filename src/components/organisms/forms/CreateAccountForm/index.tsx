@@ -28,7 +28,7 @@ import { getProfile, setProfile } from "@/store/profile";
 import { getQuestionnaire } from "@/store/questionnaire";
 import { logEvent } from "@/utils/amplitude";
 import axios from "@/utils/AxiosConfig";
-import { logFBConventionsEvent, logFBEvent } from "@/utils/facebookSDK";
+import { logFBEvent } from "@/utils/facebookSDK";
 import { getLevel } from "@/utils/getLevel";
 import { validateQuestEmail, validateQuestPassword } from "@/utils/validations";
 import { useAlert } from "../../AlertMessage";
@@ -153,8 +153,7 @@ const CreateAccountForm = () => {
       });
 
       logEvent(`web_create_account_${email.toLowerCase().trim()}_on_continue`);
-      logFBEvent(FB_EVENT.COMPLETE_REGISTRATION);
-      logFBConventionsEvent(FB_EVENT.COMPLETE_REGISTRATION, email);
+      logFBEvent(FB_EVENT.COMPLETE_REGISTRATION, null, email);
       navigate(ERoutes.COURSES);
     } catch (error: unknown) {
       if (error instanceof Error) {

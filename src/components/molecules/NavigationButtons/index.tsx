@@ -1,27 +1,26 @@
+import { Box, Button } from "@mui/material";
 import React, { CSSProperties } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Box, Button } from "@mui/material";
 
 import Arrow from "@/assets/arrow-full-right.svg";
 
-import { getLocalization } from "@/store/localization";
-import { ELocalization, FB_EVENT } from "@/constants";
+import { ELocalization } from "@/constants";
+import { useCheckLogic } from "@/hooks/exercises/useCheckLogic";
 import {
   getNextExerciseId,
-  getPrevExerciseId,
-  setNextExercise,
-  setCurrentExercise,
-  updateExercise,
-  getPrevWrongExerciseId,
   getNextWrongExerciseId,
-  setFinishExercise,
+  getPrevExerciseId,
+  getPrevWrongExerciseId,
   selectExercise,
+  setCurrentExercise,
+  setFinishExercise,
+  setNextExercise,
+  updateExercise,
 } from "@/store/ActiveLesson";
-import { updatePostProgress } from "@/utils/apiHelpers";
-import { useCheckLogic } from "@/hooks/exercises/useCheckLogic";
-import { logEvent } from "@/utils/amplitude";
+import { getLocalization } from "@/store/localization";
 import { getProfile } from "@/store/profile";
-import { logFBEvent, logFBConventionsEvent } from "@/utils/facebookSDK";
+import { logEvent } from "@/utils/amplitude";
+import { updatePostProgress } from "@/utils/apiHelpers";
 
 import { Exercise } from "@/types";
 
@@ -79,13 +78,13 @@ const NavigationButtons: React.FC<IProps> = ({
 
     logEvent(`web_${profile?.level}_[{${lesson.category}]_on_next_completed`);
 
-    logFBEvent(
-      `${FB_EVENT.EXERCISE_COMPLETED} ${profile?.level}_[{${lesson.category}]`,
-    );
-    logFBConventionsEvent(
-      `${FB_EVENT.EXERCISE_COMPLETED} ${profile?.level}_[{${lesson.category}]`,
-      profile?.email || "",
-    );
+    // logFBEvent(
+    //   `${FB_EVENT.EXERCISE_COMPLETED} ${profile?.level}_[{${lesson.category}]`,
+    // );
+    // logFBConventionsEvent(
+    //   `${FB_EVENT.EXERCISE_COMPLETED} ${profile?.level}_[{${lesson.category}]`,
+    //   profile?.email || "",
+    // );
 
     updatePostProgress(exercise.lesson, exercise._id, "completed");
   };

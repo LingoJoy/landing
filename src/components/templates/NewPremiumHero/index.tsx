@@ -84,7 +84,7 @@ const NewPremiumHero = () => {
   };
 
   const handlePlan = (plan: IPlan) => {
-    openCheckout(plan.productIds, undefined, ERoutes.SIGN_UP);
+    openCheckout(plan.productIds, undefined, ERoutes.SIGN_UP, plan.price);
     setIsOpenPay(true);
   };
 

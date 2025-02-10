@@ -1,15 +1,15 @@
+import { Box, Button, Typography } from "@mui/material";
 import React, { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Controller, EffectCards, Navigation } from "swiper/modules";
 import {
   Swiper as SwiperComponent,
   SwiperRef,
   SwiperSlide,
 } from "swiper/react";
-import { Controller, EffectCards, Navigation } from "swiper/modules";
 import { Swiper } from "swiper/types";
-import "swiper/css";
-import "swiper/css/pagination";
-import { Box, Button, Typography } from "@mui/material";
 
 import PlayButton from "@/components/molecules/PlayButton";
 
@@ -17,12 +17,11 @@ import Arrow from "@/assets/arrow-full-right.svg";
 
 import { selectExercise, setNextExercise } from "@/store/ActiveLesson";
 
-import { ELocalization, ETranslate, FB_EVENT } from "@/constants";
-import { updatePostProgress } from "@/utils/apiHelpers";
+import { ELocalization, ETranslate } from "@/constants";
 import { getLocalization } from "@/store/localization";
-import { logEvent } from "@/utils/amplitude";
 import { getProfile } from "@/store/profile";
-import { logFBConventionsEvent, logFBEvent } from "@/utils/facebookSDK";
+import { logEvent } from "@/utils/amplitude";
+import { updatePostProgress } from "@/utils/apiHelpers";
 
 import { Exercise } from "@/types";
 
@@ -53,13 +52,13 @@ const SwipedCard: React.FC<IProps> = ({ exercise, nextId }) => {
 
   const handleNextProgress = () => {
     logEvent(`web_${profile?.level}_[{${lesson.category}]_on_next_completed`);
-    logFBEvent(
-      `${FB_EVENT.EXERCISE_COMPLETED} ${profile?.level}_[{${lesson.category}]`,
-    );
-    logFBConventionsEvent(
-      `${FB_EVENT.EXERCISE_COMPLETED} ${profile?.level}_[{${lesson.category}]`,
-      profile?.email || "",
-    );
+    // logFBEvent(
+    //   `${FB_EVENT.EXERCISE_COMPLETED} ${profile?.level}_[{${lesson.category}]`,
+    // );
+    // logFBConventionsEvent(
+    //   `${FB_EVENT.EXERCISE_COMPLETED} ${profile?.level}_[{${lesson.category}]`,
+    //   profile?.email || "",
+    // );
     handleProgress();
   };
 

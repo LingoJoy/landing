@@ -72,7 +72,7 @@ const NewestPremiumHero = () => {
   };
 
   const handlePlan = useCallback((plan: IPlan) => {
-    openCheckout(plan.productIds, undefined, ERoutes.SIGN_UP);
+    openCheckout(plan.productIds, undefined, ERoutes.SIGN_UP, plan.price);
     setIsOpenPay(true);
   }, [openCheckout]);
 

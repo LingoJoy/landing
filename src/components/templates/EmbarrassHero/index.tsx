@@ -130,7 +130,7 @@ const EmbarrassHero: FC<IProps> = ({ onNext }) => {
             <Button
               sx={{ width: "100%" }}
               onClick={() => {
-                openCheckout(price.price.id, price.discounts?.[0].discount.id);
+                openCheckout(price.price.id, price.discounts?.[0].discount.id, undefined, price.formattedTotals.total);
                 setIsOpenPay(true);
               }}
             >

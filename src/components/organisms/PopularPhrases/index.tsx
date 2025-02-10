@@ -16,8 +16,7 @@ import {
   ELocalization,
   ERoutes,
   ETranslate,
-  EUrls,
-  FB_EVENT,
+  EUrls
 } from "@/constants";
 import { selectCurrentExercise, setStartLesson } from "@/store/ActiveLesson";
 import { getBook, setBook } from "@/store/book";
@@ -26,7 +25,6 @@ import { getProfile } from "@/store/profile";
 import { logEvent } from "@/utils/amplitude";
 import axios from "@/utils/AxiosConfig";
 import { getFinished, getInProgress } from "@/utils/courseHelpers";
-import { logFBConventionsEvent, logFBEvent } from "@/utils/facebookSDK";
 import { useAlert } from "../AlertMessage";
 
 import { Course, CourseType, EDefaultAxiosError, Exercise, IAxiosError, IBook } from "@/types";
@@ -107,8 +105,8 @@ export default function PopularPhrases() {
         el._id ? el : { ...el, _id: "final" },
       );
       logEvent(`web_lesson_${lessonId}_exercises_show`);
-      logFBEvent(FB_EVENT.LESSON_START);
-      logFBConventionsEvent(FB_EVENT.LESSON_START, profile?.email || "");
+      // logFBEvent(FB_EVENT.LESSON_START);
+      // logFBConventionsEvent(FB_EVENT.LESSON_START, profile?.email || "");
 
       dispatch(
         setStartLesson({
@@ -194,8 +192,8 @@ export default function PopularPhrases() {
 
   useEffect(() => {
     logEvent(`web_Popular Phrases`);
-    logFBEvent(FB_EVENT.POPULAR_PHRASES);
-    logFBConventionsEvent(FB_EVENT.POPULAR_PHRASES, profile?.email || "");
+    // logFBEvent(FB_EVENT.POPULAR_PHRASES);
+    // logFBConventionsEvent(FB_EVENT.POPULAR_PHRASES, profile?.email || "");
   }, []);
 
   if (book) return <ReadBook book={book} />;

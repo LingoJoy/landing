@@ -53,3 +53,9 @@ export enum ERoutes {
 export const getRoutesWithParams = {
     [ERoutes.QUESTIONNAIRE_MOTIVATION]: () => `${ERoutes.QUESTIONNAIRE_MOTIVATION}`
 };
+
+export enum LandingType {
+    NEW_PREMIUM = "new-premium",
+    NEWEST_LANDING = "newest-landing",
+    NEW_LANDING = "new-landing"
+  }

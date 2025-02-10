@@ -19,15 +19,20 @@ export const initFacebookSdk = async (appId: string) => {
     }
 };
 
-export const logFBEvent = (eventName: string, ...args: unknown[]) => {
-    ReactPixel.track(eventName, ...args);
+export const logFBEvent = (eventName: string, data?: any, email?: string) => {
+    ReactPixel.track(eventName, data);
+    logFBConventionsEvent(eventName, email, data);
+};
 
+export const logFBCustomEvent = (eventName: string) => {
+    ReactPixel.trackCustom(eventName);
     logFBConventionsEvent(eventName);
 };
 
 export const logFBConventionsEvent = async (
     eventName: string,
     email?: string,
+    data?: any
 ) => {
     try {
         const ip = await axios.get("https://geolocation-db.com/json/");
@@ -42,9 +47,12 @@ export const logFBConventionsEvent = async (
                     client_user_agent: window.navigator.userAgent,
                     email,
                 },
+                ...(data != null && { data })
             },
             test_event_code: "TEST72679",
         };
+
+        console.log(postData);
 
         const axiosConfig = {
             headers: {

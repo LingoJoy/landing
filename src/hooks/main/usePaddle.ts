@@ -12,7 +12,7 @@ import { FB_EVENT } from "@/constants";
 import { getLocation, getProfile, ILocation } from "@/store/profile";
 import { getQuestionnaire } from "@/store/questionnaire";
 import { logEvent } from "@/utils/amplitude";
-import { logFBConventionsEvent, logFBEvent } from "@/utils/facebookSDK";
+import { logFBEvent } from "@/utils/facebookSDK";
 
 const checkoutSettings: CheckoutSettings = {
     displayMode: "inline",
@@ -54,9 +54,7 @@ export function usePaddle(redirectUrl?: string) {
                         return;
                     case "checkout.completed":
                         logEvent(`web_paddle_${event.data?.items}_${event.data?.status}`);
-                        logFBEvent(FB_EVENT.SUBSCRIBE, event.data);
-                        logFBConventionsEvent(FB_EVENT.SUBSCRIBE, profile?.email || "");
-
+                        logFBEvent(FB_EVENT.PURCHASE, { value: event.data?.items[0].totals.total, currency: event.data?.currency_code }, profile?.email || "");
                         return;
                     default:
                         return;
@@ -78,6 +76,7 @@ export function usePaddle(redirectUrl?: string) {
         priceIds: string[] | string,
         discountId?: string,
         successUrl?: string,
+        totalPrice?: string,
     ) => {
         const SUCCESS_URL = `${window.location.origin}${successUrl || ''}`;
         const email = profile?.email || state?.email;
@@ -86,7 +85,7 @@ export function usePaddle(redirectUrl?: string) {
             ? priceIds.map((id) => ({ priceId: id, quantity: 1 }))
             : [{ priceId: priceIds, quantity: 1 }];
 
-            const locale: ILocation | null = validateCurrencyCode(location?.currency?.code) == true ? location : null;
+        const locale: ILocation | null = validateCurrencyCode(location?.currency?.code) == true ? location : null;
 
         if (!email) {
             paddle?.Update({
@@ -116,6 +115,8 @@ export function usePaddle(redirectUrl?: string) {
                 },
             },
         });
+
+        logFBEvent(FB_EVENT.INITIATE_CHECKOUT, { currency: locale ? locale?.country_code : "USD", value: totalPrice }, profile?.email || "");
     };
     const closeCheckout = async () => {
         paddle?.Checkout.close();

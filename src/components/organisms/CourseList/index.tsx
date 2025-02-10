@@ -17,8 +17,7 @@ import {
   backgroundColors,
   ELocalization,
   ETranslate,
-  EUrls,
-  FB_EVENT,
+  EUrls
 } from "@/constants";
 import {
   selectCurrentExercise,
@@ -32,7 +31,6 @@ import { logEvent } from "@/utils/amplitude";
 import { getPostProgress } from "@/utils/apiHelpers";
 import axios from "@/utils/AxiosConfig";
 import { getFinished, getInProgress } from "@/utils/courseHelpers";
-import { logFBConventionsEvent, logFBEvent } from "@/utils/facebookSDK";
 import { useAlert } from "../AlertMessage";
 
 import { Course, CourseType, DailyCourse, EDefaultAxiosError, Exercise, IAxiosError, IBook } from "@/types";
@@ -142,8 +140,8 @@ export default function CourseList() {
         el._id ? el : { ...el, _id: "final" },
       );
       logEvent(`web_lesson_${lessonId}_exercises_show`);
-      logFBEvent(FB_EVENT.LESSON_START);
-      logFBConventionsEvent(FB_EVENT.LESSON_START, profile?.email || "");
+      // logFBEvent(FB_EVENT.LESSON_START);
+      // logFBConventionsEvent(FB_EVENT.LESSON_START, profile?.email || "");
 
       const completedExercises = profile?.lessons[lessonId]?.exercises ? Object.keys(profile.lessons[lessonId].exercises) : [];
 
@@ -264,8 +262,8 @@ export default function CourseList() {
 
   useEffect(() => {
     logEvent(`web_Courses`);
-    logFBEvent(FB_EVENT.COURSES);
-    logFBConventionsEvent(FB_EVENT.COURSES, profile?.email || "");
+    // logFBEvent(FB_EVENT.COURSES);
+    // logFBConventionsEvent(FB_EVENT.COURSES, profile?.email || "");
   }, []);
 
   if (book) return <ReadBook book={book} />;

@@ -191,7 +191,7 @@ const PriceSection: FC<IProps> = ({ onNext }) => {
             <Button
               sx={{ width: "100%" }}
               onClick={() => {
-                openCheckout(offerProductPrice.price.id, offerProductPrice.discounts?.[0].discount.id);
+                openCheckout(offerProductPrice.price.id, offerProductPrice.discounts?.[0].discount.id, offerProductPrice.formattedTotals.total);
                 setIsOpenPay(true);
               }}
             >
