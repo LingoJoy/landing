@@ -116,7 +116,9 @@ export function usePaddle(redirectUrl?: string) {
             },
         });
 
-        logFBEvent(FB_EVENT.INITIATE_CHECKOUT, { currency: locale ? locale?.country_code : "USD", value: totalPrice }, profile?.email || "");
+        if (totalPrice) {
+            logFBEvent(FB_EVENT.INITIATE_CHECKOUT, { currency: locale ? location?.currency?.code : "USD", value: parseFloat(totalPrice.replace(/^\D|,+/g, "")) }, profile?.email || "");
+        }
     };
     const closeCheckout = async () => {
         paddle?.Checkout.close();

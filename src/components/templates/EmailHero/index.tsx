@@ -10,13 +10,14 @@ import ContentContainer from "@/components/organisms/ContentContainer";
 
 import LockImage from "@/assets/icons/lock-circle.svg";
 
-import { ELocalizationQuestionnaire, ERoutes } from "@/constants";
+import { ELocalizationQuestionnaire, ERoutes, FB_EVENT } from "@/constants";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 import { getQuestionnaire, setQuestionnaire } from "@/store/questionnaire";
 import { validateQuestEmail } from "@/utils/validations";
 
 import withKeyboardDismiss from "@/HOCs/withKeyboardDismiss";
 import { logEvent } from "@/utils/amplitude";
+import { logFBEvent } from "../../../utils/facebookSDK";
 import EmailField from "../../atoms/EmailField";
 import styles from "./index.module.scss";
 
@@ -72,7 +73,7 @@ const EmailHero = () => {
     dispatch(setQuestionnaire({ ...state, email }));
 
     logEvent(`web_quest_email_${email}_on_continue`);
-
+    logFBEvent(FB_EVENT.COMPLETE_REGISTRATION, null, email);
     navigate({
       pathname: ERoutes.WORDS,
       search,
