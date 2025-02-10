@@ -137,7 +137,7 @@ const VerbsHero: FC<IProps> = ({ onNext }) => {
           isOpen={isOpenPay}
           onClose={onCloseHandler}
           title={plan.title}
-          price={plan.price}
+          price={price?.formattedTotals.total}
           discount={plan.discount}
         />)}
     </Box>
