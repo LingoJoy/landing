@@ -211,9 +211,9 @@ const PriceSection: FC<IProps> = ({ onNext }) => {
         <PayModal
           isOpen={isOpenPay}
           onClose={onCloseHandler}
-          title={plan.title}
-          price={plan.price}
+          price={price?.formattedTotals.total}
           discount={plan.discount}
+          period={plan.billingInterval}
         />)}
     </Box>
   );

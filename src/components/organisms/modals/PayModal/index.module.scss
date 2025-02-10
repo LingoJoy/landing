@@ -35,18 +35,21 @@
 .headerWrapper {
   display: flex;
   align-items: center;
-  margin-bottom: 48px;
+  margin-bottom: 18px;
+  flex-direction: column;
+  align-items: center;
 }
 
 .headerBox {
-  margin-left: 12px;
+  margin-top: 10px;
+  font-family: 'Nunito', sans-serif;
 
   & h4 {
     font-weight: 700;
-    font-size: 20px;
-    line-height: 24px;
+    font-size: 32px;
+    line-height: 10px;
 
-    color: $main-black;
+    color: rgb(11 73 131/var(--tw-text-opacity,1));
   }
 
   & p {
@@ -60,7 +63,13 @@
 }
 
 .priceWrapper {
-  margin-bottom: 48px;
+  margin-bottom: 38px;
+}
+
+.priceCenterWrapper {
+  margin-bottom: 20px;
+  flex-direction: column;
+  align-items: center;
 }
 
 .priceBox,
@@ -68,7 +77,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: column;
   margin-bottom: 8px;
+  font-family: 'Nunito', sans-serif;
 
   & p {
     font-weight: 500;
@@ -82,10 +93,10 @@
 .priceBox {
   & span {
     font-weight: 600;
-    font-size: 18px;
+    font-size: .75rem;
     line-height: 22px;
 
-    color: $main-black;
+    color: rgb(11 73 131/var(--tw-text-opacity,1));
   }
 }
 

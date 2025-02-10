@@ -456,6 +456,8 @@ const en: TLocalizationQuestionnaireType = {
   [ELocalizationQuestionnaire.END_TRIAL_DESCR_1]: "Live chat with AI-tutor",
   [ELocalizationQuestionnaire.END_TRIAL_DESCR_2]: "Personalized lessons",
   [ELocalizationQuestionnaire.END_TRIAL_DESCR_3]: "Popular Phrases",
+
+  [ELocalizationQuestionnaire.UNLIMITED_ACCESS]: "Get Unlimited Access",
 };
 
 export default en;

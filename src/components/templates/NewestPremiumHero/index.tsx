@@ -55,7 +55,8 @@ const NewestPremiumHero = () => {
         createDate: plan1Data.data.details.lineItems[0].product.createdAt,
         isFourWeek: true,
         isMostPopular: true,
-        productIds: plan1Data.data.details.lineItems.map((item) => item.price.id)
+        productIds: plan1Data.data.details.lineItems.map((item) => item.price.id),
+        billingInterval: `${plan1Data.data.details.lineItems[1].price.billingCycle?.frequency} ${plan1Data.data.details.lineItems[1].price.billingCycle?.interval}`
       };
       const plan2 = createPlan(plan2Data.data.details.lineItems, 1);
       const plan3 = createPlan(plan3Data.data.details.lineItems, 2);
@@ -143,9 +144,9 @@ const NewestPremiumHero = () => {
       <PayModal
         isOpen={isOpenPay}
         onClose={onCloseHandler}
-        title={plan.title}
         price={plan.price}
         discount={plan.discount}
+        period={plan.billingInterval}
       />
     </Box>
   );

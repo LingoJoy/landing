@@ -467,4 +467,5 @@ export enum ELocalizationQuestionnaire {
     END_TRIAL_DESCR_1 = "endTrialDescr1",
     END_TRIAL_DESCR_2 = "endTrialDescr2",
     END_TRIAL_DESCR_3 = "endTrialDescr3",
+    UNLIMITED_ACCESS = "questSubUnlimitedAccess"
 }

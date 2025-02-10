@@ -20,6 +20,7 @@ export interface IPlan {
   createDate?: string;
   priceId?: string;
   productIds: string[];
+  billingInterval?: string;
 }
 
 export type TProfileResponse = {

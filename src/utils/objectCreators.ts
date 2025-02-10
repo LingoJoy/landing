@@ -20,7 +20,7 @@ export const createPlan = (
     const price = parseNumber(el.formattedTotals.subtotal);
     const discount = parseNumber(el.formattedTotals.total);
     const weeks = (el.price.billingCycle?.frequency || 0) * 4;
-
+    const subItem = elements.find((item) => item.price.billingCycle?.interval);
     return {
         id: el.price.id,
         title: el.product.name,
@@ -32,6 +32,7 @@ export const createPlan = (
         weeks,
         createDate: el.product.createdAt,
         isMostPopular,
-        productIds: elements.map((item) => item.price.id)
+        productIds: elements.map((item) => item.price.id),
+        billingInterval: subItem ? `${subItem?.price.billingCycle?.frequency} ${subItem?.price.billingCycle?.interval}` : undefined
     };
 };
