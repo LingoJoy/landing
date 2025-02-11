@@ -123,12 +123,14 @@ const CreateAccountForm = () => {
     if (errors.email || errors.password || !email || !password) return;
 
     try {
+      const storedData = localStorage.getItem("transactionSet");
       const userData = {
         email: email.toLowerCase().trim(),
         password,
         level: level.code,
         name: personal.name,
         additional_info: questionnaire,
+        storedData
       };
 
       const { data }: TProfileResponse = await axios.post(
@@ -152,6 +154,8 @@ const CreateAccountForm = () => {
 
       logEvent(`web_create_account_${email.toLowerCase().trim()}_on_continue`);
       navigate(ERoutes.COURSES);
+
+      localStorage.removeItem("transactionSet");
     } catch (error: unknown) {
       if (error instanceof Error) {
         const err = error as unknown as IErrorResp;

@@ -40,9 +40,11 @@ const EndTrialPeriodModal: FC<IProps> = ({
     setLoading(true);
 
     try {
-      const plan1Data = await getPrices(paddle, DEFAULT_PADDLE_PLAN_DATA[0]);
-      const plan2Data = await getPrices(paddle, DEFAULT_PADDLE_PLAN_DATA[1]);
-      const plan3Data = await getPrices(paddle, DEFAULT_PADDLE_PLAN_DATA[2]);
+      const [plan1Data, plan2Data, plan3Data] = await Promise.all([
+        getPrices(paddle, DEFAULT_PADDLE_PLAN_DATA[0]),
+        getPrices(paddle, DEFAULT_PADDLE_PLAN_DATA[1]),
+        getPrices(paddle, DEFAULT_PADDLE_PLAN_DATA[2])
+      ]);
 
       if (!plan1Data || !plan2Data || !plan3Data) return;
 

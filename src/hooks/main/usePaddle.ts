@@ -13,6 +13,7 @@ import { getLocation, getProfile, ILocation } from "@/store/profile";
 import { getQuestionnaire } from "@/store/questionnaire";
 import { logEvent } from "@/utils/amplitude";
 import { logFBEvent } from "@/utils/facebookSDK";
+import CryptoJS from "crypto-js";
 
 const checkoutSettings: CheckoutSettings = {
     displayMode: "inline",
@@ -55,6 +56,18 @@ export function usePaddle(redirectUrl?: string) {
                     case "checkout.completed":
                         logEvent(`web_paddle_${event.data?.items}_${event.data?.status}`);
                         logFBEvent(FB_EVENT.PURCHASE, { value: event.data?.items[0].totals.total, currency: event.data?.currency_code }, profile?.email || "");
+
+                        const transactionId = event.data?.id;
+                        if (transactionId) {
+                            const SECRET = import.meta.env.VITE_CRYPTO_SECRET_KEY;
+                            const encryptedId = CryptoJS.AES.encrypt(transactionId, SECRET).toString();
+                            const storedData = localStorage.getItem("transactionSet");
+                            const transactionSet = storedData ? new Set(JSON.parse(storedData)) : new Set();
+
+                            transactionSet.add(encryptedId);
+
+                            localStorage.setItem("transactionSet", JSON.stringify([...transactionSet]));
+                        }
                         return;
                     default:
                         return;
