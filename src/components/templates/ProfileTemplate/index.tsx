@@ -1,33 +1,33 @@
+import { Box, Button, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Box, Button, Typography } from "@mui/material";
 
-import ContentWrapper from "@/components/organisms/ContentWrapper";
-import ProfileMenu from "@/components/organisms/ProfileMenu";
 import CardWrapper from "@/components/organisms/CardWrapper";
+import ContentWrapper from "@/components/organisms/ContentWrapper";
 import AvatarModal from "@/components/organisms/modals/AvatarModal";
+import ProfileMenu from "@/components/organisms/ProfileMenu";
 
-import Fox from "@/assets/fox.png";
-import Hey from "@/assets/hey.png";
-import England from "@/assets/united kingdom.svg";
-import Notification from "@/assets/Notification.svg";
-import Sound from "@/assets/sound.svg";
-import Global from "@/assets/global.svg";
 import Document from "@/assets/document-text.svg";
-import Message from "@/assets/message-circle.svg";
+import Fox from "@/assets/fox.png";
+import Global from "@/assets/global.svg";
+import Hey from "@/assets/hey.png";
 import Key from "@/assets/key.svg";
+import Message from "@/assets/message-circle.svg";
+import Notification from "@/assets/Notification.svg";
 import Person from "@/assets/person.svg";
+import Sound from "@/assets/sound.svg";
+import England from "@/assets/united kingdom.svg";
 
-import { DEFAULT_PAYMENT_MENU, IMenu } from "@/constants/data/profile.data";
-import { ERoutes } from "@/constants/pages";
-import { setPlan } from "@/store/plan";
-import { getProfile, setProfile } from "@/store/profile";
-import { removeToken } from "@/utils/AxiosConfig";
 import { DEFAULT_LANGUAGE_DATA, ELocalization } from "@/constants";
+import { IMenu } from "@/constants/data/profile.data";
+import { ERoutes } from "@/constants/pages";
 import { Exitlogout } from "@/store/auth";
 import { getLocalization } from "@/store/localization";
+import { setPlan } from "@/store/plan";
+import { getProfile, setProfile } from "@/store/profile";
 import { logEvent } from "@/utils/amplitude";
+import { removeToken } from "@/utils/AxiosConfig";
 
 import styles from "./index.module.scss";
 
@@ -230,11 +230,11 @@ export const ProfileTemplate: React.FC = () => {
           </Box>
         </ContentWrapper>
         <Box className={styles.menuWrapper}>
-          <ProfileMenu
+          {/* <ProfileMenu
             data={DEFAULT_PAYMENT_MENU}
             className={`${styles.paymentWrapper} ${styles.menuOption}`}
             withoutTitleDivider
-          />
+          /> */}
           <ProfileMenu
             data={DEFAULT_ACCOUNT_MENU}
             className={styles.menuOption}
