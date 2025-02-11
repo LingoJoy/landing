@@ -1,15 +1,14 @@
+import axios from "axios";
 import { FC, ReactNode, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
-import { getToken } from "@/utils/AxiosConfig";
 import { ERoutes, ETranslate, EUrls } from "@/constants";
 import { User } from "@/store/auth/query";
-import axiosConfig from "@/utils/AxiosConfig";
+import { setLocalization } from "@/store/localization";
 import { setProfile } from "@/store/profile";
 import { getServerLocalization } from "@/utils/apiHelpers";
-import { setLocalization } from "@/store/localization";
+import axiosConfig, { getToken } from "@/utils/AxiosConfig";
 
 import { TLocalizationType } from "@/types";
 

@@ -28,7 +28,6 @@ import { getBook, setBook } from "@/store/book";
 import { getLocalization } from "@/store/localization";
 import { getProfile } from "@/store/profile";
 import { logEvent } from "@/utils/amplitude";
-import { getPostProgress } from "@/utils/apiHelpers";
 import axios from "@/utils/AxiosConfig";
 import { getFinished, getInProgress } from "@/utils/courseHelpers";
 import { useAlert } from "../AlertMessage";
@@ -134,16 +133,21 @@ export default function CourseList() {
       setIsLoading(true);
 
       const { data } = await axios.get(`${EUrls.LESSONS_SHOW}/${lessonId}`);
-      getPostProgress(lessonId);
+
+      const userProfile: any = await axios.get(EUrls.USERS_PROFILE);
 
       const exercises = data.exercises.map((el: Exercise) =>
         el._id ? el : { ...el, _id: "final" },
       );
       logEvent(`web_lesson_${lessonId}_exercises_show`);
-      // logFBEvent(FB_EVENT.LESSON_START);
-      // logFBConventionsEvent(FB_EVENT.LESSON_START, profile?.email || "");
 
-      const completedExercises = profile?.lessons[lessonId]?.exercises ? Object.keys(profile.lessons[lessonId].exercises) : [];
+      let completedExercises: string[] = [];
+      if (userProfile && userProfile.data) {
+        const usr = userProfile.data?.user;
+        completedExercises = (usr?.lessons?.[lessonId]?.exercises)
+          ? Object.keys(usr?.lessons[lessonId].exercises)
+          : [];
+      }
 
       dispatch(setStartLesson({
         courseId: data.course,
@@ -236,7 +240,7 @@ export default function CourseList() {
         .filter(
           (it) => !getFinished(it?.lesson?._id || "", profile?.lessons || {}),
         );
-        console.log(data.all.flat().length, "daily length:", daily.length);
+      console.log(data.all.flat().length, "daily length:", daily.length);
 
       setDailyCourses(daily);
     } catch (error) {
