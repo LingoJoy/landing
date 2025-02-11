@@ -21,6 +21,7 @@ export interface IPlan {
   priceId?: string;
   productIds: string[];
   billingInterval?: string;
+  priceDetail?: string;
 }
 
 export type TProfileResponse = {

@@ -59,8 +59,8 @@ const NewPremiumHero = () => {
         thenPrice: plan1Data.data.details.lineItems[1].formattedTotals.total,
         period: "per day",
         periodPrice: updatePriceFormatted(
-          plan1Data.data.details.lineItems[0].formattedTotals.total, 
-          (parseNumber(plan1Data.data.details.lineItems[0].formattedTotals.total)).toFixed(2), 
+          plan1Data.data.details.lineItems[0].formattedTotals.total,
+          (parseNumber(plan1Data.data.details.lineItems[0].formattedTotals.total)).toFixed(2),
           (parseNumber(plan1Data.data.details.lineItems[0].formattedTotals.total,) / 3).toFixed(2)
         ),
         weeks: 1,
@@ -68,7 +68,7 @@ const NewPremiumHero = () => {
         isFourWeek: true,
         isMostPopular: true,
         productIds: plan1Data.data.details.lineItems.map((item) => item.price.id),
-        billingInterval: `${plan1Data.data.details.lineItems[1].price.billingCycle?.frequency} ${plan1Data.data.details.lineItems[1].price.billingCycle?.interval}`
+        priceDetail: `3 days / ${plan1Data.data.details.lineItems[0].formattedTotals.total} then ${plan1Data.data.details.lineItems[1].price.billingCycle?.frequency} ${plan1Data.data.details.lineItems[1].price.billingCycle?.interval} / ${plan1Data.data.details.lineItems[1].formattedTotals.total}`
       };
       const plan2 = createPlan(plan2Data.data.details.lineItems, 1);
       const plan3 = createPlan(plan3Data.data.details.lineItems, 2);
@@ -206,7 +206,7 @@ const NewPremiumHero = () => {
       <PayModal
         isOpen={isOpenPay}
         onClose={onCloseHandler}
-        price={plan.price}
+        price={plan.priceDetail ? plan.priceDetail : plan.price}
         discount={plan.discount}
         period={plan.billingInterval}
       />

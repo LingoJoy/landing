@@ -37,7 +37,9 @@ const PriceSection: FC<IProps> = ({ onNext }) => {
     try {
       const data = await getPrices(paddle, DEFAULT_MONTH_DATA);
       if (data?.data?.details.lineItems[0]) {
-        const planRes = createPlan(data?.data?.details.lineItems, 0);
+        let planRes = createPlan(data?.data?.details.lineItems, 0);
+        planRes.priceDetail = ` 7 days / ${data.data.details.lineItems[0].formattedTotals.total} then ${planRes.billingInterval} / ${data.data.details.lineItems[1].formattedTotals.total}`;
+        planRes.billingInterval = undefined;
         setPlan(planRes);
       }
 
@@ -211,7 +213,7 @@ const PriceSection: FC<IProps> = ({ onNext }) => {
         <PayModal
           isOpen={isOpenPay}
           onClose={onCloseHandler}
-          price={price?.formattedTotals.total}
+          price={plan.priceDetail ? plan.priceDetail : price?.formattedTotals.total}
           discount={plan.discount}
           period={plan.billingInterval}
         />)}

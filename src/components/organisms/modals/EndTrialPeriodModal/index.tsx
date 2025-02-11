@@ -63,7 +63,7 @@ const EndTrialPeriodModal: FC<IProps> = ({
         isFourWeek: true,
         isMostPopular: true,
         productIds: plan1Data.data.details.lineItems.map((item) => item.price.id),
-        billingInterval: `${plan1Data.data.details.lineItems[1].price.billingCycle?.frequency} ${plan1Data.data.details.lineItems[1].price.billingCycle?.interval}`
+        priceDetail: `3 days / ${plan1Data.data.details.lineItems[0].formattedTotals.total} then ${plan1Data.data.details.lineItems[1].price.billingCycle?.frequency} ${plan1Data.data.details.lineItems[1].price.billingCycle?.interval} / ${plan1Data.data.details.lineItems[1].formattedTotals.total}`
       };
       const plan2 = createPlan(plan2Data.data.details.lineItems, 1);
       const plan3 = createPlan(plan3Data.data.details.lineItems, 2);
@@ -138,7 +138,7 @@ const EndTrialPeriodModal: FC<IProps> = ({
       <PayModal
         isOpen={isOpenPay}
         onClose={() => setIsOpenPay(false)}
-        price={plan.price}
+        price={plan.priceDetail ? plan.priceDetail : plan.price}
         discount={plan.discount}
         period={plan.billingInterval}
       />
