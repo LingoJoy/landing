@@ -13,6 +13,7 @@ import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire
 
 import { IPlan } from "@/types";
 
+import { AutoTextSize } from "auto-text-size";
 import styles from "../index.module.scss";
 
 interface ICardProps {
@@ -77,7 +78,7 @@ const PlanCard: FC<ICardProps> = ({ data, active }) => {
               <Box className={styles.planFourWeekBox}>
                 {
                   localization[
-                    ELocalizationQuestionnaire.NEW_PREMIUM_PLAN_FOUR_WEEK
+                  ELocalizationQuestionnaire.NEW_PREMIUM_PLAN_FOUR_WEEK
                   ]
                 }
               </Box>
@@ -85,20 +86,22 @@ const PlanCard: FC<ICardProps> = ({ data, active }) => {
             <Box className={styles.discountBox}>
               {data.thenPrice ? (
                 <p>
-                  <span>{data.price}</span>{" "}
-                  <span className={styles.thenPrice}>
-                    {
-                      localization[
+                  <AutoTextSize minFontSizePx={5} maxFontSizePx={14}>
+                    {data.price}
+                    <span className={styles.thenPrice}>
+                      {
+                        localization[
                         ELocalizationQuestionnaire.LANDING_YOUR_PLAN_AND_THEN
-                      ]
-                    }{" "}
-                    {data.thenPrice}/
-                    {
-                      localization[
+                        ]
+                      }{" "}
+                      {data.thenPrice}/
+                      {
+                        localization[
                         ELocalizationQuestionnaire.LANDING_YOUR_PLAN_MONTH
-                      ]
-                    }
-                  </span>
+                        ]
+                      }
+                    </span>
+                  </AutoTextSize>
                 </p>
               ) : null}
               {data.discount ? (
@@ -120,7 +123,7 @@ const PlanCard: FC<ICardProps> = ({ data, active }) => {
                     {data.price}{" "}
                     {
                       localization[
-                        ELocalizationQuestionnaire.LANDING_YOUR_PLAN_PER_MONTH
+                      ELocalizationQuestionnaire.LANDING_YOUR_PLAN_PER_MONTH
                       ]
                     }
                   </span>
@@ -138,7 +141,9 @@ const PlanCard: FC<ICardProps> = ({ data, active }) => {
                   : styles.planPrice
               }
             >
-              {data.periodPrice}
+              <AutoTextSize minFontSizePx={5} maxFontSizePx={24}>
+                {data.periodPrice}
+              </AutoTextSize>
             </p>
             {data.periodDiscount && (
               <p className={styles.planPrice}>{data.periodDiscount}</p>

@@ -500,6 +500,11 @@
   height: 28px;
 }
 
+.discountBox {
+  width: 200px;
+  margin: '0 auto';
+}
+
 .discountBox p {
   display: flex;
   align-items: center;
@@ -507,7 +512,6 @@
   font-size: 14px;
   line-height: 16px;
   letter-spacing: -0.5px;
-
   color: $main-black;
 
   & svg {
@@ -555,6 +559,7 @@
   line-height: 16px;
   letter-spacing: -0.5px;
   color: $main-black;
+  text-align: center;
 }
 
 .planDiscount {
@@ -562,6 +567,7 @@
   font-size: 24px;
   line-height: 24px;
   letter-spacing: -0.5px;
+  text-align: center;
 
   color: $main-black;
 }

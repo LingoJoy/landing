@@ -116,6 +116,10 @@
   border-radius: 30px;
 }
 
+.discountBox {
+  width: 100px;
+}
+
 .discountBox p {
   font-weight: 400;
   font-size: 14px;
@@ -150,15 +154,19 @@
 .planPriceContent {
   position: relative;
   z-index: 1;
-  width: 125px;
+  width: 80px;
   text-align: center;
 }
 
 .planPrice {
   font-weight: 700;
-  font-size: 24px;
-  line-height: 24px;
+  font-size: clamp(16px, 4vw, 24px);
+  line-height: 1;
   letter-spacing: -0.5px;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .planPeriod {

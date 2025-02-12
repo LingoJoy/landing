@@ -329,7 +329,7 @@
   height: 73px;
 }
 
-.popularPhrasesWrapper > div {
+.popularPhrasesWrapper>div {
   margin-bottom: 5px;
 }
 
@@ -459,11 +459,9 @@
 
 .yourPlanWrapper {
   padding-top: 41px;
-  background: linear-gradient(
-    180deg,
-    $white-color 0%,
-    $secondary-light-blue 100%
-  );
+  background: linear-gradient(180deg,
+      $white-color 0%,
+      $secondary-light-blue 100%);
 }
 
 .yourPlanExampleBox {
@@ -578,6 +576,10 @@
   border-radius: 30px;
 }
 
+.discountBox {
+  width: 150px;
+}
+
 .discountBox p {
   font-weight: 400;
   font-size: 14px;
@@ -612,7 +614,7 @@
 .planPriceContent {
   position: relative;
   z-index: 1;
-  width: 125px;
+  width: 80px;
   text-align: center;
 }
 
@@ -1304,7 +1306,7 @@
     margin: 0 auto;
   }
 
-  .popularPhrasesWrapper > div {
+  .popularPhrasesWrapper>div {
     margin-bottom: 7px;
   }
 

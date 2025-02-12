@@ -13,6 +13,7 @@ import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire
 
 import { IPlan } from "@/types";
 
+import { AutoTextSize } from "auto-text-size";
 import styles from "../index.module.scss";
 
 interface ICardProps {
@@ -65,13 +66,13 @@ const PlanCard: FC<ICardProps> = ({ data, active }) => {
                 <span className={styles.thenPrice}>
                   {
                     localization[
-                      ELocalizationQuestionnaire.LANDING_YOUR_PLAN_AND_THEN
+                    ELocalizationQuestionnaire.LANDING_YOUR_PLAN_AND_THEN
                     ]
                   }{" "}
                   {data.thenPrice}/
                   {
                     localization[
-                      ELocalizationQuestionnaire.LANDING_YOUR_PLAN_MONTH
+                    ELocalizationQuestionnaire.LANDING_YOUR_PLAN_MONTH
                     ]
                   }
                 </span>
@@ -89,7 +90,7 @@ const PlanCard: FC<ICardProps> = ({ data, active }) => {
                   {data.price}{" "}
                   {
                     localization[
-                      ELocalizationQuestionnaire.LANDING_YOUR_PLAN_PER_MONTH
+                    ELocalizationQuestionnaire.LANDING_YOUR_PLAN_PER_MONTH
                     ]
                   }
                 </span>
@@ -107,7 +108,9 @@ const PlanCard: FC<ICardProps> = ({ data, active }) => {
             className={styles.planPrice}
             style={{ color: active ? "#FFFFFF" : "#303030" }}
           >
-            {data.periodPrice}
+            <AutoTextSize minFontSizePx={5} maxFontSizePx={24}>
+              {data.periodPrice}
+            </AutoTextSize>
           </p>
           <p
             className={styles.planPeriod}
@@ -145,7 +148,7 @@ const YourPlanSection: FC<IProps> = ({
               <h2 className={styles.title} id="plan">
                 {
                   localization[
-                    ELocalizationQuestionnaire.LANDING_YOUR_PLAN_TITLE
+                  ELocalizationQuestionnaire.LANDING_YOUR_PLAN_TITLE
                   ]
                 }
               </h2>
@@ -196,17 +199,17 @@ const YourPlanSection: FC<IProps> = ({
             <p className={styles.terms}>
               {
                 localization[
-                  ELocalizationQuestionnaire.LANDING_YOUR_PLAN_TERMS_1
+                ELocalizationQuestionnaire.LANDING_YOUR_PLAN_TERMS_1
                 ]
               }{" "}
-              ${plan.discount ? plan.discount : plan.price}{" "}
+              {plan.discount ? plan.discount : plan.price}{" "}
               {localization[ELocalizationQuestionnaire.EVERY]}{" "}
               {plan.weeks > 1 ? (
                 <>
                   {plan.weeks}{" "}
                   {
                     localization[
-                      ELocalizationQuestionnaire.LANDING_YOUR_PLAN_WEEKS
+                    ELocalizationQuestionnaire.LANDING_YOUR_PLAN_WEEKS
                     ]
                   }
                 </>
@@ -215,14 +218,14 @@ const YourPlanSection: FC<IProps> = ({
                   1{" "}
                   {
                     localization[
-                      ELocalizationQuestionnaire.LANDING_YOUR_PLAN_WEEK
+                    ELocalizationQuestionnaire.LANDING_YOUR_PLAN_WEEK
                     ]
                   }
                 </>
               )}{" "}
               {
                 localization[
-                  ELocalizationQuestionnaire.LANDING_YOUR_PLAN_TERMS_2
+                ELocalizationQuestionnaire.LANDING_YOUR_PLAN_TERMS_2
                 ]
               }{" "}
               <a href="/privacy/terms_of_subcriptions.html">
