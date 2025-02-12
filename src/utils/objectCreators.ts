@@ -7,8 +7,10 @@ import { IPlan } from "@/types";
 export const parseNumber = (string: string) => parseFloat(string.replace(/^\D|,+/g, ""))
 
 export const updatePriceFormatted = (input: string, newPrice: string): string => {
-    const oldPrice = `${parseNumber(input)}`;
-    const regex = new RegExp(oldPrice.replace('.', '\\.'), 'g');
+    const oldPrice = input.match(/[\d,.]+/)?.[0] || '';
+    if (!oldPrice) return input;
+
+    const regex = new RegExp(oldPrice.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
     return input.replace(regex, newPrice);
 };
 
@@ -18,7 +20,6 @@ export const createPlan = (
     isMostPopular?: boolean,
 ): IPlan => {
     const el = elements[0];
-    
     const weeks = el.price.billingCycle?.interval == "week" ? el.price.billingCycle?.frequency : (el.price.billingCycle?.frequency || 0) * 4;
     const subItem = elements.find((item) => item.price.billingCycle?.interval);
     const discount = subItem ? parseNumber(subItem.formattedTotals.total) : parseNumber(el.formattedTotals.total);
