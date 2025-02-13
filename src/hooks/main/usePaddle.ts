@@ -55,7 +55,13 @@ export function usePaddle(redirectUrl?: string) {
                         return;
                     case "checkout.completed":
                         logEvent(`web_paddle_${event.data?.items}_${event.data?.status}`);
-                        logFBEvent(FB_EVENT.PURCHASE, { value: event.data?.items[0].totals.total, currency: event.data?.currency_code }, profile?.email || "");
+
+                        const maxPriceProduct = event.data?.items?.reduce((max, item) =>
+                            item.totals.total > max.totals.total ? item : max,
+                            event.data?.items?.[0] || null
+                        );
+
+                        logFBEvent(FB_EVENT.PURCHASE, { value: maxPriceProduct?.totals.total, currency: event.data?.currency_code }, profile?.email || "");
 
                         const transactionId = event.data?.id;
                         if (transactionId) {
