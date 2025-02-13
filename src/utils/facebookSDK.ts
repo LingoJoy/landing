@@ -47,12 +47,12 @@ export const logFBConventionsEvent = async (
                     client_user_agent: window.navigator.userAgent,
                     email,
                 },
-                ...(data != null && { data })
+                ...(data != null && { ...data })
             },
             test_event_code: "TEST72679",
         };
 
-        console.log(postData);
+        // console.log("postData:", JSON.stringify(postData, null, 2));
 
         const axiosConfig = {
             headers: {
