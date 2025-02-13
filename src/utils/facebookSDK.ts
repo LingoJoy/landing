@@ -1,4 +1,4 @@
-import { EPayUrls } from "@/constants";
+import { EPayUrls, FB_EVENT } from "@/constants";
 import axios from "axios";
 import ReactPixel from "react-facebook-pixel";
 
@@ -37,6 +37,17 @@ export const logFBConventionsEvent = async (
     try {
         const ip = await axios.get("https://geolocation-db.com/json/");
 
+        let custom_data: any | null = null;
+
+        if (eventName == FB_EVENT.PURCHASE && data) {
+            custom_data = {
+                ...(data.currency != null && { currency: data.currency }),
+                ...(data.value != null && { value: data.value })
+            }
+        }
+
+        const { fbp, fbc } = getFbParams();
+
         const postData = {
             event: {
                 action_source: "website",
@@ -46,13 +57,15 @@ export const logFBConventionsEvent = async (
                     client_ip_address: ip.data.IPv4,
                     client_user_agent: window.navigator.userAgent,
                     email,
+                    ...(fbp && { fbp }),
+                    ...(fbc && { fbc })
                 },
-                ...(data != null && { ...data })
+                ...(custom_data != null && { custom_data })
             },
             test_event_code: "TEST72679",
         };
 
-        // console.log("postData:", JSON.stringify(postData, null, 2));
+        console.log("postData:", JSON.stringify(postData, null, 2));
 
         const axiosConfig = {
             headers: {
@@ -68,4 +81,14 @@ export const logFBConventionsEvent = async (
     } catch (error) {
         console.error(error);
     }
+};
+
+const getFbParams = () => {
+    const params = new URLSearchParams(window.location.search);
+    const fbclid = params.get("fbclid");
+
+    const fbc = fbclid ? `fb.1.${Date.now()}.${fbclid}` : document.cookie.match(/_fbc=([^;]*)/)?.[1] || null;
+    const fbp = document.cookie.match(/_fbp=([^;]*)/)?.[1] || null;
+
+    return { fbp, fbc };
 };
