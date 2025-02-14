@@ -61,7 +61,7 @@ export function usePaddle(redirectUrl?: string) {
                             product = event.data?.items[1]
                         }
 
-                        logFBEvent(FB_EVENT.PURCHASE, { value: product?.totals.total, currency: event.data?.currency_code }, profile?.email || "");
+                        logFBEvent(FB_EVENT.PURCHASE, { value: Math.ceil(product?.totals.total || 0), currency: event.data?.currency_code }, profile?.email || "");
 
                         const transactionId = event.data?.id;
                         if (transactionId) {
