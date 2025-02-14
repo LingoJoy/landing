@@ -56,12 +56,12 @@ export function usePaddle(redirectUrl?: string) {
                     case "checkout.completed":
                         logEvent(`web_paddle_${event.data?.items}_${event.data?.status}`);
 
-                        const maxPriceProduct = event.data?.items?.reduce((max, item) =>
-                            item.totals.total > max.totals.total ? item : max,
-                            event.data?.items?.[0] || null
-                        );
+                        let product = event.data?.items[0];
+                        if (event.data && event.data.items.length > 1) {
+                            product = event.data?.items[1]
+                        }
 
-                        logFBEvent(FB_EVENT.PURCHASE, { value: maxPriceProduct?.totals.total, currency: event.data?.currency_code }, profile?.email || "");
+                        logFBEvent(FB_EVENT.PURCHASE, { value: product?.totals.total, currency: event.data?.currency_code }, profile?.email || "");
 
                         const transactionId = event.data?.id;
                         if (transactionId) {
