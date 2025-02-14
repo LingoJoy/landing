@@ -54,7 +54,7 @@ export function usePaddle(redirectUrl?: string) {
                         setTimeout(() => setIsClosed(false), 100);
                         return;
                     case "checkout.completed":
-                        logEvent(`web_paddle_${event.data?.items}_${event.data?.status}`);
+                        logEvent(`web_paddle_${event.data?.items.length}_${event.data?.status}`);
 
                         let product = event.data?.items[0];
                         if (event.data && event.data.items.length > 1) {

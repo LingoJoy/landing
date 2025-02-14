@@ -2,7 +2,6 @@ import { EPayUrls, FB_EVENT } from "@/constants";
 import axios from "axios";
 import ReactPixel from "react-facebook-pixel";
 
-import { uuid } from "./uuid";
 
 export type Params = { [key: string]: string | number };
 
@@ -51,7 +50,6 @@ export const logFBConventionsEvent = async (
         const postData = {
             event: {
                 action_source: "website",
-                event_id: uuid(),
                 event_name: eventName,
                 user_data: {
                     client_ip_address: ip.data.IPv4,
@@ -62,7 +60,6 @@ export const logFBConventionsEvent = async (
                 },
                 ...(custom_data != null && { custom_data })
             },
-            test_event_code: "TEST72679",
         };
 
         // console.log("postData:", JSON.stringify(postData, null, 2));
