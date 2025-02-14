@@ -20,13 +20,13 @@ export const initFacebookSdk = async (appId: string) => {
 };
 
 export const logFBEvent = (eventName: string, data?: any, email?: string) => {
-    ReactPixel.track(eventName, data);
+    // ReactPixel.track(eventName, data);
     logFBConventionsEvent(eventName, email, data);
 };
 
 export const logFBCustomEvent = (eventName: string) => {
     ReactPixel.trackCustom(eventName);
-    logFBConventionsEvent(eventName);
+    // logFBConventionsEvent(eventName);
 };
 
 export const logFBConventionsEvent = async (
