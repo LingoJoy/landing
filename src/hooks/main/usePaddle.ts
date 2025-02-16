@@ -35,7 +35,6 @@ export function usePaddle(redirectUrl?: string) {
 
     useEffect(() => {
         initializePaddle({
-            // environment: "sandbox",
             token: import.meta.env.VITE_PADDLE_TOKEN || "No env",
             checkout: {
                 settings: {
@@ -56,12 +55,23 @@ export function usePaddle(redirectUrl?: string) {
                     case "checkout.completed":
                         logEvent(`web_paddle_${event.data?.items.length}_${event.data?.status}`);
 
-                        let product = event.data?.items[0];
-                        if (event.data && event.data.items.length > 1) {
-                            product = event.data?.items[1]
-                        }
+                        const items = event.data?.items ?? [];
 
-                        logFBEvent(FB_EVENT.PURCHASE, { value: Math.ceil(product?.totals.total || 0), currency: event.data?.currency_code }, profile?.email || "");
+                        const maxRecurringTotal = Math.max(
+                            ...items
+                                .map(item => item.recurring_totals?.total)
+                                .filter((val): val is number => val !== undefined)
+                        );
+
+                        const productTotal = Number.isFinite(maxRecurringTotal)
+                            ? maxRecurringTotal
+                            : Math.max(
+                                ...items
+                                    .map(item => item.totals?.total)
+                                    .filter((val): val is number => val !== undefined)
+                            ) || 0;
+
+                        logFBEvent(FB_EVENT.PURCHASE, { value: Math.ceil(productTotal), currency: event.data?.currency_code }, profile?.email || "");
 
                         const transactionId = event.data?.id;
                         if (transactionId) {
@@ -119,7 +129,6 @@ export function usePaddle(redirectUrl?: string) {
 
         paddle?.Checkout.open({
             settings: {
-                successUrl: SUCCESS_URL,
                 locale: locale?.country_code,
                 showAddDiscounts: false,
                 showAddTaxId: false
