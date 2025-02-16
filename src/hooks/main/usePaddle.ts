@@ -129,6 +129,7 @@ export function usePaddle(redirectUrl?: string) {
 
         paddle?.Checkout.open({
             settings: {
+                successUrl: SUCCESS_URL,
                 locale: locale?.country_code,
                 showAddDiscounts: false,
                 showAddTaxId: false
