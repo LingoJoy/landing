@@ -16,9 +16,13 @@ import {
 function App() {
 
   useEffect(() => {
-    initializeAmplitude(import.meta.env.VITE_AMPLITUDE_API_KEY);
-    initFacebookSdk(import.meta.env.VITE_FB_APP_ID);
-    logEvent(`web_Activate App`);
+    const init = async () => {
+      await initializeAmplitude(import.meta.env.VITE_AMPLITUDE_API_KEY);
+      initFacebookSdk(import.meta.env.VITE_FB_APP_ID);
+      logEvent("web_Activate App");
+    };
+  
+    init();
   }, []);
 
   return (

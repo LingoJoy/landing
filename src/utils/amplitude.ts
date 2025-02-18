@@ -1,10 +1,21 @@
 import * as amplitude from "@amplitude/analytics-browser";
 
+import * as sessionReplay from "@amplitude/session-replay-browser";
 import { LandingType } from '../constants/pages';
 import { logFBCustomEvent } from './facebookSDK';
+import { uuid } from "./uuid";
 
-export const initializeAmplitude = (apiKey: string) => {
+export const initializeAmplitude = async (apiKey: string) => {
     amplitude.init(apiKey);
+
+    const UUID = uuid();
+    const timestamp = Date.now();
+
+    await sessionReplay.init(apiKey, {
+        deviceId: UUID,
+        sampleRate: 1,
+        sessionId: timestamp,
+    }).promise;
 };
 
 export const logEvent = (eventName: string,
@@ -32,8 +43,9 @@ export const logEvent = (eventName: string,
     };
 
     const utmParams = getUTMParams();
-
-    amplitude.track(eventName, utmParams);
+    
+    const sessionReplayProperties = sessionReplay.getSessionReplayProperties();
+    amplitude.track(eventName, {...utmParams, ...sessionReplayProperties});
 
     logFBCustomEvent(eventName);
 };
