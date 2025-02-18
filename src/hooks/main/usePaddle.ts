@@ -47,13 +47,16 @@ export function usePaddle(redirectUrl?: string) {
                     setStatusTransaction(event.data?.status);
                 }
                 switch (event.name) {
+                    case "checkout.loaded":
+                        logEvent(`web_paddle_checkout.loaded`);
+                        return;
                     case "checkout.closed":
                         setIsClosed(true);
                         setStatusTransaction('');
                         setTimeout(() => setIsClosed(false), 100);
                         return;
                     case "checkout.completed":
-                        logEvent(`web_paddle_${event.data?.items.length}_${event.data?.status}`);
+                        logEvent(`web_paddle_checkout.completed_${event.data?.status}`);
 
                         const items = event.data?.items ?? [];
 
@@ -85,8 +88,14 @@ export function usePaddle(redirectUrl?: string) {
                             localStorage.setItem("transactionSet", JSON.stringify([...transactionSet]));
                         }
                         return;
-                    default:
+                    case "checkout.failed":
+                        logEvent(`web_paddle_checkout.failed_${event.code}`);
                         return;
+                    case "checkout.error":
+                        logEvent(`web_paddle_checkout.error_${event.code}`);
+                        return;
+                    default:
+                         return;
                 }
             },
         }).then((paddleInstance: Paddle | undefined) => {
@@ -146,6 +155,7 @@ export function usePaddle(redirectUrl?: string) {
         });
 
         if (totalPrice) {
+            logEvent(`web_show_checkout_value_${totalPrice}_${locale ? location?.currency?.code : "USD"}`);
             logFBEvent(FB_EVENT.INITIATE_CHECKOUT, { currency: locale ? location?.currency?.code : "USD", value: parseFloat(totalPrice.replace(/^\D|,+/g, "")) }, profile?.email || "");
         }
     };

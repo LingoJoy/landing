@@ -1,10 +1,10 @@
-import amplitude from 'amplitude-js';
+import * as amplitude from "@amplitude/analytics-browser";
 
 import { LandingType } from '../constants/pages';
 import { logFBCustomEvent } from './facebookSDK';
 
 export const initializeAmplitude = (apiKey: string) => {
-    amplitude.getInstance().init(apiKey);
+    amplitude.init(apiKey);
 };
 
 export const logEvent = (eventName: string,
@@ -33,8 +33,7 @@ export const logEvent = (eventName: string,
 
     const utmParams = getUTMParams();
 
-    amplitude.getInstance().setUserProperties(utmParams);
-    amplitude.getInstance().logEvent(eventName);
+    amplitude.track(eventName, utmParams);
 
     logFBCustomEvent(eventName);
 };

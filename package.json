@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@amplitude/analytics-browser": "^2.11.12",
     "@dnd-kit/core": "^6.1.0",
     "@egjs/react-grid": "^1.17.0",
     "@emotion/react": "^11.11.4",
@@ -22,7 +23,6 @@
     "@sentry/react": "^8.35.0",
     "@types/amplitude-js": "^8.16.5",
     "@wavesurfer/react": "^1.0.7",
-    "amplitude-js": "^8.21.9",
     "axios": "^1.7.3",
     "crypto-js": "^4.2.0",
     "glob": "^11.0.0",
