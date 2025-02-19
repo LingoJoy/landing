@@ -49,6 +49,7 @@ export function usePaddle(redirectUrl?: string) {
                 switch (event.name) {
                     case "checkout.loaded":
                         logEvent(`web_paddle_checkout.loaded`);
+                        console.log("----loaded")
                         return;
                     case "checkout.closed":
                         setIsClosed(true);
