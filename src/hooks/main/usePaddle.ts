@@ -141,6 +141,8 @@ export function usePaddle(redirectUrl?: string) {
             settings: {
                 successUrl: SUCCESS_URL,
                 locale: locale?.country_code,
+                showAddDiscounts: false,
+                showAddTaxId: false
             },
             items: items,
             discountId,
