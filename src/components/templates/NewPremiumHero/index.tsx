@@ -86,7 +86,7 @@ const NewPremiumHero = () => {
   };
 
   const handlePlan = (plan: IPlan) => {
-    openCheckout(plan.productIds, undefined, ERoutes.SIGN_UP, plan.thenPrice || plan.price);
+    openCheckout(plan.productIds, undefined, ERoutes.SIGN_UP, plan.thenPrice || plan.discount);
     setIsOpenPay(true);
   };
 
@@ -207,7 +207,7 @@ const NewPremiumHero = () => {
       <PayModal
         isOpen={isOpenPay}
         onClose={onCloseHandler}
-        price={plan.priceDetail ? plan.priceDetail : plan.price}
+        price={plan.priceDetail ? plan.priceDetail : plan.discount}
         discount={plan.discount}
         period={plan.billingInterval}
       />

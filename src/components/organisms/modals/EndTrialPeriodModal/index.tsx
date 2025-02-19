@@ -81,7 +81,7 @@ const EndTrialPeriodModal: FC<IProps> = ({
   };
 
   const handlePlan = useCallback((plan: IPlan) => {
-    openCheckout(plan.productIds, undefined, ERoutes.COURSES, plan.thenPrice || plan.price);
+    openCheckout(plan.productIds, undefined, ERoutes.COURSES, plan.thenPrice || plan.discount);
     setIsOpenPay(true);
   }, [openCheckout]);
 
@@ -139,7 +139,7 @@ const EndTrialPeriodModal: FC<IProps> = ({
       <PayModal
         isOpen={isOpenPay}
         onClose={() => setIsOpenPay(false)}
-        price={plan.priceDetail ? plan.priceDetail : plan.price}
+        price={plan.priceDetail ? plan.priceDetail : plan.discount}
         discount={plan.discount}
         period={plan.billingInterval}
       />
