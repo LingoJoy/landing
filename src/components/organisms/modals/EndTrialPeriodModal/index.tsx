@@ -81,7 +81,7 @@ const EndTrialPeriodModal: FC<IProps> = ({
   };
 
   const handlePlan = useCallback((plan: IPlan) => {
-    openCheckout(plan.productIds, undefined, ERoutes.COURSES, plan.thenPrice || plan.discount);
+    openCheckout(plan.productIds, plan.discountID, ERoutes.COURSES, plan.thenPrice || plan.discount);
     setIsOpenPay(true);
   }, [openCheckout]);
 

@@ -23,6 +23,11 @@ export const createPlan = (
     const weeks = el.price.billingCycle?.interval == "week" ? el.price.billingCycle?.frequency : (el.price.billingCycle?.frequency || 0) * 4;
     const subItem = elements.find((item) => item.price.billingCycle?.interval);
     const discount = subItem ? parseNumber(subItem.formattedTotals.total) : parseNumber(el.formattedTotals.total);
+    const discountID = elements
+        .flatMap((val) => val.discounts ?? [])
+        .map((a) => a.discount?.id)
+        .find((id) => id !== undefined);
+
     return {
         id: el.price.id,
         title: el.product.name,
@@ -35,6 +40,7 @@ export const createPlan = (
         createDate: el.product.createdAt,
         isMostPopular,
         productIds: elements.map((item) => item.price.id),
-        billingInterval: subItem ? `${subItem?.price.billingCycle?.frequency} ${subItem?.price.billingCycle?.interval}` : undefined
+        billingInterval: subItem ? `${subItem?.price.billingCycle?.frequency} ${subItem?.price.billingCycle?.interval}` : undefined,
+        discountID
     };
 };
