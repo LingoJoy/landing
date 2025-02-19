@@ -12,8 +12,9 @@ import { FB_EVENT } from "@/constants";
 import { getLocation, getProfile, ILocation } from "@/store/profile";
 import { getQuestionnaire } from "@/store/questionnaire";
 import { logEvent } from "@/utils/amplitude";
-import { logFBEvent } from "@/utils/facebookSDK";
+import { cachedIp, getFbParams, logFBEvent } from "@/utils/facebookSDK";
 import CryptoJS from "crypto-js";
+import { parseNumber } from "../../utils/objectCreators";
 
 const checkoutSettings: CheckoutSettings = {
     displayMode: "inline",
@@ -49,7 +50,6 @@ export function usePaddle(redirectUrl?: string) {
                 switch (event.name) {
                     case "checkout.loaded":
                         logEvent(`web_paddle_checkout.loaded`);
-                        console.log("----loaded")
                         return;
                     case "checkout.closed":
                         setIsClosed(true);
@@ -96,7 +96,7 @@ export function usePaddle(redirectUrl?: string) {
                         logEvent(`web_paddle_checkout.error_${event.code}`);
                         return;
                     default:
-                         return;
+                        return;
                 }
             },
         }).then((paddleInstance: Paddle | undefined) => {
@@ -137,6 +137,23 @@ export function usePaddle(redirectUrl?: string) {
             })
         }
 
+        const productTotal = parseNumber(totalPrice || "0");
+        const { fbp, fbc } = getFbParams();
+
+        const customData = {
+            user_data: {
+                fbp: fbp,
+                fbc: fbc,
+                email: email,
+                client_ip_address: cachedIp,
+                client_user_agent: window.navigator.userAgent,
+            },
+            custom_data: {
+                value: Math.ceil(productTotal),
+                currency: locale ? location?.currency?.code : "USD"
+            }
+        }
+
         paddle?.Checkout.open({
             settings: {
                 successUrl: SUCCESS_URL,
@@ -153,11 +170,12 @@ export function usePaddle(redirectUrl?: string) {
                     postalCode: locale?.zip || ""
                 },
             },
+            customData
         });
 
         if (totalPrice) {
-            logEvent(`web_show_checkout_value_${totalPrice}_${locale ? location?.currency?.code : "USD"}`);
-            logFBEvent(FB_EVENT.INITIATE_CHECKOUT, { currency: locale ? location?.currency?.code : "USD", value: parseFloat(totalPrice.replace(/^\D|,+/g, "")) }, profile?.email || "");
+            logEvent(`web_show_checkout_value_${productTotal}_${locale ? location?.currency?.code : "USD"}`);
+            logFBEvent(FB_EVENT.INITIATE_CHECKOUT, { currency: locale ? location?.currency?.code : "USD", value: productTotal }, profile?.email || "");
         }
     };
     const closeCheckout = async () => {

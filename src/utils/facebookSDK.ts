@@ -5,6 +5,8 @@ import ReactPixel from "react-facebook-pixel";
 
 export type Params = { [key: string]: string | number };
 
+export let cachedIp: string | null = null;
+
 export const initFacebookSdk = async (appId: string) => {
     try {
         const options = {
@@ -28,13 +30,14 @@ export const logFBCustomEvent = (eventName: string) => {
     // logFBConventionsEvent(eventName);
 };
 
+
 export const logFBConventionsEvent = async (
     eventName: string,
     email?: string,
     data?: any
 ) => {
     try {
-        const ip = await axios.get("https://geolocation-db.com/json/");
+        const ip = await getIpAddress();
 
         let custom_data: any | null = null;
 
@@ -52,7 +55,7 @@ export const logFBConventionsEvent = async (
                 action_source: "website",
                 event_name: eventName,
                 user_data: {
-                    client_ip_address: ip.data.IPv4,
+                    client_ip_address: ip,
                     client_user_agent: window.navigator.userAgent,
                     email,
                     ...(fbp && { fbp }),
@@ -61,8 +64,6 @@ export const logFBConventionsEvent = async (
                 ...(custom_data != null && { custom_data })
             },
         };
-
-        // console.log("postData:", JSON.stringify(postData, null, 2));
 
         const axiosConfig = {
             headers: {
@@ -80,7 +81,19 @@ export const logFBConventionsEvent = async (
     }
 };
 
-const getFbParams = () => {
+const getIpAddress = async () => {
+    if (!cachedIp) {
+        try {
+            const response = await axios.get("https://geolocation-db.com/json/");
+            cachedIp = response.data.IPv4;
+        } catch (error) {
+            cachedIp = "0.0.0.0";
+        }
+    }
+    return cachedIp;
+};
+
+export const getFbParams = () => {
     const params = new URLSearchParams(window.location.search);
     const fbclid = params.get("fbclid");
 
