@@ -43,7 +43,7 @@ const NewestPremiumHero = () => {
 
       const plan1 = {
         id: plan1Data.data.details.lineItems[0].price.id,
-        title: plan1Data.data.details.lineItems[1].product.name,
+        title: plan1Data.data.details.lineItems[0].product.name,
         icon: DEFAULT_YOUR_PLAN_DATA[0].icon,
         price: plan1Data.data.details.lineItems[0].formattedTotals.total,
         thenPrice: plan1Data.data.details.lineItems[1].formattedTotals.total,
