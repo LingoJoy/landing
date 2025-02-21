@@ -94,7 +94,7 @@ const LanguageSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
       });
 
       dispatch(setLocalizationQuestionnaire(data));
-      logEvent(`web_quest_language_${optionLanguage}_on_continue`);
+      logEvent(`web_quest_language_on_continue`);
 
       onNext();
     } catch (error: Error | any) {
@@ -111,14 +111,14 @@ const LanguageSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
     if (defaultLanguage === selectedLanguage) {
       handleOption(selectedLanguage);
     } else {
-      logEvent(`web_quest_language_${selectedLanguage}_on_select`);
+      logEvent(`web_quest_language_on_select`);
       setLanguage(selectedLanguage);
       requestAnimationFrame(() => window.scrollTo(0, 0));
     }
   };
 
   const handleCancel = () => {
-    logEvent(`web_quest_language_${language}_on_cancel`);
+    logEvent(`web_quest_language_on_cancel`);
     setLanguage("");
   };
 

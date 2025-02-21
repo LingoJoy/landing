@@ -126,7 +126,7 @@ export default function CourseList() {
     title: string,
   ) => {
     logEvent(
-      `web_${profile?.level}_[{${category}]_lesson_${lessonId}_on_press`,
+      `web_${profile?.level}_[{${category}]_lesson_on_press`,
     );
 
     try {
@@ -139,7 +139,7 @@ export default function CourseList() {
       const exercises = data.exercises.map((el: Exercise) =>
         el._id ? el : { ...el, _id: "final" },
       );
-      logEvent(`web_lesson_${lessonId}_exercises_show`);
+      logEvent(`web_lesson_exercises_show`);
 
       let completedExercises: string[] = [];
       if (userProfile && userProfile.data) {
@@ -191,7 +191,7 @@ export default function CourseList() {
       );
     }
 
-    logEvent(`web_${profile?.level}_[{${category}]_book_${lessonId}_on_press`);
+    logEvent(`web_${profile?.level}_book_on_press`);
 
     try {
       setIsLoading(true);
@@ -255,7 +255,7 @@ export default function CourseList() {
 
     dispatch(setCategory(filter));
 
-    logEvent(`web_${profile?.level}_[{${filter}]_category_on_change`);
+    logEvent(`web_${profile?.level}_category_on_change`);
     setCourseList(homeData.category[filter]);
     setActiveFilter(filter);
   };

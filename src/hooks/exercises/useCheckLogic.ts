@@ -3,17 +3,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { useAlert } from "@/components/organisms/AlertMessage";
+import { ELocalization, ERoutes } from "@/constants";
 import {
   getActiveCourse,
   getWrongExersises,
   resetActiveCourse,
-  setNextExercise,
+  selectExercise,
   setExercises,
+  setNextExercise,
   setStartLesson,
-  setWrongCompletedExersises,
-  selectExercise
+  setWrongCompletedExersises
 } from "@/store/ActiveLesson";
-import { ELocalization, ERoutes } from "@/constants";
 import { getLocalization } from "@/store/localization";
 import { getProfile } from "@/store/profile";
 import { logEvent } from "@/utils/amplitude";
@@ -42,7 +42,7 @@ export const useCheckLogic = ({ isCorrect, lastCard, nextId, setIsCorrect, curre
   };
 
   const handleIncorrectAnswer = () => {
-    logEvent(`web_${profile?.level}_[{${activeLesson.category}]_show_error`);
+    logEvent(`web_${profile?.level}_show_error`);
 
     dispatch(setWrongCompletedExersises(currentId));
     showAlert(false, localization[ELocalization.NOTIFICATION_FAIL]);

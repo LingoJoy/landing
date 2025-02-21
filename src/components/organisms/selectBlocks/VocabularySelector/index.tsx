@@ -1,17 +1,17 @@
-import { FC } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { MasonryGrid } from "@egjs/react-grid";
 import { Box } from "@mui/material";
+import { FC } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import SelectorHeader from "@/components/molecules/SelectorHeader";
 import SelectorFooter from "@/components/molecules/SelectorFooter";
+import SelectorHeader from "@/components/molecules/SelectorHeader";
 import SelectorOption from "@/components/molecules/SelectorOption";
 
-import { getQuestionnaire, setQuestionnaire } from "@/store/questionnaire";
 import { ELocalizationQuestionnaire } from "@/constants";
-import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
-import { logEvent } from "@/utils/amplitude";
 import { useScaleText } from "@/hooks/main/useScaleText";
+import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
+import { getQuestionnaire, setQuestionnaire } from "@/store/questionnaire";
+import { logEvent } from "@/utils/amplitude";
 import { questFBProgressLog } from "@/utils/questionnaireHelpers";
 
 import { TVocabularyAttributes } from "@/types";
@@ -85,7 +85,7 @@ const VocabularySelector: FC<IProps> = ({
     questFBProgressLog(progress + 1);
 
     logEvent(
-      `web_quest_vocabulary_test_${storeKey}_${state.vocabulary[storeKey].length}_on_continue`,
+      `web_quest_vocabulary_test_on_continue`,
     );
 
     onNext();

@@ -1,24 +1,24 @@
+import { Box, Button, FormControl, Stack, Typography } from "@mui/material";
 import React, { ReactNode, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Box, Typography, FormControl, Stack, Button } from "@mui/material";
 
 import { CardContentWrapper } from "@/components/atoms/CardWrapper";
 import DreamsIcon from "@/components/atoms/icons/DreamsIcon";
 
-import RocketResult from "@/assets/card-img/rocket-dynamic-color.png";
+import CrowResult from "@/assets/card-img/crow-dynamic-color.png";
 import FireResult from "@/assets/card-img/fire-dynamic-color.png";
 import MedalResult from "@/assets/card-img/medal-dynamic-color.png";
-import ThumbUpResult from "@/assets/card-img/thumb-up-dynamic-color.png";
-import CrowResult from "@/assets/card-img/crow-dynamic-color.png";
-import TrophyResult from "@/assets/card-img/trophy-dynamic-color.png";
+import RocketResult from "@/assets/card-img/rocket-dynamic-color.png";
 import TargetResult from "@/assets/card-img/target-dynamic-color.png";
+import ThumbUpResult from "@/assets/card-img/thumb-up-dynamic-color.png";
+import TrophyResult from "@/assets/card-img/trophy-dynamic-color.png";
 import Pen from "@/assets/pen.png";
 
-import { hideGood, selectExercise, setStartFix } from "@/store/ActiveLesson";
 import { ELocalization } from "@/constants";
+import { hideGood, selectExercise, setStartFix } from "@/store/ActiveLesson";
 import { getLocalization } from "@/store/localization";
-import { logEvent } from "@/utils/amplitude";
 import { getProfile } from "@/store/profile";
+import { logEvent } from "@/utils/amplitude";
 
 import styles from "./index.module.scss";
 
@@ -135,23 +135,23 @@ const CardProgressResult: React.FC<CardProgressResultProps> = ({
       : resultConfig[type];
 
   const handleFix = () => {
-    logEvent(`web_${profile?.level}_[{${lesson.category}]_on_fix_mistakes`);
+    logEvent(`web_${profile?.level}_on_fix_mistakes`);
     dispatch(setStartFix(lesson.wrongCompletedExercises[0]._id));
     onClick();
   };
 
   const handleHide = () => {
-    logEvent(`web_${profile?.level}_[{${lesson.category}]_inter_hide`);
+    logEvent(`web_${profile?.level}_inter_hide`);
     onClick();
   };
 
   const handleSkip = () => {
-    logEvent(`web_${profile?.level}_[{${lesson.category}]_on_skip_mistakes`);
+    logEvent(`web_${profile?.level}_on_skip_mistakes`);
     dispatch(hideGood());
   };
 
   useEffect(() => {
-    logEvent(`web_${profile?.level}_[{${lesson.category}]_inter_show`);
+    logEvent(`web_${profile?.level}_inter_show`);
   }, []);
 
   return (

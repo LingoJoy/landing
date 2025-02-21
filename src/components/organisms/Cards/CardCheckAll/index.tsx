@@ -1,23 +1,23 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
 import {
   Box,
-  Typography,
-  Stack,
-  FormControl,
   Button,
+  FormControl,
+  Stack,
+  Typography,
   useMediaQuery,
 } from "@mui/material";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import PlayButton from "@/components/molecules/PlayButton";
 
 import MainImage from "@/assets/boy-with-map.png";
 
-import { selectExercise, setNextExercise } from "@/store/ActiveLesson";
 import { ELocalization } from "@/constants";
+import { setNextExercise } from "@/store/ActiveLesson";
 import { getLocalization } from "@/store/localization";
-import { logEvent } from "@/utils/amplitude";
 import { getProfile } from "@/store/profile";
+import { logEvent } from "@/utils/amplitude";
 
 import { Exercise } from "@/types";
 
@@ -29,7 +29,6 @@ interface CardCheckAllProps {
 
 const CardCheckAll: React.FC<CardCheckAllProps> = ({ exercise }) => {
   const localization = useSelector(getLocalization);
-  const lesson = useSelector(selectExercise);
   const profile = useSelector(getProfile);
 
   const dispatch = useDispatch();
@@ -37,7 +36,7 @@ const CardCheckAll: React.FC<CardCheckAllProps> = ({ exercise }) => {
   const isNotMobile = useMediaQuery("(min-width:600px)");
 
   const handleSubmit = () => {
-    logEvent(`web_${profile?.level}_[{${lesson.category}]_on_finish`);
+    logEvent(`web_${profile?.level}_on_finish`);
     dispatch(setNextExercise());
   };
 

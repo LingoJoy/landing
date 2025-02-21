@@ -1,25 +1,25 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 import { Box, Button, Divider, Typography } from "@mui/material";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-import ContentWrapper from "@/components/organisms/ContentWrapper";
-import CardWrapper from "@/components/organisms/CardWrapper";
 import BackButton from "@/components/atoms/BackButton";
 import Field from "@/components/atoms/Field";
 import Modal from "@/components/atoms/Modal";
+import CardWrapper from "@/components/organisms/CardWrapper";
+import ContentWrapper from "@/components/organisms/ContentWrapper";
 
-import { ERoutes } from "@/constants/pages";
-import { validatePassword } from "@/utils/validations";
 import { ELocalization, EUrls } from "@/constants";
+import { ERoutes } from "@/constants/pages";
+import { User } from "@/store/auth/query";
 import { getLocalization } from "@/store/localization";
 import axios from "@/utils/AxiosConfig";
-import { User } from "@/store/auth/query";
+import { validatePassword } from "@/utils/validations";
 
-import styles from "./index.module.scss";
+import ForgotPasswordAuthModal from "@/components/organisms/modals/ForgotPasswordAuthModal";
 import { getProfile, setProfile } from "@/store/profile";
 import { logEvent } from "@/utils/amplitude";
-import ForgotPasswordAuthModal from "@/components/organisms/modals/ForgotPasswordAuthModal";
+import styles from "./index.module.scss";
 
 interface IErrors {
   oldPassword: ELocalization | "";
@@ -101,7 +101,7 @@ export const PasswordTemplate: React.FC = () => {
     try {
       await axios.post(EUrls.USERS_RESET, { email: profile?.email });
 
-      logEvent(`web_forgot_password_${profile?.email}_on_send`);
+      logEvent(`web_forgot_password_on_send`);
     } catch (error) {
       console.error(error);
     }

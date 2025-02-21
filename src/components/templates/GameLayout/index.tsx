@@ -1,9 +1,9 @@
+import { Box } from "@mui/material";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Box } from "@mui/material";
 
-import HeaderCard from "@/components/organisms/HeaderCard";
 import AutoHeightWrapper from "@/components/organisms/AutoHeightWrapper";
+import HeaderCard from "@/components/organisms/HeaderCard";
 
 import { RootState } from "@/store";
 import {
@@ -11,9 +11,9 @@ import {
   resetActiveCourse,
   selectExercise,
 } from "@/store/ActiveLesson";
-import { logEvent } from "@/utils/amplitude";
-import { getProfile } from "@/store/profile";
 import { getLocalization } from "@/store/localization";
+import { getProfile } from "@/store/profile";
+import { logEvent } from "@/utils/amplitude";
 import {
   renderIconCourseTitle,
   renderIconCourseType,
@@ -61,7 +61,7 @@ export const GameLayout: React.FC<ILayout> = ({
   );
 
   const handleClose = () => {
-    logEvent(`web_${profile?.level}_[{${lesson.category}]_hide`);
+    logEvent(`web_${profile?.level}_hide`);
     dispatch(resetActiveCourse());
   };
 

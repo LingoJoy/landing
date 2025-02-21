@@ -1,17 +1,17 @@
+import { Box } from "@mui/material";
 import { FC } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Box } from "@mui/material";
 
-import SelectorOption from "@/components/molecules/SelectorOption";
 import SelectorHeader from "@/components/molecules/SelectorHeader";
+import SelectorOption from "@/components/molecules/SelectorOption";
 import MainContainer from "@/components/organisms/MainContainer";
 
 import {
   DEFAULT_HOW_OFTEN_DATA,
   ELocalizationQuestionnaire,
 } from "@/constants";
-import { getQuestionnaire, setQuestionnaire } from "@/store/questionnaire";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
+import { getQuestionnaire, setQuestionnaire } from "@/store/questionnaire";
 import { logEvent } from "@/utils/amplitude";
 import { questFBProgressLog } from "@/utils/questionnaireHelpers";
 
@@ -53,7 +53,7 @@ const HowOftenSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
 
     questFBProgressLog(progress + 1);
 
-    logEvent(`web_quest_how_often_${often}_on_continue`);
+    logEvent(`web_quest_how_often_on_continue`);
 
     onNext();
   };

@@ -72,7 +72,7 @@ const EmailHero = () => {
   const handleEmail = () => {
     dispatch(setQuestionnaire({ ...state, email }));
 
-    logEvent(`web_quest_email_${email}_on_continue`);
+    logEvent(`web_quest_email_on_continue`);
     logFBEvent(FB_EVENT.COMPLETE_REGISTRATION, null, email);
     navigate({
       pathname: ERoutes.WORDS,

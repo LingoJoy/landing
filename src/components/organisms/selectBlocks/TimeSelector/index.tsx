@@ -1,15 +1,15 @@
+import { Box } from "@mui/material";
 import { FC, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Box } from "@mui/material";
 
+import SelectorFooter from "@/components/molecules/SelectorFooter";
 import SelectorHeader from "@/components/molecules/SelectorHeader";
 import MainContainer from "@/components/organisms/MainContainer";
-import SelectorFooter from "@/components/molecules/SelectorFooter";
 import SwipeTime from "../../SwipeTime";
 
 import { DEFAULT_TIME_DATA, ELocalizationQuestionnaire } from "@/constants";
-import { getQuestionnaire, setQuestionnaire } from "@/store/questionnaire";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
+import { getQuestionnaire, setQuestionnaire } from "@/store/questionnaire";
 import { logEvent } from "@/utils/amplitude";
 import { questFBProgressLog } from "@/utils/questionnaireHelpers";
 
@@ -60,7 +60,7 @@ const TimeSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
 
     questFBProgressLog(progress + 1);
 
-    logEvent(`web_quest_time_${from}_${to}_on_continue`);
+    logEvent(`web_quest_time_on_continue`);
 
     onNext();
   };

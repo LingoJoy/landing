@@ -88,7 +88,7 @@ const LoginForm = () => {
         );
       } else sessionStorage.setItem("LingoJoyLogin", "true");
 
-      logEvent(`web_login_${email}`);
+      logEvent(`web_login`);
 
       setErrors({ email: "", password: "" });
       navigate(ERoutes.COURSES);

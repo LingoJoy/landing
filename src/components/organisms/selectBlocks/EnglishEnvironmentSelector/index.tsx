@@ -1,19 +1,19 @@
+import { Box } from "@mui/material";
 import { FC } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Box } from "@mui/material";
 
-import SelectorOption from "@/components/molecules/SelectorOption";
 import SelectorHeader from "@/components/molecules/SelectorHeader";
+import SelectorOption from "@/components/molecules/SelectorOption";
 import MainContainer from "@/components/organisms/MainContainer";
 
 import {
   DEFAULT_ENGLISH_ENVIRONMENT_DATA,
   ELocalizationQuestionnaire,
 } from "@/constants";
-import { getQuestionnaire, setQuestionnaire } from "@/store/questionnaire";
-import { handleGetBooleanAgreement } from "@/utils/handleGetters";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
+import { getQuestionnaire, setQuestionnaire } from "@/store/questionnaire";
 import { logEvent } from "@/utils/amplitude";
+import { handleGetBooleanAgreement } from "@/utils/handleGetters";
 import { questFBProgressLog } from "@/utils/questionnaireHelpers";
 
 import styles from "../index.module.scss";
@@ -59,7 +59,7 @@ const EnglishEnvironmentSelector: FC<IProps> = ({
     );
     questFBProgressLog(progress + 1);
 
-    logEvent(`web_quest_with_games_${agreement}_on_continue`);
+    logEvent(`web_quest_with_games_on_continue`);
 
     onNext();
   };

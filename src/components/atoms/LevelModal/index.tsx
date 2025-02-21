@@ -1,18 +1,17 @@
-import React, { useRef } from "react";
-import { useLocation } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 import { Box } from "@mui/material";
+import React, { useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 
 import BackButton from "../BackButton";
 
 import Close from "@/assets/close.svg";
 
 import { DEFAULT_LEVELS, ELocalization, ERoutes, EUrls } from "@/constants";
-import { getProfile, setProfile } from "@/store/profile";
 import { getLocalization } from "@/store/localization";
-import axios from "@/utils/AxiosConfig";
-import { selectExercise } from "@/store/ActiveLesson";
+import { getProfile, setProfile } from "@/store/profile";
 import { logEvent } from "@/utils/amplitude";
+import axios from "@/utils/AxiosConfig";
 
 import styles from "./index.module.scss";
 
@@ -27,7 +26,6 @@ const LevelModal: React.FC<IProps> = ({ isOpen, onClose }) => {
   const { pathname } = useLocation();
 
   const profile = useSelector(getProfile);
-  const lesson = useSelector(selectExercise);
   const localization = useSelector(getLocalization);
   const dispatch = useDispatch();
 
@@ -46,7 +44,7 @@ const LevelModal: React.FC<IProps> = ({ isOpen, onClose }) => {
     if (profile) {
       try {
         if (pathname === ERoutes.COURSES)
-          logEvent(`web_${level}_[{${lesson.category}]_level_on_change`);
+          logEvent(`web_${level}_level_on_change`);
         if (pathname.includes(ERoutes.PROFILE))
           logEvent(`web_profile_${level}_level_on_change`);
 

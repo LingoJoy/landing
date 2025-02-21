@@ -12,7 +12,7 @@ import { FB_EVENT } from "@/constants";
 import { getLocation, getProfile, ILocation } from "@/store/profile";
 import { getQuestionnaire } from "@/store/questionnaire";
 import { logEvent } from "@/utils/amplitude";
-import { cachedIp, getFbParams, logFBEvent } from "@/utils/facebookSDK";
+import { cachedIp, eventID, getFbParams, logFBEvent } from "@/utils/facebookSDK";
 import CryptoJS from "crypto-js";
 import { parseNumber } from "../../utils/objectCreators";
 
@@ -141,6 +141,7 @@ export function usePaddle(redirectUrl?: string) {
         const { fbp, fbc } = getFbParams();
 
         const customData = {
+            eventID,
             user_data: {
                 fbp: fbp,
                 fbc: fbc,

@@ -51,7 +51,7 @@ const SwipedCard: React.FC<IProps> = ({ exercise, nextId }) => {
   };
 
   const handleNextProgress = () => {
-    logEvent(`web_${profile?.level}_[{${lesson.category}]_on_next_completed`);
+    logEvent(`web_${profile?.level}_on_next_completed`);
     // logFBEvent(
     //   `${FB_EVENT.EXERCISE_COMPLETED} ${profile?.level}_[{${lesson.category}]`,
     // );
@@ -79,7 +79,7 @@ const SwipedCard: React.FC<IProps> = ({ exercise, nextId }) => {
   };
 
   const handleNext = () => {
-    logEvent(`web_${profile?.level}_[{${lesson.category}]_on_next`);
+    logEvent(`web_${profile?.level}_on_next`);
 
     const active = swiperRef.current?.swiper.activeIndex;
 

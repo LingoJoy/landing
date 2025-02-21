@@ -1,18 +1,18 @@
+import { Box } from "@mui/material";
 import { FC, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Box } from "@mui/material";
 
+import Field from "@/components/atoms/Field";
+import SelectorFooter from "@/components/molecules/SelectorFooter";
 import SelectorHeader from "@/components/molecules/SelectorHeader";
 import MainContainer from "@/components/organisms/MainContainer";
-import SelectorFooter from "@/components/molecules/SelectorFooter";
-import Field from "@/components/atoms/Field";
 
-import { getQuestionnaire, setQuestionnaire } from "@/store/questionnaire";
 import { ELocalizationQuestionnaire } from "@/constants";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
-import { validateQuestName } from "@/utils/validations";
+import { getQuestionnaire, setQuestionnaire } from "@/store/questionnaire";
 import { logEvent } from "@/utils/amplitude";
 import { questFBProgressLog } from "@/utils/questionnaireHelpers";
+import { validateQuestName } from "@/utils/validations";
 
 import withKeyboardDismiss from "@/HOCs/withKeyboardDismiss";
 import styles from "../index.module.scss";
@@ -56,7 +56,7 @@ const NameSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
       }),
     );
 
-    logEvent(`web_quest_name_${name}_on_continue`);
+    logEvent(`web_quest_name_on_continue`);
 
     questFBProgressLog(progress + 1);
 

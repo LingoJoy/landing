@@ -1,17 +1,17 @@
+import { Box, Button, Divider, Stack } from "@mui/material";
 import { FC, ReactNode, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Box, Button, Divider, Stack } from "@mui/material";
 
 import Field from "@/components/atoms/Field";
 import Modal from "@/components/atoms/Modal";
 
-import { validateQuestEmail, validateQuestPassword } from "@/utils/validations";
 import { ELocalizationQuestionnaire, EUrls } from "@/constants";
-import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
-import axios from "@/utils/AxiosConfig";
 import { User } from "@/store/auth/query";
+import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 import { setProfile } from "@/store/profile";
 import { logEvent } from "@/utils/amplitude";
+import axios from "@/utils/AxiosConfig";
+import { validateQuestEmail, validateQuestPassword } from "@/utils/validations";
 
 import styles from "./index.module.scss";
 
@@ -103,7 +103,7 @@ const ForgotPasswordModal: FC<IProps> = ({ isOpen, onClose }) => {
     try {
       await axios.post(EUrls.USERS_RESET, { email });
 
-      logEvent(`web_forgot_password_${email}_on_send`);
+      logEvent(`web_forgot_password_on_send`);
 
       setStep(2);
     } catch (error) {

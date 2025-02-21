@@ -41,7 +41,7 @@ const MotivationSelector: FC<IProps> = ({ onNext, onBack, progress }) => {
     );
     questFBProgressLog(progress + 1);
 
-    logEvent(`web_quest_motivation_${motivationState}_on_continue`);
+    logEvent(`web_quest_motivation_on_continue`);
 
     onNext();
   };

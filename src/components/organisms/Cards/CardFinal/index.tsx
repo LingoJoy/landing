@@ -1,19 +1,19 @@
+import { Box, Button, Stack, Typography } from "@mui/material";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Box, Typography, Stack, Button } from "@mui/material";
 
 import { CardContentWrapper } from "@/components/atoms/CardWrapper";
 
 import Couple from "@/assets/couple.png";
 
-import { resetActiveCourse, selectExercise } from "@/store/ActiveLesson";
-import { getLocalization } from "@/store/localization";
 import { ELocalization, EUrls } from "@/constants";
-import axios from "@/utils/AxiosConfig";
-import { updatePostProgress } from "@/utils/apiHelpers";
-import { getProfile, setProfile } from "@/store/profile";
+import { resetActiveCourse, selectExercise } from "@/store/ActiveLesson";
 import { User } from "@/store/auth/query";
+import { getLocalization } from "@/store/localization";
+import { getProfile, setProfile } from "@/store/profile";
+import axios from "@/utils/AxiosConfig";
 import { logEvent } from "@/utils/amplitude";
+import { updatePostProgress } from "@/utils/apiHelpers";
 
 import styles from "./index.module.scss";
 
@@ -25,7 +25,7 @@ const CardFinal: React.FC = () => {
   const localization = useSelector(getLocalization);
 
   const handleSubmit = async () => {
-    logEvent(`web_${profile?.level}_[{${lesson.category}]_on_home`);
+    logEvent(`web_${profile?.level}_on_home`);
 
     try {
       const { data }: { data: User } = await axios.post(

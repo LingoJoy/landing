@@ -152,7 +152,7 @@ const CreateAccountForm = () => {
         password: "",
       });
 
-      logEvent(`web_create_account_${email.toLowerCase().trim()}_on_continue`);
+      logEvent(`web_create_account_on_continue`);
       navigate(ERoutes.COURSES);
 
       localStorage.removeItem("transactionSet");

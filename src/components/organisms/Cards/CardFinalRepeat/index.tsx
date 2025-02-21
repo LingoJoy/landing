@@ -1,23 +1,23 @@
+import { Box, Button, Stack, Typography } from "@mui/material";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Box, Typography, Stack, Button } from "@mui/material";
 
 import { CardContentWrapper } from "@/components/atoms/CardWrapper";
 
 import Couple from "@/assets/couple.png";
 
+import { ELocalization, EUrls } from "@/constants";
 import {
   resetActiveCourse,
   selectExercise,
   setStartLesson,
 } from "@/store/ActiveLesson";
-import { getLocalization } from "@/store/localization";
-import { ELocalization, EUrls } from "@/constants";
-import axios from "@/utils/AxiosConfig";
-import { updatePostProgress } from "@/utils/apiHelpers";
-import { getProfile, setProfile } from "@/store/profile";
 import { User } from "@/store/auth/query";
+import { getLocalization } from "@/store/localization";
+import { getProfile, setProfile } from "@/store/profile";
+import axios from "@/utils/AxiosConfig";
 import { logEvent } from "@/utils/amplitude";
+import { updatePostProgress } from "@/utils/apiHelpers";
 import { useAlert } from "../../AlertMessage";
 
 import styles from "./index.module.scss";
@@ -50,7 +50,7 @@ const CardFinalRepeat: React.FC = () => {
         `${EUrls.USERS_PROGRESS}/${lesson.lessonId}/complete`,
       );
 
-      logEvent(`web_${profile?.level}_[{${lesson.category}]_on_review`);
+      logEvent(`web_${profile?.level}_on_review`);
 
       dispatch(setProfile(data));
       dispatch(resetActiveCourse());
@@ -66,7 +66,7 @@ const CardFinalRepeat: React.FC = () => {
   };
 
   const handleRepeat = async () => {
-    logEvent(`web_${profile?.level}_[{${lesson.category}]_on_restart`);
+    logEvent(`web_${profile?.level}_on_restart`);
     try {
       const { data } = await axios.post(
         `${EUrls.USERS_PROGRESS}/${lesson?.lessonId || ""}/reset`,

@@ -93,7 +93,7 @@ export default function PopularPhrases() {
     title: string,
   ) => {
     logEvent(
-      `web_${profile?.level}_[{${category}]_lesson_${lessonId}_on_press`,
+      `web_${profile?.level}_[{${category}]_lesson_on_press`,
     );
 
     try {
@@ -104,7 +104,7 @@ export default function PopularPhrases() {
       const exercises = data.exercises.map((el: Exercise) =>
         el._id ? el : { ...el, _id: "final" },
       );
-      logEvent(`web_lesson_${lessonId}_exercises_show`);
+      logEvent(`web_lesson_exercises_show`);
       // logFBEvent(FB_EVENT.LESSON_START);
       // logFBConventionsEvent(FB_EVENT.LESSON_START, profile?.email || "");
 
@@ -142,7 +142,7 @@ export default function PopularPhrases() {
       );
     }
 
-    logEvent(`web_${profile?.level}_[{${category}]_book_${lessonId}_on_press`);
+    logEvent(`web_${profile?.level}_[{${category}]_book_on_press`);
 
     try {
       setIsLoading(true);

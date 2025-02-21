@@ -11,11 +11,10 @@ import {
   getNextWrongExerciseId,
   getPrevExerciseId,
   getPrevWrongExerciseId,
-  selectExercise,
   setCurrentExercise,
   setFinishExercise,
   setNextExercise,
-  updateExercise,
+  updateExercise
 } from "@/store/ActiveLesson";
 import { getLocalization } from "@/store/localization";
 import { getProfile } from "@/store/profile";
@@ -53,7 +52,6 @@ const NavigationButtons: React.FC<IProps> = ({
   const localization = useSelector(getLocalization);
   const prevExerciseId = useSelector(getPrev);
   const nextExerciseId = useSelector(getNext);
-  const lesson = useSelector(selectExercise);
   const profile = useSelector(getProfile);
 
   const dispatch = useDispatch();
@@ -64,10 +62,10 @@ const NavigationButtons: React.FC<IProps> = ({
   };
 
   const handleNext = () => {
-    logEvent(`web_${profile?.level}_[{${lesson.category}]_on_next`);
+    logEvent(`web_${profile?.level}_on_next`);
 
     if (!nextExerciseId) {
-      logEvent(`web_${profile?.level}_[{${lesson.category}]_on_finish`);
+      logEvent(`web_${profile?.level}_on_finish`);
       return dispatch(setFinishExercise());
     }
 
@@ -76,7 +74,7 @@ const NavigationButtons: React.FC<IProps> = ({
 
     onNext();
 
-    logEvent(`web_${profile?.level}_[{${lesson.category}]_on_next_completed`);
+    logEvent(`web_${profile?.level}_on_next_completed`);
 
     // logFBEvent(
     //   `${FB_EVENT.EXERCISE_COMPLETED} ${profile?.level}_[{${lesson.category}]`,
@@ -90,7 +88,7 @@ const NavigationButtons: React.FC<IProps> = ({
   };
 
   const handleDontKnow = () => {
-    logEvent(`web_${profile?.level}_[{${lesson.category}]_on_dont_know`);
+    logEvent(`web_${profile?.level}_on_dont_know`);
 
     dispatch(updateExercise({ ...exercise, completed: true }));
 

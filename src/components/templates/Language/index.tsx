@@ -1,23 +1,23 @@
+import { Box, Chip, Divider, Typography } from "@mui/material";
+import axios from "axios";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import { Box, Chip, Divider, Typography } from "@mui/material";
 
-import { ProfileTemplate } from "@/components/templates";
-import ContentWrapper from "@/components/organisms/ContentWrapper";
-import Modal from "@/components/atoms/Modal";
 import BackButton from "@/components/atoms/BackButton";
+import Modal from "@/components/atoms/Modal";
+import ContentWrapper from "@/components/organisms/ContentWrapper";
+import { ProfileTemplate } from "@/components/templates";
 
-import { ERoutes } from "@/constants/pages";
-import { DEFAULT_LANGUAGE_DATA } from "@/constants/data/language.data";
-import { getProfile, setProfile } from "@/store/profile";
 import { ELocalization, EUrls } from "@/constants";
+import { DEFAULT_LANGUAGE_DATA } from "@/constants/data/language.data";
+import { ERoutes } from "@/constants/pages";
 import { ILanguage, User } from "@/store/auth/query";
 import { getLocalization, setLocalization } from "@/store/localization";
+import { getProfile, setProfile } from "@/store/profile";
 import axiosConfig from "@/utils/AxiosConfig";
-import { getServerLocalization } from "@/utils/apiHelpers";
 import { logEvent } from "@/utils/amplitude";
+import { getServerLocalization } from "@/utils/apiHelpers";
 
 import { TLocalizationType } from "@/types";
 
@@ -55,7 +55,7 @@ export const LanguageTemplate: React.FC = () => {
 
       dispatch(setLocalization(dataLang));
 
-      logEvent(`profile_${profile?.level}_language_${language.translate}_on_change`);
+      logEvent(`profile_${profile?.level}_language_on_change`);
     } catch (error) {
       console.error("Error in handleSubmit function", error);
     }

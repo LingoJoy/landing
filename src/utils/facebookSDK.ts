@@ -1,11 +1,13 @@
 import { EPayUrls, FB_EVENT } from "@/constants";
 import axios from "axios";
 import ReactPixel from "react-facebook-pixel";
+import { uuid } from "./uuid";
 
 
 export type Params = { [key: string]: string | number };
 
 export let cachedIp: string | null = null;
+export const eventID = uuid();
 
 export const initFacebookSdk = async (appId: string) => {
     try {
@@ -21,8 +23,10 @@ export const initFacebookSdk = async (appId: string) => {
 };
 
 export const logFBEvent = (eventName: string, data?: any, email?: string) => {
-    // ReactPixel.track(eventName, data);
-    logFBConventionsEvent(eventName, email, data);
+    ReactPixel.track(eventName, {...data, eventID});
+    if(eventName != FB_EVENT.PURCHASE) {
+        logFBConventionsEvent(eventName, email, data);
+    }
 };
 
 export const logFBCustomEvent = (eventName: string) => {
@@ -53,6 +57,7 @@ export const logFBConventionsEvent = async (
         const postData = {
             event: {
                 action_source: "website",
+                event_id: eventID,
                 event_name: eventName,
                 user_data: {
                     client_ip_address: ip,
