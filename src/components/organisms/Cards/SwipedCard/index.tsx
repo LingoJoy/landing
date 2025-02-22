@@ -15,7 +15,7 @@ import PlayButton from "@/components/molecules/PlayButton";
 
 import Arrow from "@/assets/arrow-full-right.svg";
 
-import { selectExercise, setNextExercise } from "@/store/ActiveLesson";
+import { setNextExercise } from "@/store/ActiveLesson";
 
 import { ELocalization, ETranslate } from "@/constants";
 import { getLocalization } from "@/store/localization";
@@ -41,7 +41,6 @@ const SwipedCard: React.FC<IProps> = ({ exercise, nextId }) => {
 
   const localization = useSelector(getLocalization);
   const profile = useSelector(getProfile);
-  const lesson = useSelector(selectExercise);
 
   const swiperRef = useRef<SwiperRef>(null);
 
