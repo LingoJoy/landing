@@ -176,7 +176,7 @@ export function usePaddle(redirectUrl?: string) {
 
         if (totalPrice) {
             logEvent(`web_show_checkout_value_${productTotal}_${locale ? location?.currency?.code : "USD"}`);
-            logFBEvent(FB_EVENT.INITIATE_CHECKOUT, { currency: locale ? location?.currency?.code : "USD", value: productTotal }, profile?.email || "");
+            logFBEvent(FB_EVENT.INITIATE_CHECKOUT);
         }
     };
     const closeCheckout = async () => {
