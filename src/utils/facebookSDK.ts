@@ -66,8 +66,7 @@ export const logFBConventionsEvent = async (
                     ...(fbp && { fbp }),
                     ...(fbc && { fbc })
                 },
-                ...(custom_data != null && { custom_data }),
-                test_event_code: "TEST43144"
+                ...(custom_data != null && { custom_data })
             },
         };
 
