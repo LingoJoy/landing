@@ -141,8 +141,8 @@ export function usePaddle(redirectUrl?: string) {
         const { fbp, fbc } = getFbParams();
 
         const customData = {
-            eventID,
             user_data: {
+                event_id: eventID,
                 fbp: fbp,
                 fbc: fbc,
                 email: email,
