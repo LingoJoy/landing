@@ -23,6 +23,7 @@ const PlanHero = () => {
 
   const newPremium = searchParams.get("new-premium");
   const newestLanding = searchParams.get("newest-landing");
+  const newLandingPremium = searchParams.get("new-landing-premium");
 
   useEffect(() => {
     logEvent(`web_showed_plan_page`);
@@ -35,6 +36,9 @@ const PlanHero = () => {
     }
     if (typeof newestLanding === 'string') {
       return ERoutes.NEWEST_LANDING;
+    }
+    if (typeof newLandingPremium === 'string') {
+      return ERoutes.NEW_LANDING_PREMIUM;
     }
 
       return ERoutes.NEW_LANDING;
