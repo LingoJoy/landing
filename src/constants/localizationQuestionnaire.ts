@@ -323,6 +323,21 @@ export enum ELocalizationQuestionnaire {
     LANDING_YOUR_PLAN_MONTH = 'landingYourPlansMonth',
     LANDING_YOUR_PLAN_PER_MONTH = 'landingYourPlansPerMonth',
 
+    //new-landing-premium
+    NEW_PREMIUM_LANDING_HEADER_DESC = 'newPremiumLandingHeaderDesc',
+    NEW_PREMIUM_LANDING_ANALYZE_1 = 'newPremiumLandingAnalyze1',
+    NEW_PREMIUM_LANDING_ANALYZE_2 = 'newPremiumLandingAnalyze2',
+    NEW_PREMIUM_LANDING_ANALYZE_3 = 'newPremiumLandingAnalyze3',
+    NEW_PREMIUM_LANDING_ANALYZE_4 = 'newPremiumLandingAnalyze4',
+    NEW_PREMIUM_LANDING_PLAN_START_LEARN = 'newPremiumLandingStartLearn',
+    NEW_PREMIUM_LANDING_PLAN_PAY_SAFE = 'newPremiumLandingPaySafe',
+
+    LANDING_LAST_CHANCE_TITLE = "landing_last_chance_title",
+    LANDING_LAST_CHANCE_DESC = "landing_last_chance_desc",
+    LANDING_LAST_CHANCE_BUTTON = "landing_last_chance_button",
+    LANDING_LAST_CHANCE_BOX_1 = "landing_last_chance_box_1",
+    LANDING_LAST_CHANCE_BOX_2 = "landing_last_chance_box_2",
+
     // premium
     PREMIUM_HEADER = 'premiumHeader',
     PREMIUM_PRICE_CHIP = 'premiumPriceChip',

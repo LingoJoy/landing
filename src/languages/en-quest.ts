@@ -458,6 +458,20 @@ const en: TLocalizationQuestionnaireType = {
   [ELocalizationQuestionnaire.END_TRIAL_DESCR_3]: "Popular Phrases",
 
   [ELocalizationQuestionnaire.UNLIMITED_ACCESS]: "Get Unlimited Access",
+  [ELocalizationQuestionnaire.NEW_PREMIUM_LANDING_HEADER_DESC] : "Accessible anytime, anywhere for flexible learning.",
+  [ELocalizationQuestionnaire.NEW_PREMIUM_LANDING_ANALYZE_1] : "Unlimited Interactive Practice",
+  [ELocalizationQuestionnaire.NEW_PREMIUM_LANDING_ANALYZE_2] : "Personalized Study Plan",
+  [ELocalizationQuestionnaire.NEW_PREMIUM_LANDING_ANALYZE_3] : "Real-time AI feedback",
+  [ELocalizationQuestionnaire.NEW_PREMIUM_LANDING_ANALYZE_4] : "Control & Track Your Progress",
+  [ELocalizationQuestionnaire.NEW_PREMIUM_LANDING_PLAN_START_LEARN] : "Start Learning",
+  [ELocalizationQuestionnaire.NEW_PREMIUM_LANDING_PLAN_PAY_SAFE] : "Pay safe & secure",
+
+  [ELocalizationQuestionnaire.LANDING_LAST_CHANCE_TITLE] : "Special discount unlocked!",
+  [ELocalizationQuestionnaire.LANDING_LAST_CHANCE_DESC] : "We want you to succeed, which is why we're offering an additional discount",
+  [ELocalizationQuestionnaire.LANDING_LAST_CHANCE_BUTTON] : "Claim Discount",
+  [ELocalizationQuestionnaire.LANDING_LAST_CHANCE_BOX_1] : "Get your personal plan with\n",
+  [ELocalizationQuestionnaire.LANDING_LAST_CHANCE_BOX_2] : "71% discount",
+
 };
 
 export default en;

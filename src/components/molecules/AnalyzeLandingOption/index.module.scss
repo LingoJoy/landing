@@ -1,0 +1,25 @@
+@import "@styles/variables.scss";
+
+.optionWrapper {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-left: 50px;
+}
+
+.optionText {
+  font-size: 16px;
+  color: rgb(11, 73, 131);
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  line-height: 20px;
+  height: 16px;
+  text-size-adjust: 100%;
+}
+
+/* MEDIA QUERIES */
+// @media (min-width: 600px) {
+//   .optionText {
+//     font-size: 16px;
+//   }
+// }

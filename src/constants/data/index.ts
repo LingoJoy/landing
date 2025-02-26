@@ -16,6 +16,13 @@ export interface ISelectorQuestData {
     value?: string;
 }
 
+export interface ISelectorLandingData {
+    id: number;
+    icon: string;
+    title: ELocalizationQuestionnaire;
+    value?: string;
+}
+
 export interface ISelectorValueData {
     id: number;
     icon: string;
@@ -77,21 +84,21 @@ export interface IPreloadImagesData {
     icon: string;
 }
 
+export * from './age.data';
+export * from './analyze.data';
+export * from './aspect.data';
+export * from './children.data';
+export * from './englishEnvironment.data';
+export * from './landing.data';
 export * from './language.data';
 export * from './motivation.data';
-export * from './aspect.data';
-export * from './notes.data';
-export * from './englishEnvironment.data';
-export * from './statement.data';
-export * from './vocabulary.data';
-export * from './age.data';
-export * from './children.data';
-export * from './time.data';
-export * from './analyze.data';
-export * from './pay.data';
-export * from './landing.data';
-export * from './premium.data';
-export * from './profile.data';
 export * from './newLanding.data';
 export * from './newPremium.data';
+export * from './notes.data';
 export * from './paddle.data';
+export * from './pay.data';
+export * from './premium.data';
+export * from './profile.data';
+export * from './statement.data';
+export * from './time.data';
+export * from './vocabulary.data';

@@ -25,6 +25,7 @@
     "@types/amplitude-js": "^8.16.5",
     "@wavesurfer/react": "^1.0.7",
     "axios": "^1.7.3",
+    "classnames": "^2.5.1",
     "crypto-js": "^4.2.0",
     "glob": "^11.0.0",
     "i18next": "^23.11.5",

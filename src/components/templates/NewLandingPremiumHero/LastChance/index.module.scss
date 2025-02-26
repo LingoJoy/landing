@@ -1,0 +1,81 @@
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+  
+  .modalContainer {
+    align-items: center;
+    text-align: center;
+    max-width: 426px;
+    background: white;
+    border-radius: 16px;
+
+    img {
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+        margin: 1px auto;
+    }
+  }
+
+  .modalContentContainer {
+    font-family: 'Nunito', 'Avenir', 'Helvetica', 'Arial', sans-serif;
+    padding: 24px;
+    column-gap: 20px;
+    row-gap: 20px;
+    h2 {
+        color: rgb(11, 73, 131);
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 40px;
+    }
+    p {
+        padding-top: 20px;
+        color: rgb(13, 14, 49);
+        font-size: 18px;
+        line-height: 28px;
+    }
+  }
+  
+  .modalClose {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #555;
+    transition: color 0.2s;
+  
+    &:hover {
+      color: #000;
+    }
+  }
+  
+  .modalTitle {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .buttonStartPlan {
+    width: 100%;
+    background: $card-landing-blue-color;
+    border-radius: 16px;
+    height: 60px;
+    box-shadow: 0px 5px 0px rgb(47, 128, 204);
+    font-family: 'Nunito', 'Avenir', 'Helvetica', 'Arial', sans-serif;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 20px;
+  }
+  
+  .buttonStartPlan:hover {
+    background: rgb(58, 155, 247);;
+  }
+  

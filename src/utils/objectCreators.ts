@@ -20,14 +20,29 @@ export const createPlan = (
     isMostPopular?: boolean,
 ): IPlan => {
     const el = elements[0];
-    const weeks = el.price.billingCycle?.interval == "week" ? el.price.billingCycle?.frequency : (el.price.billingCycle?.frequency || 0) * 4;
+    let weeks = 0;
+    switch(el.price.billingCycle?.interval) {
+        case "month":
+            weeks = (el.price.billingCycle?.frequency || 0) * 4;
+            break;
+        case "week":
+            weeks = el.price.billingCycle?.frequency;
+            break;
+        case "year":
+            weeks = el.price.billingCycle?.frequency * 52;
+            break;
+        default:
+            weeks = 1;
+    }
     const subItem = elements.find((item) => item.price.billingCycle?.interval);
     const discount = subItem ? parseNumber(subItem.formattedTotals.total) : parseNumber(el.formattedTotals.total);
+    const priceWithoutDiscount = subItem ? parseNumber(subItem.formattedTotals.subtotal) : parseNumber(el.formattedTotals.subtotal);
     const discountID = elements
         .flatMap((val) => val.discounts ?? [])
         .map((a) => a.discount?.id)
         .find((id) => id !== undefined);
 
+    const periodPriceWithoutDiscount = updatePriceFormatted(el.formattedTotals.subtotal, (priceWithoutDiscount / (weeks * 7)).toFixed(2))
     return {
         id: el.price.id,
         title: el.product.name,
@@ -41,6 +56,7 @@ export const createPlan = (
         isMostPopular,
         productIds: elements.map((item) => item.price.id),
         billingInterval: subItem ? `${subItem?.price.billingCycle?.frequency} ${subItem?.price.billingCycle?.interval}` : undefined,
-        discountID
+        discountID,
+        periodPriceWithoutDiscount
     };
 };

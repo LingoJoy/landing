@@ -23,6 +23,7 @@ export interface IPlan {
   billingInterval?: string;
   priceDetail?: string;
   discountID?: string;
+  periodPriceWithoutDiscount?: string;
 }
 
 export type TProfileResponse = {

@@ -32,6 +32,7 @@ import NotificationTemplate from "@/components/templates/Notification";
 import { ERoutes } from "@/constants/pages";
 import React, { createElement, Suspense } from "react";
 import { createBrowserRouter, Navigate } from "react-router-dom";
+import NewLandingPremiumPage from "../components/pages/NewLandingPremiumPage";
 
 const CoursesPage = React.lazy(() => import("@/components/pages/Courses"));
 
@@ -74,6 +75,7 @@ export const router = createBrowserRouter([
   { path: ERoutes.LANDING, element: <LandingPage /> },
   { path: ERoutes.NEW_LANDING, element: <NewLandingPage /> },
   { path: ERoutes.NEW_PREMIUM, element: <NewPremiumPage /> },
+  { path: ERoutes.NEW_LANDING_PREMIUM, element: <NewLandingPremiumPage /> },
   { path: ERoutes.NEWEST_LANDING, element: <NewestPremiumPage /> },
   { path: ERoutes.WORDS, element: <WordsPage /> },
   { path: ERoutes.PLAN, element: <PlanPage /> },

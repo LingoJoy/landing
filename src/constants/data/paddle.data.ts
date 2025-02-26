@@ -84,3 +84,45 @@ export const DEFAULT_MONTH_DATA = {
     ],
     discountId: import.meta.env.VITE_PADDLE_PLAN_OFFER_MONTH_DISCOUNT,
 };
+
+export const DEFAULT_PADDLE_NEW_LANDING_PREMIUM_PLAN_DATA = [
+    {
+        items: [
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_1_WEEK,
+                quantity: 1,
+            },
+        ],
+        discountId: import.meta.env.VITE_PADDLE_PLAN_NEW_60_DISCOUNT,
+    },
+    {
+        items: [
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_1_YEAR,
+                quantity: 1,
+            },
+        ],
+        discountId: import.meta.env.VITE_PADDLE_PLAN_NEW_60_DISCOUNT,
+    },
+];
+
+export const DEFAULT_PADDLE_NEW_LANDING_PREMIUM_LAST_CHANCE_PLAN_DATA = [
+    {
+        items: [
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_1_WEEK,
+                quantity: 1,
+            },
+        ],
+        discountId: import.meta.env.VITE_PADDLE_PLAN_NEW_71_DISCOUNT,
+    },
+    {
+        items: [
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_1_YEAR,
+                quantity: 1,
+            },
+        ],
+        discountId: import.meta.env.VITE_PADDLE_PLAN_NEW_71_DISCOUNT,
+    },
+];

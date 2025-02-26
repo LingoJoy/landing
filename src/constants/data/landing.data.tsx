@@ -3,7 +3,7 @@ import MedalImage from "@/assets/icons/medal.png";
 import PaperImage from "@/assets/icons/paper.png";
 import ScissorsImage from "@/assets/icons/scissors.png";
 
-import { ILevel, ISelectorQuestData, IUser } from ".";
+import { ILevel, ISelectorLandingData, ISelectorQuestData, IUser } from ".";
 import { ELocalizationQuestionnaire } from "../localizationQuestionnaire";
 
 import { IPlan } from "@/types";
@@ -109,6 +109,33 @@ export const DEFAULT_PLAN_DATA: ISelectorQuestData[] = [
     title: ELocalizationQuestionnaire.LANDING_PLAN_IMPROVE,
     value: "Improve your English and use it in your life!",
     icon: "",
+  },
+];
+
+export const DEFAULT_LANDING_PREMIUM_LIST: ISelectorLandingData[] = [
+  {
+    id: 0,
+    title: ELocalizationQuestionnaire.NEW_PREMIUM_LANDING_ANALYZE_1,
+    value: "Неограниченная интерактивная практика",
+    icon: "👥",
+  },
+  {
+    id: 1,
+    title: ELocalizationQuestionnaire.NEW_PREMIUM_LANDING_ANALYZE_2,
+    value: "Персональный план обучения",
+    icon: "📝",
+  },
+  {
+    id: 2,
+    title: ELocalizationQuestionnaire.NEW_PREMIUM_LANDING_ANALYZE_3,
+    value: "Мгновенная обратная связь от ИИ",
+    icon: "💯",
+  },
+  {
+    id: 2,
+    title: ELocalizationQuestionnaire.NEW_PREMIUM_LANDING_ANALYZE_4,
+    value: "Контролируйте и отслеживайте свой прогресс",
+    icon: "⛳",
   },
 ];
 
