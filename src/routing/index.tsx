@@ -75,7 +75,6 @@ export const router = createBrowserRouter([
   { path: ERoutes.LANDING, element: <LandingPage /> },
   { path: ERoutes.NEW_LANDING, element: <NewLandingPage /> },
   { path: ERoutes.NEW_PREMIUM, element: <NewPremiumPage /> },
-  { path: ERoutes.NEW_LANDING_PREMIUM, element: <NewLandingPremiumPage /> },
   { path: ERoutes.NEWEST_LANDING, element: <NewestPremiumPage /> },
   { path: ERoutes.WORDS, element: <WordsPage /> },
   { path: ERoutes.PLAN, element: <PlanPage /> },
@@ -91,4 +90,5 @@ export const router = createBrowserRouter([
     path: ERoutes.NOT_FOUND,
     element: <Navigate to={ERoutes.QUESTIONNAIRE_START} />,
   },
+  ...(window.location.hostname !== "lingojoy.app" ? [{ path: ERoutes.NEW_LANDING_PREMIUM, element: <NewLandingPremiumPage /> }] : [])
 ]);

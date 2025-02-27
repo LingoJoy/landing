@@ -29,12 +29,11 @@ export const createPlan = (
             weeks = el.price.billingCycle?.frequency;
             break;
         case "year":
-            weeks = el.price.billingCycle?.frequency * 52;
+            weeks = el.price.billingCycle?.frequency * 61;
             break;
         default:
             weeks = 1;
     }
-    console.log(elements);
     const subItem = elements.find((item) => item.price.billingCycle?.interval);
     const discount = subItem ? parseNumber(subItem.formattedTotals.total) : parseNumber(el.formattedTotals.total);
     const priceWithoutDiscount = subItem ? parseNumber(subItem.formattedTotals.subtotal) : parseNumber(el.formattedTotals.subtotal);

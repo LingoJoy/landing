@@ -33,21 +33,21 @@ interface IProps {
   discount: number;
 }
 
-const parseCurrency = (value: string): { currency: string; i: number; f: number } => {
+const parseCurrency = (value: string): { currency: string; i: number; f: string } => {
   value = value.trim();
 
   const match = value.match(/^([^\d]+)?(\d+)([.,](\d{1,2}))?$/);
 
   if (!match) {
-    return { currency: "", i: 0, f: 0 };
+    return { currency: "", i: 0, f: "0" };
   }
 
   const currency = match[1] || "";
   let i = parseInt(match[2], 10);
-  let f = match[4] ? parseInt(match[4].padEnd(2, "0"), 10) : 0;
-  if( i == 1 && f == 0) {
+  let f = match[4] ? match[4].padEnd(2, "0") : "0"
+  if( i == 1 && parseInt(f) == 0) {
     i = 0;
-    f = 99; 
+    f = "99"; 
   }
   return { currency, i, f };
 };
