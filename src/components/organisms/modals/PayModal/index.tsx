@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 
 import Modal from "@/components/atoms/Modal";
 
-import PayPal from "@/assets/PayPal.svg";
 
 import { ELocalizationQuestionnaire } from "@/constants";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
@@ -59,9 +58,6 @@ const PayModal: FC<IProps> = ({ isOpen, onClose, title, price, period }) => {
             </Box>
           }
           <Box className={`checkout-container ${styles.checkout}`} />
-          <Box className={styles.serviceWrapper}>
-            <PayPal />
-          </Box>
         </Box>
       </Box>
     </Modal>
