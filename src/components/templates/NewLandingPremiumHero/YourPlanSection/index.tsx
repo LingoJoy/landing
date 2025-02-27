@@ -43,9 +43,12 @@ const parseCurrency = (value: string): { currency: string; i: number; f: number 
   }
 
   const currency = match[1] || "";
-  const i = parseInt(match[2], 10);
-  const f = match[4] ? parseInt(match[4].padEnd(2, "0"), 10) : 0;
-
+  let i = parseInt(match[2], 10);
+  let f = match[4] ? parseInt(match[4].padEnd(2, "0"), 10) : 0;
+  if( i == 1 && f == 0) {
+    i = 0;
+    f = 99; 
+  }
   return { currency, i, f };
 };
 
@@ -86,12 +89,12 @@ const PlanCard: FC<ICardProps> = ({ data, active, discount }) => {
                 <p style={{
                   display: "inline",
                 }}>
-                  {activeDiscount ? (
-                    <span className={styles.discount}>{data.price}</span>) : (<></>)
+                  {activeDiscount && (
+                    <span className={styles.discount}>{data.price}</span>)
                   }
                   {" "}
                   <span className={styles.priceWithoutDiscount}>
-                    {data.discount}
+                    {activeDiscount ? data.discount : data.price}
                   </span>
                 </p>
               ) : null}

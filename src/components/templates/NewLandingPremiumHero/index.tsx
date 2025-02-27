@@ -87,7 +87,7 @@ const NewLandingPremiumHero = () => {
 
     try {
       const [plan1Data, plan2Data, planLastChance1Data, planLastChance2Data] = await Promise.all([
-        getPrices(paddle, DEFAULT_PADDLE_NEW_LANDING_PREMIUM_PLAN_DATA[0]),
+        getPrices(paddle, DEFAULT_PADDLE_NEW_LANDING_PREMIUM_PLAN_DATA[0]), 
         getPrices(paddle, DEFAULT_PADDLE_NEW_LANDING_PREMIUM_PLAN_DATA[1]),
         getPrices(paddle, DEFAULT_PADDLE_NEW_LANDING_PREMIUM_LAST_CHANCE_PLAN_DATA[0]),
         getPrices(paddle, DEFAULT_PADDLE_NEW_LANDING_PREMIUM_LAST_CHANCE_PLAN_DATA[1]),
@@ -147,18 +147,6 @@ const NewLandingPremiumHero = () => {
     getData();
   }, [paddle]);
 
-  // useEffect(() => {
-  //   const timer = setInterval(() => {
-  //     setTime((time) => {
-  //       if (time <= 0) {
-  //         clearInterval(timer);
-  //         setSpecialDiscountProc(0);
-  //         return 0;
-  //       } else return time - 1;
-  //     });
-  //   }, 1000);
-  // }, []);
-
   return (
     <Box className={styles.wrapper} data-class="NewLandingHero">
       <Box className={styles.contentWrapper} data-class="NewLandingHero-content">
@@ -189,7 +177,7 @@ const NewLandingPremiumHero = () => {
               </Box>
             </Box>
           )}
-          {lastChance && (
+          {lastChance && specialDiscountProc > 0 && (
             <Box className={styles.offerLastChance}>
               <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}ln-boxoffer_banner.png`} alt="" />
               <Box className={styles.offerLastChanceText}>
@@ -232,11 +220,11 @@ const NewLandingPremiumHero = () => {
       />
       {isLastChanceModal && <LastChanceModal onClose={() => {
         restartTimer(600);
+        setSpecialDiscountProc(71);
 
         setLastChance(true);
         setPlans(lastChancePlans);
         setPlan(lastChancePlans.find((el) => el.isMostPopular) || lastChancePlans[0]);
-        setSpecialDiscountProc(71);
       }} />}
     </Box>
   );

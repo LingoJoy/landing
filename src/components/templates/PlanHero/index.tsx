@@ -37,12 +37,12 @@ const PlanHero = () => {
     if (typeof newestLanding === 'string') {
       return ERoutes.NEWEST_LANDING;
     }
-    if (typeof newLandingPremium === 'string') {
-      return ERoutes.NEW_LANDING_PREMIUM;
+    if (typeof newLandingPremium === 'string' && window.location.hostname !== "lingojoy.app" ) {
+      return ERoutes.NEW_LANDING_PREMIUM; 
     }
 
       return ERoutes.NEW_LANDING;
-  }, [newPremium, newestLanding]);
+  }, [newPremium, newestLanding, newLandingPremium]);
 
   return (
     <Box className={styles.wrapper}>

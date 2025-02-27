@@ -630,6 +630,7 @@
 
   font-family: 'Nunito', 'Avenir', 'Helvetica', 'Arial', sans-serif;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .planCard.active {
@@ -759,7 +760,7 @@
   display: inline;
   color: rgb(138, 138, 138);
   font-size: 12px;
-  height: 16px;
+  height: 16px; 
 }
 
 .planPriceWrapper {

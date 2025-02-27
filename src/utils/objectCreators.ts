@@ -34,6 +34,7 @@ export const createPlan = (
         default:
             weeks = 1;
     }
+    console.log(elements);
     const subItem = elements.find((item) => item.price.billingCycle?.interval);
     const discount = subItem ? parseNumber(subItem.formattedTotals.total) : parseNumber(el.formattedTotals.total);
     const priceWithoutDiscount = subItem ? parseNumber(subItem.formattedTotals.subtotal) : parseNumber(el.formattedTotals.subtotal);
@@ -42,12 +43,13 @@ export const createPlan = (
         .map((a) => a.discount?.id)
         .find((id) => id !== undefined);
 
-    const periodPriceWithoutDiscount = updatePriceFormatted(el.formattedTotals.subtotal, (priceWithoutDiscount / (weeks * 7)).toFixed(2))
+    const periodPriceWithoutDiscount = updatePriceFormatted(el.formattedTotals.subtotal, (priceWithoutDiscount / (weeks * 7)).toFixed(2));
+    const tax = (parseNumber(el.formattedTotals.subtotal) + (parseNumber(el.formattedTotals.subtotal) * parseNumber(el.taxRate))).toFixed(2);
     return {
         id: el.price.id,
         title: el.product.name,
         icon: DEFAULT_YOUR_PLAN_DATA[i].icon,
-        price: el.formattedTotals.subtotal,
+        price: updatePriceFormatted(el.formattedTotals.subtotal, `${tax}`),
         discount: el.formattedTotals.total,
         period: "per day",
         periodPrice: updatePriceFormatted(el.formattedTotals.subtotal, (discount / (weeks * 7)).toFixed(2)),
