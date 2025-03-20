@@ -7,12 +7,12 @@ import Modal from "@/components/atoms/Modal";
 import VerifyImage from "@/assets/icons/verify-opacity.svg";
 import Infinity from "@/assets/main/infinity.png";
 
-import { DEFAULT_PADDLE_PLAN_DATA, DEFAULT_YOUR_PLAN_DATA, ELocalizationQuestionnaire, ERoutes } from "@/constants";
+import { DEFAULT_PADDLE_NEW_LANDING_PREMIUM_PLAN_DATA, DEFAULT_PADDLE_PLAN_DATA, DEFAULT_YOUR_PLAN_DATA, ELocalizationQuestionnaire, ERoutes } from "@/constants";
 import { getLocalizationQuestionnaire } from "@/store/localization-questionnaire";
 
 import { usePaddle } from "@/hooks/main/usePaddle";
 import { IPlan } from "@/types";
-import { createPlan, parseNumber, updatePriceFormatted } from "@/utils/objectCreators";
+import { createPlan } from "@/utils/objectCreators";
 import PayModal from "../PayModal";
 import styles from "./index.module.scss";
 import YourPlanSection from "./YourPlanSection";
@@ -41,32 +41,33 @@ const EndTrialPeriodModal: FC<IProps> = ({
 
     try {
       const [plan1Data, plan2Data, plan3Data] = await Promise.all([
-        getPrices(paddle, DEFAULT_PADDLE_PLAN_DATA[0]),
-        getPrices(paddle, DEFAULT_PADDLE_PLAN_DATA[1]),
+        getPrices(paddle, DEFAULT_PADDLE_NEW_LANDING_PREMIUM_PLAN_DATA[0]),
+        getPrices(paddle, DEFAULT_PADDLE_NEW_LANDING_PREMIUM_PLAN_DATA[1]),
         getPrices(paddle, DEFAULT_PADDLE_PLAN_DATA[2])
       ]);
 
       if (!plan1Data || !plan2Data || !plan3Data) return;
 
-      const plan1 = {
-        id: plan1Data.data.details.lineItems[0].price.id,
-        title: plan1Data.data.details.lineItems[0].product.name,
-        icon: DEFAULT_YOUR_PLAN_DATA[0].icon,
-        price: plan1Data.data.details.lineItems[0].formattedTotals.total,
-        thenPrice: plan1Data.data.details.lineItems[1].formattedTotals.total,
-        period: "per day",
-        periodPrice: updatePriceFormatted(
-          plan1Data.data.details.lineItems[0].formattedTotals.total, 
-          (parseNumber(plan1Data.data.details.lineItems[0].formattedTotals.total) / 3).toFixed(2)
-        ),
-        weeks: 1,
-        createDate: plan1Data.data.details.lineItems[0].product.createdAt,
-        isFourWeek: true,
-        isMostPopular: true,
-        productIds: plan1Data.data.details.lineItems.map((item) => item.price.id),
-        priceDetail: `3 days / ${plan1Data.data.details.lineItems[0].formattedTotals.total} then ${plan1Data.data.details.lineItems[1].price.billingCycle?.frequency} ${plan1Data.data.details.lineItems[1].price.billingCycle?.interval} / ${plan1Data.data.details.lineItems[1].formattedTotals.total}`
-      };
-      const plan2 = createPlan(plan2Data.data.details.lineItems, 1);
+      // const plan1 = {
+      //   id: plan1Data.data.details.lineItems[0].price.id,
+      //   title: plan1Data.data.details.lineItems[0].product.name,
+      //   icon: DEFAULT_YOUR_PLAN_DATA[0].icon,
+      //   price: plan1Data.data.details.lineItems[0].formattedTotals.total,
+      //   thenPrice: plan1Data.data.details.lineItems[1].formattedTotals.total,
+      //   period: "per day",
+      //   periodPrice: updatePriceFormatted(
+      //     plan1Data.data.details.lineItems[0].formattedTotals.total, 
+      //     (parseNumber(plan1Data.data.details.lineItems[0].formattedTotals.total) / 3).toFixed(2)
+      //   ),
+      //   weeks: 1,
+      //   createDate: plan1Data.data.details.lineItems[0].product.createdAt,
+      //   isFourWeek: true,
+      //   isMostPopular: true,
+      //   productIds: plan1Data.data.details.lineItems.map((item) => item.price.id),
+      //   priceDetail: `3 days / ${plan1Data.data.details.lineItems[0].formattedTotals.total} then ${plan1Data.data.details.lineItems[1].price.billingCycle?.frequency} ${plan1Data.data.details.lineItems[1].price.billingCycle?.interval} / ${plan1Data.data.details.lineItems[1].formattedTotals.total}`
+      // };
+      const plan1 = createPlan(plan1Data.data.details.lineItems, 0);
+      const plan2 = createPlan(plan2Data.data.details.lineItems, 1, true);
       const plan3 = createPlan(plan3Data.data.details.lineItems, 2);
 
       const newPlans = [plan1, plan2, plan3];

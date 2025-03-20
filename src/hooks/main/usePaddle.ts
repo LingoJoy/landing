@@ -54,10 +54,10 @@ export function usePaddle(redirectUrl?: string) {
                     case "checkout.closed":
                         setIsClosed(true);
                         setStatusTransaction('');
-                        setTimeout(() => setIsClosed(false), 100);
+                        setTimeout(() => setIsClosed(false), 100); 
                         return;
                     case "checkout.completed":
-                        logEvent(`web_paddle_checkout.completed_${event.data?.status}`);
+                        logEvent(`web_paddle_checkout.completed_${event.data?.status}`, {}, false);
 
                         const items = event.data?.items ?? [];
 
@@ -75,6 +75,7 @@ export function usePaddle(redirectUrl?: string) {
                                     .filter((val): val is number => val !== undefined)
                             ) || 0;
 
+                        logEvent(`paddle_subscribe_created`, { value: Math.ceil(productTotal), currency: event.data?.currency_code, email: profile?.email || ""}, false);
                         logFBEvent(FB_EVENT.PURCHASE, { value: Math.ceil(productTotal), currency: event.data?.currency_code }, profile?.email || "");
 
                         const transactionId = event.data?.id;

@@ -18,8 +18,7 @@ export const initializeAmplitude = async (apiKey: string) => {
     }).promise;
 };
 
-export const logEvent = (eventName: string,
-) => {
+export const logEvent = (eventName: string, data: any = {}, includeFbEvent: boolean = true) => {
     const getUTMParams = () => {
 
         const landing = Object.values(LandingType).find(type => window.location.href.includes(type)) || "base";
@@ -45,7 +44,9 @@ export const logEvent = (eventName: string,
     const utmParams = getUTMParams();
     
     const sessionReplayProperties = sessionReplay.getSessionReplayProperties();
-    amplitude.track(eventName, {...utmParams, ...sessionReplayProperties});
+    amplitude.track(eventName, {...utmParams, ...sessionReplayProperties, ...data});
 
-    logFBCustomEvent(eventName);
+    if(includeFbEvent) {
+        logFBCustomEvent(eventName);
+    }
 };
