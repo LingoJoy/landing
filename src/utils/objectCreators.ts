@@ -42,6 +42,11 @@ export const createPlan = (
         .map((a) => a.discount?.id)
         .find((id) => id !== undefined);
 
+    const discounts = elements
+        .flatMap((val) => val.discounts ?? [])
+        .map((a) => a.discount);
+    const discountFormmated = discounts.length > 0 ? parseNumber(discounts[0].amount) : 0;
+
     const periodPriceWithoutDiscount = updatePriceFormatted(el.formattedTotals.subtotal, (priceWithoutDiscount / (weeks * 7)).toFixed(2));
     const tax = (parseNumber(el.formattedTotals.subtotal) + (parseNumber(el.formattedTotals.subtotal) * parseNumber(el.taxRate))).toFixed(2);
     return {
@@ -58,6 +63,7 @@ export const createPlan = (
         productIds: elements.map((item) => item.price.id),
         billingInterval: subItem ? `${subItem?.price.billingCycle?.frequency} ${subItem?.price.billingCycle?.interval}` : undefined,
         discountID,
-        periodPriceWithoutDiscount
+        periodPriceWithoutDiscount,
+        discountFormmated
     };
 };

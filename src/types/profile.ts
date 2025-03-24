@@ -24,6 +24,7 @@ export interface IPlan {
   priceDetail?: string;
   discountID?: string;
   periodPriceWithoutDiscount?: string;
+  discountFormmated?: number;
 }
 
 export type TProfileResponse = {

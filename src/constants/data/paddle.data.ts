@@ -126,3 +126,69 @@ export const DEFAULT_PADDLE_NEW_LANDING_PREMIUM_LAST_CHANCE_PLAN_DATA = [
         discountId: import.meta.env.VITE_PADDLE_PLAN_NEW_71_DISCOUNT,
     },
 ];
+
+export const PADDLE_LANDING_PR_PLAN_DATA = [
+    {
+        items: [
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_1_WEEK_6_99_TRIAL,
+                quantity: 1,
+            },
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_1_MONTH_29_99_WEEK_TRIAL,
+                quantity: 1,
+            },
+        ],
+    },
+    {
+        items: [
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_3,
+                quantity: 1,
+            },
+        ],
+        discountId: import.meta.env.VITE_PADDLE_PLAN_1_MONTH_33_DISCOUNT,
+    },
+    {
+        items: [
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_12_WEEK_49_99,
+                quantity: 1,
+            },
+        ],
+        discountId: import.meta.env.VITE_PADDLE_PLAN_12_WEEK_20_DISCOUNT,
+    },
+];
+
+export const PADDLE_LANDING_PR_LAST_CHANCE_PLAN_DATA = [
+    {
+        items: [
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_1_MONTH_29_99_WEEK_TRIAL,
+                quantity: 1,
+            },
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_1_WEEK_6_99_TRIAL,
+                quantity: 1,
+            },
+        ],
+    },
+    {
+        items: [
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_3,
+                quantity: 1,
+            },
+        ],
+        discountId: import.meta.env.VITE_PADDLE_PLAN_NEW_71_DISCOUNT,
+    },
+    {
+        items: [
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_12_WEEK_49_99,
+                quantity: 1,
+            },
+        ],
+        discountId: import.meta.env.VITE_PADDLE_PLAN_NEW_71_DISCOUNT,
+    },
+];
