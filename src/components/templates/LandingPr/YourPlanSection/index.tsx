@@ -53,7 +53,7 @@ const parseCurrency = (value: string): { currency: string; i: number; f: string 
 };
 
 const PlanCard: FC<ICardProps> = ({ data, active, discount }) => {
-  const priceForrmated = discount > 0 ? parseCurrency(`${data.periodPrice}`) : data.isFourWeek ? parseCurrency(`${data.periodPrice}`)  : parseCurrency(`${data.periodPriceWithoutDiscount}`);
+  const priceForrmated = discount > 0 ? parseCurrency(`${data.periodPrice}`) : data.isFourWeek ? parseCurrency(`${data.periodPrice}`) : parseCurrency(`${data.periodPriceWithoutDiscount}`);
   const activeDiscount = discount > 0;
   const localization = useSelector(getLocalizationQuestionnaire);
 
@@ -221,37 +221,25 @@ const YourPlanSection: FC<IProps> = ({
               <img src={PaymentIcons} style={{ height: "46px" }} alt="Payment Methods" />
 
               <p className={styles.terms}>
-                {
-                  localization[
-                  ELocalizationQuestionnaire.LANDING_YOUR_PLAN_TERMS_1
-                  ]
-                }{" "}
-                {plan.discount ? plan.discount : plan.price}{" "}
-                {localization[ELocalizationQuestionnaire.EVERY]}{" "}
-                {plan.weeks > 1 ? (
+                {plan.weeks == 1 ? (
                   <>
-                    {plan.weeks}{" "}
-                    {
-                      localization[
-                      ELocalizationQuestionnaire.LANDING_YOUR_PLAN_WEEKS
-                      ]
-                    }
+                    By continuing you agree that if you don't cancel at least 24 hours prior to the end of the 7 days introductory period, you will automatically be charged the full price of {plan.thenPrice} every month until you cancel in settings. Learn more about cancellation and refund policy in
                   </>
-                ) : (
+                ) : (<></>
+                )}
+                {plan.weeks == 4 ? (
                   <>
-                    1{" "}
-                    {
-                      localization[
-                      ELocalizationQuestionnaire.LANDING_YOUR_PLAN_WEEK
-                      ]
-                    }
+                    By continuing you agree that if you don't cancel at least 24 hours prior to the end of the 1 month introductory period, you will automatically be charged the full price of {plan.price} every month until you cancel in settings. Learn more about cancellation and refund policy in
                   </>
-                )}{" "}
-                {
-                  localization[
-                  ELocalizationQuestionnaire.LANDING_YOUR_PLAN_TERMS_2
-                  ]
-                }{" "}
+                ) : (<></>
+                )}
+                {plan.weeks > 10 ? (
+                  <>
+                    By continuing you agree that if you don't cancel at least 24 hours prior to the end of the 12 weeks introductory period, you will automatically be charged the full price of {plan.price} every 12 weeks until you cancel in settings. Learn more about cancellation and refund policy in
+                  </>
+                ) : (<></>
+                )}
+                <span> </span>
                 <a href="/privacy/terms_of_subcriptions.html">
                   {localization[ELocalizationQuestionnaire.SUBSCRIPTION_POLICY]}
                 </a>
