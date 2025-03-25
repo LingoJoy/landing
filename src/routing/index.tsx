@@ -95,4 +95,6 @@ export const router = createBrowserRouter([
   ...(window.location.hostname !== "lingojoy.app" ? [{ path: ERoutes.NEW_LANDING_PREMIUM, element: <NewLandingPremiumPage /> }] : []),
   ...(window.location.hostname !== "lingojoy.app" ? [{ path: ERoutes.LANDING_PR, element: <LandingPrPage /> }] : []),
   ...(window.location.hostname !== "lingojoy.app" ? [{ path: ERoutes.LANDING_PR2, element: <LandingPr2Page /> }] : []),
+  ...(window.location.hostname !== "lingojoy.app" ? [{ path: ERoutes.LANDING_PR3, element: <LandingPr2Page /> }] : []),
+  ...(window.location.hostname !== "lingojoy.app" ? [{ path: ERoutes.LANDING_PR4, element: <LandingPr2Page /> }] : []),
 ]);

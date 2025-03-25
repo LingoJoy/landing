@@ -99,6 +99,12 @@ const LandingPr2 = () => {
       setPlansError("");
 
       // const planWeek = createPlan(planWeekData.data.details.lineItems, 0);
+      const url = window.location.pathname;
+      let popularIdx = 0;
+
+      if (url.includes(ERoutes.LANDING_PR2)) popularIdx = 2;
+      if (url.includes(ERoutes.LANDING_PR3)) popularIdx = 1;
+      if (url.includes(ERoutes.LANDING_PR4)) popularIdx = 0;
 
       const planWeek = {
         id: planWeekData.data.details.lineItems[0].price.id,
@@ -114,7 +120,7 @@ const LandingPr2 = () => {
         weeks: 1,
         createDate: planWeekData.data.details.lineItems[0].product.createdAt,
         isFourWeek: true,
-        isMostPopular: true,
+        isMostPopular: false,
         productIds: planWeekData.data.details.lineItems.map((item) => item.price.id),
         priceDetail: `then ${planWeekData.data.details.lineItems[1].price.billingCycle?.frequency} ${planWeekData.data.details.lineItems[1].price.billingCycle?.interval} / ${planWeekData.data.details.lineItems[1].formattedTotals.total}`
       };
@@ -126,9 +132,21 @@ const LandingPr2 = () => {
       const planLastChance2 = createPlan(planLastChance2Data.data.details.lineItems, 2);
 
       const newPlans = [plan2, plan1, planWeek];
+      const lastChancePlans = [planLastChance2, planLastChance1, planWeek];
 
+      newPlans.forEach((el, i) => {
+        if(i == popularIdx){
+          el.isMostPopular = true;
+        }
+      });
 
-      setLastChancePlans([planLastChance2, planLastChance1, planWeek]);
+      lastChancePlans.forEach((el, i) => {
+        if(i == popularIdx){
+          el.isMostPopular = true;
+        }
+      });
+
+      setLastChancePlans(lastChancePlans);
 
       setPlans(newPlans);
       setPlan(newPlans.find((el) => el.isMostPopular) || newPlans[0]);

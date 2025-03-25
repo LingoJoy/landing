@@ -26,6 +26,8 @@ const PlanHero = () => {
   const newLandingPremium = searchParams.get("new-landing-premium");
   const landingPr = searchParams.get("landing-pr");
   const landingPr2 = searchParams.get("landing-pr2");
+  const landingPr3 = searchParams.get("landing-pr3");
+  const landingPr4 = searchParams.get("landing-pr4");
 
   useEffect(() => {
     logEvent(`web_showed_plan_page`);
@@ -49,8 +51,15 @@ const PlanHero = () => {
       return ERoutes.LANDING_PR2; 
     }
 
+    if (typeof landingPr3 === 'string' && window.location.hostname !== "lingojoy.app" ) {
+      return ERoutes.LANDING_PR3; 
+    }
+    if (typeof landingPr4 === 'string' && window.location.hostname !== "lingojoy.app" ) {
+      return ERoutes.LANDING_PR4; 
+    }
+
       return ERoutes.NEW_LANDING;
-  }, [newPremium, newestLanding, newLandingPremium, landingPr, landingPr2]);
+  }, [newPremium, newestLanding, newLandingPremium, landingPr, landingPr2, landingPr3, landingPr4]);
 
   return (
     <Box className={styles.wrapper}>
