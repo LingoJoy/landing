@@ -127,6 +127,8 @@ export const DEFAULT_PADDLE_NEW_LANDING_PREMIUM_LAST_CHANCE_PLAN_DATA = [
     },
 ];
 
+//MARK:- Landing-pr
+
 export const PADDLE_LANDING_PR_PLAN_DATA = [
     {
         items: [
@@ -180,7 +182,7 @@ export const PADDLE_LANDING_PR_LAST_CHANCE_PLAN_DATA = [
                 quantity: 1,
             },
         ],
-        discountId: import.meta.env.VITE_PADDLE_PLAN_NEW_71_DISCOUNT,
+        discountId: import.meta.env.VITE_PADDLE_PLAN_1_MONTH_43_LC_DISCOUNT,
     },
     {
         items: [
@@ -189,6 +191,74 @@ export const PADDLE_LANDING_PR_LAST_CHANCE_PLAN_DATA = [
                 quantity: 1,
             },
         ],
-        discountId: import.meta.env.VITE_PADDLE_PLAN_NEW_71_DISCOUNT,
+        discountId: import.meta.env.VITE_PADDLE_PLAN_12_WEEK_30_LC_DISCOUNT,
+    },
+];
+
+//MARK:- Landing-pr2
+
+export const PADDLE_LANDING_PR2_PLAN_DATA = [
+    {
+        items: [
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_1_WEEK_6_99_TRIAL,
+                quantity: 1,
+            },
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_1_MONTH_29_99_WEEK_TRIAL,
+                quantity: 1,
+            },
+        ],
+    },
+    {
+        items: [
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_1_MONTH_39_99,
+                quantity: 1,
+            },
+        ],
+        discountId: import.meta.env.VITE_PADDLE_PLAN_12_WEEK_25_DISCOUNT,
+    },
+    {
+        items: [
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_12_WEEK_59_99,
+                quantity: 1,
+            },
+        ],
+        discountId: import.meta.env.VITE_PADDLE_PLAN_12_WEEK_16_DISCOUNT,
+    },
+];
+
+export const PADDLE_LANDING_PR2_LAST_CHANCE_PLAN_DATA = [
+    {
+        items: [
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_1_MONTH_29_99_WEEK_TRIAL,
+                quantity: 1,
+            },
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_1_WEEK_6_99_TRIAL,
+                quantity: 1,
+            },
+        ],
+    },
+    {
+        items: [
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_1_MONTH_39_99,
+                quantity: 1,
+            },
+        ],
+        discountId: import.meta.env.VITE_PADDLE_PLAN_1_MONTH_43_LC_DISCOUNT,
+    },
+    {
+        items: [
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_12_WEEK_59_99,
+                quantity: 1,
+            },
+        ],
+        discountId: import.meta.env.VITE_PADDLE_PLAN_12_WEEK_30_LC_DISCOUNT,
     },
 ];

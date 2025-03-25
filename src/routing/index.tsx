@@ -32,8 +32,9 @@ import NotificationTemplate from "@/components/templates/Notification";
 import { ERoutes } from "@/constants/pages";
 import React, { createElement, Suspense } from "react";
 import { createBrowserRouter, Navigate } from "react-router-dom";
+import LandingPr2Page from "../components/pages/LandingPr2Page";
+import LandingPrPage from "../components/pages/LandingPrPage";
 import NewLandingPremiumPage from "../components/pages/NewLandingPremiumPage";
-import LandingPr from "../components/templates/LandingPr";
 
 const CoursesPage = React.lazy(() => import("@/components/pages/Courses"));
 
@@ -92,5 +93,6 @@ export const router = createBrowserRouter([
     element: <Navigate to={ERoutes.QUESTIONNAIRE_START} />,
   },
   ...(window.location.hostname !== "lingojoy.app" ? [{ path: ERoutes.NEW_LANDING_PREMIUM, element: <NewLandingPremiumPage /> }] : []),
-  ...(window.location.hostname !== "lingojoy.app" ? [{ path: ERoutes.LANDING_PR, element: <LandingPr /> }] : [])
+  ...(window.location.hostname !== "lingojoy.app" ? [{ path: ERoutes.LANDING_PR, element: <LandingPrPage /> }] : []),
+  ...(window.location.hostname !== "lingojoy.app" ? [{ path: ERoutes.LANDING_PR2, element: <LandingPr2Page /> }] : []),
 ]);

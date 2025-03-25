@@ -1,0 +1,1599 @@
+@import "@styles/variables.scss";
+
+.wrapper {
+  background-color: $white-color;
+}
+
+.contentWrapper {
+  margin-top: 30px;
+}
+
+.offerCardMain {
+  border: 1px solid $secondary-light-blue;
+  max-width: 430px;
+  border-radius: 15px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+
+.headerContent {
+  max-width: 100%;
+  z-index: 20;
+  background-color: rgb(235, 245, 255);
+  display: flex;
+  justify-content: center;
+  padding: 12px 24px 12px 24px;
+  margin: 20px 12px 0px 12px;
+  border-radius: 16px;
+}
+
+.offerLastChance {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  padding: 5px 5px 5px 5px;
+  margin: 15px 12px 0px 12px;
+  background-color: rgb(255, 218, 97);
+  border-radius: 16px;
+  font-family: 'Nunito', 'Avenir', 'Helvetica', 'Arial', sans-serif;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 25px;
+  color: rgb(57, 200, 0);
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.offerLastChanceText {
+  padding-left: 20px;
+  padding-right: 10px;
+}
+
+.headerBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 490px;
+  padding: 0 0px;
+  width: 100%;
+  font-family: 'Nunito', 'Avenir', 'Helvetica', 'Arial', sans-serif;
+}
+
+.headerTitleBox {
+  display: flex;
+  align-items: center;
+
+  & svg {
+    margin-right: 4px;
+  }
+}
+
+.headerTime {
+  font-family: 'Nunito', 'Avenir', 'Helvetica', 'Arial', sans-serif;
+  display: flex;
+  gap: 5px;
+  font-weight: 700;
+  font-size: 16px;
+
+  color: $card-landing-blue-color;
+
+  & svg {
+    margin-top: 1px;
+  }
+}
+
+.headerTitle {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 24px;
+  display: inline;
+  color: $main-black;
+}
+
+.headerBtn {
+  // height: 40px !important;
+  width: max-content;
+  padding: 6px 10px 6px 10px;
+  background-color: $main-blue;
+  border-radius: 8px;
+  font-family: 'Nunito', 'Avenir', 'Helvetica', 'Arial', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: white
+}
+
+.newDiscountBox {
+  // height: 40px !important;
+  display: flex;
+  text-align: center;
+  width: max-content;
+  padding: 2px 8px 2px 8px;
+  border-radius: 8px;
+  font-family: 'Nunito', 'Avenir', 'Helvetica', 'Arial', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+
+  background-color: rgb(235, 245, 255);
+  color: rgb(10, 73, 131);
+}
+
+.newDiscountBox.active {
+  // height: 40px !important;
+  display: flex;
+  text-align: center;
+  width: max-content;
+  padding: 2px 8px 2px 8px;
+  border-radius: 8px;
+  font-family: 'Nunito', 'Avenir', 'Helvetica', 'Arial', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+
+  background-color: $main-blue;
+  color: white
+}
+
+.description {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 20px;
+  text-align: center;
+
+  color: $main-black;
+}
+
+.levelTable {
+  margin: 30px 0 42px;
+  width: 100%;
+}
+
+.levelHeader {
+  display: flex;
+}
+
+.levelHeader p:first-child {
+  padding-left: 20px;
+  width: 64%;
+}
+
+.levelHeader p {
+  width: 18%;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+  text-align: left;
+  letter-spacing: -0.5px;
+
+  color: $input-text;
+}
+
+.levelBody {
+  padding: 10px 6px;
+  background: $white-color;
+  border-radius: 24px;
+  box-sizing: border-box;
+}
+
+.level,
+.activeLevel {
+  padding: 15px 0;
+  display: flex;
+}
+
+.level p,
+.activeLevel p {
+  width: 18%;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.activeLevel p {
+  font-weight: 700;
+}
+
+.activeLevel {
+  background: $light-blue;
+  border-radius: 12px;
+}
+
+.level p:first-child,
+.activeLevel p:first-child {
+  padding-left: 14px;
+  width: 64%;
+}
+
+.chart {
+  width: 100%;
+  max-width: 375px;
+  margin: 0 auto;
+}
+
+.planWrapper {
+  max-width: 370px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 20px 0 0px;
+}
+
+.contentBox {
+  box-sizing: border-box;
+  text-align: center;
+  padding: 0 12px;
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Nunito', 'Avenir', 'Helvetica', 'Arial', sans-serif;
+
+  &img {
+    width: 24px;
+    height: 24px;
+  }
+
+  & .title {
+    font-size: 24px;
+    color: rgb(11, 73, 131);
+    font-weight: 700;
+  }
+
+  & .description {
+    font-size: 16px;
+    color: rgb(11, 73, 131);
+    font-weight: 600;
+  }
+
+  & .planTitle {
+    max-width: 70%;
+    margin: 0 auto;
+  }
+}
+
+.planOptionWrapper {
+  margin: 0 auto;
+}
+
+
+.analyzeOption {
+  margin-bottom: 16px;
+}
+
+.analyzeOptionWrapper {
+  margin: 25px 0 0;
+}
+
+.lessonsWrapper {
+  position: relative;
+  padding: 56px 0 73px;
+}
+
+.lessonsBox {
+  margin-top: 35px;
+}
+
+.lessonsBox img {
+  width: 120px;
+  height: 250px;
+}
+
+.whatYouGetWrapper {
+  position: relative;
+  z-index: 1;
+  padding: 48px 0 24px;
+}
+
+.whatYouGetBox {
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 24px;
+}
+
+.whatYouGetOptionWrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+
+  & img {
+    width: 150px;
+  }
+}
+
+.whatYouGetOption {
+  & h6 {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: -0.5px;
+
+    color: $main-black;
+    margin-bottom: 4px;
+  }
+
+  & p {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.5px;
+
+    color: $main-black;
+  }
+}
+
+.vocabularyBlock {
+  margin-bottom: 5px;
+  padding: 7px 8px 6px;
+  position: relative;
+  width: 154px;
+  height: 74px;
+  box-sizing: border-box;
+}
+
+.vocabularyBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.vocabularyContent {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.knowledgeWrapper {
+  margin-bottom: 34px;
+  background: $main-orange;
+  width: 152px;
+  height: 130px;
+  border-radius: 10px;
+  position: relative;
+
+  & svg {
+    position: absolute;
+    top: -3px;
+    left: -4px;
+  }
+}
+
+.knowledgeBoy {
+  width: 52px;
+  height: 78px;
+
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.knowledgeContent {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  font-weight: 400;
+  font-size: 8.25243px;
+  line-height: 8px;
+  text-align: center;
+  letter-spacing: -0.206311px;
+
+  color: $main-black;
+}
+
+.knowledgeField {
+  width: 30px;
+  height: 18px;
+  margin: 0 2px;
+
+  background: $secondary-light-blue;
+  border: 0.2px solid $main-border;
+  border-radius: 12px;
+}
+
+.whatYouGetOptionBig {
+  width: 149px;
+  height: 73px;
+}
+
+.popularPhrasesWrapper>div {
+  margin-bottom: 5px;
+}
+
+.popularPhrasesWrapper .whatYouGetOptionDescrBox {
+  width: 82px;
+}
+
+.popularPhrasesSofaImage {
+  position: absolute;
+  bottom: 3px;
+  right: 1px;
+}
+
+.popularPhrasesBagImage {
+  position: absolute;
+  bottom: -1px;
+  right: 5px;
+}
+
+.usersWrapper {
+  padding: 64px 0 54px;
+  position: relative;
+}
+
+.usersBg {
+  position: absolute;
+  top: -71px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+// .indexBox {
+//   position: relative;
+//   z-index: 1;
+// }
+
+.usersTopCard {
+  box-sizing: border-box;
+  width: 230px;
+  height: 165px;
+  position: absolute;
+  transform: translateX(-30%);
+}
+
+.usersDownCard {
+  box-sizing: border-box;
+  width: 230px;
+  height: 165px;
+
+  position: absolute;
+  bottom: -108%;
+  left: 60%;
+}
+
+.usersSwapWrapper {
+  margin-top: 20px;
+}
+
+.guaranteeWrapper {
+  box-sizing: border-box;
+  padding: 24px;
+  width: 100%;
+  max-width: 351px;
+  margin: 0 auto;
+
+  background: $new-guarantee-bg;
+  border: 1px solid $new-guarantee-border;
+  border-radius: 12px;
+}
+
+.guaranteeTitle {
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.guaranteeBox {
+  margin-top: 12px;
+}
+
+.guarantee {
+  margin-top: 8px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.link {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+
+  color: $main-blue;
+}
+
+.refundsBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $white-color;
+  border-radius: 12px;
+  padding: 12px;
+  margin-top: 12px;
+
+  & p {
+    margin-left: 4px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+
+    color: $main-black;
+  }
+}
+
+.yourPlanWrapper {
+  padding-top: 25px 0 40px;
+}
+
+.yourPlanExampleBox {
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  width: 273px;
+  height: 226px;
+}
+
+.yourPlanExampleBox img {
+  position: absolute;
+  width: 87px;
+  height: 178px;
+}
+
+.yourPlanExampleBox img:nth-child(1) {
+  bottom: 0;
+}
+
+.yourPlanExampleBox img:nth-child(2) {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.yourPlanExampleBox img:nth-child(3) {
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.yourPlanSizeBox {
+  margin: 0 auto;
+  max-width: 394px;
+  width: 100%;
+}
+
+.terms {
+  margin-top: 12px;
+
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.5px;
+
+  color: $main-gray;
+}
+
+.terms a {
+  text-decoration-line: underline;
+
+  color: $main-gray;
+}
+
+.planGuardShield {
+  gap: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(74, 161, 129, 0.05);
+  font-family: 'Nunito', 'Avenir', 'Helvetica', 'Arial', sans-serif;
+  color: rgb(74, 161, 129);
+  padding: 4px 8px 4px 8px;
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid rgb(74, 161, 129);
+  border-radius: 8px;
+  margin: 0 auto;
+  margin-top: 20px;
+  letter-spacing: -0.3px;
+  width: max-content;
+}
+
+.planCard {
+  background: white;
+  border: 1px solid rgb(243, 244, 244);
+  border-radius: 12px;
+  margin-top: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  font-family: 'Nunito', 'Avenir', 'Helvetica', 'Arial', sans-serif;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.planCard.active {
+  border: 1px solid #3ba0ff;
+  background: rgb(235, 245, 255);
+}
+
+.planCard:hover {
+  border: 1px solid $card-landing-blue-color;
+  background: rgba(235, 245, 255, 0.586);
+}
+
+.buttonStartPlan {
+  width: 100%;
+  background: $card-landing-blue-color;
+  border-radius: 16px;
+  height: 60px;
+  box-shadow: 0px 5px 0px rgb(47, 128, 204);
+  font-family: 'Nunito', 'Avenir', 'Helvetica', 'Arial', sans-serif;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 20px;
+}
+
+.buttonStartPlan:hover {
+  background: rgb(58, 155, 247);
+  ;
+}
+
+.planFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+  padding: 0 17px 0 12px;
+}
+
+.planPopular {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $card-landing-blue-color;
+  height: 24px;
+
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  text-transform: uppercase;
+
+  color: $white-color;
+}
+
+.planTitleWrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.planTitleBox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.planTitleBox h3 {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+
+  color: $main-black;
+}
+
+.planTitleBox img {
+  width: 18px;
+  height: 18px;
+  margin-left: 4px;
+}
+
+.optionCheckbox {
+  box-sizing: border-box;
+
+  margin-right: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 30px;
+
+  width: 28px;
+  height: 28px;
+}
+
+.discountBox {
+  // width: 200px;
+  margin: '0 auto';
+}
+
+.thenPrice {
+  margin-left: 4px;
+  color: $input-text;
+}
+
+.discount {
+  text-decoration-line: line-through;
+  text-decoration-color: $error;
+  display: inline;
+  color: rgb(138, 138, 138);
+  font-size: 12px;
+  height: 16px;
+}
+
+.priceDiscountPerDay {
+  text-decoration-line: line-through;
+  text-decoration-color: $error;
+
+  font-size: 16px;
+  font-weight: 600;
+  display: inline-table;
+  transform: translate(-10px, 1.5px);
+  color: rgb(138, 138, 138);
+}
+
+.priceWithoutDiscount {
+  display: inline;
+  color: rgb(138, 138, 138);
+  font-size: 12px;
+  height: 16px; 
+}
+
+.fourWeekBlock {
+  display: inline;
+  color: rgb(138, 138, 138);
+  font-size: 12px;
+  height: 16px; 
+
+  & p {
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 24px;
+    display: flex;
+    text-align: left;
+
+    color: $main-black;
+  }
+}
+
+.planPriceWrapper {
+  display: flex;
+}
+
+.planPriceContent {
+  z-index: 1;
+  text-align: left;
+  display: flex;
+  column-gap: 4px;
+  text-align: left;
+}
+
+.planPrice {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+  color: $main-black;
+}
+
+.planPeriod {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+}
+
+.planDiscount {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+  text-align: center;
+
+  color: $main-black;
+}
+
+.planPriceDiscount {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: -0.5px;
+  text-decoration-line: line-through;
+
+  color: $main-black;
+}
+
+.planFourWeekBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  margin: 0 0 10px;
+
+  background: $light-blue;
+  border-radius: 4px;
+
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 10px;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+
+  color: $extra-black;
+}
+
+.yourPlanBGBox {
+  background: $white-color;
+  box-shadow: 0px -1px 0px $secondary-shadow;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  margin: 12px 0 40px;
+  padding: 29px 12px 40px;
+}
+
+.growWrapper {
+  position: relative;
+  max-width: 375px;
+  margin: 0 auto;
+}
+
+.nowWrapper {
+  position: absolute;
+  bottom: 22%;
+  left: 7%;
+}
+
+.nowBox {
+  position: absolute;
+  border-radius: 12px;
+  padding: 5px 0px;
+  min-width: 84px;
+  bottom: -40px;
+  left: 11.5%;
+  text-align: center;
+
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+  color: $white-color;
+
+  background: $secondary-green;
+}
+
+.planBox {
+  position: absolute;
+  border-radius: 12px;
+  padding: 5px 30px;
+  bottom: -40px;
+  right: 6%;
+  min-width: 103px;
+  text-align: center;
+
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+  color: $white-color;
+
+  background: $main-blue;
+}
+
+.arrow {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background: inherit;
+  top: 0;
+  left: 50%;
+  transform: rotate(-45deg) translate(33%, -50%);
+}
+
+.maxWrapper {
+  position: absolute;
+  top: -30%;
+  right: 7%;
+}
+
+.lessonsWebBox {
+  display: none;
+  max-width: 1062px;
+  margin: 0 auto;
+  margin-top: 85px;
+  padding: 0 16px;
+  box-sizing: border-box;
+
+  justify-content: space-between;
+
+  & img {
+    width: 24%;
+  }
+
+  & img:nth-child(2n) {
+    transform: translateY(-10%);
+  }
+}
+
+.usersWebWrapper {
+  display: none;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  position: relative;
+
+  max-width: 1096px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 32px;
+  padding: 0 16px;
+}
+
+.lessonTitle {
+  max-width: 365px;
+  margin: 0 auto;
+}
+
+.whatYouGetOptionTextLimited {
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.filterCarousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 745px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  padding: 16px 8px 8px;
+}
+
+.carouselContainer {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.carouselSlide {
+  margin-right: 12px;
+
+  & p {
+    margin-top: 10px;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: -0.5px;
+
+    color: $main-black;
+  }
+}
+
+.planReservedWrapper {
+  width: 100%;
+  padding: 15px 0 35px;
+
+  background: $new-reserved-bg;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.planReservedBg {
+  background: $white-color;
+}
+
+.reservedLineBox {
+  height: 39px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  position: relative;
+
+  background: $new-reserved-line-bg;
+  border-radius: 12px;
+}
+
+.reservedLine {
+  background: $new-reserved-line;
+  border-radius: 12px;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.reservedLineContent {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  & path {
+    stroke: $main-black;
+  }
+
+  & p {
+    margin-left: 4px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 24px;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+
+    color: $main-black;
+  }
+}
+
+.reservedTime {
+  position: relative;
+
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.chartWrapper {
+  position: relative;
+  padding: 100px 0 10px;
+  width: 100%;
+  background-color: $white-color;
+}
+
+.chartTitle {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-blue;
+
+  margin-bottom: 8px;
+}
+
+.chartSubtitle {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-blue;
+
+  margin-bottom: 14px;
+}
+
+.chartDescription {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 24px;
+  align-items: center;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.chartButton {
+  width: 100%;
+  position: absolute !important;
+  bottom: 0;
+  max-width: 351px !important;
+  left: 50%;
+  transform: translateX(-50%) !important;
+}
+
+.chartBox {
+  position: relative;
+  padding: 22px 0 10px;
+  width: 100%;
+  max-width: 375px;
+  margin: 0 auto;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+
+  color: $main-gray;
+}
+
+.chartEfficiency {
+  position: absolute;
+  transform: rotate(-90deg);
+  top: 70px;
+  left: 0px;
+}
+
+.chartNow {
+  position: absolute;
+  bottom: 75px;
+  left: 20px;
+}
+
+.chartDay {
+  position: absolute;
+  bottom: 75px;
+  right: 26px;
+}
+
+.chartPoint {
+  position: relative;
+  width: 11px;
+  height: 11px;
+  box-sizing: content-box;
+  border-radius: 50%;
+
+  background: $white-color;
+  border: 4px solid;
+}
+
+.chartPointBeginner {
+  position: absolute;
+  bottom: 108px;
+  left: 25px;
+}
+
+.chartPointRegular {
+  position: absolute;
+  bottom: 148px;
+  right: 23px;
+}
+
+.chartPointUser {
+  position: absolute;
+  top: 95px;
+  right: 22px;
+}
+
+.chartPointBox {
+  width: max-content;
+  position: absolute;
+  top: -48px;
+  border-radius: 30px;
+  padding: 4px 12px;
+
+  background: $white-color;
+  filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.15));
+
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: $main-black;
+}
+
+.chartPointBoxLeft {
+  left: -15px;
+}
+
+.chartPointBoxRight {
+  right: -15px;
+}
+
+.chartPointArrow,
+.chartPointArrowRight {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+
+  background: $white-color;
+  transform: rotate(-45deg);
+  filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.15));
+  bottom: -4px;
+}
+
+.chartPointArrow {
+  left: 17px;
+}
+
+.chartPointArrowRight {
+  right: 17px;
+}
+
+.chartPointUserBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+
+  color: $main-blue;
+
+  & img {
+    width: 18px;
+    margin-right: 6px;
+  }
+}
+
+.fullBtn {
+  width: 100%;
+}
+
+.scrollBox {
+  position: absolute;
+  box-sizing: content-box;
+  width: 107px;
+  height: 3px;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  border: 2px solid $secondary-light-blue;
+
+  background: $secondary-light-blue;
+  border-radius: 30px;
+}
+
+.scrollTrack {
+  position: absolute;
+  height: 3px;
+  width: 33px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.1s linear;
+
+  background: $main-blue;
+  border-radius: 30px;
+}
+
+.plansError {
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+  text-align: center;
+
+  color: $error;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+
+  .titleWrapper {
+    & img {
+      width: 30px;
+      height: 30px;
+    }
+
+    & .resultTitle {
+      font-size: 36px;
+      line-height: 36px;
+      font-weight: 900;
+    }
+
+    & .planTitle {
+      margin-top: 13px;
+    }
+  }
+
+  .levelTable {
+    margin: 16px 0 55px;
+  }
+
+  .levelHeader p {
+    font-size: 14px;
+  }
+
+  .level p {
+    font-size: 16px;
+  }
+
+  .activeLevel p {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .nowWrapper,
+  .maxWrapper {
+    width: 160px;
+    height: 60px;
+
+    & svg {
+      width: 160px;
+      height: 70px;
+    }
+  }
+
+  .nowWrapper {
+    left: 13%;
+  }
+
+  .maxWrapper {
+    right: 12%;
+    top: -16%;
+  }
+
+  .planWrapper {
+    padding: 20px 0 0px;
+  }
+
+  .lessonsBox {
+    display: none;
+  }
+
+  .lessonsWebBox {
+    display: flex;
+  }
+
+  .webMaxContentBox {
+    max-width: none;
+  }
+
+  .vocabularyBlock,
+  .whatYouGetOptionBox,
+  .vocabularyBg {
+    width: 100%;
+    max-width: 199px;
+    margin: 0 auto;
+  }
+
+  .whatYouGetOptionTextWrapper {
+    text-align: center;
+
+    & h3 {
+      font-size: 20px;
+    }
+
+    & p {
+      font-size: 16px;
+    }
+  }
+
+  .vocabularyBlock {
+    height: 96px;
+    padding: 10px 12px;
+    margin-bottom: 6px;
+  }
+
+  .whatYouGetOptionTitleBox {
+    height: 14px;
+    font-size: 6px;
+  }
+
+  .whatYouGetOptionTitleImage {
+    width: 11px;
+    height: 11px;
+  }
+
+  .whatYouGetOptionDescrBox {
+    & h3 {
+      margin: 4px 0 2px;
+      font-size: 11px;
+      line-height: 12px;
+    }
+
+    & p {
+      font-size: 7px;
+      line-height: 9px;
+    }
+  }
+
+  .whatYouGetOptionSmall {
+    width: 96px;
+    height: 96px;
+
+    & h3 {
+      margin: 4px 0 2px;
+      font-size: 11px;
+      line-height: 12px;
+    }
+
+    & p {
+      font-size: 7px;
+      line-height: 9px;
+    }
+  }
+
+  .whatYouGetOptionButton {
+    width: 62px;
+    height: 17px;
+
+    font-size: 6px;
+    line-height: 11px;
+    padding: 2px 6px;
+
+    & svg {
+      width: 8px;
+      height: 8px;
+    }
+  }
+
+  .whatYouGetOptionTextWrapper {
+    width: 100%;
+  }
+
+  .gamesWrapper {
+    margin: 0 auto;
+    width: 195px;
+    height: 195px;
+  }
+
+  .gameWrapper {
+    width: 64px;
+    height: 64px;
+  }
+
+  .gameBox {
+    width: 61px;
+    height: 61px;
+
+    & img {
+      width: 47px;
+      height: 47px;
+    }
+
+    & p {
+      font-size: 8px;
+      line-height: 12px;
+    }
+  }
+
+  .knowledgeWrapper {
+    margin: 0 auto;
+    width: 217px;
+    height: 198px;
+    border-radius: 12px;
+
+    & svg {
+      width: 228px;
+      height: auto;
+      top: -5px;
+      left: -6px;
+    }
+  }
+
+  .knowledgeBoy {
+    width: 74px;
+    height: auto;
+    bottom: 13px;
+  }
+
+  .knowledgeContent {
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 12px;
+  }
+
+  .knowledgeField {
+    width: 42px;
+    height: 25px;
+    margin: 0 4px;
+  }
+
+  .whatYouGetOptionBig {
+    width: 205px;
+    height: 100px;
+    margin: 0 auto;
+  }
+
+  .popularPhrasesWrapper>div {
+    margin-bottom: 7px;
+  }
+
+  .popularPhrasesWrapper .whatYouGetOptionDescrBox {
+    width: 114px;
+  }
+
+  .popularPhrasesSofaImage {
+    width: 91px;
+    height: auto;
+    position: absolute;
+    bottom: 5px;
+    right: 2px;
+  }
+
+  .popularPhrasesBagImage {
+    width: 80px;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    right: 7px;
+  }
+
+  .usersWrapper {
+    padding: 88px 0 116px;
+  }
+
+  .usersSwapWrapper {
+    display: none;
+  }
+
+  .usersBg {
+    width: 100%;
+    max-width: 1300px;
+    top: -50%;
+  }
+
+  .usersWebWrapper {
+    display: grid;
+  }
+
+  .yourPlanBox {
+    min-height: 100px;
+    position: relative;
+    // padding: 20px 0 27px;
+  }
+
+  .nowBox {
+    left: 17.5%;
+  }
+
+  .planBox {
+    right: 14%;
+  }
+
+  .lessonTitle {
+    max-width: 393px;
+  }
+}
+
+@media (min-width: 750px) {
+  .guaranteeWebBG {
+    display: block;
+  }
+
+  .guaranteeBG {
+    display: none;
+  }
+
+  .guaranteeWrapper {
+    width: 100%;
+    max-width: 730px;
+    height: 450px;
+    padding: 87px 90px 115px 97px;
+
+    & .titleWrapper {
+      gap: 12px;
+    }
+  }
+
+  .guaranteeBox {
+    margin-top: 27px;
+  }
+
+  .guarantee {
+    font-size: 18px;
+    line-height: 28px;
+
+    & .link {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+}
