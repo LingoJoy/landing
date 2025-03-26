@@ -102,9 +102,9 @@ const LandingPr2 = () => {
       const url = window.location.pathname;
       let popularIdx = 0;
 
-      if (url.includes(ERoutes.LANDING_PR2)) popularIdx = 2;
+      if (url.includes(ERoutes.LANDING_PR2)) popularIdx = 0;
       if (url.includes(ERoutes.LANDING_PR3)) popularIdx = 1;
-      if (url.includes(ERoutes.LANDING_PR4)) popularIdx = 0;
+      if (url.includes(ERoutes.LANDING_PR4)) popularIdx = 2;
 
       const planWeek = {
         id: planWeekData.data.details.lineItems[0].price.id,
@@ -131,8 +131,8 @@ const LandingPr2 = () => {
       const planLastChance1 = createPlan(planLastChance1Data.data.details.lineItems, 1);
       const planLastChance2 = createPlan(planLastChance2Data.data.details.lineItems, 2);
 
-      const newPlans = [plan2, plan1, planWeek];
-      const lastChancePlans = [planLastChance2, planLastChance1, planWeek];
+      const newPlans = [planWeek, plan1, plan2];
+      const lastChancePlans = [planWeek, planLastChance1, planLastChance2];
 
       newPlans.forEach((el, i) => {
         if(i == popularIdx){
