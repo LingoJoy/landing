@@ -205,7 +205,7 @@ export const PADDLE_LANDING_PR2_PLAN_DATA = [
                 quantity: 1,
             },
             {
-                priceId: import.meta.env.VITE_PADDLE_PLAN_1_MONTH_29_99_WEEK_TRIAL,
+                priceId: import.meta.env.VITE_PADDLE_PLAN_OFFER_MONTH,
                 quantity: 1,
             },
         ],
@@ -234,7 +234,7 @@ export const PADDLE_LANDING_PR2_LAST_CHANCE_PLAN_DATA = [
     {
         items: [
             {
-                priceId: import.meta.env.VITE_PADDLE_PLAN_1_MONTH_29_99_WEEK_TRIAL,
+                priceId: import.meta.env.VITE_PADDLE_PLAN_OFFER_MONTH,
                 quantity: 1,
             },
             {
