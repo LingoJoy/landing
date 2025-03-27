@@ -213,13 +213,6 @@ const YourPlanSection: FC<IProps> = ({
                 {localization[ELocalizationQuestionnaire.NEW_PREMIUM_LANDING_PLAN_START_LEARN]}
               </button>
 
-              <Box className={styles.planGuardShield}>
-                <GuardIcon />
-                <span>{localization[ELocalizationQuestionnaire.NEW_PREMIUM_LANDING_PLAN_PAY_SAFE]}</span>
-              </Box>
-
-              <img src={PaymentIcons} style={{ height: "46px" }} alt="Payment Methods" />
-
               <p className={styles.terms}>
                 {plan.weeks == 1 ? (
                   <>
@@ -245,6 +238,13 @@ const YourPlanSection: FC<IProps> = ({
                 </a>
                 .
               </p>
+
+              <Box className={styles.planGuardShield}>
+                <GuardIcon />
+                <span>{localization[ELocalizationQuestionnaire.NEW_PREMIUM_LANDING_PLAN_PAY_SAFE]}</span>
+              </Box>
+
+              <img src={PaymentIcons} style={{ height: "46px" }} alt="Payment Methods" />
             </Box>
           </Box>
         </Box>
