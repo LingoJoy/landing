@@ -262,3 +262,36 @@ export const PADDLE_LANDING_PR2_LAST_CHANCE_PLAN_DATA = [
         discountId: import.meta.env.VITE_PADDLE_PLAN_12_WEEK_30_LC_DISCOUNT,
     },
 ];
+
+//MARK:- Landing-nb
+
+export const PADDLE_LANDING_NB_PLAN_DATA = [
+    {
+        items: [
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_NB_1_WEEK_0_99,
+                quantity: 1,
+            },
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_NB_1_MONTH_44_99,
+                quantity: 1,
+            }
+        ],
+    },
+];
+
+export const PADDLE_LANDING_NB_LAST_CHANCE_PLAN_DATA = [
+    {
+        items: [
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_NB_1_WEEK_0_99,
+                quantity: 1,
+            },
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_NB_1_MONTH_44_99,
+                quantity: 1,
+            }
+        ],
+        discountId: import.meta.env.VITE_PADDLE_PLAN_NB_1_MONTH_LC_DISCOUNT
+    }
+];
