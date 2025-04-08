@@ -214,11 +214,15 @@ const YourPlanSection: FC<IProps> = ({
               </button>
 
               <p className={styles.terms}>
-                {plan.weeks == 1 ? (
+                {plan.weeks == 1 && !plan.thenPriceWithoutDiscount && (
                   <>
                     By continuing you agree that if you don't cancel at least 24 hours prior to the end of the 7 days introductory period, you will automatically be charged the full price of {plan.thenPrice} every month until you cancel in settings. Learn more about cancellation and refund policy in
                   </>
-                ) : (<></>
+                )}
+                {plan.weeks == 1 && plan.thenPriceWithoutDiscount && (
+                  <>
+                    By continuing you agree that if you don't cancel at least 24 hours prior to the end of the 7 days introductory period, first month {plan.thenPrice} after will automatically be charged the full price of {plan.thenPriceWithoutDiscount} every month until you cancel in settings. Learn more about cancellation and refund policy in
+                  </>
                 )}
                 {plan.weeks == 4 ? (
                   <>

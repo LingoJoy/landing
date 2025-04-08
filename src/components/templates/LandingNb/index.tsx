@@ -128,8 +128,13 @@ const LandingNb = () => {
         isFourWeek: true,
         isMostPopular: true,
         productIds: planLastChance1Data.data.details.lineItems.map((item) => item.price.id),
-        priceDetail: `then ${planLastChance1Data.data.details.lineItems[1].price.billingCycle?.frequency} ${planLastChance1Data.data.details.lineItems[1].price.billingCycle?.interval} / ${planLastChance1Data.data.details.lineItems[1].formattedTotals.total}`
+        priceDetail: `then ${planLastChance1Data.data.details.lineItems[1].price.billingCycle?.frequency} ${planLastChance1Data.data.details.lineItems[1].price.billingCycle?.interval} / ${planLastChance1Data.data.details.lineItems[1].formattedTotals.total}`,
+        thenPriceWithoutDiscount: updatePriceFormatted(planLastChance1Data.data.details.lineItems[1].formattedTotals.subtotal, `${((parseNumber(planLastChance1Data.data.details.lineItems[1].totals.subtotal) + 
+          (parseNumber(planLastChance1Data.data.details.lineItems[1].totals.subtotal) 
+          * parseNumber(planLastChance1Data.data.details.lineItems[1].taxRate))) / 100).toFixed(2)}`)
       };
+
+      // console.log(planLastChance1Data.data.details.lineItems[1]);
 
       setPlansError("");
 
