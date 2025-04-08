@@ -249,7 +249,7 @@ const LandingNb = () => {
       <PayModal
         isOpen={isOpenPay}
         onClose={onCloseHandler}
-        price={plan.priceDetail ? `${plan.price} ${plan.priceDetail}` : plan.discount}
+        price={plan.priceDetail ? `week trial ${plan.price} ${plan.priceDetail}` : plan.discount}
         discount={plan.discount}
         period={plan.billingInterval}
       />
