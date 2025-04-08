@@ -61,13 +61,15 @@ export function usePaddle(redirectUrl?: string) {
 
                         const items = event.data?.items ?? [];
 
-                        // const maxRecurringTotal = Math.max(
-                        //     ...items
-                        //         .map(item => item.recurring_totals?.total)
-                        //         .filter((val): val is number => val !== undefined)
-                        // );
+                        const maxRecurringTotal = Math.max(
+                            ...items
+                                .map(item => item.recurring_totals?.total)
+                                .filter((val): val is number => val !== undefined)
+                        );
 
-                        const productTotal = Math.max(
+                        const productTotal = Number.isFinite(maxRecurringTotal)
+                            ? maxRecurringTotal
+                            : Math.max(
                                 ...items
                                     .map(item => item.totals?.total)
                                     .filter((val): val is number => val !== undefined)
