@@ -128,11 +128,11 @@ const LandingNb = () => {
         isFourWeek: true,
         isMostPopular: true,
         productIds: planLastChance1Data.data.details.lineItems.map((item) => item.price.id),
-        priceDetail: `${planLastChance1Data.data.details.lineItems[1].price.billingCycle?.frequency} ${planLastChance1Data.data.details.lineItems[1].price.billingCycle?.interval} / ${planLastChance1Data.data.details.lineItems[1].formattedTotals.total}`
+        priceDetail: `then ${planLastChance1Data.data.details.lineItems[1].price.billingCycle?.frequency} ${planLastChance1Data.data.details.lineItems[1].price.billingCycle?.interval} / ${planLastChance1Data.data.details.lineItems[1].formattedTotals.total}`
       };
 
       setPlansError("");
-      
+
       const newPlans = [planWeek];
       setLastChancePlans([planLastChance1]);
 
@@ -218,7 +218,7 @@ const LandingNb = () => {
               <Box className={styles.offerLastChanceText}>
                 <span>{localization[ELocalizationQuestionnaire.LANDING_LAST_CHANCE_BOX_1]}</span>
                 {/* <span style={{ color: "gray", textDecorationLine: "line-through" }}>33%</span> */}
-                <span> {localization[ELocalizationQuestionnaire.LANDING_LAST_CHANCE_BOX_2]}</span>
+                <span> {specialDiscountProc}% discount</span>
               </Box>
             </Box>
           )}
@@ -249,13 +249,13 @@ const LandingNb = () => {
       <PayModal
         isOpen={isOpenPay}
         onClose={onCloseHandler}
-        price={plan.priceDetail ? plan.priceDetail : plan.discount}
+        price={plan.priceDetail ? `${plan.price} ${plan.priceDetail}` : plan.discount}
         discount={plan.discount}
         period={plan.billingInterval}
       />
       {isLastChanceModal && <LastChanceModal onClose={() => {
         restartTimer(600);
-        setSpecialDiscountProc(71);
+        setSpecialDiscountProc(44);
 
         setLastChance(true);
         setPlans(lastChancePlans);
