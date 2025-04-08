@@ -653,7 +653,7 @@
   color: white;
   font-size: 18px;
   font-weight: 700;
-  margin-top: 20px;
+  margin-top: 70px;
 }
 
 .buttonStartPlan:hover {
@@ -1283,7 +1283,7 @@
 }
 
 /* MEDIA QUERIES */
-@media (min-width: 600px) {
+@media (min-width: 100px) {
 
   .titleWrapper {
     & img {
