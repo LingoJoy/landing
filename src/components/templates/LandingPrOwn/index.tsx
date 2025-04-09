@@ -14,8 +14,8 @@ import {
   DEFAULT_YOUR_PLAN_DATA,
   ELocalizationQuestionnaire,
   ERoutes,
-  PADDLE_LANDING_PR_LAST_CHANCE_PLAN_DATA,
-  PADDLE_LANDING_PR_PLAN_DATA,
+  PADDLE_LANDING_PR_OWN_LAST_CHANCE_PLAN_DATA,
+  PADDLE_LANDING_PR_OWN_PLAN_DATA,
   PADDLE_STATUS_TRANSACTION
 } from "@/constants";
 import { usePaddle } from "@/hooks/main/usePaddle";
@@ -62,7 +62,7 @@ const useCountdown = (initialTime: number, onEnd: any) => {
   return { time, restartTimer };
 };
 
-const LandingPr = () => {
+const LandingPrOwn = () => {
   const { time, restartTimer } = useCountdown(600, () => {
     setSpecialDiscountProc(0);
   });
@@ -86,15 +86,14 @@ const LandingPr = () => {
     setLoading(true);
 
     try {
-      const [planWeekData, plan1Data, plan2Data, planLastChance1Data, planLastChance2Data] = await Promise.all([
-        getPrices(paddle, PADDLE_LANDING_PR_PLAN_DATA[0]), 
-        getPrices(paddle, PADDLE_LANDING_PR_PLAN_DATA[1]), 
-        getPrices(paddle, PADDLE_LANDING_PR_PLAN_DATA[2]),
-        getPrices(paddle, PADDLE_LANDING_PR_LAST_CHANCE_PLAN_DATA[1]),
-        getPrices(paddle, PADDLE_LANDING_PR_LAST_CHANCE_PLAN_DATA[2]),
+      const [planWeekData, plan1Data, planWeekDataLastChance1Data, planLastChance1Data] = await Promise.all([
+        getPrices(paddle, PADDLE_LANDING_PR_OWN_PLAN_DATA[0]), 
+        getPrices(paddle, PADDLE_LANDING_PR_OWN_PLAN_DATA[1]), 
+        getPrices(paddle, PADDLE_LANDING_PR_OWN_LAST_CHANCE_PLAN_DATA[0]),
+        getPrices(paddle, PADDLE_LANDING_PR_OWN_LAST_CHANCE_PLAN_DATA[1]),
       ]);
 
-      if (!planWeekData || !plan1Data || !plan2Data || !planLastChance1Data || !planLastChance2Data) return;
+      if (!planWeekData || !plan1Data || !planLastChance1Data || !planWeekDataLastChance1Data) return;
 
       setPlansError("");
 
@@ -119,19 +118,39 @@ const LandingPr = () => {
         priceDetail: `then ${planWeekData.data.details.lineItems[1].price.billingCycle?.frequency} ${planWeekData.data.details.lineItems[1].price.billingCycle?.interval} / ${planWeekData.data.details.lineItems[1].formattedTotals.total}`
       };
 
-      const plan1 = createPlan(plan1Data.data.details.lineItems, 1);
-      const plan2 = createPlan(plan2Data.data.details.lineItems, 2, true);
+      const plan1 = createPlan(plan1Data.data.details.lineItems, 1, true);
 
-      const planLastChance1 = createPlan(planLastChance1Data.data.details.lineItems, 1);
-      const planLastChance2 = createPlan(planLastChance2Data.data.details.lineItems, 2, true);
+      const planWeekLC = {
+        id: planWeekDataLastChance1Data.data.details.lineItems[0].price.id,
+        title: planWeekDataLastChance1Data.data.details.lineItems[0].product.name,
+        icon: DEFAULT_YOUR_PLAN_DATA[0].icon,
+        price: planWeekDataLastChance1Data.data.details.lineItems[0].formattedTotals.total,
+        thenPrice: planWeekDataLastChance1Data.data.details.lineItems[1].formattedTotals.total,
+        period: "per day",
+        periodPrice: updatePriceFormatted(
+          planWeekDataLastChance1Data.data.details.lineItems[0].formattedTotals.total, 
+          (parseNumber(planWeekDataLastChance1Data.data.details.lineItems[0].formattedTotals.total) / 7).toFixed(2)
+        ),
+        weeks: 1,
+        createDate: planWeekDataLastChance1Data.data.details.lineItems[0].product.createdAt,
+        isFourWeek: true,
+        isMostPopular: false,
+        productIds: planWeekDataLastChance1Data.data.details.lineItems.map((item) => item.price.id),
+        priceDetail: `then ${planWeekDataLastChance1Data.data.details.lineItems[1].price.billingCycle?.frequency} ${planWeekDataLastChance1Data.data.details.lineItems[1].price.billingCycle?.interval} / ${planWeekDataLastChance1Data.data.details.lineItems[1].formattedTotals.total}`,
+        discountID: import.meta.env.VITE_PADDLE_PLAN_PR_1_MONTH_WEEK_TRIAL_LC_DISCOUNT
+      };
+      const planLastChance1 = createPlan(planLastChance1Data.data.details.lineItems, 1, true);
 
-      const newPlans = [planWeek, plan1, plan2];
+      const newPlans = [planWeek, plan1];
+      setLastChancePlans([planWeekLC, planLastChance1]);
 
-
-      setLastChancePlans([planWeek, planLastChance1, planLastChance2]);
-
-      setPlans(newPlans);
-      setPlan(newPlans.find((el) => el.isMostPopular) || newPlans[0]);
+      if(lastChance) {
+        setPlans(lastChancePlans);
+        setPlan(lastChancePlans.find((el) => el.isMostPopular) || lastChancePlans[0]);
+      } else {
+        setPlans(newPlans);
+        setPlan(newPlans.find((el) => el.isMostPopular) || newPlans[0]);
+      }
     } catch (error) {
       setPlansError("Can't get data");
     } finally {
@@ -205,8 +224,8 @@ const LandingPr = () => {
               <img src={`${import.meta.env.VITE_BACKEND_IMAGE_URL}ln-boxoffer_banner.png`} alt="" />
               <Box className={styles.offerLastChanceText}>
                 <span>{localization[ELocalizationQuestionnaire.LANDING_LAST_CHANCE_BOX_1]}</span>
-                <span style={{ color: "gray", textDecorationLine: "line-through" }}>33%</span>
-                <span> {localization[ELocalizationQuestionnaire.LANDING_LAST_CHANCE_BOX_2]}</span>
+                <span style={{ color: "gray", textDecorationLine: "line-through" }}>20%</span>
+                <span> {specialDiscountProc}% discount</span>
               </Box>
             </Box>
           )}
@@ -243,7 +262,7 @@ const LandingPr = () => {
       />
       {isLastChanceModal && <LastChanceModal onClose={() => {
         restartTimer(600);
-        setSpecialDiscountProc(71);
+        setSpecialDiscountProc(30);
 
         setLastChance(true);
         setPlans(lastChancePlans);
@@ -253,4 +272,4 @@ const LandingPr = () => {
   );
 };
 
-export default LandingPr;
+export default LandingPrOwn;

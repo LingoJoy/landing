@@ -36,6 +36,7 @@ export enum ERoutes {
     LANDING_PR3 = "/landing-pr3",
     LANDING_PR4 = "/landing-pr4",
     LANDING_NB = "/landing-nb",
+    LANDING_PR_OWN = "/landing-pr-own",
     NEWEST_LANDING = "/newest-landing",
     WORDS = '/words',
     PLAN = '/plan',
