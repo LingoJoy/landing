@@ -222,7 +222,7 @@ const YourPlanSection: FC<IProps> = ({
                 )}
                 {plan.weeks == 4 ? (
                   <>
-                    By continuing you agree that if you don't cancel at least 24 hours prior to the end of the 1 month introductory period, you will automatically be charged the full price of {plan.price} every month until you cancel in settings. Learn more about cancellation and refund policy in
+                    By continuing you agree that if you don't cancel at least 24 hours prior to the end of the 1 month introductory period, you will automatically be charged the full price of {plan.thenPrice} every month until you cancel in settings. Learn more about cancellation and refund policy in
                   </>
                 ) : (<></>
                 )}

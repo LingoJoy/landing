@@ -64,6 +64,7 @@ export const createPlan = (
         billingInterval: subItem ? `${subItem?.price.billingCycle?.frequency} ${subItem?.price.billingCycle?.interval}` : undefined,
         discountID,
         periodPriceWithoutDiscount,
-        discountFormmated
+        discountFormmated,
+        thenPrice: el.formattedTotals.total,
     };
 };
