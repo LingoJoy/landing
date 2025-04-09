@@ -261,7 +261,7 @@ const LandingNb = () => {
       />
       {isLastChanceModal && <LastChanceModal onClose={() => {
         restartTimer(600);
-        setSpecialDiscountProc(44);
+        setSpecialDiscountProc(55);
 
         setLastChance(true);
         setPlans(lastChancePlans);
