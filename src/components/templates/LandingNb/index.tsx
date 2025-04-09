@@ -131,7 +131,8 @@ const LandingNb = () => {
         priceDetail: `then ${planLastChance1Data.data.details.lineItems[1].price.billingCycle?.frequency} ${planLastChance1Data.data.details.lineItems[1].price.billingCycle?.interval} / ${planLastChance1Data.data.details.lineItems[1].formattedTotals.total}`,
         thenPriceWithoutDiscount: updatePriceFormatted(planLastChance1Data.data.details.lineItems[1].formattedTotals.subtotal, `${((parseNumber(planLastChance1Data.data.details.lineItems[1].totals.subtotal) + 
           (parseNumber(planLastChance1Data.data.details.lineItems[1].totals.subtotal) 
-          * parseNumber(planLastChance1Data.data.details.lineItems[1].taxRate))) / 100).toFixed(2)}`)
+          * parseNumber(planLastChance1Data.data.details.lineItems[1].taxRate))) / 100).toFixed(2)}`),
+        discountID: import.meta.env.VITE_PADDLE_PLAN_NB_1_MONTH_LC_DISCOUN
       };
 
       // console.log(planLastChance1Data.data.details.lineItems[1]);

@@ -209,7 +209,7 @@ const YourPlanSection: FC<IProps> = ({
               </PulseButton> */}
               <button
                 onClick={() => onPay(plan)}
-                className={styles.buttonStartPlan}>
+                className={!plan.thenPriceWithoutDiscount ? styles.buttonStartPlan : styles.buttonStartPlan2}>
                 {localization[ELocalizationQuestionnaire.NEW_PREMIUM_LANDING_PLAN_START_LEARN]}
               </button>
 
