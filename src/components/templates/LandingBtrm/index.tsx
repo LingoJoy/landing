@@ -143,7 +143,7 @@ const LandingBtrm = () => {
         isFourWeek: true,
         isMostPopular: false,
         productIds: planWeekDataLastChance1Data.data.details.lineItems.map((item) => item.price.id),
-        priceDetail: `First week for ${planWeekData.data.details.lineItems[0].formattedTotals.total}`,
+        priceDetail: `First week for ${planWeekDataLastChance1Data.data.details.lineItems[0].formattedTotals.total}`,
         discountID: import.meta.env.VITE_PADDLE_PLAN_BTRM_71_LC_DISCOUNT,
         thenPriceWithoutDiscount: updatePriceFormatted(planWeekDataLastChance1Data.data.details.lineItems[1].formattedTotals.subtotal, `${((parseNumber(planWeekDataLastChance1Data.data.details.lineItems[1].totals.subtotal) + 
           (parseNumber(planWeekDataLastChance1Data.data.details.lineItems[1].totals.subtotal) 
