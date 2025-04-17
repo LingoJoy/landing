@@ -117,7 +117,11 @@ const LandingBtrm = () => {
         isFourWeek: true,
         isMostPopular: false,
         productIds: planWeekData.data.details.lineItems.map((item) => item.price.id),
-        priceDetail: `First week for ${planWeekData.data.details.lineItems[0].formattedTotals.total}`
+        priceDetail: `First week for ${planWeekData.data.details.lineItems[0].formattedTotals.total}`,
+        discountID: import.meta.env.VITE_PADDLE_PLAN_BTRM_61_DISCOUNT,
+        thenPriceWithoutDiscount: updatePriceFormatted(planWeekData.data.details.lineItems[1].formattedTotals.subtotal, `${((parseNumber(planWeekData.data.details.lineItems[1].totals.subtotal) + 
+          (parseNumber(planWeekData.data.details.lineItems[1].totals.subtotal) 
+          * parseNumber(planWeekData.data.details.lineItems[1].taxRate))) / 100).toFixed(2)}`),
       };
 
       const plan1 = createPlan(plan1Data.data.details.lineItems, 1, true);
@@ -139,8 +143,11 @@ const LandingBtrm = () => {
         isFourWeek: true,
         isMostPopular: false,
         productIds: planWeekDataLastChance1Data.data.details.lineItems.map((item) => item.price.id),
-        priceDetail: `then ${planWeekDataLastChance1Data.data.details.lineItems[1].price.billingCycle?.frequency} ${planWeekDataLastChance1Data.data.details.lineItems[1].price.billingCycle?.interval} / ${planWeekDataLastChance1Data.data.details.lineItems[1].formattedTotals.total}`,
-        discountID: import.meta.env.VITE_PADDLE_PLAN_PR_1_MONTH_WEEK_TRIAL_LC_DISCOUNT
+        priceDetail: `First week for ${planWeekData.data.details.lineItems[0].formattedTotals.total}`,
+        discountID: import.meta.env.VITE_PADDLE_PLAN_BTRM_71_LC_DISCOUNT,
+        thenPriceWithoutDiscount: updatePriceFormatted(planWeekDataLastChance1Data.data.details.lineItems[1].formattedTotals.subtotal, `${((parseNumber(planWeekDataLastChance1Data.data.details.lineItems[1].totals.subtotal) + 
+          (parseNumber(planWeekDataLastChance1Data.data.details.lineItems[1].totals.subtotal) 
+          * parseNumber(planWeekDataLastChance1Data.data.details.lineItems[1].taxRate))) / 100).toFixed(2)}`),
       };
 
       const planLastChance1 = createPlan(planLastChance1Data.data.details.lineItems, 1, true);
@@ -261,7 +268,7 @@ const LandingBtrm = () => {
       <PayModal
         isOpen={isOpenPay}
         onClose={onCloseHandler}
-        price={plan.priceDetail ? plan.priceDetail : plan.discount}
+        price={plan.priceDetail ? `week trial ${plan.price} then ${plan.thenPrice}` : plan.discount}
         discount={plan.discount}
         period={plan.billingInterval}
       />
