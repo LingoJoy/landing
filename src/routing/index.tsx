@@ -32,6 +32,7 @@ import NotificationTemplate from "@/components/templates/Notification";
 import { ERoutes } from "@/constants/pages";
 import React, { createElement, Suspense } from "react";
 import { createBrowserRouter, Navigate } from "react-router-dom";
+import LandingBtrmPage from "../components/pages/LandingBtrmPage";
 import LandingNbPage from "../components/pages/LandingNbPage";
 import LandingPr2Page from "../components/pages/LandingPr2Page";
 import LandingPrPage from "../components/pages/LandingPrPage";
@@ -101,4 +102,5 @@ export const router = createBrowserRouter([
   ...(window.location.hostname !== "lingojoy.app" ? [{ path: ERoutes.LANDING_PR4, element: <LandingPr2Page /> }] : []),
   ...(window.location.hostname !== "lingojoy.app" ? [{ path: ERoutes.LANDING_NB, element: <LandingNbPage /> }] : []),
   ...(window.location.hostname !== "lingojoy.app" ? [{ path: ERoutes.LANDING_PR_OWN, element: <LandingPrOwnPage /> }] : []),
+  ...(window.location.hostname !== "lingojoy.app" ? [{ path: ERoutes.LANDING_BTRM, element: <LandingBtrmPage /> }] : []),
 ]);

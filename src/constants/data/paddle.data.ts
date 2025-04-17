@@ -346,3 +346,74 @@ export const PADDLE_LANDING_PR_OWN_LAST_CHANCE_PLAN_DATA = [
         discountId: import.meta.env.VITE_PADDLE_PLAN_PR_1_MONTH_49_99_LC_DISCOUNT,
     }
 ];
+
+
+//MARK:- Landing-BTRM
+
+export const PADDLE_LANDING_BTRM_PLAN_DATA = [
+    {
+        items: [
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_BTRM_1_WEEK_17_77_TRIAL,
+                quantity: 1,
+            },
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_BTRM_4_WEEK_TRIAL,
+                quantity: 1,
+            },
+        ],
+        discountId: import.meta.env.VITE_PADDLE_PLAN_BTRM_61_DISCOUNT,
+    },
+    {
+        items: [
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_BTRM_4_WEEK_PLAN,
+                quantity: 1,
+            },
+        ],
+        discountId: import.meta.env.VITE_PADDLE_PLAN_BTRM_61_DISCOUNT,
+    },
+    {
+        items: [
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_BTRM_12_WEEK_PLAN,
+                quantity: 1,
+            },
+        ],
+        discountId: import.meta.env.VITE_PADDLE_PLAN_BTRM_61_DISCOUNT,
+    }
+];
+
+export const PADDLE_LANDING_BTRM_LAST_CHANCE_PLAN_DATA = [
+    {
+        items: [
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_BTRM_1_WEEK_17_77_TRIAL,
+                quantity: 1,
+            },
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_BTRM_4_WEEK_TRIAL,
+                quantity: 1,
+            },
+        ],
+        discountId: import.meta.env.VITE_PADDLE_PLAN_BTRM_71_LC_DISCOUNT,
+    },
+    {
+        items: [
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_BTRM_4_WEEK_PLAN,
+                quantity: 1,
+            },
+        ],
+        discountId: import.meta.env.VITE_PADDLE_PLAN_BTRM_71_LC_DISCOUNT,
+    },
+    {
+        items: [
+            {
+                priceId: import.meta.env.VITE_PADDLE_PLAN_BTRM_12_WEEK_PLAN,
+                quantity: 1,
+            },
+        ],
+        discountId: import.meta.env.VITE_PADDLE_PLAN_BTRM_71_LC_DISCOUNT,
+    }
+];
